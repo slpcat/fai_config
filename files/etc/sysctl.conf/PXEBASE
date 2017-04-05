@@ -1,0 +1,244 @@
+#
+# Kernel sysctl configuration for Linux
+# Revision: 20170322
+# /etc/sysctl.conf
+#
+
+#Part1: Kernel
+
+# Disable the magic-sysrq key (console security issues)
+kernel.sysrq=0
+kernel.panic=10
+kernel.pid_max=4000000
+kernel.randomize_va_space=2
+kernel.panic_on_oops=1
+#kernel.sched_autogroup_enabled=1
+#kernel.sched_child_runs_first=1
+kernel.printk=3 4 1 3
+kernel.sched_min_granularity_ns=250000
+kernel.sched_latency_ns=5000000
+kernel.sched_wakeup_granularity_ns=1000000
+#kernel.sched_compat_yield=1
+#kernel.sched_cfs_bandwidth_slice_us=5000
+kernel.sched_migration_cost_ns=500000
+kernel.sched_nr_migrate=32
+kernel.sched_rr_timeslice_ms=20
+kernel.sched_rt_period_us=1000000
+kernel.sched_rt_runtime_us=950000
+kernel.sched_shares_window_ns=10000000
+kernel.sched_time_avg_ms=1000
+kernel.sched_tunable_scaling=2
+kernel.threads-max=16384
+kernel.timer_migration=1
+kernel.shmmni=4096
+kernel.msgmnb=65536
+kernel.msgmni=32768
+kernel.msgmax=65536
+#kernel.shmmax=68719476736
+#kernel.shmall=4294967296
+kernel.io_delay_type=3
+#0 - IO_DELAY_TYPE_0X80
+#1 - IO_DELAY_TYPE_0XED
+#2 - IO_DELAY_TYPE_UDELAY
+#3 - IO_DELAY_TYPE_NONE
+#kernel.ngroups_max=65536
+kernel.pty.max=8192
+#kernel.pty.reserve=1024
+kernel.perf_cpu_time_max_percent=0
+kernel.numa_balancing=1
+kernel.yama.ptrace_scope=3
+kernel.dmesg_restrict=1
+kernel.kptr_restrict=2
+kernel.core_uses_pid=1
+kernel.nmi_watchdog=0
+kernel.watchdog=0
+#Disable kernel module loading
+#kernel.modules_disabled=1
+
+#Part2: Memory
+
+vm.numa_zonelist_order=node
+vm.swappiness=20
+#vm.drop_caches=3
+#To free pagecache, dentries and inodes , set to 3
+vm.vfs_cache_pressure=200
+vm.page-cluster=5
+#VFS内存缓冲区参数优化。
+vm.dirty_background_ratio=75
+vm.dirty_ratio=90
+vm.dirty_writeback_centisecs=60000
+vm.dirty_expire_centisecs=180000
+#PAE高位内存可以脏
+#vm.highmem_is_dirtyable=1
+vm.overcommit_memory=1
+#vm.overcommit_ratio=50
+vm.oom_dump_tasks=0
+vm.oom_kill_allocating_task=1
+vm.laptop_mode=5
+
+#Part3: Harware
+
+#Linux Software RAID的rebuild速度,默认1000
+#dev.raid.speed_limit_max=1600000
+#dev.raid.speed_limit_min=800000
+dev.hpet.max-user-freq=2048
+
+#Part4: Filesystem
+
+fs.file-max=1000000000
+#Linux系统范围所有进程打开文件总数量限制，注意：ulimit -n是设置当前shell以及由它启动的进程的资源限制
+fs.aio-max-nr=1048576
+#同时可以拥有的的异步IO请求数目
+fs.nr_open=52428800
+#进程可以打开的最大文件数
+fs.epoll.max_user_watches=52428800
+fs.dir-notify-enable=1
+fs.inotify.max_user_watches=52428800
+fs.inotify.max_user_instances=8192
+fs.inotify.max_queued_events=1048576
+
+#Part5: Networking
+
+net.core.default_qdisc=fq_codel
+#net.ipv6.conf.all.disable_ipv6=1
+#net.ipv6.conf.lo.disable_ipv6=0
+net.core.bpf_jit_enable=1
+net.core.busy_poll=50
+net.core.busy_read=100
+net.ipv4.tcp_autocorking=1
+net.ipv4.tcp_low_latency=1
+# Disable packet forwarding
+net.ipv4.ip_forward=0
+#限制了接收新TCP连接侦听队列的大小
+net.core.somaxconn=65535
+net.ipv4.tcp_abort_on_overflow=1
+#优化网络设备接收队列
+#该文件表示在每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许送到队列的数据包的最大数目。
+net.core.netdev_max_backlog=32768
+#本地端口范围，缺省情况下很小：32768到61000
+net.ipv4.ip_local_port_range=1024 65535
+#tcp拥塞算法htcp
+#kernel4.9 bbr
+net.ipv4.tcp_congestion_control=htcp
+#显式拥塞通知，避免运营商路由器滥用
+net.ipv4.tcp_ecn=0
+#net.ipv4.tcp_ecn_fallback=0
+net.ipv4.tcp_sack=1
+net.ipv4.tcp_dsack=1
+net.ipv4.tcp_fack=1
+#打开TIME-WAIT套接字重用功能，对于存在大量连接的Web服务器非常有效，关闭避免NAT丢包。
+net.ipv4.tcp_tw_recycle=0
+#打开快速 TIME-WAIT sockets 回收。除非得到技术专家的建议或要求，请不要随意修改这个值,关掉避免异常行为。
+#该文件表示是否允许重新应用处于TIME-WAIT状态的socket用于新的TCP连接。
+# protect against tcp time-wait assassination hazards
+# drop RST packets for sockets in the time-wait state
+# (not widely supported outside of linux, but conforms to RFC)
+net.ipv4.tcp_tw_reuse=1
+net.ipv4.tcp_rfc1337=1
+net.ipv4.tcp_fastopen=3
+# log martian packets
+net.ipv4.conf.all.log_martians=1
+net.ipv4.conf.default.log_martians=1
+#系统同时保持TIME_WAIT套接字的最大数量，如果超过这个数字，
+#TIME_WAIT套接字将立刻被清除并打印警告信息。默认为180000。
+#对于Apache、Nginx等服务器，上几行的参数可以很好地减少TIME_WAIT套接字数量，
+#但是对于Squid，效果却不大。此项参数可以控制TIME_WAIT套接字的最大数量，避免Squid服务器被大量的TIME_WAIT套接字拖死
+net.ipv4.tcp_max_tw_buckets=262144
+#减少处于FIN-WAIT-2连接状态的时间，使系统可以处理更多的连接。
+net.ipv4.tcp_fin_timeout=30
+#TCP KeepAlive连接侦测的时间，使系统可以处理更多的连接。
+net.ipv4.tcp_keepalive_time=120
+#表示从不再传送数据到向连接上发送保持连接信号之间所需的秒数。
+net.ipv4.tcp_keepalive_probes=3
+#在认定连接失效之前，发送多少个TCP的keepalive探测包。缺省值是9。这个值乘以tcp_keepalive_intvl之后决定了，一个连接发送了keepalive之后可以有多少时间没有回应
+net.ipv4.tcp_keepalive_intvl=4
+#当探测没有确认时，重新发送探测的频度。缺省是75秒。
+#增加TCP SYN队列长度，使系统可以处理更多的并发连接。
+net.ipv4.tcp_max_syn_backlog=65535
+#系统中最多有多少个TCP套接字不被关联到任何一个用户文件句柄上。如果超过这个数字，孤儿连接将即刻被复位并打印出警告信息。
+#这个限制仅仅是为了防止简单的DoS攻击，不能过分依靠它或者人为地减小这个值，更应该增加这个值(如果增加了内存之后)。
+net.ipv4.tcp_max_orphans=262144
+net.ipv4.tcp_orphan_retries=1
+#时间戳可以避免序列号的卷绕。一个1Gbps的链路肯定会遇到以前用过的序列号。时间戳能够让内核接受这种“异常”的数据包。这里需要将其关掉。
+net.ipv4.tcp_timestamps=1
+net.ipv4.tcp_window_scaling=1
+net.ipv4.tcp_adv_win_scale=2
+#每个socket buffer的最大补助缓存大小,默认10K(10240),也可调整到20k(20480),但建议保留
+net.core.optmem_max=65536
+#优化系统套接字缓冲区
+net.ipv4.tcp_mem=32768 262144 1677216
+net.core.wmem_max=16777216
+net.core.wmem_default=262144
+net.ipv4.tcp_wmem=32768 262144 16777216
+#该命令设定了三个值:最小值、初始值和最大值,第三个值必须小于或等于wmem_max和rmem_max。
+#Min：为TCP socket预留用于接收缓冲的内存数量，即使在内存出现紧张情况下TCP socket都至少
+#会有这么多数量的内存用于接收缓冲。
+#Default： 为TCP socket预留用于接收缓冲的内存数量，默认情况下该值影响其它协议使用的 
+#net.core.wmem中default的值。该值决定了 在tcp_adv_win_scale、tcp_app_win和
+#tcp_app_win的 默认值情况下，TCP 窗口大小为65535。
+#Max：为TCP socket预留用于接收缓冲的内存最大值。
+net.ipv4.udp_wmem_min=4096
+net.core.rmem_max=16777216
+net.core.rmem_default=262144
+net.ipv4.tcp_rmem=32768 262144 16777216
+net.ipv4.udp_rmem_min=4096
+#遭遇SYN Flood时开启
+net.ipv4.tcp_syncookies=1
+#重定向相关调整
+net.ipv4.conf.lo.accept_redirects=0
+net.ipv4.conf.all.accept_redirects=0
+#net.ipv4.conf.eth0.accept_redirects=0
+#accept_redirects：接受重定向 
+net.ipv4.conf.default.accept_redirects=0
+net.ipv4.conf.lo.secure_redirects=0
+net.ipv4.conf.all.secure_redirects=0
+#net.ipv4.conf.eth0.secure_redirects=0
+#secure_redirects：安全重定向
+net.ipv4.conf.default.secure_redirects=0
+#send_redirects：发送重定向
+#如果是router，发送重定向消息，默认值是TRUE
+#如果这个服务器不是一台路由器,那么它不会发送重定向,所以可以关闭该功能。
+net.ipv4.conf.lo.send_redirects=0
+net.ipv4.conf.all.send_redirects=0
+#net.ipv4.conf.eth0.send_redirects=0
+net.ipv4.conf.default.send_redirects=0
+#关闭源路由相关功能
+net.ipv4.conf.lo.accept_source_route=0
+net.ipv4.conf.all.accept_source_route=0
+#net.ipv4.conf.eth0.accept_source_route=0
+net.ipv4.conf.default.accept_source_route=0
+#LVS需要的arp相关设置
+#net.ipv4.conf.lo.arp_ignore=1
+#net.ipv4.conf.lo.arp_announce=2
+#net.ipv4.conf.all.arp_ignore=1
+#net.ipv4.conf.all.arp_announce=2
+#net.ipv4.conf.tunl0.arp_ignore=1
+#net.ipv4.conf.tunl0.arp_announce=2
+net.ipv4.icmp_echo_ignore_all=0
+#ignore echo broadcast requests to prevent being part of smurf attacks (default)
+net.ipv4.icmp_echo_ignore_broadcasts=1
+#ignore bogus icmp errors (default)
+net.ipv4.icmp_ignore_bogus_error_responses=1
+net.ipv4.icmp_errors_use_inbound_ifaddr=0
+net.ipv4.icmp_ratelimit=100
+net.ipv4.icmp_ratemask=6168
+#don't cache ssthresh from previous connection 
+net.ipv4.tcp_no_metrics_save=1
+#Increase the maximum number of skb-heads to be cached
+#net.core.hot_list_length=256,
+#Lower syn retry rates
+net.ipv4.tcp_synack_retries=2
+net.ipv4.tcp_syn_retries=3
+#Set TCP Re-Ordering value in kernel to 5
+net.ipv4.tcp_reordering=5
+# Turn on reverse path filtering
+net.ipv4.conf.all.rp_filter=1
+net.ipv4.conf.default.rp_filter=1
+#net.ipv6.conf.all.rp_filter=1
+#net.ipv6.conf.default.rp_filter=1
+#net.nf_conntrack_max=655360
+#net.netfilter.nf_conntrack_tcp_timeout_established=120
+net.ipv4.tcp_slow_start_after_idle=0
+net.ipv4.tcp_thin_dupack=1
+net.ipv6.conf.all.accept_redirects=0
+net.ipv6.conf.default.accept_redirects=0

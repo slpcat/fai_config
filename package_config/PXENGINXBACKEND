@@ -1,0 +1,16 @@
+PACKAGES aptitude
+nginx
+redis-server
+make
+php5
+php5-curl
+php5-dev
+php5-fpm
+php5-gd
+php5-mysqlnd
+php5-redis
+php5-memcached
+php5-mcrypt
+php-pear
+autofs
+nfs-common

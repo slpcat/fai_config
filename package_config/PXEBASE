@@ -1,0 +1,51 @@
+PACKAGES aptitude PXEDEBIAN
+fai-client
+dbus
+debconf-utils
+ca-certificates
+file
+less
+linuxlogo
+#rdate
+rsync
+openssh-client openssh-server
+time
+procinfo
+#nullmailer
+postfix
+bsd-mailx
+#eject
+locales
+console-setup kbd
+pciutils usbutils
+#apt-fast
+aria2
+xz-utils
+vim-nox
+man
+gcc-4.8-base-
+PACKAGES aptitude PXEUBUNTU
+fai-client
+dbus
+debconf-utils
+ca-certificates
+file
+less
+linuxlogo
+#rdate
+rsync
+openssh-client openssh-server
+time
+procinfo
+#nullmailer
+postfix
+bsd-mailx
+#eject
+locales
+console-setup kbd
+pciutils usbutils
+#apt-fast
+aria2
+xz-utils
+vim-nox
+gcc-4.8-base

@@ -1,0 +1,9 @@
+PACKAGES aptitude
+mate-desktop-environment
+mate-desktop-environment-extras
+lightdm
+iceweasel
+flashplugin-nonfree
+xfonts-wqy
+ttf-wqy-microhei
+ttf-wqy-zenhei

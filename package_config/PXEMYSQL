@@ -1,0 +1,6 @@
+PACKAGES aptitude
+mariadb-server
+mydumper
+mytop
+percona-toolkit
+percona-xtrabackup

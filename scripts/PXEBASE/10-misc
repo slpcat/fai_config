@@ -1,0 +1,47 @@
+#! /bin/bash
+
+# (c) Thomas Lange, 2001-2012, lange@debian.org
+
+error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
+
+echo $TIMEZONE    > $target/etc/timezone
+ln -sf /usr/share/zoneinfo/${TIMEZONE} $target/etc/localtime
+
+if [ -n "$IPADDR" ]; then
+    ifclass DHCPC || ainsl -s /etc/hosts "$IPADDR $HOSTNAME.$DOMAIN $HOSTNAME"
+else
+    ifclass DHCPC && ainsl -s /etc/hosts "127.0.0.1 $HOSTNAME"
+fi
+
+if [ -f $target/etc/hosts.orig ]; then
+    mv $target/etc/hosts.orig $target/etc/hosts
+fi
+fcopy -iM /etc/hosts /etc/motd /etc/sysctl.conf
+ainsl /etc/profile 'export EDITOR=vi'
+fcopy -i /etc/security/limits.conf
+
+fcopy -iMr /etc/profile.d
+
+#extract default user setting files
+ftar -i /etc/skel
+
+# copy default dotfiles for root account
+fcopy -ir -m root,root,600 /root
+
+#copy default user  settings to root
+cp -ar $target/etc/skel/. $target/root
+
+# make /root accessible only by root
+chmod -c 0700 $target/root
+chown -c root:root $target/root
+chmod -cR 0600 $target/root/.ssh
+$ROOTCMD usermod -s /bin/zsh root
+
+chmod -c 1777 ${target}/tmp
+chown -c 0:0  ${target}/tmp
+
+fcopy -iM /etc/apt-fast.conf
+fcopy -iM /usr/bin/apt-fast
+chmod +x $target/usr/bin/apt-fast
+
+exit $error

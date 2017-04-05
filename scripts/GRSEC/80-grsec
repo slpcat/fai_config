@@ -1,0 +1,11 @@
+#! /bin/bash
+
+# (c) Thomas Lange, 2001-2012, lange@debian.org
+
+error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
+
+$ROOTCMD wget https://ftp2.cn.debian.org/debian/pool/main/g/gradm2/gradm2_3.1~201701031918-2_amd64.deb
+$ROOTCMD dpkg -i gradm2_3.1~201701031918-2_amd64.deb
+$ROOTCMD rm gradm2_3.1~201701031918-2_amd64.deb
+
+exit $error

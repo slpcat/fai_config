@@ -1,0 +1,28 @@
+# This repository only provides PHP 7.1 and its extensions
+# NOTICE: common dependencies are in "remi-safe"
+
+[remi-php71]
+name=Remi's PHP 7.1 RPM repository for Enterprise Linux 7 - $basearch
+baseurl=http://rpms.remirepo.net/enterprise/7/php71/$basearch/
+#mirrorlist=http://rpms.remirepo.net/enterprise/7/php71/mirror
+enabled=0
+gpgcheck=0
+
+[remi-php71-debuginfo]
+name=Remi's PHP 7.1 RPM repository for Enterprise Linux 7 - $basearch - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/7/debug-php71/$basearch/
+enabled=0
+gpgcheck=0
+
+[remi-php71-test]
+name=Remi's PHP 7.1 test RPM repository for Enterprise Linux 7 - $basearch
+baseurl=http://rpms.remirepo.net/enterprise/7/test71/$basearch/
+#mirrorlist=http://rpms.remirepo.net/enterprise/7/test71/mirror
+enabled=0
+gpgcheck=0
+
+[remi-php71-test-debuginfo]
+name=Remi's PHP 7.1 test RPM repository for Enterprise Linux 7 - $basearch - debuginfo
+baseurl=http://rpms.remirepo.net/enterprise/7/debug-test71/$basearch/
+enabled=0
+gpgcheck=0

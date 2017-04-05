@@ -1,0 +1,15 @@
+#! /bin/bash
+
+# (c) Thomas Lange, 2001-2012, lange@debian.org
+
+error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
+sed -i '/^myhostname/d' $target/etc/postfix/main.cf
+sed -i '/^mydestination/d' $target/etc/postfix/main.cf
+sed -i '/^mynetworks/a\mydestination = $myhostname, localhost.$mydomain, localhost' $target/etc/postfix/main.cf
+sed -i 's/^inet_interfaces.*$/inet_interfaces = loopback-only/' $target/etc/postfix/main.cf
+sed -i 's/^smtpd_banner.*$/smtpd_banner = ESMTP mail server/' $target/etc/postfix/main.cf
+#ubuntu 
+ainsl /etc/postfix/main.cf 'inet_protocols = ipv4'
+$ROOTCMD postalias /etc/aliases
+
+exit $error

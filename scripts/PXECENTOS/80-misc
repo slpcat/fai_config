@@ -1,0 +1,62 @@
+#! /bin/bash
+
+error=0 ; trap "error=$((error|1))" ERR
+
+# add a user account:hmuser
+if ! $ROOTCMD getent passwd hmuser ; then
+    $ROOTCMD adduser -c "IDC USER" hmuser
+    $ROOTCMD usermod -p '$1$eph1dXE1$1OVO8elRxrK6XzgqtjsXQ1' -s /bin/zsh hmuser
+    sed -i '/^root/a\hmuser    ALL=(ALL:ALL) ALL' $target/etc/sudoers
+fi
+
+
+# enable graphical login screen, make run level 5 as default
+if [ -f $target/usr/sbin/gdm ]; then
+    sed -i -e 's/id:3:initdefault:/id:5:initdefault:/' $target/etc/inittab
+    # do not run this tool
+    echo "RUN_FIRSTBOOT=NO" > $target/etc/sysconfig/firstboot
+fi
+
+#ln -sf /dev/null $target/etc/systemd/system/multi-user.target.wants/kdump.service
+#ln -sf /dev/null $target/etc/systemd/system/gssproxy.service
+#ln -sf /dev/null $target/etc/systemd/system/polkit.service
+ln -sf /dev/null $target/etc/systemd/system/network-online.service
+unlink $target/etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service
+unlink $target/etc/systemd/system/basic.target.wants/firewalld.service
+#unlink $target/etc/systemd/system/multi-user.target.wants/wpa_supplicant.service
+#unlink $target/etc/systemd/system/multi-user.target.wants/auditd.service
+unlink $target/etc/systemd/system/dbus-org.freedesktop.NetworkManager.service
+unlink $target/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
+#unlink $target/etc/systemd/system/multi-user.target.wants/NetworkManager.service
+#unlink $target/etc/systemd/system/multi-user.target.wants/tuned.service
+#enable rsyslogd
+ln -sf /usr/lib/systemd/system/rsyslog.service $target/etc/systemd/system/multi-user.target.wants/rsyslog.service
+
+#ainsl -a /etc/sysconfig/irqbalance 'ENABLED="0"'
+ainsl /etc/ssh/ssh_config 'HashKnownHosts yes'
+#ainsl /etc/ssh/ssh_config 'Compression yes'
+ainsl /etc/ssh/ssh_config 'ServerAliveInterval 60'
+ainsl /etc/ssh/ssh_config 'ServerAliveCountMax 5'
+ainsl /etc/ssh/ssh_config 'ControlMaster auto'
+ainsl /etc/ssh/ssh_config 'ControlPath /tmp/ssh_mux_%h_%p_%r'
+ainsl /etc/ssh/ssh_config 'ControlPersist 4h'
+       
+sed -i 's/#Protocol 2/Protocol 2/' $target/etc/ssh/sshd_config
+sed -i 's/^#PermitRootLogin.*$/PermitRootLogin without-password/' $target/etc/ssh/sshd_config
+sed -i 's/#PrintLastLog.*$/PrintLastLog yes/' $target/etc/ssh/sshd_config
+sed -i 's/X11Forwarding yes/X11Forwarding no/' $target/etc/ssh/sshd_config
+sed -i 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/' $target/etc/ssh/sshd_config
+ainsl /etc/ssh/sshd_config 'UseDNS no'
+ainsl /etc/ssh/sshd_config 'PrintMotd no'
+sed -i 's/^.*pam_motd.so/#&/' $target/etc/pam.d/sshd
+ainsl /etc/bashrc 'force_color_prompt=yes'
+fcopy -iv /etc/systemd/timesyncd.conf
+#time setting
+#sed -i s/NTPDATE_USE_NTP_CONF=yes/NTPDATE_USE_NTP_CONF=no/ $target/etc/default/ntpdate
+[ -n "$NTPSRVS" ] && sed -i /#Servers/a\Servers="$NTPSRVS" $target/etc/systemd/timesyncd.conf
+$ROOTCMD ln -s /lib/systemd/system/systemd-timesyncd.service /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
+$ROOTCMD systemctl start systemd-timedated
+$ROOTCMD timedatectl set-ntp true
+
+exit $error
+

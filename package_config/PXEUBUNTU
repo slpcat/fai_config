@@ -1,0 +1,26 @@
+PACKAGES aptitude
+ubuntu-minimal
+#PPA support
+software-properties-common
+
+PACKAGES install I386
+linux-image-generic initramfs-tools
+memtest86+
+
+PACKAGES install CHROOT
+linux-image-generic-
+
+PACKAGES install AMD64
+linux-image-generic initramfs-tools
+memtest86+
+
+PACKAGES install DHCPC
+isc-dhcp-client
+
+PACKAGES install GRUB_PC
+grub-pc
+
+PACKAGES aptitude-r XORG
+ubuntu-desktop
+ubuntu-standard
+
