@@ -59,7 +59,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE CENTOS CENTOS7_64 XORG
 
-Name: pxe-centos-7-base
+Name: pxe-centos-7-basic
 Description: CentOS 7 with minimal install
 Short: a very simple server, no xorg
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
@@ -67,7 +67,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64
 
-Name: pxe-centos-6-base
+Name: pxe-centos-6-basic
 Description: CentOS 6 with minimal install
 Short: a very simple server, no xorg
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
@@ -91,7 +91,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU XENIAL XENIAL64 XORG
 
-Name: pxe-ubuntu-16.04-base
+Name: pxe-ubuntu-16.04-basic
 Description: Ubuntu 16.04 base installation
 Short: Ubuntu with minimal install
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
@@ -99,8 +99,8 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXEUBUNTU XENIAL XENIAL64
 
-Name: pxe-base-server
-Description: pxe base server installation
+Name: pxe-basic-server
+Description: pxe basic server installation
 Short: a very simple server, no xorg
 Long: This is the base system .
 Additional account called hmuser with password: w5podcmtgbhkebiWyc8?Jfziwuvjojgp
@@ -127,29 +127,29 @@ Long: This is the webserver with nginx, mysql and php5 installation.
 Additional account called hmuser with password: w5podcmtgbhkebiWyc8?Jfziwuvjojgp
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND PXEMYSQL
 
-Name: grsecurity-base-server
-Description: base server installation with grsecurity/pax
+Name: grsec-basic-server
+Description: basic server installation with grsecurity/pax
 Short: a very simple server with security , no xorg
 Long: This is the base system for highest security.
 Additional account called hmuser with password: w5podcmtgbhkebiWyc8?Jfziwuvjojgp
 Classes: INSTALL PXEBASE GRSEC PXEDEBIAN PXEIDC
 
-Name: grsecurity-nginx-server-backend
+Name: grsec-nginx-server-backend
 Description: webserver with grsecurity/pax nginx and php5 installation
 Short:  nginx php5 for web backend for highest security.
 Long: This is the webserver with nginx and php5 installation.
 Additional account called hmuser with password: w5podcmtgbhkebiWyc8?Jfziwuvjojgp
 Classes: INSTALL PXEBASE GRSEC PXEDEBIAN PXEIDC PXENGINXBACKEND
 
-Name: grsecurity-mysql-server
+Name: grsec-mysql-server
 Description: MariaDB 10.0 server with grsecurity/pax
 Short: This is the mysql server for highest security.
 Long: This is the mysql server.
 Additional account called hmuser with password: w5podcmtgbhkebiWyc8?Jfziwuvjojgp
 Classes: INSTALL PXEBASE GRSEC PXEDEBIAN PXEIDC PXEMYSQL
 
-Name: grsecurity-LNMP-webserver
-Description: webserver with grsecurity/pax nginx, mysql and php5 installation
+Name: grsec-LNMP-webserver
+Description: webserver with grsecurity/pax, nginx, mysql and php5 installation
 Short:  nginx mysql php5 webserver for highest security.
 Long: This is the webserver with nginx, mysql and php5 installation.
 Additional account called hmuser with password: w5podcmtgbhkebiWyc8?Jfziwuvjojgp

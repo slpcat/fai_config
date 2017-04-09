@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20170322
+# Revision: 20170408
 # /etc/sysctl.conf
 #
 
@@ -14,7 +14,7 @@ kernel.randomize_va_space=2
 kernel.panic_on_oops=1
 #kernel.sched_autogroup_enabled=1
 #kernel.sched_child_runs_first=1
-kernel.printk=3 4 1 3
+kernel.printk=0 4 0 0
 kernel.sched_min_granularity_ns=250000
 kernel.sched_latency_ns=5000000
 kernel.sched_wakeup_granularity_ns=1000000
