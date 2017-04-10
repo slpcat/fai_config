@@ -25,7 +25,7 @@ ainsl -a /etc/modprobe.d/storage-blacklist.conf 'blacklist firewire-ohci'
 ainsl -a /etc/modprobe.d/storage-blacklist.conf 'blacklist floppy'
 ainsl -a /etc/modprobe.d/pcspkr-blacklist.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/bluetooth-blacklist.conf 'blacklist bluetooth'
-ainsl -a -q /etc/rsyslog.conf "*.*@$LOGSRV:514"
+[-n "$LOGSRV" ] && ainsl -a -q /etc/rsyslog.conf "*.*@$LOGSRV:514"
 sed -i 's/^#FSCKFIX.*$/FSCKFIX=yes/' $target/etc/default/rcS
 ainsl /etc/default/rcS 'umask 077'
 sed -i 's/^for FILE.*$/for FILE in passwd group ; do/' $target/etc/cron.daily/passwd
