@@ -5,6 +5,7 @@
 error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
 sed -i 's/^NEED_IDMAPD.*$/NEED_IDMAPD=yes/' $target/etc/default/nfs-common
 sed -i 's/^NEED_STATD.*$/NEED_STATD=no/' $target/etc/default/nfs-common
+sed -i 's/^TIMEOUT=.*$/TIMEOUT=86400/' $target/etc/default/autofs
 ainsl /etc/auto.master '/srv    /etc/auto.misc'
 ainsl /etc/auto.misc 'web_online  -fstype=nfs4,rw,soft,initr,noatime,rsize=1048576,wsize=1048576  10.0.2.12:/web_online'
 sed -i 's/^Nobody-User.*$/Nobody-User = www-data/' $target/etc/idmapd.conf

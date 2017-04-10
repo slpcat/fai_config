@@ -21,7 +21,7 @@ openssh-server
 vim-enhanced
 man
 curl
-screen
+#screen
 unzip
 which
 nfs-utils

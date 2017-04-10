@@ -19,7 +19,7 @@ openssh-server
 vim-enhanced
 man
 curl
-screen
+#screen
 unzip
 which
 nfs-utils
@@ -42,9 +42,6 @@ aide
 unhide
 arpwatch
 sysstat
-
-
-
 
 #sendmail # only for C5 and C6
 
