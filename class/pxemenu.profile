@@ -1,4 +1,4 @@
-Default: pxe-base-server
+Default: pxe-basic-server
 
 Name: Simple
 Description: My first FAI installation
@@ -127,6 +127,13 @@ Long: This is the webserver with nginx, mysql and php5 installation.
 Additional account called hmuser with password: w5podcmtgbhkebiWyc8?Jfziwuvjojgp
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND PXEMYSQL
 
+Name: pxe-gitlab-server
+Description: pxe gitlab server installation after reboot
+Short: a very simple server, no xorg
+Long: This is the base system .
+Additional account called hmuser with password: w5podcmtgbhkebiWyc8?Jfziwuvjojgp
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXEGITLAB
+
 Name: grsec-basic-server
 Description: basic server installation with grsecurity/pax
 Short: a very simple server with security , no xorg
@@ -154,6 +161,13 @@ Short:  nginx mysql php5 webserver for highest security.
 Long: This is the webserver with nginx, mysql and php5 installation.
 Additional account called hmuser with password: w5podcmtgbhkebiWyc8?Jfziwuvjojgp
 Classes: INSTALL PXEBASE GRSEC PXEDEBIAN PXEIDC PXENGINXBACKEND PXEMYSQL
+
+Name: RBAC-basic-server
+Description: basic server installation with grsecurity/pax RBAC
+Short: a very simple server with RBAC security , no xorg
+Long: This is the base system for highest security.
+Additional account called hmuser with password: w5podcmtgbhkebiWyc8?Jfziwuvjojgp
+Classes: INSTALL PXEBASE GRSEC PXEDEBIAN PXEIDC GRSEC_RBAC
 
 Name: Inventory
 Description: Show hardware info

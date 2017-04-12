@@ -1,0 +1,12 @@
+#! /bin/bash
+
+# (c) Thomas Lange, 2001-2012, lange@debian.org
+
+error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
+
+#extract RBAC rules
+ftar -i /etc/grsec2
+sed -i "/exit 0/isleep 60 && gradm2 -E &" $target/etc/rc.local
+sed -i "s/10.0.2.137/$IPADDR/" $target/etc/grsec2/users/*
+
+exit $error

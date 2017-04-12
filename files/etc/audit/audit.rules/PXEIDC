@@ -12,21 +12,21 @@
 
 # Feel free to add below this line. See auditctl man page
 # System Call Rules
--a exit,always -F arch=b64 -S umask -S chown -S chmod 
--a exit,always -F arch=b64 -S unlink -S rmdir 
--a exit,always -F arch=b64 -S setrlimit 
+#-a exit,always -F arch=b64 -S umask -S chown -S chmod 
+#-a exit,always -F arch=b64 -S unlink -S rmdir 
+#-a exit,always -F arch=b64 -S setrlimit 
  
--a exit,always -F arch=b64 -S setuid -S setreuid 
--a exit,always -F arch=b64 -S setgid -S setregid 
+#-a exit,always -F arch=b64 -S setuid -S setreuid 
+#-a exit,always -F arch=b64 -S setgid -S setregid 
   
--a exit,always -F arch=b64 -S sethostname -S setdomainname 
--a exit,always -F arch=b64 -S adjtimex -S settimeofday -S clock_settime
+#-a exit,always -F arch=b64 -S sethostname -S setdomainname 
+#-a exit,always -F arch=b64 -S adjtimex -S settimeofday -S clock_settime
  
--a exit,always -F arch=b64 -S mount -S umount -S umount2 -S _sysctl 
--a exit,always -F arch=b64 -S chmod -S chown -S fchmod -S fchmodat -S fchown -S fchownat 
--a exit,always -F arch=b64 -S fremovexattr -S fsetxattr -S lchown -S lremovexattr -S lsetxattr
--a exit,always -F arch=b64 -S removexattr -S setxattr
--a exit,always -F arch=b64 -S mknod
+#-a exit,always -F arch=b64 -S mount -S umount -S umount2 -S _sysctl 
+#-a exit,always -F arch=b64 -S chmod -S chown -S fchmod -S fchmodat -S fchown -S fchownat 
+#-a exit,always -F arch=b64 -S fremovexattr -S fsetxattr -S lchown -S lremovexattr -S lsetxattr
+#-a exit,always -F arch=b64 -S removexattr -S setxattr
+#-a exit,always -F arch=b64 -S mknod
 
 # watch on an audit configuration file
 -w /etc/auditd.conf -p wa

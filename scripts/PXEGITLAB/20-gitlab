@@ -1,0 +1,12 @@
+#! /bin/bash
+
+# (c) Thomas Lange, 2001-2015, lange@debian.org
+# (c) Michael Goetze, 2010-2011, mgoetze@mgoetze.net
+
+error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
+
+
+fcopy -Mv /etc/rc.install_gitlab.sh
+ainsl -a /etc/rc.local "/etc/rc.install_gitlab.sh"
+
+exit $error
