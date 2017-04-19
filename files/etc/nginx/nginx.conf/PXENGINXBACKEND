@@ -91,7 +91,7 @@ http {
 	#aio threads;
 	directio 4m;
 	tcp_nodelay     on;
-	tcp_nopush	off;
+	tcp_nopush	on;
 	client_max_body_size 100m;
 	client_body_buffer_size 8m;
 	types_hash_max_size 2048;

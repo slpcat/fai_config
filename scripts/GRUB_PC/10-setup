@@ -17,7 +17,7 @@ if [ -z "$BOOT_DEVICE" ]; then
 fi
 
 # nosplash and ethX
-sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT.*$/GRUB_CMDLINE_LINUX_DEFAULT="elevator=deadline intel_pstate=disable audit=1 apparmor=1 security=apparmor thermal.off=1 idle=halt net.ifnames=0 biosdevname=0"/' $target/etc/default/grub
+sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT.*$/GRUB_CMDLINE_LINUX_DEFAULT="elevator=deadline intel_pstate=disable audit=1 thermal.off=1 idle=halt net.ifnames=0 biosdevname=0"/' $target/etc/default/grub
 sed -i s/^GRUB_HIDDEN_TIMEOUT/#GRUB_HIDDEN_TIMEOUT/ $target/etc/default/grub
 sed -i 's/^#GRUB_GFXMODE.*$/GRUB_GFXMODE=1024x768/' $target/etc/default/grub
 ainsl /etc/default/grub 'GRUB_GFXPAYLOAD_LINUX="$GRUB_GFXMODE"'
@@ -27,8 +27,6 @@ ainsl /etc/default/grub 'GRUB_DISABLE_OS_PROBER=true'
 
 ainsl /etc/grub.d/40_custom 'set menu_color_normal=cyan/blue'
 ainsl /etc/grub.d/40_custom 'set menu_color_highlight=white/blue'
-#ainsl /etc/grub.d/00_header 'set superusers=heimi'
-#ainsl /etc/grub.d/00_header 'password_pbkdf2 heimi grub.pbkdf2.sha512.10000.4B17DCA0BF849917835D4BF9C891824D40F81372A00FA0EBDC9577F6AD78A54658F22B0EBA3DFF00AD2FAE21B66944F4F88542469BAFF00AF3052BC6D7DED83B.83794E5308C4C70BE87D461187A563BA69F99A13031BF651027445115F738E2EF9ABD52B835A2E86356B8CA6401EF370D05FC948FD14022EFE83D5CE23A2B4E1'
 
 # skip the rest, if not an initial installation
 if [ $FAI_ACTION != "install" ]; then

@@ -178,7 +178,7 @@
 ;user_ini.filename =
 
 ; TTL for user-defined php.ini files (time-to-live) in seconds. Default is 300 seconds (5 minutes)
-user_ini.cache_ttl = 300
+;user_ini.cache_ttl = 300
 
 ;;;;;;;;;;;;;;;;;;;;
 ; Language Options ;
@@ -327,13 +327,13 @@ disable_classes =
 ; be increased on systems where PHP opens many files to reflect the quantity of
 ; the file operations performed.
 ; http://php.net/realpath-cache-size
-realpath_cache_size = 2M
+;realpath_cache_size = 2M
 
 ; Duration of time, in seconds for which to cache realpath information for a given
 ; file or directory. For systems with rarely changing files, consider increasing this
 ; value.
 ; http://php.net/realpath-cache-ttl
-realpath_cache_ttl = 300
+;realpath_cache_ttl = 300
 
 ; Enables or disables the circular reference collector.
 ; http://php.net/zend.enable-gc
@@ -1870,7 +1870,7 @@ opcache.validate_timestamps=1
 ; How often (in seconds) to check file timestamps for changes to the shared
 ; memory storage allocation. ("1" means validate once per second, but only
 ; once per request. "0" means always validate)
-opcache.revalidate_freq=60
+;opcache.revalidate_freq=60
 
 ; Enables or disables file search in include_path optimization
 ;opcache.revalidate_path=0
