@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20170408
+# Revision: 20170427
 # /etc/sysctl.conf
 #
 
@@ -58,7 +58,7 @@ kernel.watchdog=0
 #Part2: Memory
 
 vm.numa_zonelist_order=node
-vm.swappiness=20
+vm.swappiness=10
 #vm.drop_caches=3
 #To free pagecache, dentries and inodes , set to 3
 vm.vfs_cache_pressure=200
