@@ -24,6 +24,7 @@ xz-utils
 vim-nox
 man
 gcc-4.8-base-
+linux-base/jessie-backports
 PACKAGES aptitude PXEUBUNTU
 fai-client
 dbus
@@ -49,3 +50,4 @@ aria2
 xz-utils
 vim-nox
 gcc-4.8-base
+
