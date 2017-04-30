@@ -26,14 +26,14 @@ ainsl -a /etc/modprobe.d/storage-blacklist.conf 'blacklist floppy'
 ainsl -a /etc/modprobe.d/pcspkr-blacklist.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/bluetooth-blacklist.conf 'blacklist bluetooth'
 [ -n "$LOGSRV" ] && ainsl -a -q /etc/rsyslog.conf "*.*@$LOGSRV:514"
-sed -i 's/^#FSCKFIX.*$/FSCKFIX=yes/' $target/etc/default/rcS
+#sed -i 's/^#FSCKFIX.*$/FSCKFIX=yes/' $target/etc/default/rcS
 ainsl /etc/default/rcS 'umask 077'
 sed -i 's/^for FILE.*$/for FILE in passwd group ; do/' $target/etc/cron.daily/passwd
 # add  user account:hmuser
 
 if ! $ROOTCMD getent passwd hmuser ; then
     $ROOTCMD adduser --disabled-login --gecos 'IDC USER' hmuser
-    $ROOTCMD usermod -p '$1$eph1dXE1$1OVO8elRxrK6XzgqtjsXQ1' -s /bin/zsh hmuser
+    $ROOTCMD usermod -p '$1$.cWiG8mO$FXN7lZaghXxjZnhshvqfm/' -s /bin/zsh hmuser
     for g in $groups; do
 	$ROOTCMD adduser hmuser $g
     done
@@ -45,7 +45,7 @@ sed -i 's/DSHELL.*$/DSHELL=\/bin\/zsh/' $target/etc/adduser.conf
 ainsl -a /etc/ld.so.preload '/lib/snoopy.so'
 sed -i 's/^USE_GRUB_CONFIG.*$/USE_GRUB_CONFIG=true/' $target/etc/default/kexec
 
-#ainsl /etc/ssh/ssh_config 'HashKnownHosts yes'
+ainsl /etc/ssh/ssh_config 'HashKnownHosts yes'
 ainsl /etc/ssh/ssh_config 'Compression no'
 ainsl /etc/ssh/ssh_config 'ServerAliveInterval 60'
 ainsl /etc/ssh/ssh_config 'ServerAliveCountMax 2'
@@ -70,10 +70,10 @@ ainsl /etc/bash.bashrc 'force_color_prompt=yes'
 for disk in $disklist
     do  ainsl /etc/sysfs.conf "block/$disk/queue/read_ahead_kb = 2048"
         ainsl /etc/sysfs.conf "block/$disk/queue/rq_affinity = 2"
-        #ainsl /etc/sysfs.conf "block/$disk/queue/nr_requests = 512"
+        ainsl /etc/sysfs.conf "block/$disk/queue/nr_requests = 8192"
         ainsl /etc/sysfs.conf "block/$disk/cache_type = write\ back"
 done
-#ainsl /etc/sysfs.conf 'kernel/mm/transparent_hugepage/enabled = never'
+ainsl /etc/sysfs.conf 'kernel/mm/transparent_hugepage/enabled = never'
 ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
 ainsl /etc/fstab 'tmpfs   /dev/shm    tmpfs ro,noatime,nosuid,nodev,noexec  0   0'
 chmod 0711 $target/var/log

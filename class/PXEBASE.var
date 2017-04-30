@@ -8,7 +8,7 @@ UTC=yes
 TIMEZONE=Asia/Shanghai
 
 # the hash of the root password for the new installed linux system
-ROOTPW='$1$5NmMETKc$Ir7s7jhbJZW08Sq7w7yG2/'
+ROOTPW='$1$9JB64QlM$2ddmoNTUNkS.Xg5v7jOL91'
 
 # errors in tasks greater than this value will cause the installation to stop
 STOP_ON_ERROR=700

@@ -14,4 +14,4 @@ MODULESLIST="usbhid psmouse"
 #FAI_RAMDISKS="$target/var/lib/dpkg $target/var/cache"
 
 # if you want to use the faiserver as APT proxy
-APTPROXY=http://faiserver:3142
+#APTPROXY=http://faiserver:3142
