@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20170427
+# Revision: 20170429
 # /etc/sysctl.conf
 #
 
@@ -46,12 +46,19 @@ kernel.pty.max=8192
 #kernel.pty.reserve=1024
 kernel.perf_cpu_time_max_percent=0
 kernel.numa_balancing=1
+# Avoid non-ancestor ptrace access to running processes and their credentials.
 kernel.yama.ptrace_scope=3
+# Avoid kernel memory address exposures via dmesg.
 kernel.dmesg_restrict=1
+# Try to keep kernel address exposures out of various /proc files (kallsyms, modules, etc).
 kernel.kptr_restrict=2
 kernel.core_uses_pid=1
 kernel.nmi_watchdog=0
 kernel.watchdog=0
+# Block non-uid-0 profiling (needs distro patch, otherwise this is the same as "= 2")
+kernel.perf_event_paranoid=3
+# Turn off kexec, even if it's built in.
+#kernel.kexec_load_disabled = 1
 #Disable kernel module loading
 #kernel.modules_disabled=1
 

@@ -6,5 +6,5 @@ disk_config disk1 disklabel:msdos bootable:1 fstabkey:uuid
 
 primary /      8G-24G   ext4  rw,noatime,errors=remount-ro
 logical swap   1G-32G   swap  sw
-logical /tmp   1G-4G   ext4  rw,noatime,nosuid,nodev,noexec createopts="-L tmp -m 0" tuneopts="-c 0 -i 0"
+logical /tmp   1G-4G   ext4  rw,noatime,nosuid,nodev createopts="-L tmp -m 0" tuneopts="-c 0 -i 0"
 logical /data  1G-80%  ext4  rw,noatime,nosuid,nodev,noexec createopts="-L data -m 1" tuneopts="-c 0 -i 0"

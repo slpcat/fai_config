@@ -1,4 +1,4 @@
 PACKAGES aptitude
-#linux-base/jessie-backports
-linux-image-4.9.0-2-grsec-amd64
+linux-base/jessie-backports
+linux-image-grsec-amd64/jessie-backports
 paxtest
