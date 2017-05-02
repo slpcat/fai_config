@@ -3,7 +3,7 @@
 $ROOTCMD yum clean all
 $ROOTCMD yum remove -y biosdevname
 #$ROOTCMD yum remove -y NetworkManager NetworkManager-libnm
-#$ROOTCMD yum remove -y iwl*
+$ROOTCMD yum remove -y iwl*
 #$ROOTCMD yum remove -y polkit aic94xx-firmware ivtv-firmware dnsmasq
 $ROOTCMD yum remove -y plymouth plymouth-core-libs
 $ROOTCMD yum remove -y gssproxy

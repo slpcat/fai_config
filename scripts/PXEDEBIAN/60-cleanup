@@ -8,6 +8,6 @@ error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
 #$ROOTCMD apt-get -y purge nano
 #$ROOTCMD apt-get -y remove irqbalance
 #$ROOTCMD apt-get -y autoremove
-$ROOTCMD apt-get -y clean
+#$ROOTCMD apt-get -y clean
 
 exit $error

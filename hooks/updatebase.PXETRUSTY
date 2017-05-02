@@ -1,0 +1,34 @@
+#! /bin/bash
+if [ -n "$APTPROXY" ]; then
+ainsl -a /etc/apt/apt.conf.d/02proxy "Acquire::http::Proxy \"$APTPROXY\";"
+ainsl  /etc/apt/apt.conf.d/02proxy 'Acquire::https::proxy "DIRECT";'
+else
+    rm -f $target/etc/apt/apt.conf.d/02proxy
+fi
+echo "DPkg::Progress-Fancy "true";" > $target/etc/apt/apt.conf.d/01color
+echo "APT::Color "true";" >> $target/etc/apt/apt.conf.d/01color
+echo force-unsafe-io > $target/etc/dpkg/dpkg.cfg.d/unsafe-io
+
+ainsl -a /etc/apt/apt.conf.d/03download 'Acquire::Queue-Mode "access";'
+ainsl /etc/apt/apt.conf.d/03download 'Acquire::Retries "3";'
+ainsl /etc/apt/apt.conf.d/03download 'Acquire::CompressionTypes::Order { "lzma"; "gz"; };'
+ainsl /etc/apt/apt.conf.d/03download 'Acquire::ForceIPv4 "true";'
+# you may want to add i386 arch to amd64 hosts
+# if ifclass AMD64; then
+#     $ROOTCMD dpkg --add-architecture i386
+# fi
+cp -f /etc/apt/trusted.gpg.d/*.gpg $target/etc/apt/trusted.gpg.d/
+
+# use external mirror, remove this script when using a mirror from CD
+
+cat <<EOM > $target/etc/apt/sources.list
+# external mirror
+deb MIRRORURL $ubuntudist main restricted universe multiverse
+deb MIRRORURL $ubuntudist-updates main restricted universe multiverse
+deb MIRRORURL $ubuntudist-security main restricted universe multiverse
+EOM
+
+# determine a fast mirror for Ubuntu
+list=$(curl -s http://mirrors.ubuntu.com/mirrors.txt)
+mirror=$(netselect $list | awk '{print $2}')
+sed -i -e "s#MIRRORURL#$mirror#" $target/etc/apt/sources.list

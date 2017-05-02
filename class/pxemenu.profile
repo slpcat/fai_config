@@ -91,6 +91,22 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU XENIAL XENIAL64 XORG
 
+Name: ubuntu 14.04 basic
+Description: Ubuntu 14.04 minimal installation
+Short: Ubuntu 14.04 minimal installation
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL FAIBASE DEMO PXETRUSTY TRUSTY TRUSTY64
+
+Name: pxe-ubuntu-14.04-basic
+Description: Ubuntu 14.04 minimal installation
+Short: Ubuntu 14.04 minimal installation
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY TRUSTY64
+
 Name: pxe-ubuntu-16.04-basic
 Description: Ubuntu 16.04 base installation
 Short: Ubuntu with minimal install
