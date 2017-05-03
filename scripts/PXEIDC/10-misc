@@ -75,10 +75,10 @@ done
 ainsl /etc/sysfs.conf 'kernel/mm/transparent_hugepage/enabled = never'
 ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
 ainsl /etc/fstab 'tmpfs   /dev/shm    tmpfs ro,noatime,nosuid,nodev,noexec  0   0'
-chmod 0711 $target/var/log
-chmod o-rwx $target/var/log/*
-chmod g-rwx $target/var/log/*
-setfacl -m g:adm:r-- $target/var/log/wtmp
+#chmod 0711 $target/var/log
+#chmod o-rwx $target/var/log/*
+#chmod g-rwx $target/var/log/*
+#setfacl -m g:adm:r-- $target/var/log/wtmp
 sed -i 's/^\$FileCreateMode.*$/\$FileCreateMode 0600/' $target/etc/rsyslog.conf
 sed -i 's/^\$DirCreateMode.*$/\$DirCreateMode 0711/' $target/etc/rsyslog.conf
 sed -i 's/^\$Umask.*$/\$Umask 0077/' $target/etc/rsyslog.conf

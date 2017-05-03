@@ -1,0 +1,4 @@
+Acquire::Queue-Mode "access";
+Acquire::Retries "3";
+Acquire::CompressionTypes::Order { "lzma"; "gz"; };
+Acquire::ForceIPv4 "true";

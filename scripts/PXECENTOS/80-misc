@@ -5,7 +5,7 @@ error=0 ; trap "error=$((error|1))" ERR
 # add a user account:hmuser
 if ! $ROOTCMD getent passwd hmuser ; then
     $ROOTCMD adduser -c "IDC USER" hmuser
-    $ROOTCMD usermod -p '$1$eph1dXE1$1OVO8elRxrK6XzgqtjsXQ1' -s /bin/zsh hmuser
+    $ROOTCMD usermod -p '$1$.cWiG8mO$FXN7lZaghXxjZnhshvqfm/' -s /bin/zsh hmuser
     sed -i '/^root/a\hmuser    ALL=(ALL:ALL) ALL' $target/etc/sudoers
 fi
 

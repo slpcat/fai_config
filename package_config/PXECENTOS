@@ -27,7 +27,8 @@ nfs-utils
 ncurses-base # currently missing in the base file
 net-tools
 mailx
-
+yum-cron
+#snoopy
 nscd
 wget
 powertop
@@ -42,6 +43,7 @@ aide
 unhide
 arpwatch
 sysstat
+psacct
 
 #sendmail # only for C5 and C6
 

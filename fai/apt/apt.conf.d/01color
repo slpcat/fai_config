@@ -1,0 +1,2 @@
+DPkg::Progress-Fancy "true";
+APT::Color "true";
