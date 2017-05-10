@@ -27,8 +27,8 @@ nfs-utils
 ncurses-base # currently missing in the base file
 net-tools
 mailx
-yum-cron
-#snoopy
+#yum-cron
+snoopy
 nscd
 wget
 powertop

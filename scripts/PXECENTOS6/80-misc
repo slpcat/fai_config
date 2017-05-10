@@ -5,10 +5,9 @@ error=0 ; trap "error=$((error|1))" ERR
 # add a user account:hmuser
 if ! $ROOTCMD getent passwd hmuser ; then
     $ROOTCMD adduser -c "IDC USER" hmuser
-    $ROOTCMD usermod -p '$1$eph1dXE1$1OVO8elRxrK6XzgqtjsXQ1' hmuser
+    $ROOTCMD usermod -p '$1$.cWiG8mO$FXN7lZaghXxjZnhshvqfm/' -s /bin/zsh hmuser
     sed -i '/^root/a\hmuser    ALL=(ALL:ALL) ALL' $target/etc/sudoers
 fi
-
 
 # enable graphical login screen, make run level 5 as default
 if [ -f $target/usr/sbin/gdm ]; then
@@ -47,21 +46,22 @@ sed -i 's/#PrintLastLog.*$/PrintLastLog yes/' $target/etc/ssh/sshd_config
 sed -i 's/X11Forwarding yes/X11Forwarding no/' $target/etc/ssh/sshd_config
 sed -i 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/' $target/etc/ssh/sshd_config
 ainsl /etc/ssh/sshd_config 'UseDNS no'
-ainsl /etc/ssh/sshd_config 'PrintMotd no'
-sed -i 's/^.*pam_motd.so/#&/' $target/etc/pam.d/sshd
+#ainsl /etc/ssh/sshd_config 'PrintMotd no'
+#sed -i 's/^.*pam_motd.so/#&/' $target/etc/pam.d/sshd
 ainsl /etc/bashrc 'force_color_prompt=yes'
 ainsl /etc/sysconfig/init 'ACTIVE_CONSOLES=/dev/tty[1-2]'
 $ROOTCMD chkconfig kdump off
 $ROOTCMD chkconfig iptables off
 $ROOTCMD chkconfig ip6tables off
-$ROOTCMD chkconfig auditd off
+$ROOTCMD chkconfig auditd on
 $ROOTCMD chkconfig rpcbind off
 $ROOTCMD chkconfig rpcgssd off
 $ROOTCMD chkconfig mdmonitor off
 $ROOTCMD chkconfig netfs off
 $ROOTCMD chkconfig nfslock off
 $ROOTCMD chkconfig rsyslog on
-
+$ROOTCMD chkconfig arpwatch on
+$ROOTCMD chkconfig nscd on
+$ROOTCMD chkconfig psacct on
 
 exit $error
-

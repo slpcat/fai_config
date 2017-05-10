@@ -29,10 +29,11 @@ nfs-utils
 ncurses-base # currently missing in the base file
 net-tools
 mailx
-yum-cron
+#yum-cron
 snoopy
 nscd
 wget
+irqbalance
 powertop
 smartmontools
 zsh

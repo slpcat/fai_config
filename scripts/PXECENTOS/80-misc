@@ -32,8 +32,8 @@ unlink $target/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
 $ROOTCMD chkconfig network on
 #enable rsyslogd
 ln -sf /usr/lib/systemd/system/rsyslog.service $target/etc/systemd/system/multi-user.target.wants/rsyslog.service
-
-sed -i s/^#ListenAddress.*$/ListenAddress\ 0.0.0.0/ $target/etc/ssh/sshd_config
+sed -i 's/^After=.*$/After=network.service\ sshd-keygen.service/' $target/usr/lib/systemd/system/sshd.service
+#sed -i s/^#ListenAddress.*$/ListenAddress\ 0.0.0.0/ $target/etc/ssh/sshd_config
 #ainsl -a /etc/sysconfig/irqbalance 'ENABLED="0"'
 ainsl /etc/ssh/ssh_config 'HashKnownHosts yes'
 #ainsl /etc/ssh/ssh_config 'Compression yes'
@@ -41,7 +41,7 @@ ainsl /etc/ssh/ssh_config 'ServerAliveInterval 60'
 ainsl /etc/ssh/ssh_config 'ServerAliveCountMax 5'
 ainsl /etc/ssh/ssh_config 'ControlMaster auto'
 ainsl /etc/ssh/ssh_config 'ControlPath /tmp/ssh_mux_%h_%p_%r'
-ainsl /etc/ssh/ssh_config 'ControlPersist 4h'
+ainsl /etc/ssh/ssh_config 'ControlPersist 1h'
        
 sed -i 's/#Protocol 2/Protocol 2/' $target/etc/ssh/sshd_config
 sed -i 's/^#PermitRootLogin.*$/PermitRootLogin without-password/' $target/etc/ssh/sshd_config
@@ -49,8 +49,8 @@ sed -i 's/#PrintLastLog.*$/PrintLastLog yes/' $target/etc/ssh/sshd_config
 sed -i 's/X11Forwarding yes/X11Forwarding no/' $target/etc/ssh/sshd_config
 sed -i 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/' $target/etc/ssh/sshd_config
 ainsl /etc/ssh/sshd_config 'UseDNS no'
-ainsl /etc/ssh/sshd_config 'PrintMotd no'
-sed -i 's/^.*pam_motd.so/#&/' $target/etc/pam.d/sshd
+#ainsl /etc/ssh/sshd_config 'PrintMotd no'
+#sed -i 's/^.*pam_motd.so/#&/' $target/etc/pam.d/sshd
 ainsl /etc/bashrc 'force_color_prompt=yes'
 fcopy -iv /etc/systemd/timesyncd.conf
 #time setting

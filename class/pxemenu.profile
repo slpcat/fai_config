@@ -59,22 +59,6 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE CENTOS CENTOS7_64 XORG
 
-Name: pxe-centos-7-basic
-Description: CentOS 7 with minimal install
-Short: a very simple server, no xorg
-Long: We use the Debian nfsroot for installing the CentOS 7 OS.
-You should have a fast network connection, because most packages are
-downloaded from the internet.
-Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64
-
-Name: pxe-centos-6-basic
-Description: CentOS 6 with minimal install
-Short: a very simple server, no xorg
-Long: We use the Debian nfsroot for installing the CentOS 7 OS.
-You should have a fast network connection, because most packages are
-downloaded from the internet.
-Classes: INSTALL PXEBASE PXECENTOS6 CENTOS6_64
-
 Name: CentOS 7 KDE
 Description: CentOS 7 with KDE desktop
 Short: A normal KDE desktop, running CentOS 7
@@ -98,6 +82,22 @@ Long: We use the Debian nfsroot for installing the Ubuntu OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE DEMO PXETRUSTY TRUSTY TRUSTY64
+
+Name: pxe-centos-6-basic
+Description: CentOS 6 with minimal install
+Short: a very simple server, no xorg
+Long: We use the Debian nfsroot for installing the CentOS 7 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXECENTOS6 CENTOS6_64
+
+Name: pxe-centos-7-basic
+Description: CentOS 7 with minimal install
+Short: a very simple server, no xorg
+Long: We use the Debian nfsroot for installing the CentOS 7 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64
 
 Name: pxe-ubuntu-14.04-basic
 Description: Ubuntu 14.04 minimal installation
