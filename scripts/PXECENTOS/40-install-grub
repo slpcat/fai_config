@@ -12,7 +12,7 @@ else
 	exit 1
 fi
 touch $target/etc/default/grub
-ainsl /etc/default/grub 'GRUB_CMDLINE_LINUX_DEFAULT="elevator=deadline intel_pstate=disable thermal.off=1 idle=halt net.ifnames=0 biosdevname=0"'
+ainsl /etc/default/grub 'GRUB_CMDLINE_LINUX_DEFAULT="elevator=deadline vt.cur_default=50 intel_pstate=disable thermal.off=1 idle=halt net.ifnames=0 biosdevname=0"'
 ainsl /etc/default/grub 'GRUB_GFXMODE=1024x768'
 insl /etc/default/grub 'GRUB_GFXPAYLOAD_LINUX="$GRUB_GFXMODE"'
 

@@ -78,7 +78,7 @@ cat > $target/boot/grub/grub.conf <<-EOF
 	
 	title $title
 	  root $bootpart
-	  kernel $bootdir/vmlinuz-$version root=$ROOT_PARTITION ro vga=791 elevator=deadline intel_pstate=disable audit=1 thermal.off=1 idle=halt net.ifnames=0 biosdevname=0
+	  kernel $bootdir/vmlinuz-$version root=$ROOT_PARTITION ro vga=791 elevator=deadline vt.cur_default=50 intel_pstate=disable audit=1 thermal.off=1 idle=halt net.ifnames=0 biosdevname=0
 	  initrd $bootdir/$iname-$version.img
 	EOF
 

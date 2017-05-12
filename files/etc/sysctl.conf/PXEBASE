@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20170429
+# Revision: 20170511
 # /etc/sysctl.conf
 #
 
@@ -61,6 +61,9 @@ kernel.perf_event_paranoid=3
 #kernel.kexec_load_disabled = 1
 #Disable kernel module loading
 #kernel.modules_disabled=1
+# for rngd
+kernel.random.write_wakeup_threshold=3072
+kernel.perf_event_paranoid = 3
 
 #Part2: Memory
 
@@ -81,6 +84,7 @@ vm.overcommit_memory=1
 #vm.overcommit_ratio=50
 vm.oom_dump_tasks=0
 vm.oom_kill_allocating_task=1
+vm.max_map_count=262144
 vm.laptop_mode=5
 
 #Part3: Harware
@@ -114,6 +118,9 @@ net.core.busy_poll=50
 net.core.busy_read=100
 net.ipv4.tcp_autocorking=1
 net.ipv4.tcp_low_latency=1
+net.ipv4.neigh.default.gc_thresh1=30000
+net.ipv4.neigh.default.gc_thresh2=32000
+net.ipv4.neigh.default.gc_thresh3=32768
 # Disable packet forwarding
 net.ipv4.ip_forward=0
 #限制了接收新TCP连接侦听队列的大小
