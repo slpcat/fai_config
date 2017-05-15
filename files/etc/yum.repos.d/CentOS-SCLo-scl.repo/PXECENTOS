@@ -1,0 +1,28 @@
+# CentOS-SCLo-sclo.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/SCLo for more
+# information
+
+[centos-sclo-sclo]
+name=CentOS-7 - SCLo sclo
+baseurl=http://mirror.centos.org/centos/7/sclo/$basearch/sclo/
+gpgcheck=0
+enabled=0
+
+[centos-sclo-sclo-testing]
+name=CentOS-7 - SCLo sclo Testing
+baseurl=http://buildlogs.centos.org/centos/7/sclo/$basearch/sclo/
+gpgcheck=0
+enabled=0
+
+[centos-sclo-sclo-source]
+name=CentOS-7 - SCLo sclo Sources
+baseurl=http://vault.centos.org/centos/7/sclo/Source/sclo/
+gpgcheck=0
+enabled=0
+
+[centos-sclo-sclo-debuginfo]
+name=CentOS-7 - SCLo sclo Debuginfo
+baseurl=http://debuginfo.centos.org/centos/7/sclo/$basearch/
+gpgcheck=0
+enabled=0

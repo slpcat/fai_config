@@ -26,16 +26,19 @@ nfs-utils
 #pakchois
 ncurses-base # currently missing in the base file
 net-tools
+iptables-services
 mailx
 #yum-cron
 snoopy
 nscd
 wget
 powertop
+mtr
 smartmontools
 zsh
 lm_sensors
 tmux
+iftop
 iotop
 htop
 lynis

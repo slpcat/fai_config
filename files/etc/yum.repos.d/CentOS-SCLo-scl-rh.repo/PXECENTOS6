@@ -1,0 +1,28 @@
+# CentOS-SCLo-rh.repo
+#
+# Please see http://wiki.centos.org/SpecialInterestGroup/SCLo for more
+# information
+
+[centos-sclo-rh]
+name=CentOS-6 - SCLo rh
+baseurl=http://mirror.centos.org/centos/6/sclo/$basearch/rh/
+gpgcheck=0
+enabled=1
+
+[centos-sclo-rh-testing]
+name=CentOS-6 - SCLo rh Testing
+baseurl=http://buildlogs.centos.org/centos/6/sclo/$basearch/rh/
+gpgcheck=0
+enabled=0
+
+[centos-sclo-rh-source]
+name=CentOS-6 - SCLo rh Sources
+baseurl=http://vault.centos.org/centos/6/sclo/Source/rh/
+gpgcheck=0
+enabled=0
+
+[centos-sclo-rh-debuginfo]
+name=CentOS-6 - SCLo rh Debuginfo
+baseurl=http://debuginfo.centos.org/centos/6/sclo/$basearch/
+gpgcheck=0
+enabled=0

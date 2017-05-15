@@ -33,12 +33,14 @@ mailx
 snoopy
 nscd
 wget
+mtr
 irqbalance
 powertop
 smartmontools
 zsh
 lm_sensors
 tmux
+iftop
 iotop
 htop
 lynis
