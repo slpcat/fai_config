@@ -41,7 +41,7 @@ kexec-tools
 unhide
 lynis
 #arpon
-arpwatch
+#arpwatch
 sysstat
 libpam-cracklib
 aide

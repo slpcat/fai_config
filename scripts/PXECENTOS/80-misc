@@ -29,10 +29,14 @@ unlink $target/etc/systemd/system/dbus-org.freedesktop.NetworkManager.service
 unlink $target/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
 #unlink $target/etc/systemd/system/multi-user.target.wants/NetworkManager.service
 #unlink $target/etc/systemd/system/multi-user.target.wants/tuned.service
+unlink $target/etc/systemd/system/multi-user.target.wants/smartd.service
+unlink $target/etc/systemd/system/multi-user.target.wants/lm_sensors.service
+unlink $target/etc/systemd/system/multi-user.target.wants/ntpd.service
 $ROOTCMD chkconfig network on
 #enable rsyslogd
 ln -sf /usr/lib/systemd/system/rsyslog.service $target/etc/systemd/system/multi-user.target.wants/rsyslog.service
 ln -sf /usr/lib/systemd/system/nscd.service $target/etc/systemd/system/multi-user.target.wants/nscd.service
+ln -sf /usr/lib/systemd/system/systemd-timedated.service $target/etc/systemd/system/systemd-timedated.service
 sed -i 's/^After=.*$/After=network.service\ sshd-keygen.service/' $target/usr/lib/systemd/system/sshd.service
 #sed -i s/^#ListenAddress.*$/ListenAddress\ 0.0.0.0/ $target/etc/ssh/sshd_config
 #ainsl -a /etc/sysconfig/irqbalance 'ENABLED="0"'
@@ -60,6 +64,7 @@ fcopy -iv /etc/systemd/timesyncd.conf
 $ROOTCMD ln -s /lib/systemd/system/systemd-timesyncd.service /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
 $ROOTCMD systemctl start systemd-timedated
 $ROOTCMD timedatectl set-ntp true
+sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
 
 exit $error
 

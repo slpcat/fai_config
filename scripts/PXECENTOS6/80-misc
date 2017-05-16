@@ -30,7 +30,8 @@ unlink $target/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
 #unlink $target/etc/systemd/system/multi-user.target.wants/tuned.service
 #enable rsyslogd
 ln -sf /usr/lib/systemd/system/rsyslog.service $target/etc/systemd/system/multi-user.target.wants/rsyslog.service
-
+#snoopy
+ainsl -a /etc/ld.so.preload '/lib64/snoopy.so'
 #ainsl -a /etc/sysconfig/irqbalance 'ENABLED="0"'
 ainsl /etc/ssh/ssh_config 'HashKnownHosts yes'
 #ainsl /etc/ssh/ssh_config 'Compression yes'
@@ -48,6 +49,7 @@ sed -i 's/GSSAPIAuthentication yes/GSSAPIAuthentication no/' $target/etc/ssh/ssh
 ainsl /etc/ssh/sshd_config 'UseDNS no'
 #ainsl /etc/ssh/sshd_config 'PrintMotd no'
 #sed -i 's/^.*pam_motd.so/#&/' $target/etc/pam.d/sshd
+sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
 ainsl /etc/bashrc 'force_color_prompt=yes'
 ainsl /etc/sysconfig/init 'ACTIVE_CONSOLES=/dev/tty[1-2]'
 $ROOTCMD chkconfig kdump off
@@ -60,8 +62,9 @@ $ROOTCMD chkconfig mdmonitor off
 $ROOTCMD chkconfig netfs off
 $ROOTCMD chkconfig nfslock off
 $ROOTCMD chkconfig rsyslog on
-$ROOTCMD chkconfig arpwatch on
+#$ROOTCMD chkconfig arpwatch off
 $ROOTCMD chkconfig nscd on
 $ROOTCMD chkconfig psacct on
+$ROOTCMD chkconfig ntpd on
 
 exit $error

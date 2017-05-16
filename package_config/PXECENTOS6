@@ -46,7 +46,7 @@ htop
 lynis
 aide
 unhide
-arpwatch
+#arpwatch
 sysstat
 psacct
 
