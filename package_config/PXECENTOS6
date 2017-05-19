@@ -46,9 +46,11 @@ htop
 lynis
 aide
 unhide
+rkhunter
 #arpwatch
 sysstat
 psacct
+zabbix-agent
 
 #sendmail # only for C5 and C6
 

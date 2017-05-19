@@ -3,13 +3,6 @@
 if [ ! -f $target/etc/resolv.conf ]; then
     cp /etc/resolv.conf $target/etc
 fi
-#add epel repo
-#$ROOTCMD yum -y install pyliblzma
-#$ROOTCMD yum -y install epel-release
-#add remi repo
-#$ROOTCMD rpm -Uvh https://rpms.remirepo.net/enterprise/remi-release-7.rpm
-
-fcopy -iMr /etc/yum/yum.repos.d/
 
 if [ -n "$YUMPROXY" ]; then
     sed -i /^distroverpkg/a\proxy=$YUMPROXY $target/etc/yum.conf

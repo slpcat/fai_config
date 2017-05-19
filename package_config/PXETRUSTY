@@ -9,7 +9,9 @@ aria2
 postfix
 language-pack-en-base
 vim
-
+irqbalance
+mtr-tiny
+rkhunter
 
 PACKAGES install I386
 linux-image-generic initramfs-tools

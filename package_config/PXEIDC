@@ -13,7 +13,7 @@ iptables-persistent
 #cpufrequtils
 libpam-tmpdir
 #libpam-usb
-#rkhunter
+rkhunter
 acct
 #apparmor
 #apparmor-profiles
@@ -36,6 +36,7 @@ debsecan
 debsums
 #fail2ban
 #nftables
+mtr-tiny
 snoopy
 kexec-tools
 unhide

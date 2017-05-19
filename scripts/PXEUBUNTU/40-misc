@@ -41,6 +41,8 @@ if [ $FAI_ACTION = "install" -o $FAI_ACTION = "dirinstall" ] ; then
 fi
 
 ainsl -a /etc/fai/fai.conf "FAI_CONFIG_SRC=$FAI_CONFIG_SRC"
+ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
+ainsl /etc/fstab 'tmpfs   /dev/shm    tmpfs ro,noatime,nosuid,nodev,noexec  0   0'
 
 fcopy -Miv /etc/fai/fai.conf
 fcopy -iv /etc/rc.local
@@ -53,5 +55,7 @@ $ROOTCMD ln -s /lib/systemd/system/systemd-timesyncd.service /etc/systemd/system
 #$ROOTCMD timedatectl set-ntp true
 sed -i '/# The named pipe \/dev\/xconsole/,$d' $target/etc/rsyslog.conf
 #sed -i 's/^ENABLED.*$/ENABLED="0"/' $target/etc/default/irqbalance
+unlink $target/etc/systemd/system/multi-user.target.wants/smartd.service
+unlink $target/etc/systemd/system/multi-user.target.wants/lm-sensors.service
 
 exit $error

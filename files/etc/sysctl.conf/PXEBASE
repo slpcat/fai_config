@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20170511
+# Revision: 20170517
 # /etc/sysctl.conf
 #
 
@@ -15,13 +15,13 @@ kernel.panic_on_oops=1
 #kernel.sched_autogroup_enabled=1
 #kernel.sched_child_runs_first=1
 kernel.printk=0 4 0 0
-kernel.sched_min_granularity_ns=250000
 kernel.sched_latency_ns=5000000
-kernel.sched_wakeup_granularity_ns=1000000
 #kernel.sched_compat_yield=1
 #kernel.sched_cfs_bandwidth_slice_us=5000
-kernel.sched_migration_cost_ns=500000
-kernel.sched_nr_migrate=32
+#kernel.sched_migration_cost_ns=5000
+#kernel.sched_nr_migrate=32
+kernel.sched_min_granularity_ns=100000
+kernel.sched_wakeup_granularity_ns=15000
 kernel.sched_rr_timeslice_ms=20
 kernel.sched_rt_period_us=1000000
 kernel.sched_rt_runtime_us=950000
@@ -44,7 +44,7 @@ kernel.io_delay_type=3
 #kernel.ngroups_max=65536
 kernel.pty.max=8192
 #kernel.pty.reserve=1024
-kernel.perf_cpu_time_max_percent=0
+kernel.perf_cpu_time_max_percent=100
 kernel.numa_balancing=1
 # Avoid non-ancestor ptrace access to running processes and their credentials.
 kernel.yama.ptrace_scope=3

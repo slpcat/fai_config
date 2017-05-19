@@ -2,6 +2,9 @@ PACKAGES aptitude
 ubuntu-minimal
 #PPA support
 software-properties-common
+irqbalance
+mtr-tiny
+rkhunter
 
 PACKAGES install I386
 linux-image-generic initramfs-tools
