@@ -1,0 +1,39 @@
+[zfs]
+name=ZFS on Linux for EL7 - dkms
+baseurl=http://download.zfsonlinux.org/epel/7.3/$basearch/
+enabled=0
+metadata_expire=7d
+gpgcheck=0
+
+[zfs-kmod]
+name=ZFS on Linux for EL7 - kmod
+baseurl=http://download.zfsonlinux.org/epel/7.3/kmod/$basearch/
+enabled=0
+metadata_expire=7d
+gpgcheck=0
+
+[zfs-source]
+name=ZFS on Linux for EL7 - Source
+baseurl=http://download.zfsonlinux.org/epel/7.3/SRPMS/
+enabled=0
+gpgcheck=0
+
+[zfs-testing]
+name=ZFS on Linux for EL7 - dkms - Testing
+baseurl=http://download.zfsonlinux.org/epel-testing/7.3/$basearch/
+enabled=0
+metadata_expire=7d
+gpgcheck=0
+
+[zfs-testing-kmod]
+name=ZFS on Linux for EL7 - kmod - Testing
+baseurl=http://download.zfsonlinux.org/epel-testing/7.3/kmod/$basearch/
+enabled=0
+metadata_expire=7d
+gpgcheck=0
+
+[zfs-testing-source]
+name=ZFS on Linux for EL7 - Testing Source
+baseurl=http://download.zfsonlinux.org/epel-testing/7.3/SRPMS/
+enabled=0
+gpgcheck=0
