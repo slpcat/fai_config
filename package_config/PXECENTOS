@@ -50,6 +50,8 @@ rkhunter
 sysstat
 psacct
 zabbix-agent
+yum-plugin-versionlock
+yum-plugin-changelog
 
 #sendmail # only for C5 and C6
 
