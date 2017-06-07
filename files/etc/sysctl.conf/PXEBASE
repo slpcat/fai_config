@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20170517
+# Revision: 20170607
 # /etc/sysctl.conf
 #
 
@@ -118,9 +118,10 @@ net.core.busy_poll=50
 net.core.busy_read=100
 net.ipv4.tcp_autocorking=1
 net.ipv4.tcp_low_latency=1
-net.ipv4.neigh.default.gc_thresh1=30000
-net.ipv4.neigh.default.gc_thresh2=32000
-net.ipv4.neigh.default.gc_thresh3=32768
+net.ipv4.neigh.default.gc_thresh1=4096
+net.ipv4.neigh.default.gc_thresh2=8192
+net.ipv4.neigh.default.gc_thresh3=8192
+net.ipv4.neigh.default.gc_stale_time=600
 # Disable packet forwarding
 net.ipv4.ip_forward=0
 #限制了接收新TCP连接侦听队列的大小
@@ -132,11 +133,11 @@ net.core.netdev_max_backlog=32768
 #本地端口范围，缺省情况下很小：32768到61000
 net.ipv4.ip_local_port_range=1024 65535
 #tcp拥塞算法htcp
-#kernel4.9 bbr
+#kernel4.9 bbr,低于4.9使用htcp
 net.ipv4.tcp_congestion_control=htcp
 #显式拥塞通知，避免运营商路由器滥用
 net.ipv4.tcp_ecn=0
-#net.ipv4.tcp_ecn_fallback=0
+net.ipv4.tcp_ecn_fallback=0
 net.ipv4.tcp_sack=1
 net.ipv4.tcp_dsack=1
 net.ipv4.tcp_fack=1
@@ -196,8 +197,8 @@ net.core.rmem_max=16777216
 net.core.rmem_default=262144
 net.ipv4.tcp_rmem=32768 262144 16777216
 net.ipv4.udp_rmem_min=4096
-#遭遇SYN Flood时开启
-net.ipv4.tcp_syncookies=1
+#遭遇SYN Flood时开启,平时关闭
+net.ipv4.tcp_syncookies=0
 #重定向相关调整
 net.ipv4.conf.lo.accept_redirects=0
 net.ipv4.conf.all.accept_redirects=0
