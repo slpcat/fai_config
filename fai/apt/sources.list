@@ -35,7 +35,11 @@ deb-src http://nginx.org/packages/debian/ jessie nginx
 
 deb http://repo.zabbix.com/zabbix/3.2/debian/ jessie main
 
+#docker-engine
 #deb https://apt.dockerproject.org/repo debian-jessie main
+
+#docker-ce
+#deb [arch=amd64] https://download.docker.com/linux/debian jessie stable
 
 #deb https://pkg.jenkins.io/debian binary/
 
