@@ -61,4 +61,7 @@ unlink $target/etc/systemd/system/multi-user.target.wants/lm-sensors.service
 sed -i '/# The named pipe \/dev\/xconsole/,$d' $target/etc/rsyslog.conf
 #sed -i 's/^ENABLED.*$/ENABLED="0"/' $target/etc/default/irqbalance
 sed -i 's/^# auth       required   pam_wheel.so$/auth       required   pam_wheel.so group=adm use_uid/' $target/etc/pam.d/su
+fcopy -iM /etc/apt-fast.conf
+fcopy -iM /usr/bin/apt-fast
+chmod +x $target/usr/bin/apt-fast
 exit $error

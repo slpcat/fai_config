@@ -40,8 +40,4 @@ $ROOTCMD usermod -s /bin/zsh root
 chmod -c 1777 ${target}/tmp
 chown -c 0:0  ${target}/tmp
 
-fcopy -iM /etc/apt-fast.conf
-fcopy -iM /usr/bin/apt-fast
-chmod +x $target/usr/bin/apt-fast
-
 exit $error

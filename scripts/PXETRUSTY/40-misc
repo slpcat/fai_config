@@ -57,5 +57,8 @@ sed -i '/# The named pipe \/dev\/xconsole/,$d' $target/etc/rsyslog.conf
 sed -i '/^kernel.yama.ptrace_scope/d' $target/etc/sysctl.conf
 #sed -i 's/^ENABLED.*$/ENABLED="0"/' $target/etc/default/irqbalance
 sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
+fcopy -iM /etc/apt-fast.conf
+fcopy -iM /usr/bin/apt-fast
+chmod +x $target/usr/bin/apt-fast
 
 exit $error
