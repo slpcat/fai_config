@@ -50,3 +50,7 @@ Dedian8 grsecurity安全加固基本系统，Mysql服务器，web后端（LNP）
 内置RBAC规则集可以用于保卫生产环境安全nginx，apache，php，nfs，openvpn，sshd，rsyslog等。
 
 Debian系列是本光盘合集作者生产环境服务器部署的系统，各种先进特性予以优先支持，包括grsecurity内核与RBAC，bcc-tools动态追踪。
+详细安装步骤请参考：
+https://github.com/slpcat/handbook/raw/master/fai-project%E5%AE%89%E8%A3%85%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E6%8C%87%E5%8D%97.pdf
+系统配置优化，软件安装，安全加固等改动请参考：
+https://github.com/slpcat/handbook/raw/master/fai-project%E7%B3%BB%E7%BB%9F%E5%AE%89%E8%A3%85%E5%AE%9A%E5%88%B6%E7%AE%80%E4%BB%8B.pdf

@@ -8,5 +8,5 @@ $ROOTCMD cd /root
 $ROOTCMD wget -O snoopy-install.sh https://github.com/a2o/snoopy/raw/install/doc/install/bin/snoopy-install.sh
 $ROOTCMD chmod 755 snoopy-install.sh
 $ROOTCMD ./snoopy-install.sh stable
-$ROOTCMD rm -rf snoopy*
+rm -rf $target/snoopy*
 exit $error
