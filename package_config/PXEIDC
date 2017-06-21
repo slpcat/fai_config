@@ -15,9 +15,9 @@ libpam-tmpdir
 #libpam-usb
 rkhunter
 acct
-#apparmor
-#apparmor-profiles
-#apparmor-utils
+apparmor
+apparmor-profiles
+apparmor-utils
 #net-acct
 curl
 nscd

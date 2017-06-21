@@ -1,0 +1,5 @@
+[gitlab-ce]
+name=gitlab-ce
+baseurl=http://mirrors.tuna.tsinghua.edu.cn/gitlab-ce/yum/el7
+gpgcheck=0
+enabled=0

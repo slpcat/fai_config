@@ -1,0 +1,5 @@
+#! /bin/bash
+
+fcopy /etc/apt/sources.list.d/pve-install-repo.list
+sed -i /jessie-updates/d $target/etc/apt/sources.list
+sed -i /jessie-backports/d $target/etc/apt/sources.list

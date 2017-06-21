@@ -55,7 +55,7 @@ mkdir -p $target/etc/systemd/system/sysinit.target.wants
 ln -s /lib/systemd/system/systemd-timesyncd.service $target/etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
 ln -s /dev/null $target/etc/systemd/system/bluetooth.service
 unlink $target/lib/systemd/system/ctrl-alt-del.target
-unlink $target/etc/systemd/system/multi-user.target.wants/smartd.service
+#unlink $target/etc/systemd/system/multi-user.target.wants/smartd.service
 unlink $target/etc/systemd/system/multi-user.target.wants/lm-sensors.service
 #$ROOTCMD timedatectl set-ntp true
 sed -i '/# The named pipe \/dev\/xconsole/,$d' $target/etc/rsyslog.conf

@@ -17,17 +17,17 @@ fi
 fcopy -m root,root,600 /etc/audit/auditd.conf
 fcopy -m root,root,600 /etc/audit/audit.rules
 fcopy /etc/zsh/zlogin
-sed -i 's/^UMASK.*$/UMASK       077/' $target/etc/login.defs
+#sed -i 's/^UMASK.*$/UMASK       077/' $target/etc/login.defs
 #sed -i 's/^umask.*$/umask 077/' $target/etc/init.d/rc
-ainsl /etc/pam.d/common-session 'session optional pam_umask.so umask=077'
+#ainsl /etc/pam.d/common-session 'session optional pam_umask.so umask=077'
 ainsl -a /etc/modprobe.d/storage-blacklist.conf 'blacklist usb-storage'
 ainsl -a /etc/modprobe.d/storage-blacklist.conf 'blacklist firewire-ohci'
-ainsl -a /etc/modprobe.d/storage-blacklist.conf 'blacklist floppy'
-ainsl -a /etc/modprobe.d/pcspkr-blacklist.conf 'blacklist pcspkr'
+#ainsl -a /etc/modprobe.d/storage-blacklist.conf 'blacklist floppy'
+#ainsl -a /etc/modprobe.d/pcspkr-blacklist.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/bluetooth-blacklist.conf 'blacklist bluetooth'
 [ -n "$LOGSRV" ] && ainsl -a -q /etc/rsyslog.conf "*.*@$LOGSRV:514"
 #sed -i 's/^#FSCKFIX.*$/FSCKFIX=yes/' $target/etc/default/rcS
-ainsl /etc/default/rcS 'umask 077'
+#ainsl /etc/default/rcS 'umask 077'
 sed -i 's/^for FILE.*$/for FILE in passwd group ; do/' $target/etc/cron.daily/passwd
 # add  user account:hmuser
 
@@ -72,8 +72,8 @@ for disk in $disklist
         ainsl /etc/sysfs.conf "block/$disk/queue/rq_affinity = 2"
         ainsl /etc/sysfs.conf "block/$disk/cache_type = write\ back"
 done
-ainsl /etc/sysfs.conf 'kernel/mm/transparent_hugepage/enabled = never'
-ainsl /etc/sysfs.conf 'kernel/mm/ksm/run = 1'
+#ainsl /etc/sysfs.conf 'kernel/mm/transparent_hugepage/enabled = never'
+#ainsl /etc/sysfs.conf 'kernel/mm/ksm/run = 1'
 ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
 ainsl /etc/fstab 'tmpfs   /dev/shm    tmpfs ro,noatime,nosuid,nodev,noexec  0   0'
 #chmod 0711 $target/var/log
