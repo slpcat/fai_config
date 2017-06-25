@@ -28,7 +28,7 @@ kernel.sched_rt_runtime_us=950000
 kernel.sched_shares_window_ns=10000000
 kernel.sched_time_avg_ms=1000
 kernel.sched_tunable_scaling=2
-kernel.threads-max=16384
+kernel.threads-max=31312
 kernel.timer_migration=1
 kernel.shmmni=4096
 kernel.msgmnb=65536
@@ -63,7 +63,7 @@ kernel.perf_event_paranoid=3
 #kernel.modules_disabled=1
 # for rngd
 kernel.random.write_wakeup_threshold=3072
-kernel.perf_event_paranoid = 3
+kernel.perf_event_paranoid=3
 
 #Part2: Memory
 
@@ -80,10 +80,10 @@ vm.dirty_writeback_centisecs=60000
 vm.dirty_expire_centisecs=180000
 #PAE高位内存可以脏
 #vm.highmem_is_dirtyable=1
-vm.overcommit_memory=1
+vm.overcommit_memory=0
 #vm.overcommit_ratio=50
 vm.oom_dump_tasks=0
-vm.oom_kill_allocating_task=1
+vm.oom_kill_allocating_task=0
 vm.max_map_count=262144
 vm.laptop_mode=5
 

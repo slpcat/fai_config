@@ -1,0 +1,6 @@
+[gitlab-ci-multi-runner]
+name=gitlab-ci-multi-runner
+baseurl=https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/yum/el7
+repo_gpgcheck=0
+gpgcheck=0
+enabled=0
