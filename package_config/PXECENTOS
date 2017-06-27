@@ -20,6 +20,7 @@ vim-enhanced
 man
 curl
 #screen
+rsync
 unzip
 which
 nfs-utils
