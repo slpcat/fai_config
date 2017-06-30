@@ -26,6 +26,10 @@ deb-src http://nginx.org/packages/debian/ jessie nginx
 #deb [arch=amd64,i386] http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian jessie main
 #deb-src http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian jessie main
 
+#gitlab-runner
+#deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian jessie main
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian jessie main
+
 #Java 8
 #deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
 #deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
