@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20170621
+# Revision: 20170706
 # /etc/sysctl.conf
 #
 
@@ -131,7 +131,7 @@ net.ipv4.tcp_abort_on_overflow=1
 #该文件表示在每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许送到队列的数据包的最大数目。
 net.core.netdev_max_backlog=32768
 #本地端口范围，缺省情况下很小：32768到61000
-net.ipv4.ip_local_port_range=1024 65535
+net.ipv4.ip_local_port_range=10000 65535
 #tcp拥塞算法htcp
 #kernel4.9 bbr,低于4.9使用htcp
 net.ipv4.tcp_congestion_control=htcp
@@ -181,10 +181,10 @@ net.ipv4.tcp_adv_win_scale=2
 #每个socket buffer的最大补助缓存大小,默认10K(10240),也可调整到20k(20480),但建议保留
 net.core.optmem_max=65536
 #优化系统套接字缓冲区
-net.ipv4.tcp_mem=32768 262144 1677216
-net.core.wmem_max=16777216
+net.ipv4.tcp_mem=32768 262144 33554432
+net.core.wmem_max=67108864
 net.core.wmem_default=262144
-net.ipv4.tcp_wmem=32768 262144 16777216
+net.ipv4.tcp_wmem=4096 65536 33554432
 #该命令设定了三个值:最小值、初始值和最大值,第三个值必须小于或等于wmem_max和rmem_max。
 #Min：为TCP socket预留用于接收缓冲的内存数量，即使在内存出现紧张情况下TCP socket都至少
 #会有这么多数量的内存用于接收缓冲。
@@ -193,9 +193,9 @@ net.ipv4.tcp_wmem=32768 262144 16777216
 #tcp_app_win的 默认值情况下，TCP 窗口大小为65535。
 #Max：为TCP socket预留用于接收缓冲的内存最大值。
 net.ipv4.udp_wmem_min=4096
-net.core.rmem_max=16777216
+net.core.rmem_max=67108864
 net.core.rmem_default=262144
-net.ipv4.tcp_rmem=32768 262144 16777216
+net.ipv4.tcp_rmem=4096 87380 33554432
 net.ipv4.udp_rmem_min=4096
 #遭遇SYN Flood时开启,平时关闭
 net.ipv4.tcp_syncookies=0
