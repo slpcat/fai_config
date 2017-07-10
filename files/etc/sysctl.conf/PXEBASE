@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20170706
+# Revision: 20170710
 # /etc/sysctl.conf
 #
 
@@ -116,6 +116,11 @@ net.core.default_qdisc=fq_codel
 net.core.bpf_jit_enable=1
 net.core.busy_poll=50
 net.core.busy_read=100
+net.core.rps_sock_flow_entries=32768
+net.core.netdev_tstamp_prequeue=0
+net.core.dev_weight=600
+net.core.flow_limit_table_len=8192
+
 net.ipv4.tcp_autocorking=1
 net.ipv4.tcp_low_latency=1
 net.ipv4.neigh.default.gc_thresh1=4096
