@@ -110,6 +110,7 @@ fs.inotify.max_queued_events=1048576
 
 #Part5: Networking
 
+#Fair Queue CoDel packet scheduler to fight bufferbloat
 net.core.default_qdisc=fq_codel
 #net.ipv6.conf.all.disable_ipv6=1
 #net.ipv6.conf.lo.disable_ipv6=0
@@ -127,6 +128,8 @@ net.ipv4.neigh.default.gc_thresh1=4096
 net.ipv4.neigh.default.gc_thresh2=8192
 net.ipv4.neigh.default.gc_thresh3=8192
 net.ipv4.neigh.default.gc_stale_time=600
+net.ipv4.conf.all.promote_secondaries=1
+net.ipv4.conf.default.promote_secondaries=1
 # Disable packet forwarding
 net.ipv4.ip_forward=0
 #限制了接收新TCP连接侦听队列的大小
