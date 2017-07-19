@@ -42,7 +42,7 @@ fi
 
 ainsl -a /etc/fai/fai.conf "FAI_CONFIG_SRC=$FAI_CONFIG_SRC"
 ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
-ainsl /etc/fstab 'tmpfs   /dev/shm    tmpfs ro,noatime,nosuid,nodev,noexec  0   0'
+#ainsl /etc/fstab 'tmpfs   /dev/shm    tmpfs ro,noatime,nosuid,nodev,noexec  0   0'
 
 fcopy -Miv /etc/fai/fai.conf
 fcopy -iv /etc/rc.local
