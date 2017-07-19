@@ -29,64 +29,64 @@
 #-a exit,always -F arch=b64 -S mknod
 
 # watch on an audit configuration file
--w /etc/auditd.conf -p wa
--w /etc/audit.rules -p wa
--w /etc/libaudit.conf -p wa
+#-w /etc/auditd.conf -p wa
+#-w /etc/audit.rules -p wa
+#-w /etc/libaudit.conf -p wa
 #-w /etc/sysconfig/auditd -p wa
--w /etc/default/auditd -p wa
+#-w /etc/default/auditd -p wa
 ## login configuration and information
 
--w /etc/login.defs -p wa 
--w /etc/securetty -p wa 
--w /var/log/faillog -p wa
--w /var/log/lastlog -p wa
--w /var/log/tallylog -p wa
+#-w /etc/login.defs -p wa 
+#-w /etc/securetty -p wa 
+#-w /var/log/faillog -p wa
+#-w /var/log/lastlog -p wa
+#-w /var/log/tallylog -p wa
 
--w /etc/inittab -p wa  
--w /etc/init.d/ -p wa 
--w /etc/init.d/auditd -p wa  
+#-w /etc/inittab -p wa  
+#-w /etc/init.d/ -p wa 
+#-w /etc/init.d/auditd -p wa  
 ## cron configuration & scheduled jobs    
--w /etc/at.allow -p wa 
--w /etc/at.deny  -p wa
--w /etc/cron.d/ -p wa  
--w /etc/cron.daily/ -p wa  
--w /etc/cron.hourly/ -p wa  
--w /etc/cron.monthly/ -p wa  
--w /etc/cron.weekly/ -p wa  
--w /etc/crontab -p wa 
--w /etc/cron.allow -p wa
--w /etc/cron.deny -p wa
--w /var/spool/cron/root -p wa
+#-w /etc/at.allow -p wa 
+#-w /etc/at.deny  -p wa
+#-w /etc/cron.d/ -p wa  
+#-w /etc/cron.daily/ -p wa  
+#-w /etc/cron.hourly/ -p wa  
+#-w /etc/cron.monthly/ -p wa  
+#-w /etc/cron.weekly/ -p wa  
+#-w /etc/crontab -p wa 
+#-w /etc/cron.allow -p wa
+#-w /etc/cron.deny -p wa
+#-w /var/spool/cron/root -p wa
 
    
--w /etc/hosts -p wa  
--w /etc/sysconfig/ -p wa
--w /etc/modprobe.d/ -p wa
+#-w /etc/hosts -p wa  
+#-w /etc/sysconfig/ -p wa
+#-w /etc/modprobe.d/ -p wa
 
--w /etc/apparmor/ -p wa
--w /etc/apparmor.d/ -p wa
+#-w /etc/apparmor/ -p wa
+#-w /etc/apparmor.d/ -p wa
 
       
 #-w /var/log/yum.log 
--w /etc/issue -p wa 
--w /etc/issue.net -p wa 
+#-w /etc/issue -p wa 
+#-w /etc/issue.net -p wa 
 
 ## user, group, password databases
--w /etc/group -p wa 
--w /etc/gshadow -p wa
--w /etc/passwd -p wa 
--w /etc/shadow -p wa 
--w /etc/security/opasswd
--w /etc/sudoers -p wa 
+#-w /etc/group -p wa 
+#-w /etc/gshadow -p wa
+#-w /etc/passwd -p wa 
+#-w /etc/shadow -p wa 
+#-w /etc/security/opasswd
+#-w /etc/sudoers -p wa 
      
--w /etc/ssh/sshd_config -p wa
--w /etc/localtime -p wa      
--w /etc/bashrc -p wa 
--w /etc/profile -p wa 
--w /etc/profile.d/ -p wa
--w /etc/aliases -p wa 
--w /etc/sysctl.conf -p wa  
--w /etc/sysctl.d/ -p wa
+#-w /etc/ssh/sshd_config -p wa
+#-w /etc/localtime -p wa      
+#-w /etc/bashrc -p wa 
+#-w /etc/profile -p wa 
+#-w /etc/profile.d/ -p wa
+#-w /etc/aliases -p wa 
+#-w /etc/sysctl.conf -p wa  
+#-w /etc/sysctl.d/ -p wa
       
 # Disable adding any additional rules - note that adding *new* rules will require a reboot 
 #-e 2 
