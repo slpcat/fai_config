@@ -55,7 +55,7 @@ ainsl /etc/sysconfig/init 'ACTIVE_CONSOLES=/dev/tty[1-2]'
 $ROOTCMD chkconfig kdump off
 $ROOTCMD chkconfig iptables off
 $ROOTCMD chkconfig ip6tables off
-$ROOTCMD chkconfig auditd on
+#$ROOTCMD chkconfig auditd on
 $ROOTCMD chkconfig rpcbind off
 $ROOTCMD chkconfig rpcgssd off
 $ROOTCMD chkconfig mdmonitor off

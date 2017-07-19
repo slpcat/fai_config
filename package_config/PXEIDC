@@ -4,7 +4,7 @@ zabbix-agent
 #openntpd
 python-minimal
 sudo
-auditd
+#auditd
 apt-listchanges
 apt-transport-https
 apt-show-versions
