@@ -73,7 +73,10 @@ for disk in $disklist
         ainsl /etc/sysfs.conf "block/$disk/cache_type = write\ back"
 done
 #ainsl /etc/sysfs.conf 'kernel/mm/transparent_hugepage/enabled = never'
+
 #ainsl /etc/sysfs.conf 'kernel/mm/ksm/run = 1'
+#ainsl /etc/sysfs.conf 'kernel/mm/ksm/sleep_millisecs = 1000'
+
 ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
 #ainsl /etc/fstab 'tmpfs   /dev/shm    tmpfs ro,noatime,nosuid,nodev,noexec  0   0'
 #chmod 0711 $target/var/log

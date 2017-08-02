@@ -7,6 +7,7 @@ error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
 $ROOTCMD bash <(curl -Ss https://my-netdata.io/kickstart.sh) all --dont-wait
 cp $target/usr/src/netdata.git/system/netdata.service $target/lib/systemd/system/
 $ROOTCMD ln -s /lib/systemd/system/netdata.service /etc/systemd/system/multi-user.target.wants/netdata.service
-#sed -i/^DEFAULT_RECIPIENT_EMAIL/s/root/user@mail.com/ $target/etc/netdata/health_alarm_notify.conf
+#sed -i /^DEFAULT_RECIPIENT_EMAIL/s/root/user@mail.com/ $target/etc/netdata/health_alarm_notify.conf
+[ -n "$IPADDR" ] && sed -i "s/^.*bind\ to\ =\ \*$/\        bind\ to\ =\ $IPADDR/" $target/etc/netdata/netdata.conf 
 
 exit $error
