@@ -65,6 +65,9 @@ bind-address		= 127.0.0.1
 #skip-networking
 #skip_name_resolve = on
 
+#audit_log_rotate_on_size = 104857600
+#audit_log_rotations = 10
+
 # * Fine Tuning
 #
 #memlock
