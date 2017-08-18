@@ -61,13 +61,12 @@ http {
   #重定向使用域名(Host头)
   server_name_in_redirect on;
   server_names_hash_bucket_size 256;
-  connection_pool_size 4096;
+  #connection_pool_size 4096;
   disable_symlinks off;
   etag on;
   ignore_invalid_headers on;
   merge_slashes on;
   keepalive_disable msie6;
-  lingering_close on;
   client_header_buffer_size 4k;
   large_client_header_buffers 4 32k;
   client_header_timeout  1m;
@@ -75,15 +74,15 @@ http {
   reset_timedout_connection on;
   send_timeout           1m;
 	
-  open_file_cache max=2048 inactive=15m;
-  open_file_cache_valid 1m;
-  open_file_cache_min_uses 1;
+  open_file_cache max=1000 inactive=20s;
+  open_file_cache_valid 30s;
+  open_file_cache_min_uses 2;
   open_file_cache_errors on;
   read_ahead 128k;
   sendfile        on;
   sendfile_max_chunk 512k;
   aio threads=default;
-# aio_write on;
+  aio_write on;
 # aio sendfile;
 # aio threads;
 # directio 4m;
@@ -92,11 +91,10 @@ http {
   client_max_body_size 100m;
   client_body_buffer_size 8m;
   types_hash_max_size 2048;
-  request_pool_size 4k;
+  #request_pool_size 4k;
   keepalive_timeout  60;
-  keepalive_requests 8192;    
-  lingering_time              5;
-  lingering_timeout           5;
+  keepalive_requests 5000;    
+  lingering_close on;
   recursive_error_pages      on;
   output_buffers 8 64k;
   postpone_output 1460;
@@ -109,20 +107,20 @@ http {
   fastcgi_buffers 16           256k;
   fastcgi_busy_buffers_size    256k;
   fastcgi_temp_file_write_size 256k;
-#  fastcgi_temp_path  /var/tmp/fastcgi_temp;
-#  client_body_temp_path  /var/tmp/client_body_temp;
-#  fastcgi_cache_path /var/run/nginx/fastcgi_cache levels=2:2 keys_zone=TEST:320m inactive=16m max_size=2g;
-#  fastcgi_cache 	TEST;
-#  fastcgi_cache_key  unix:/var/run/php-fpm.sock$request_uri;
-#  fastcgi_cache_key  127.0.0.1:9000$request_uri;
-#  fastcgi_cache_key  $request_method://$host$request_uri;
-  fastcgi_cache_methods  POST;
-  fastcgi_cache_valid 200 302 1h;
-  fastcgi_cache_valid 301 2h;
-  fastcgi_cache_valid any 1m;
-  fastcgi_cache_min_uses 1;
-  fastcgi_cache_use_stale error timeout invalid_header http_500;
-  fastcgi_keep_conn on;
+  #fastcgi_temp_path  /var/tmp/fastcgi_temp;
+  #client_body_temp_path  /var/tmp/client_body_temp;
+  #fastcgi_cache_path /var/run/nginx/fastcgi_cache levels=2:2 keys_zone=TEST:320m inactive=16m max_size=2g;
+  #fastcgi_cache 	TEST;
+  #fastcgi_cache_key  unix:/var/run/php-fpm.sock$request_uri;
+  #fastcgi_cache_key  127.0.0.1:9000$request_uri;
+  #fastcgi_cache_key  $request_method://$host$request_uri;
+  #fastcgi_cache_methods  POST;
+  #fastcgi_cache_valid 200 302 1h;
+  #fastcgi_cache_valid 301 2h;
+  #fastcgi_cache_valid any 1m;
+  #fastcgi_cache_min_uses 1;
+  #fastcgi_cache_use_stale error timeout invalid_header http_500;
+  #fastcgi_keep_conn on;
  
   #proxy_cache仅用于前端反向代理，后端关掉避免浪费内存
   #proxy_cache_path  /var/lib/nginx/tmp/proxy_cache  levels=2:2 keys_zone=proxy_cache:512m inactive=2d max_size=8g;
@@ -171,23 +169,23 @@ http {
   #gzip_vary on;
 
   #保持的并发(同时)连接数限制，指的是established tcp状态数量，http2和SPDY的并发请求(concurrent request)被当作一个连接。
-  limit_conn_zone $binary_remote_addr zone=conn_perip:5m;
-  limit_conn_zone $server_name zone=conn_perserver:2m;
-  limit_conn_status 404;
-  limit_conn_log_level error;
-  limit_req_zone $binary_remote_addr zone=req_perip:2m rate=600r/m;
-  limit_req_zone $server_name zone=req_perserver:2m rate=2000r/s;
-  limit_req_status 404;
-  limit_req_log_level error;
+  #limit_conn_zone $binary_remote_addr zone=conn_perip:5m;
+  #limit_conn_zone $server_name zone=conn_perserver:2m;
+  #limit_conn_status 404;
+  #limit_conn_log_level error;
+  #limit_req_zone $binary_remote_addr zone=req_perip:2m rate=600r/m;
+  #limit_req_zone $server_name zone=req_perserver:2m rate=2000r/s;
+  #limit_req_status 404;
+  #limit_req_log_level error;
 #server {
 #    ...
 #    limit_req zone=perip burst=5 nodelay;
 #    limit_req zone=perserver burst=10;
 #}
   #每个http request请求限速，单位字节每秒，单个IP的速率= limit_rate * conns
-  limit_rate 4k;
+  #limit_rate 4k;
   #传送给客户端多少字节后触发限速
-  limit_rate_after 100m;
+  #limit_rate_after 100m;
 
 #server {
 #    	limit_conn perip 10;

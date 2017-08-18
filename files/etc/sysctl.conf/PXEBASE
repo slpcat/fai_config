@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20170710
+# Revision: 20170818
 # /etc/sysctl.conf
 #
 
@@ -28,7 +28,7 @@ kernel.sched_rt_runtime_us=950000
 kernel.sched_shares_window_ns=10000000
 kernel.sched_time_avg_ms=1000
 kernel.sched_tunable_scaling=2
-kernel.threads-max=31312
+kernel.threads-max=1024000
 kernel.timer_migration=1
 kernel.shmmni=4096
 kernel.msgmnb=65536
@@ -168,7 +168,7 @@ net.ipv4.conf.default.log_martians=1
 #但是对于Squid，效果却不大。此项参数可以控制TIME_WAIT套接字的最大数量，避免Squid服务器被大量的TIME_WAIT套接字拖死
 net.ipv4.tcp_max_tw_buckets=262144
 #减少处于FIN-WAIT-2连接状态的时间，使系统可以处理更多的连接。
-net.ipv4.tcp_fin_timeout=30
+net.ipv4.tcp_fin_timeout=10
 #TCP KeepAlive连接侦测的时间，使系统可以处理更多的连接。
 net.ipv4.tcp_keepalive_time=120
 #表示从不再传送数据到向连接上发送保持连接信号之间所需的秒数。
