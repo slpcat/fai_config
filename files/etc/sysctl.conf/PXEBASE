@@ -63,7 +63,6 @@ kernel.perf_event_paranoid=3
 #kernel.modules_disabled=1
 # for rngd
 kernel.random.write_wakeup_threshold=3072
-kernel.perf_event_paranoid=3
 
 #Part2: Memory
 
@@ -141,10 +140,10 @@ net.core.netdev_max_backlog=32768
 #本地端口范围，缺省情况下很小：32768到61000
 net.ipv4.ip_local_port_range=10000 65535
 #tcp拥塞算法htcp
-#kernel4.9 bbr,低于4.9使用htcp
+#kernel3.18 dctcp,kernel4.9 bbr,更低版本使用htcp
 net.ipv4.tcp_congestion_control=htcp
 #显式拥塞通知，避免运营商路由器滥用
-net.ipv4.tcp_ecn=0
+net.ipv4.tcp_ecn=1
 net.ipv4.tcp_ecn_fallback=0
 net.ipv4.tcp_sack=1
 net.ipv4.tcp_dsack=1
