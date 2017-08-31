@@ -10,7 +10,6 @@ procinfo numactl dialog
 console-common kbd
 iproute2 netselect moreutils udev subversion
 xz-utils
-dbus
 pxelinux syslinux-common # in jessie we need both
 curl wget- netcat-traditional
 ca-certificates # for get-config-dir-https

@@ -1,38 +1,39 @@
-deb http://mirrors.aliyun.com/debian jessie main contrib non-free
-deb-src http://mirrors.aliyun.com/debian jessie main contrib non-free
+deb http://mirrors.aliyun.com/debian stretch main contrib non-free
+deb-src http://mirrors.aliyun.com/debian stretch main contrib non-free
 
-deb http://mirrors.aliyun.com/debian jessie-updates main contrib non-free
-deb-src http://mirrors.aliyun.com/debian jessie-updates main contrib non-free
+deb http://mirrors.aliyun.com/debian stretch-updates main contrib non-free
+deb-src http://mirrors.aliyun.com/debian stretch-updates main contrib non-free
 
-deb http://mirrors.aliyun.com/debian-security jessie/updates main contrib non-free
-deb-src http://mirrors.aliyun.com/debian-security jessie/updates main contrib non-free
+deb http://mirrors.aliyun.com/debian-security stretch/updates main contrib non-free
+deb-src http://mirrors.aliyun.com/debian-security stretch/updates main contrib non-free
 
-deb http://mirrors.aliyun.com/debian jessie-backports main contrib non-free
-deb-src http://mirrors.aliyun.com/debian jessie-backports main contrib non-free
+deb http://mirrors.aliyun.com/debian stretch-backports main contrib non-free
+deb-src http://mirrors.aliyun.com/debian stretch-backports main contrib non-free
 
-deb http://nginx.org/packages/debian/ jessie nginx
-deb-src http://nginx.org/packages/debian/ jessie nginx
+deb http://nginx.org/packages/debian/ stretch nginx
+deb-src http://nginx.org/packages/debian/ stretch nginx
 
-#deb http://packages.dotdeb.org jessie all
-#deb-src http://packages.dotdeb.org jessie all
+#deb http://packages.dotdeb.org stretch all
+#deb-src http://packages.dotdeb.org stretch all
 
-#deb http://packages.dotdeb.org jessie-nginx-http2 all
-#deb-src http://packages.dotdeb.org jessie-nginx-http2 all
+#deb http://packages.dotdeb.org stretch-nginx-http2 all
+#deb-src http://packages.dotdeb.org stretch-nginx-http2 all
 
-#deb https://packages.sury.org/php/ jessie main
+#old php 
+#deb https://packages.sury.org/php/ stretch main
 
 # MariaDB 10.1 repository list - created 2016-12-05 06:07 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
-#deb [arch=amd64,i386] http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian jessie main
-#deb-src http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian jessie main
+#deb [arch=amd64,i386] http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian stretch main
+#deb-src http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian stretch main
 
 # Percona releases, stable
-#deb http://repo.percona.com/apt jessie main
-#deb-src http://repo.percona.com/apt jessie main
+#deb http://repo.percona.com/apt stretch main
+#deb-src http://repo.percona.com/apt stretch main
 
 #gitlab-runner
-#deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian jessie main
-#deb-src https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian jessie main
+#deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian stretch main
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian stretch main
 
 #Java 8
 #deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
@@ -44,13 +45,13 @@ deb-src http://nginx.org/packages/debian/ jessie nginx
 #graylog
 #deb https://packages.graylog2.org/repo/debian/ stable 2.3
 
-deb http://repo.zabbix.com/zabbix/3.2/debian/ jessie main
+deb http://repo.zabbix.com/zabbix/3.4/debian/ stretch main
 
 #docker-engine
-#deb https://apt.dockerproject.org/repo debian-jessie main
+#deb https://apt.dockerproject.org/repo debian-stretch main
 
 #docker-ce
-#deb [arch=amd64] https://download.docker.com/linux/debian jessie stable
+#deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
 
 #deb https://pkg.jenkins.io/debian binary/
 
@@ -62,5 +63,5 @@ deb http://repo.zabbix.com/zabbix/3.2/debian/ jessie main
 #sysdig
 #deb http://download.draios.com/stable/deb stable-$(ARCH)/
 
-# repository that may contain newer fai packages for jessie
-deb [trusted=yes] http://fai-project.org/download jessie koeln
+# repository that may contain newer fai packages for stretch
+deb [trusted=yes] http://fai-project.org/download stretch koeln
