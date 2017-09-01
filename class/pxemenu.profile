@@ -148,7 +148,7 @@ Description: proxmox server virtualization
 Short: proxmox host
 Long: Proxmox Virtual Environment is a complete server virtualization management solution, based on KVM and container virtualization.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PROXMOX4
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PROXMOX4
 
 Name: pxe-gitlab-server
 Description: pxe gitlab server installation after reboot
@@ -162,35 +162,70 @@ Description: basic server installation with grsecurity/pax
 Short: a very simple server with security , no xorg
 Long: This is the base system for highest security.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE GRSEC PXEDEBIAN PXEIDC
+Classes: INSTALL PXEBASE GRSEC JESSIE64 PXEIDC
 
 Name: grsec-nginx-server-backend
 Description: webserver with grsecurity/pax nginx and php5 installation
 Short:  nginx php5 for web backend for highest security.
 Long: This is the webserver with nginx and php5 installation.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE GRSEC PXEDEBIAN PXEIDC PXENGINXBACKEND
+Classes: INSTALL PXEBASE GRSEC JESSIE64 PXEIDC PXENGINXBACKEND
 
 Name: grsec-mysql-server
 Description: MariaDB 10.0 server with grsecurity/pax
 Short: This is the mysql server for highest security.
 Long: This is the mysql server.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE GRSEC PXEDEBIAN PXEIDC PXEMYSQL
+Classes: INSTALL PXEBASE GRSEC JESSIE64 PXEIDC PXEMYSQL
 
 Name: grsec-LNMP-webserver
 Description: webserver with grsecurity/pax, nginx, mysql and php5 installation
 Short:  nginx mysql php5 webserver for highest security.
 Long: This is the webserver with nginx, mysql and php5 installation.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE GRSEC PXEDEBIAN PXEIDC PXENGINXBACKEND PXEMYSQL
+Classes: INSTALL PXEBASE GRSEC JESSIE64 PXEIDC PXENGINXBACKEND PXEMYSQL
 
 Name: RBAC-basic-server
 Description: basic server installation with grsecurity/pax RBAC
 Short: a very simple server with RBAC security , no xorg
 Long: This is the base system for highest security.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE GRSEC PXEDEBIAN PXEIDC GRSEC_RBAC
+Classes: INSTALL PXEBASE GRSEC JESSIE64 PXEIDC GRSEC_RBAC
+
+Name: debian8-basic-server
+Description: pxe basic server installation
+Short: a very simple server, no xorg
+Long: This is the base system .
+Additional account called hmuser with password: hmuserpwd
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC
+
+Name: debian8-nginx-server-backend
+Description: webserver with nginx and php5 installation
+Short:  nginx php5 for web backend
+Long: This is the webserver with nginx and php5 installation.
+Additional account called hmuser with password: hmuserpwd
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXENGINXBACKEND
+
+Name: debian8-mysql-server
+Description: MariaDB 10.0 server
+Short: This is the mysql server
+Long: This is the mysql server.
+Additional account called hmuser with password: hmuserpwd
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXEMYSQL
+
+Name: debian8-LNMP-webserver
+Description: webserver with nginx, mysql and php5 installation
+Short:  nginx mysql php5 webserver
+Long: This is the webserver with nginx, mysql and php5 installation.
+Additional account called hmuser with password: hmuserpwd
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXENGINXBACKEND PXEMYSQL
+
+Name: debian8-proxmox4-prepare
+Description: proxmox server virtualization
+Short: proxmox host
+Long: Proxmox Virtual Environment is a complete server virtualization management solution, based on KVM and container virtualization.
+Additional account called hmuser with password: hmuserpwd
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PROXMOX4
 
 Name: Inventory
 Description: Show hardware info

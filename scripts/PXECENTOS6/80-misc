@@ -19,17 +19,17 @@ fi
 #ln -sf /dev/null $target/etc/systemd/system/multi-user.target.wants/kdump.service
 #ln -sf /dev/null $target/etc/systemd/system/gssproxy.service
 #ln -sf /dev/null $target/etc/systemd/system/polkit.service
-ln -sf /dev/null $target/etc/systemd/system/network-online.service
-unlink $target/etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service
-unlink $target/etc/systemd/system/basic.target.wants/firewalld.service
+#ln -sf /dev/null $target/etc/systemd/system/network-online.service
+#unlink $target/etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service
+#unlink $target/etc/systemd/system/basic.target.wants/firewalld.service
 #unlink $target/etc/systemd/system/multi-user.target.wants/wpa_supplicant.service
 #unlink $target/etc/systemd/system/multi-user.target.wants/auditd.service
-unlink $target/etc/systemd/system/dbus-org.freedesktop.NetworkManager.service
-unlink $target/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
+#unlink $target/etc/systemd/system/dbus-org.freedesktop.NetworkManager.service
+#unlink $target/etc/systemd/system/dbus-org.freedesktop.nm-dispatcher.service
 #unlink $target/etc/systemd/system/multi-user.target.wants/NetworkManager.service
 #unlink $target/etc/systemd/system/multi-user.target.wants/tuned.service
 #enable rsyslogd
-ln -sf /usr/lib/systemd/system/rsyslog.service $target/etc/systemd/system/multi-user.target.wants/rsyslog.service
+#ln -sf /usr/lib/systemd/system/rsyslog.service $target/etc/systemd/system/multi-user.target.wants/rsyslog.service
 #snoopy
 ainsl -a /etc/ld.so.preload '/lib64/snoopy.so'
 #ainsl -a /etc/sysconfig/irqbalance 'ENABLED="0"'
@@ -52,6 +52,8 @@ ainsl /etc/ssh/sshd_config 'UseDNS no'
 sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
 ainsl /etc/bashrc 'force_color_prompt=yes'
 ainsl /etc/sysconfig/init 'ACTIVE_CONSOLES=/dev/tty[1-2]'
+#clock use UTC
+$ROOTCMD hwclock -s --utc
 $ROOTCMD chkconfig kdump off
 $ROOTCMD chkconfig iptables off
 $ROOTCMD chkconfig ip6tables off

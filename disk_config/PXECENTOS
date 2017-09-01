@@ -10,8 +10,7 @@ disk_config disk1 disklabel:msdos bootable:1 fstabkey:label
 #primary /      350      ext3  rw,noatime,errors=remount-ro createopts="-L ROOT -I 128"
 
 # use following line for CentOS 7
-primary /      8G-24G    ext4  rw,noatime,nobarrier,errors=remount-ro createopts="-L ROOT"
-
+primary /      8G-24G    ext4  rw,noatime,nobarrier,errors=remount-ro createopts="-L ROOT" tuneopts="-c 0 -i 0 -O ^metadata_csum"
 logical swap   1G-32G swap  sw                           createopts="-L SWAP"
-logical /tmp   256-2G   ext4  rw,noatime,nobarrier,nosuid,nodev      createopts="-L TMP -m 0" tuneopts="-c 0 -i 0"
-logical /data  1G-80%  ext4  rw,noatime,nobarrier,nosuid,nodev      createopts="-L DATA -m 1" tuneopts="-c 0 -i 0"
+logical /tmp   256-2G   ext4  rw,noatime,nobarrier,nosuid,nodev      createopts="-L TMP -m 0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+logical /data  1G-80%  ext4  rw,noatime,nobarrier,nosuid,nodev      createopts="-L DATA -m 1" tuneopts="-c 0 -i 0 -O ^metadata_csum"

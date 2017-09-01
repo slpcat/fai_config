@@ -6,20 +6,18 @@ fi
 
 if [ -n "$YUMPROXY" ]; then
     sed -i /^distroverpkg/a\proxy=$YUMPROXY $target/etc/yum.conf
-    sed -i /^distroverpkg/a\color=always $target/etc/yum.conf
-    sed -i /^distroverpkg/a\async=true $target/etc/yum.conf
-    sed -i /^distroverpkg/a\deltarpm=0 $target/etc/yum.conf
-    sed -i s/^mirrorlist/#mirrorlist/ $target/etc/yum.repos.d/CentOS-Base.repo
-    sed -i s/^#baseurl/baseurl/ $target/etc/yum.repos.d/CentOS-Base.repo
-    #sed -i s/^mirrorlist/#mirrorlist/ $target/etc/yum.repos.d/epel.repo
-    #sed -i s/^#baseurl/baseurl/ $target/etc/yum.repos.d/epel.repo
-    sed -i '6 s/^enabled.*$/enabled=1/' $target/etc/yum.repos.d/epel.repo
-#    sed -i s/^mirrorlist/#mirrorlist/ $target/etc/yum.repos.d/remi*
-#    sed -i s/^#baseurl/baseurl/ $target/etc/yum.repos.d/remi*
 else
     sed -i /^proxy/d $target/etc/yum.conf
 fi
 
+sed -i /^distroverpkg/a\color=always $target/etc/yum.conf
+sed -i /^distroverpkg/a\async=true $target/etc/yum.conf
+sed -i /^distroverpkg/a\deltarpm=0 $target/etc/yum.conf
+#sed -i s/^mirrorlist/#mirrorlist/ $target/etc/yum.repos.d/epel.repo
+#sed -i s/^#baseurl/baseurl/ $target/etc/yum.repos.d/epel.repo
+sed -i '6 s/^enabled.*$/enabled=1/' $target/etc/yum.repos.d/epel.repo
+#sed -i s/^mirrorlist/#mirrorlist/ $target/etc/yum.repos.d/remi*
+#sed -i s/^#baseurl/baseurl/ $target/etc/yum.repos.d/remi*
 
 if [ X$verbose = X1 ]; then
 	echo "Updating base"

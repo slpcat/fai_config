@@ -23,8 +23,60 @@ aria2
 xz-utils
 vim-nox
 man
-#gcc-4.8-base-
-#linux-base/jessie-backports
+
+PACKAGES aptitude PXEUBUNTU
+fai-client
+dbus
+debconf-utils
+ca-certificates
+file
+less
+linuxlogo
+#rdate
+rsync
+openssh-client openssh-server
+time
+procinfo
+#nullmailer
+postfix
+bsd-mailx
+#eject
+locales
+console-setup kbd
+pciutils usbutils
+#apt-fast
+aria2
+xz-utils
+vim-nox
+gcc-4.8-base
+man
+
+PACKAGES aptitude JESSIE64
+fai-client
+dbus
+debconf-utils
+ca-certificates
+file
+less
+linuxlogo
+#rdate
+rsync
+openssh-client openssh-server
+time
+procinfo
+#nullmailer
+postfix
+bsd-mailx
+#eject
+locales
+console-setup kbd
+pciutils usbutils
+#apt-fast
+aria2
+xz-utils
+vim-nox
+man
+
 PACKAGES aptitude PXEUBUNTU
 fai-client
 dbus

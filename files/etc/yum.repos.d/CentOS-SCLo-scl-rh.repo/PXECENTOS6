@@ -7,7 +7,7 @@
 name=CentOS-6 - SCLo rh
 baseurl=http://mirror.centos.org/centos/6/sclo/$basearch/rh/
 gpgcheck=0
-enabled=1
+enabled=0
 
 [centos-sclo-rh-testing]
 name=CentOS-6 - SCLo rh Testing

@@ -11,16 +11,7 @@ else
 	echo "disk_var.sh not found!"
 	exit 1
 fi
-touch $target/etc/default/grub
-ainsl /etc/default/grub 'GRUB_CMDLINE_LINUX_DEFAULT="elevator=deadline vt.cur_default=50 intel_pstate=disable thermal.off=1 idle=halt net.ifnames=0 biosdevname=0"'
-ainsl /etc/default/grub 'GRUB_GFXMODE=1024x768'
-ainsl /etc/default/grub 'GRUB_GFXPAYLOAD_LINUX="$GRUB_GFXMODE"'
 
-# disable os-prober because of #788062
-ainsl /etc/default/grub 'GRUB_DISABLE_OS_PROBER=true'
-
-ainsl /etc/grub.d/40_custom 'set menu_color_normal=cyan/blue'
-ainsl /etc/grub.d/40_custom 'set menu_color_highlight=white/blue'
 
 # CentOS 7 does not have a device.map file, so generate one
 if [ -d $target/boot/grub2 -a ! -f $target/boot/grub2/device.map ]; then
@@ -57,11 +48,11 @@ else
 $ROOTCMD grub-install --just-copy
 
 $ROOTCMD grub --device-map=/dev/null --no-floppy --batch <<-EOF
-	device $bootdev $BOOT_DEVICE
-	root $bootpart
-	setup $bootdev
-	quit
-	EOF
+device $bootdev $BOOT_DEVICE
+root $bootpart
+setup $bootdev
+quit
+EOF
 
 ln -s ./menu.lst $target/boot/grub/grub.conf
 
