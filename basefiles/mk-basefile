@@ -17,9 +17,9 @@
 
 # Define your local mirros here
 # For the first stage, set the CentOS/SLC mirror in /etc/rinse/rinse.conf
-MIRROR_DEBIAN=http://httpredir.debian.org/debian/
-MIRROR_UBUNTU=http://mirror.netcologne.de/ubuntu/
-MIRROR_CENTOS=http://mirror.netcologne.de/
+MIRROR_DEBIAN=http://mirrors.aliyun.com/debian/
+MIRROR_UBUNTU=http://mirrors.aliyun.com/ubuntu/
+MIRROR_CENTOS=http://mirrors.aliyun.com/
 
 EXCLUDE_SQUEEZE=isc-dhcp-client,isc-dhcp-common,info,tasksel,tasksel-data
 EXCLUDE_WHEEZY=info,tasksel,tasksel-data

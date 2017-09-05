@@ -11,7 +11,7 @@ echo force-unsafe-io > $target/etc/dpkg/dpkg.cfg.d/unsafe-io
 
 ainsl -a /etc/apt/apt.conf.d/03download 'Acquire::Queue-Mode "access";'
 ainsl /etc/apt/apt.conf.d/03download 'Acquire::Retries "3";'
-ainsl /etc/apt/apt.conf.d/03download 'Acquire::CompressionTypes::Order { "lzma"; "gz"; };'
+ainsl /etc/apt/apt.conf.d/03download 'Acquire::CompressionTypes::Order "lzma";'
 ainsl /etc/apt/apt.conf.d/03download 'Acquire::ForceIPv4 "true";'
 ainsl /etc/apt/apt.conf.d/70debconf 'APT::ExtractTemplates::TempDir "/var/tmp";'
 # you may want to add i386 arch to amd64 hosts

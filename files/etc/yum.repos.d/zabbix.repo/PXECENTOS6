@@ -1,6 +1,6 @@
 [zabbix]
 name=Zabbix Official Repository - $basearch
-baseurl=http://repo.zabbix.com/zabbix/3.2/rhel/6/$basearch/
+baseurl=http://repo.zabbix.com/zabbix/3.4/rhel/6/$basearch/
 enabled=1
 gpgcheck=0
 

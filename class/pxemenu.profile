@@ -143,17 +143,10 @@ Long: This is the webserver with nginx, mysql and php5 installation.
 Additional account called hmuser with password: hmuserpwd
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND PXEMYSQL
 
-Name: pxe-proxmox4-prepare
-Description: proxmox server virtualization
-Short: proxmox host
-Long: Proxmox Virtual Environment is a complete server virtualization management solution, based on KVM and container virtualization.
-Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC PROXMOX4
-
 Name: pxe-gitlab-server
-Description: pxe gitlab server installation after reboot
-Short: a very simple server, no xorg
-Long: This is the base system .
+Description: gitlab server installation 
+Short: gitlab server 
+Long: This is the gitlab server from offical website.
 Additional account called hmuser with password: hmuserpwd
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXEGITLAB
 
