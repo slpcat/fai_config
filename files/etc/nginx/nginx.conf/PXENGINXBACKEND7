@@ -196,7 +196,7 @@ http {
    
 #请求速率超限屏蔽客户端功能由modsecurity的DOS规则实现
 upstream fpm_backend {
-server  unix:/var/run/php5-fpm.sock;
+server  unix:/run/php/php7.1-fpm.sock;
 #保持的连接数=php-fpm-worker进程总数乘以keepalive值
 keepalive 16;
 }
