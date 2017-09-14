@@ -6,7 +6,6 @@ python-minimal
 sudo
 #auditd
 apt-listchanges
-apt-transport-https
 apt-show-versions
 sysfsutils
 iptables-persistent

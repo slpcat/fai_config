@@ -123,11 +123,11 @@ Additional account called hmuser with password: hmuserpwd
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC
 
 Name: pxe-nginx-server-backend
-Description: webserver with nginx and php5 installation
-Short:  nginx php5 for web backend
-Long: This is the webserver with nginx and php5 installation.
+Description: webserver with nginx and php7.1 installation
+Short:  nginx php7.1 for web backend
+Long: This is the webserver with nginx and php7.1 installation.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND7
 
 Name: pxe-mysql-server
 Description: MariaDB 10.0 server
@@ -137,18 +137,18 @@ Additional account called hmuser with password: hmuserpwd
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXEMYSQL
 
 Name: pxe-LNMP-webserver
-Description: webserver with nginx, mysql and php5 installation
-Short:  nginx mysql php5 webserver
-Long: This is the webserver with nginx, mysql and php5 installation.
+Description: webserver with nginx, mysql and php7.1 installation
+Short:  nginx mysql php7.1 webserver
+Long: This is the webserver with nginx, mysql and php7.1 installation.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND PXEMYSQL
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND7 PXEMYSQL
 
 Name: pxe-gitlab-server
 Description: gitlab server installation 
 Short: gitlab server 
 Long: This is the gitlab server from offical website.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXEGITLAB
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC GITLAB
 
 Name: grsec-basic-server
 Description: basic server installation with grsecurity/pax

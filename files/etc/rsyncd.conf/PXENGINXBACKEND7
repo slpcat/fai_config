@@ -1,0 +1,23 @@
+pid file = /var/run/rsyncd.pid
+port = 873
+address = 127.0.0.1
+uid = root
+gid = root
+use chroot = yes
+read only = no
+hosts allow = 10.0.2.61 10.0.2.246 10.0.2.68
+#hosts deny = *
+max connections = 5
+log file = /var/log/rsyncd.log
+log format = %t %a %m %f %b
+syslog facility = local3
+timeout = 300
+
+[web]
+uid = www-data
+gid = www-data
+path = /data/web/
+list = yes
+auth users = file
+secrets file = /etc/rsyncd.secrets
+comment = 747 web files

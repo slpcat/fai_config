@@ -1,0 +1,14 @@
+#! /bin/bash
+
+# (c) Thomas Lange, 2001-2012, lange@debian.org
+
+error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
+
+fcopy -iMr /etc/php/7.1
+$ROOTCMD pear config-set cache_dir /var/tmp/pear/cache system
+$ROOTCMD pear config-set temp_dir /var/tmp/pear/temp system
+$ROOTCMD pecl install yaf
+echo "extension=yaf.so" > $target/etc/php/7.1/mods-available/yaf.ini
+$ROOTCMD ln -s /etc/php/7.1/mods-available/yaf.ini /etc/php/7.1/cli/conf.d/20-yaf.ini
+$ROOTCMD ln -s /etc/php/7.1/mods-available/yaf.ini /etc/php/7.1/fpm/conf.d/20-yaf.ini
+exit $error

@@ -1,0 +1,13 @@
+#! /bin/bash
+
+# (c) Thomas Lange, 2001-2012, lange@debian.org
+
+error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
+
+fcopy -iM /etc/rsyncd.conf
+fcopy -i /etc/rsyncd.secrets
+chmod 0600 $target/etc/rsyncd.secrets
+sed -i s/address\ =\ 127.0.0.1/address\ =\ $IPADDR/ $target/etc/rsyncd.conf
+$ROOTCMD systemctl enable rsync
+
+exit $error

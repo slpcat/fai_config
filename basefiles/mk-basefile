@@ -29,7 +29,7 @@ EXCLUDE_STRETCH=tasksel,tasksel-data
 EXCLUDE_TRUSTY=dhcp3-client,dhcp3-common,info
 EXCLUDE_XENIAL=tasksel,tasksel-data
 
-INCLUDE_DEBIAN=aptitude
+INCLUDE_DEBIAN=aptitude,apt-transport-https,ca-certificates
 
 
 setarch() {

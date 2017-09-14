@@ -20,7 +20,7 @@ deb-src http://nginx.org/packages/debian/ stretch nginx
 #deb-src http://packages.dotdeb.org stretch-nginx-http2 all
 
 #all php repo
-#deb https://packages.sury.org/php/ stretch main
+deb https://packages.sury.org/php/ stretch main
 #deb-src https://packages.sury.org/php/ stretch main
 
 # MariaDB 10.1 repository list - created 2016-12-05 06:07 UTC
