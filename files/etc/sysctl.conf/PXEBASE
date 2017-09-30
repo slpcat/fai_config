@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20170818
+# Revision: 20170930
 # /etc/sysctl.conf
 #
 
@@ -28,7 +28,7 @@ kernel.sched_rt_runtime_us=950000
 kernel.sched_shares_window_ns=10000000
 kernel.sched_time_avg_ms=1000
 kernel.sched_tunable_scaling=2
-kernel.threads-max=1024000
+kernel.threads-max=16384
 kernel.timer_migration=1
 kernel.shmmni=4096
 kernel.msgmnb=65536
