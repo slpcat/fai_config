@@ -47,10 +47,12 @@ kernel.pty.max=8192
 kernel.perf_cpu_time_max_percent=100
 kernel.numa_balancing=1
 # Avoid non-ancestor ptrace access to running processes and their credentials.
+# conflict with gdb/lldb
 kernel.yama.ptrace_scope=3
 # Avoid kernel memory address exposures via dmesg.
 kernel.dmesg_restrict=1
 # Try to keep kernel address exposures out of various /proc files (kallsyms, modules, etc).
+# conflict with gdb/lldb
 kernel.kptr_restrict=2
 kernel.core_uses_pid=1
 #kernel.nmi_watchdog=0
