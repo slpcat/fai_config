@@ -31,7 +31,7 @@ fi
 #enable rsyslogd
 #ln -sf /usr/lib/systemd/system/rsyslog.service $target/etc/systemd/system/multi-user.target.wants/rsyslog.service
 #snoopy
-ainsl -a /etc/ld.so.preload '/lib64/snoopy.so'
+#ainsl -a /etc/ld.so.preload '/lib64/snoopy.so'
 #ainsl -a /etc/sysconfig/irqbalance 'ENABLED="0"'
 ainsl /etc/ssh/ssh_config 'HashKnownHosts yes'
 #ainsl /etc/ssh/ssh_config 'Compression yes'

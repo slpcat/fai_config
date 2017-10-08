@@ -4,9 +4,9 @@
 # (c) Thomas Lange 2014
 
 error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
-$ROOTCMD cd /root
-$ROOTCMD wget -O snoopy-install.sh https://github.com/a2o/snoopy/raw/install/doc/install/bin/snoopy-install.sh
-$ROOTCMD chmod 755 snoopy-install.sh
-$ROOTCMD ./snoopy-install.sh stable
-rm -rf $target/snoopy*
+#$ROOTCMD cd /root
+#$ROOTCMD wget -O snoopy-install.sh https://github.com/a2o/snoopy/raw/install/doc/install/bin/snoopy-install.sh
+#$ROOTCMD chmod 755 snoopy-install.sh
+#$ROOTCMD ./snoopy-install.sh stable
+#rm -rf $target/snoopy*
 exit $error

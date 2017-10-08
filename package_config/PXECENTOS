@@ -30,7 +30,7 @@ net-tools
 iptables-services
 mailx
 #yum-cron
-snoopy
+#snoopy
 nscd
 wget
 ntp
@@ -44,9 +44,9 @@ iftop
 iotop
 htop
 lynis
-aide
+#aide
 unhide
-rkhunter
+#rkhunter
 #arpwatch
 sysstat
 psacct

@@ -113,8 +113,10 @@ fs.inotify.max_queued_events=1048576
 
 #Fair Queue CoDel packet scheduler to fight bufferbloat
 net.core.default_qdisc=fq_codel
+#禁止ipv6
 #net.ipv6.conf.all.disable_ipv6=1
-#net.ipv6.conf.lo.disable_ipv6=0
+#net.ipv6.conf.default.disable_ipv6=1
+#net.ipv6.conf.lo.disable_ipv6=1
 net.core.bpf_jit_enable=1
 net.core.busy_poll=50
 net.core.busy_read=100

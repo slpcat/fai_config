@@ -23,6 +23,7 @@ ln -sf /dev/null $target/etc/systemd/system/multi-user.target.wants/kdump.servic
 #ln -sf /dev/null $target/etc/systemd/system/network-online.service
 unlink $target/etc/systemd/system/dbus-org.fedoraproject.FirewallD1.service
 unlink $target/etc/systemd/system/basic.target.wants/firewalld.service
+unlink $target/etc/systemd/system/multi-user.target.wants/firewalld.service
 #unlink $target/etc/systemd/system/multi-user.target.wants/wpa_supplicant.service
 #unlink $target/etc/systemd/system/multi-user.target.wants/auditd.service
 unlink $target/etc/systemd/system/dbus-org.freedesktop.NetworkManager.service

@@ -42,7 +42,7 @@ if ! $ROOTCMD getent passwd hmuser ; then
 fi
 sed -i 's/^SHELL.*$/SHELL=\/bin\/zsh/' $target/etc/default/useradd
 sed -i 's/DSHELL.*$/DSHELL=\/bin\/zsh/' $target/etc/adduser.conf
-ainsl -a /etc/ld.so.preload '/lib/snoopy.so'
+#ainsl -a /etc/ld.so.preload '/lib/snoopy.so'
 sed -i 's/^USE_GRUB_CONFIG.*$/USE_GRUB_CONFIG=true/' $target/etc/default/kexec
 
 ainsl /etc/ssh/ssh_config 'HashKnownHosts yes'
