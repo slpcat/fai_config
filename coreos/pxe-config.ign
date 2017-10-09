@@ -12,16 +12,3 @@ passwd:
     - name: core
       ssh_authorized_keys:
         - ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAzb9qFJn3UhIPr1O8bnnMWSBB78MKrs1rOUj2UBx+2KGmAtjrBmfdWWKAD4y3Vk0+M/XUu9KdK2FAn1azH6uz5KVDiMe1opujg34LxATIMWGAARIz3pzaDpDAtAuTYNbG0ImAcn7dWeA+epU4PPbREpE1fdLr58F1muSSIdnRBJaC5Hzz97H6Oq6nmzz/mUpDcCwS2kcvA09WBZj1tp6LOXIqdCvp9cKEdx67AEWoa11do23h9L/KMXCYSosTELkuIGgFIJGDp0U5DesOia1yQHaSwzWcTb9S1zAlkElcap8socJOv49tL9mhlaQDi29AdLF061b98F2N5GUgJF+6sQ== root@a1506
-storage:
-  disks:
-  - device: /dev/vda
-    wipe_table: true
-    partitions:
-    - label: ROOT
-  filesystems:
-  - mount:
-      device: /dev/disk/by-partlabel/ROOT
-      format: ext4
-      create:
-        force: true
-        options: [-L, ROOT]
