@@ -1,0 +1,39 @@
+{
+  "ignition": {
+    "config": {},
+    "version": "2.0.0"
+  },
+  "networkd": {},
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAzb9qFJn3UhIPr1O8bnnMWSBB78MKrs1rOUj2UBx+2KGmAtjrBmfdWWKAD4y3Vk0+M/XUu9KdK2FAn1azH6uz5KVDiMe1opujg34LxATIMWGAARIz3pzaDpDAtAuTYNbG0ImAcn7dWeA+epU4PPbREpE1fdLr58F1muSSIdnRBJaC5Hzz97H6Oq6nmzz/mUpDcCwS2kcvA09WBZj1tp6LOXIqdCvp9cKEdx67AEWoa11do23h9L/KMXCYSosTELkuIGgFIJGDp0U5DesOia1yQHaSwzWcTb9S1zAlkElcap8socJOv49tL9mhlaQDi29AdLF061b98F2N5GUgJF+6sQ=="
+        ]
+      }
+     ]
+  },
+  "storage": {
+    "files": [
+     {
+      "filesystem": "root",
+      "path": "/etc/sysctl.d/99-sysctl.conf",
+      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/files/etc/sysctl.conf/PXEBASE" }
+     },
+     {
+      "filesystem": "root",
+      "path": "/etc/security/limits.conf",
+      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/files/etc/security/limits.conf/PXEBASE" }
+     }
+    ]
+},
+  "systemd": {
+    "units": [
+      {
+        "enable": true,
+        "name": "etcd2.service"
+      }
+    ]
+  }
+}
