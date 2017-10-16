@@ -25,6 +25,11 @@
       "filesystem": "root",
       "path": "/etc/security/limits.conf",
       "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/files/etc/security/limits.conf/PXEBASE" }
+     },
+     {
+      "filesystem": "root",
+      "path": "/etc/docker/daemon.json",
+      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/coreos/daemon.json" }
      }
     ]
 },
