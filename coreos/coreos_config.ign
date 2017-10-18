@@ -19,7 +19,7 @@
      {
       "filesystem": "root",
       "path": "/etc/sysctl.d/99-sysctl.conf",
-      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/files/etc/sysctl.conf/PXEBASE" }
+      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/coreos/sysctl.conf" }
      },
      {
       "filesystem": "root",
