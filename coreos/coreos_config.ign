@@ -24,7 +24,7 @@
      {
       "filesystem": "root",
       "path": "/etc/security/limits.conf",
-      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/files/etc/security/limits.conf/PXEBASE" }
+      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/coreos/limits.conf" }
      },
      {
       "filesystem": "root",
