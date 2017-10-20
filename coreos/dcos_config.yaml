@@ -1,0 +1,24 @@
+---
+agent_list:
+        - 10.0.2.85
+        - 10.0.2.86
+bootstrap_url: file:///opt/dcos_install_tmp
+cluster_name: DC/OS
+exhibitor_storage_backend: static
+ip_detect_path: genconf/dcos_ip_detect
+master_discovery: static
+master_list:
+        - 10.0.2.82
+        - 10.0.2.83
+        - 10.0.2.84
+process_timeout: 10000
+public_agent_list:
+        - 10.0.2.87
+resolvers:
+        - 10.0.2.235
+        - 114.114.114.114
+ssh_key_path: genconf/ssh_key
+ssh_port: 22
+ssh_user: core
+telemetry_enabled: false
+oauth_enabled: false
