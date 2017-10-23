@@ -15,6 +15,16 @@
      ]
   },
   "storage": {
+   "filesystems": [
+      {
+        "name": "ephemeral1",
+        "mount": {
+          "device": "/dev/vdb",
+          "format": "ext4",
+          "wipeFilesystem": true
+        }
+      }
+    ],
     "files": [
      {
       "filesystem": "root",
@@ -38,7 +48,13 @@
       {
         "enable": true,
         "name": "etcd2.service"
+      },
+      {
+        "name": "var-lib-mesos.mount",
+        "enable": true,
+        "contents": "[Unit]\nDescription=Mount ephemeral to /var/lib/mesos\nRequires=format-ephemeral.service\nAfter=format-ephemeral.service\n[Mount]\nWhat=/dev/vdb\nWhere=/var/lib/mesos\nType=ext4\n[Install]\nWantedBy=multi-user.target\n"
       }
     ]
   }
 }
+
