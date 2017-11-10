@@ -36,8 +36,24 @@
   "systemd": {
     "units": [
       {
-        "enable": true,
-        "name": "etcd2.service"
+        "name": "etcd2.service",
+        "enabled": false
+      },
+      {
+        "name": "update-engine.service",
+        "mask": true
+      },
+      {
+        "name": "locksmithd.service",
+        "mask": true
+      },
+      {
+        "name": "rkt-metadata.service",
+        "mask": true
+      },
+      {
+        "name": "rkt-gc.service",
+        "mask": true
       }
     ]
   }

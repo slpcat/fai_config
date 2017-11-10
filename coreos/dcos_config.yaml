@@ -20,5 +20,5 @@ resolvers:
 ssh_key_path: genconf/ssh_key
 ssh_port: 22
 ssh_user: core
-telemetry_enabled: false
-oauth_enabled: false
+telemetry_enabled: true
+oauth_enabled: true
