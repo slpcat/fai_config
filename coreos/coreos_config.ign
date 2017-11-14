@@ -23,6 +23,11 @@
      },
      {
       "filesystem": "root",
+      "path": "/etc/systemd/system.conf",
+      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/coreos/system.conf" }
+     },
+     {
+      "filesystem": "root",
       "path": "/etc/security/limits.conf",
       "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/coreos/limits.conf" }
      },
