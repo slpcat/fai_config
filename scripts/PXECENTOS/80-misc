@@ -16,7 +16,7 @@ if [ -f $target/usr/sbin/gdm ]; then
     # do not run this tool
     echo "RUN_FIRSTBOOT=NO" > $target/etc/sysconfig/firstboot
 fi
-
+fcopy /etc/systemd/system.conf
 ln -sf /dev/null $target/etc/systemd/system/multi-user.target.wants/kdump.service
 #ln -sf /dev/null $target/etc/systemd/system/gssproxy.service
 #ln -sf /dev/null $target/etc/systemd/system/polkit.service

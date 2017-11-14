@@ -30,6 +30,8 @@ elif [ -f $target/lib/systemd/system/getty@.service ]; then
     unlink $target/etc/systemd/system/getty.target.wants/getty\@tty1.service.pre_fcopy
 fi
 
+fcopy /etc/systemd/system.conf
+
 if [ ! -f $target/etc/machine-id -a -f $target/bin/systemd-machine-id-setup ]; then
     $ROOTCMD systemd-machine-id-setup
 fi
