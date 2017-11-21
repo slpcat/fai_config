@@ -3,7 +3,7 @@ set -o errexit -o nounset -o pipefail
 
 # from https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh
 # modified by slpcat@qq.com
-echo ">>> Enable Time sync"
+echo ">>> Enable ntp time sync"
 timedatectl set-ntp true
 echo ">>> Use latest kernel from elrepo" 
 cat << 'EOF' > /etc/yum.repos.d/elrepo.repo
@@ -68,7 +68,7 @@ EOF
 yum update -y
 #yum remove -y kernel-headers kernel-devel
 yum install -y kernel-ml kernel-ml-devel kernel-ml-headers
-echo ">>> change kernel parameters"
+echo ">>> Set kernel parameters for docker"
 sed -i /net.ipv4.ip_forward/d /etc/sysctl.conf
 cat << 'EOF' > /etc/sysctl.d/10-docker.conf
 net.ipv4.ip_forward=1
@@ -77,14 +77,14 @@ net.bridge.bridge-nf-call-iptables=1
 net.bridge.bridge-nf-call-arptables=1
 EOF
 
-echo ">>> chang grub to use latest kernel"
+echo ">>> Set grub2 to use latest kernel"
 sed -i s/default=\"1\"/default=\"0\"/ /boot/grub2/grub.cfg
 entry=`awk -F\' '/menuentry/ && /elrepo/ {print $2}' /boot/grub2/grub.cfg`
 grub2-set-default "$entry"
 
-#echo ">>> Disabling SELinux"
-#sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
-#setenforce permissive
+echo ">>> Disabling SELinux"
+sed -i 's/SELINUX=.*$/SELINUX=disabled/g' /etc/selinux/config
+setenforce 0
 
 echo ">>> Adjusting SSH Daemon Configuration"
 
