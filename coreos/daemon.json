@@ -1,1 +1,6 @@
-{ "insecure-registries":["registry.marathon.l4lb.thisdcos.directory:5000", "gitlab.marathon.l4lb.thisdcos.directory:50000"] }
+{ "insecure-registries":["registry.marathon.l4lb.thisdcos.directory:5000", "gitlab.marathon.l4lb.thisdcos.directory:50000"],
+  "live-restore": true,
+  "storage-driver": "overlay2",
+  "storage-opts": ["overlay2.override_kernel_check=true"],
+  "debug": false
+}

@@ -1,11 +1,86 @@
 #!/usr/bin/env bash
 set -o errexit -o nounset -o pipefail
 
-echo ">>> Kernel: $(uname -r)"
-#echo ">>> Updating system to 7.3.1611"
+# from https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh
+# modified by slpcat@qq.com
+echo ">>> Enable Time sync"
+timedatectl set-ntp true
+echo ">>> Use latest kernel from elrepo" 
+cat << 'EOF' > /etc/yum.repos.d/elrepo.repo
+### Name: ELRepo.org Community Enterprise Linux Repository for el7
+### URL: http://elrepo.org/
+
+[elrepo]
+name=ELRepo.org Community Enterprise Linux Repository - el7
+baseurl=http://elrepo.org/linux/elrepo/el7/$basearch/
+	http://mirrors.coreix.net/elrepo/elrepo/el7/$basearch/
+	http://jur-linux.org/download/elrepo/elrepo/el7/$basearch/
+	http://repos.lax-noc.com/elrepo/elrepo/el7/$basearch/
+	http://mirror.ventraip.net.au/elrepo/elrepo/el7/$basearch/
+mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo.el7
+enabled=1
+gpgcheck=0
+protect=0
+
+[elrepo-testing]
+name=ELRepo.org Community Enterprise Linux Testing Repository - el7
+baseurl=http://elrepo.org/linux/testing/el7/$basearch/
+	http://mirrors.coreix.net/elrepo/testing/el7/$basearch/
+	http://jur-linux.org/download/elrepo/testing/el7/$basearch/
+	http://repos.lax-noc.com/elrepo/testing/el7/$basearch/
+	http://mirror.ventraip.net.au/elrepo/testing/el7/$basearch/
+mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-testing.el7
+enabled=0
+gpgcheck=0
+protect=0
+
+[elrepo-kernel]
+name=ELRepo.org Community Enterprise Linux Kernel Repository - el7
+baseurl=http://elrepo.org/linux/kernel/el7/$basearch/
+	http://mirrors.coreix.net/elrepo/kernel/el7/$basearch/
+	http://jur-linux.org/download/elrepo/kernel/el7/$basearch/
+	http://repos.lax-noc.com/elrepo/kernel/el7/$basearch/
+	http://mirror.ventraip.net.au/elrepo/kernel/el7/$basearch/
+mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-kernel.el7
+enabled=1
+gpgcheck=0
+protect=0
+
+[elrepo-extras]
+name=ELRepo.org Community Enterprise Linux Extras Repository - el7
+baseurl=http://elrepo.org/linux/extras/el7/$basearch/
+	http://mirrors.coreix.net/elrepo/extras/el7/$basearch/
+	http://jur-linux.org/download/elrepo/extras/el7/$basearch/
+	http://repos.lax-noc.com/elrepo/extras/el7/$basearch/
+	http://mirror.ventraip.net.au/elrepo/extras/el7/$basearch/
+mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-extras.el7
+enabled=1
+gpgcheck=0
+protect=0
+EOF
+
+#echo ">>> Kernel: $(uname -r)"
+#echo ">>> Updating system to $CENTOS_VERSION"
 #sed -i -e 's/^mirrorlist=/#mirrorlist=/' -e 's/^#baseurl=/baseurl=/' /etc/yum.repos.d/CentOS-Base.repo
-#yum -y --releasever=7.4.1708 update
+#yum -y --releasever=$CENTOS_VERSION update
 #sed -i -e 's/^#mirrorlist=/mirrorlist=/' -e 's/^baseurl=/#baseurl=/' /etc/yum.repos.d/CentOS-Base.repo
+
+yum update -y
+#yum remove -y kernel-headers kernel-devel
+yum install -y kernel-ml kernel-ml-devel kernel-ml-headers
+echo ">>> change kernel parameters"
+sed -i /net.ipv4.ip_forward/d /etc/sysctl.conf
+cat << 'EOF' > /etc/sysctl.d/10-docker.conf
+net.ipv4.ip_forward=1
+net.bridge.bridge-nf-call-ip6tables=1
+net.bridge.bridge-nf-call-iptables=1
+net.bridge.bridge-nf-call-arptables=1
+EOF
+
+echo ">>> chang grub to use latest kernel"
+sed -i s/default=\"1\"/default=\"0\"/ /boot/grub2/grub.cfg
+entry=`awk -F\' '/menuentry/ && /elrepo/ {print $2}' /boot/grub2/grub.cfg`
+grub2-set-default "$entry"
 
 #echo ">>> Disabling SELinux"
 #sed -i 's/SELINUX=enforcing/SELINUX=permissive/g' /etc/selinux/config
@@ -13,8 +88,8 @@ echo ">>> Kernel: $(uname -r)"
 
 echo ">>> Adjusting SSH Daemon Configuration"
 
-sed -i '/^\s*PermitRootLogin /d' /etc/ssh/sshd_config
-echo -e "\nPermitRootLogin without-password" >> /etc/ssh/sshd_config
+#sed -i '/^\s*PermitRootLogin /d' /etc/ssh/sshd_config
+#echo -e "\nPermitRootLogin without-password" >> /etc/ssh/sshd_config
 
 sed -i '/^\s*UseDNS /d' /etc/ssh/sshd_config
 echo -e "\nUseDNS no" >> /etc/ssh/sshd_config
@@ -55,6 +130,17 @@ curl -fLsSv --retry 20 -Y 100000 -y 60 -o /tmp/docker-engine-1.13.1-1.el7.centos
 curl -fLsSv --retry 20 -Y 100000 -y 60 -o /tmp/docker-engine-selinux-1.13.1-1.el7.centos.noarch.rpm \
   https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-selinux-1.13.1-1.el7.centos.noarch.rpm
 yum -y localinstall /tmp/docker*.rpm || true
+echo ">>> Creating docker config"
+mkdir -p /etc/docker
+cat << 'EOF' > /etc/docker/daemon.json
+{ "insecure-registries":["registry.marathon.l4lb.thisdcos.directory:5000", "gitlab.marathon.l4lb.thisdcos.directory:50000"],
+  "live-restore": true,
+  "storage-driver": "overlay2",
+  "storage-opts": ["overlay2.override_kernel_check=true"],
+  "debug": false
+}
+EOF
+
 systemctl enable docker
 
 echo ">>> Creating docker group"
@@ -70,7 +156,7 @@ StartLimitInterval=0
 RestartSec=15
 ExecStartPre=-/sbin/ip link del docker0
 ExecStart=
-ExecStart=/usr/bin/dockerd --graph=/var/lib/docker --storage-driver=overlay
+ExecStart=/usr/bin/dockerd --graph=/var/lib/docker
 EOF
 
 echo ">>> Adding group [nogroup]"
