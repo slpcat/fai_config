@@ -53,6 +53,10 @@
         "mask": true
       },
       {
+        "name": "systemd-resolved.service",
+        "mask": true
+      },
+      {
         "name": "rkt-metadata.service",
         "mask": true
       },
@@ -63,4 +67,3 @@
     ]
   }
 }
-

@@ -2,16 +2,22 @@
 agent_list:
         - 10.0.2.85
         - 10.0.2.86
-bootstrap_url: file:///opt/dcos_install_tmp
+        - 10.0.2.88
+        - 10.0.2.131
+        - 10.0.2.132
+        - 10.0.2.133
+bootstrap_url: http://10.0.2.81:5000
 cluster_name: DC/OS
 exhibitor_storage_backend: static
-ip_detect_path: genconf/dcos_ip_detect
+ip_detect_path: genconf/ip-detect
 master_discovery: static
 master_list:
         - 10.0.2.82
         - 10.0.2.83
         - 10.0.2.84
-process_timeout: 10000
+process_timeout: 7200
+enable_docker_gc: 'true'
+enable_gpu_isolation: 'true'
 public_agent_list:
         - 10.0.2.87
 resolvers:
@@ -20,5 +26,6 @@ resolvers:
 ssh_key_path: genconf/ssh_key
 ssh_port: 22
 ssh_user: core
+use_proxy: false
 telemetry_enabled: true
 oauth_enabled: true
