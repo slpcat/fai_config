@@ -79,12 +79,12 @@ EOF
 
 echo ">>> Set grub2 to use latest kernel"
 sed -i s/default=\"1\"/default=\"0\"/ /boot/grub2/grub.cfg
-entry=`awk -F\' '/menuentry/ && /elrepo/ {print $2}' /boot/grub2/grub.cfg`
+entry=`awk -F\' '/menuentry/ && /elrepo/ {print $2}' /boot/grub2/grub.cfg | head -n1`
 grub2-set-default "$entry"
 
 echo ">>> Disabling SELinux"
 sed -i 's/SELINUX=.*$/SELINUX=disabled/g' /etc/selinux/config
-setenforce 0
+#setenforce 0
 
 echo ">>> Adjusting SSH Daemon Configuration"
 
@@ -220,3 +220,4 @@ systemctl enable $(basename "$update_hosts_unit")
 # Make sure we wait until all the data is written to disk, otherwise
 # Packer might quite too early before the large files are deleted
 sync
+echo ">>> Docker runtime is prepared, please reboot"
