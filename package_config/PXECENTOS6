@@ -31,7 +31,7 @@ ncurses-base # currently missing in the base file
 net-tools
 mailx
 #yum-cron
-snoopy
+#snoopy
 nscd
 wget
 mtr
@@ -45,9 +45,9 @@ iftop
 iotop
 htop
 lynis
-aide
+#aide
 unhide
-rkhunter
+#rkhunter
 #arpwatch
 sysstat
 psacct

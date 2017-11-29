@@ -4,7 +4,7 @@ ubuntu-minimal
 software-properties-common
 irqbalance
 mtr-tiny
-rkhunter
+#rkhunter
 
 PACKAGES install I386
 linux-image-generic initramfs-tools

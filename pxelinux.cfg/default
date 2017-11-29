@@ -37,6 +37,12 @@ initrd /coreos/coreos_production_pxe_image.cpio.gz
 #append coreos.first_boot=1 coreos.config.url=tftp://10.0.2.235/pxelinux.cfg/pxe-config.ign
 append coreos.first_boot=1 console=tty0 console=ttyS0 coreos.autologin=tty1 coreos.autologin=ttyS0
 
+label rancher
+menu label RancherOS
+kernel rancheros/vmlinuz
+initrd rancheros/initrd
+append rancher.state.dev=LABEL=RANCHER_STATE rancher.state.autoformat=[/dev/sda] -- rancher.cloud_init.datasources=[url:http://example.com/cloud-config]
+
 label dg
 MENU LABEL ^3) DISKGEN
 MENU DEFAULT

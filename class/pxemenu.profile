@@ -75,6 +75,14 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU XENIAL XENIAL64 XORG
 
+Name: Ubuntu 16.04 basic
+Description: Ubuntu 16.04 minimal installation
+Short: Ubuntu 16.04 minimal
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU XENIAL XENIAL64
+
 Name: ubuntu 14.04 basic
 Description: Ubuntu 14.04 minimal installation
 Short: Ubuntu 14.04 minimal installation
@@ -82,6 +90,36 @@ Long: We use the Debian nfsroot for installing the Ubuntu OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE DEMO PXETRUSTY TRUSTY TRUSTY64
+
+Name: docker-centos-7-basic
+Description: CentOS 7 for docker
+Short: a very simple server, no xorg
+Long: We use the Debian nfsroot for installing the CentOS 7 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 DOCKER
+
+Name: docker-ubuntu-16.04-basic
+Description: Ubuntu 16.04 for docker
+Short: Ubuntu with minimal install
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEIDC PXEUBUNTU XENIAL XENIAL64 DOCKER
+
+Name: docker-debian9-basic
+Description: debian9 for docker
+Short: a very simple server, no xorg
+Long: This is the base system .
+Additional account called hmuser with password: hmuserpwd
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC DOCKER
+
+Name: docker-debian8-basic
+Description: debian8 for docker
+Short: a very simple server, no xorg
+Long: This is the base system .
+Additional account called hmuser with password: hmuserpwd
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC DOCKER
 
 Name: pxe-centos-6-basic
 Description: CentOS 6 with minimal install

@@ -1,0 +1,85 @@
+{
+  "ignition": {
+    "config": {},
+    "version": "2.1.0"
+  },
+  "networkd": {},
+  "passwd": {
+    "users": [
+      {
+        "name": "core",
+        "sshAuthorizedKeys": [
+          "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAzb9qFJn3UhIPr1O8bnnMWSBB78MKrs1rOUj2UBx+2KGmAtjrBmfdWWKAD4y3Vk0+M/XUu9KdK2FAn1azH6uz5KVDiMe1opujg34LxATIMWGAARIz3pzaDpDAtAuTYNbG0ImAcn7dWeA+epU4PPbREpE1fdLr58F1muSSIdnRBJaC5Hzz97H6Oq6nmzz/mUpDcCwS2kcvA09WBZj1tp6LOXIqdCvp9cKEdx67AEWoa11do23h9L/KMXCYSosTELkuIGgFIJGDp0U5DesOia1yQHaSwzWcTb9S1zAlkElcap8socJOv49tL9mhlaQDi29AdLF061b98F2N5GUgJF+6sQ=="
+        ]
+      }
+     ]
+  },
+  "storage": {
+   "filesystems": [
+      {
+        "name": "ephemeral1",
+        "mount": {
+          "device": "/dev/vdb",
+          "format": "ext4",
+          "wipeFilesystem": true
+        }
+      }
+    ],
+    "files": [
+     {
+      "filesystem": "root",
+      "path": "/etc/sysctl.d/99-sysctl.conf",
+      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/coreos/sysctl.conf" }
+     },
+     {
+      "filesystem": "root",
+      "path": "/etc/systemd/system.conf",
+      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/coreos/system.conf" }
+     },
+     {
+      "filesystem": "root",
+      "path": "/etc/security/limits.conf",
+      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/coreos/limits.conf" }
+     },
+     {
+      "filesystem": "root",
+      "path": "/etc/docker/daemon.json",
+      "contents": { "source": "https://raw.githubusercontent.com/slpcat/fai_config/master/coreos/daemon.json" }
+     }
+    ]
+},
+  "systemd": {
+    "units": [
+      {
+        "name": "dcos-volume0.mount",
+        "enabled": true,
+        "contents": "[Unit]\nDescription=Mount ephemeral to /dcos/volume0\nRequires=format-ephemeral.service\nAfter=format-ephemeral.service\n[Mount]\nWhat=/dev/vdb\nWhere=/dcos/volume0\nType=ext4\n[Install]\nWantedBy=multi-user.target\n"
+      },
+      {
+        "name": "etcd2.service",
+        "enabled": false
+      },
+      {
+        "name": "update-engine.service",
+        "mask": true
+      },
+      {
+        "name": "locksmithd.service",
+        "mask": true
+      },
+      {
+        "name": "systemd-resolved.service",
+        "mask": true
+      },
+      {
+        "name": "rkt-metadata.service",
+        "mask": true
+      },
+      {
+        "name": "rkt-gc.service",
+        "mask": true
+      }
+    ]
+  }
+}
+

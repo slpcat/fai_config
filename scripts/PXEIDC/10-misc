@@ -38,7 +38,7 @@ if ! $ROOTCMD getent passwd hmuser ; then
 	$ROOTCMD adduser hmuser $g
     done
     $ROOTCMD adduser hmuser adm
-    sed -i '/^root/a\hmuser    ALL=(ALL:ALL) ALL' $target/etc/sudoers
+    sed -i '/^root/a\hmuser    ALL=(ALL:ALL) NOPASSWD:ALL' $target/etc/sudoers
 fi
 sed -i 's/^SHELL.*$/SHELL=\/bin\/zsh/' $target/etc/default/useradd
 sed -i 's/DSHELL.*$/DSHELL=\/bin\/zsh/' $target/etc/adduser.conf

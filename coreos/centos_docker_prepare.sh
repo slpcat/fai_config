@@ -3,8 +3,14 @@ set -o errexit -o nounset -o pipefail
 
 # from https://raw.githubusercontent.com/dcos/dcos/1.10/cloud_images/centos7/install_prereqs.sh
 # modified by slpcat@qq.com
+# support centos7 only
+
+echo ">>> Set timezone Asia/Shanghai"
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+
 echo ">>> Enable ntp time sync"
 timedatectl set-ntp true
+
 echo ">>> Use latest kernel from elrepo" 
 cat << 'EOF' > /etc/yum.repos.d/elrepo.repo
 ### Name: ELRepo.org Community Enterprise Linux Repository for el7
@@ -68,13 +74,15 @@ EOF
 yum update -y
 #yum remove -y kernel-headers kernel-devel
 yum install -y kernel-ml kernel-ml-devel kernel-ml-headers
+
+#echo "br_netfilter" > /etc/modules-load.d/br_netfilter.conf
+
 echo ">>> Set kernel parameters for docker"
 sed -i /net.ipv4.ip_forward/d /etc/sysctl.conf
 cat << 'EOF' > /etc/sysctl.d/10-docker.conf
 net.ipv4.ip_forward=1
 net.bridge.bridge-nf-call-ip6tables=1
 net.bridge.bridge-nf-call-iptables=1
-net.bridge.bridge-nf-call-arptables=1
 EOF
 
 echo ">>> Set grub2 to use latest kernel"
@@ -97,22 +105,22 @@ echo -e "\nUseDNS no" >> /etc/ssh/sshd_config
 echo ">>> Installing DC/OS dependencies and essential packages"
 yum -y --tolerant install perl tar xz unzip curl bind-utils net-tools ipset libtool-ltdl rsync nfs-utils
 
-echo ">>> Set up filesystem mounts"
-cat << 'EOF' > /etc/systemd/system/dcos_vol_setup.service
-[Unit]
-Description=Initial setup of volume mounts
+#echo ">>> Set up filesystem mounts"
+#cat << 'EOF' > /etc/systemd/system/dcos_vol_setup.service
+#[Unit]
+#Description=Initial setup of volume mounts
 
-[Service]
-Type=oneshot
-ExecStart=/usr/local/sbin/dcos_vol_setup.sh /dev/xvde /var/lib/mesos
-ExecStart=/usr/local/sbin/dcos_vol_setup.sh /dev/xvdf /var/lib/docker
-ExecStart=/usr/local/sbin/dcos_vol_setup.sh /dev/xvdg /dcos/volume0
-ExecStart=/usr/local/sbin/dcos_vol_setup.sh /dev/xvdh /var/log
+#[Service]
+#Type=oneshot
+#ExecStart=/usr/local/sbin/dcos_vol_setup.sh /dev/xvde /var/lib/mesos
+#ExecStart=/usr/local/sbin/dcos_vol_setup.sh /dev/xvdf /var/lib/docker
+#ExecStart=/usr/local/sbin/dcos_vol_setup.sh /dev/xvdg /dcos/volume0
+#ExecStart=/usr/local/sbin/dcos_vol_setup.sh /dev/xvdh /var/log
 
-[Install]
-WantedBy=local-fs.target
-EOF
-systemctl enable dcos_vol_setup
+#[Install]
+#WantedBy=local-fs.target
+#EOF
+#systemctl enable dcos_vol_setup
 
 echo ">>> Disable rsyslog"
 systemctl disable rsyslog
@@ -125,11 +133,28 @@ echo ">>> Removing tty requirement for sudo"
 sed -i'' -E 's/^(Defaults.*requiretty)/#\1/' /etc/sudoers
 
 echo ">>> Install Docker"
+# install new docker-ce or old docker-engine ?
+DOCKER_CE=0
+if [ ${DOCKER_CE} -eq 1 ]
+then
+cat << 'EOF' > /etc/yum.repos.d/docker-ce.repo
+[docker-ce-stable]
+name=Docker CE Stable - $basearch
+#baseurl=https://download.docker.com/linux/centos/7/$basearch/stable
+baseurl=https://mirrors.aliyun.com/docker-ce/linux/centos/7/$basearch/stable
+enabled=1
+gpgcheck=0
+EOF
+yum update -y
+yum install -y docker-ce
+else 
 curl -fLsSv --retry 20 -Y 100000 -y 60 -o /tmp/docker-engine-1.13.1-1.el7.centos.x86_64.rpm \
   https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-1.13.1-1.el7.centos.x86_64.rpm
 curl -fLsSv --retry 20 -Y 100000 -y 60 -o /tmp/docker-engine-selinux-1.13.1-1.el7.centos.noarch.rpm \
   https://yum.dockerproject.org/repo/main/centos/7/Packages/docker-engine-selinux-1.13.1-1.el7.centos.noarch.rpm
 yum -y localinstall /tmp/docker*.rpm || true
+fi
+
 echo ">>> Creating docker config"
 mkdir -p /etc/docker
 cat << 'EOF' > /etc/docker/daemon.json
@@ -137,6 +162,7 @@ cat << 'EOF' > /etc/docker/daemon.json
   "live-restore": true,
   "storage-driver": "overlay2",
   "storage-opts": ["overlay2.override_kernel_check=true"],
+  "oom-score-adjust": -500,
   "debug": false
 }
 EOF

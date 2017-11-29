@@ -11,7 +11,7 @@ language-pack-en-base
 vim
 irqbalance
 mtr-tiny
-rkhunter
+#rkhunter
 
 PACKAGES install I386
 linux-image-generic initramfs-tools

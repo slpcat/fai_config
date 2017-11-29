@@ -6,7 +6,7 @@ error=0 ; trap "error=$((error|1))" ERR
 if ! $ROOTCMD getent passwd hmuser ; then
     $ROOTCMD adduser -c "IDC USER" hmuser
     $ROOTCMD usermod -p '$1$.cWiG8mO$FXN7lZaghXxjZnhshvqfm/' -s /bin/zsh hmuser
-    sed -i '/^root/a\hmuser    ALL=(ALL:ALL) ALL' $target/etc/sudoers
+    sed -i '/^root/a\hmuser    ALL=(ALL:ALL) NOPASSWD:ALL' $target/etc/sudoers
 fi
 
 # enable graphical login screen, make run level 5 as default

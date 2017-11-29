@@ -259,8 +259,8 @@ net.ipv4.tcp_syn_retries=3
 #Set TCP Re-Ordering value in kernel to 5
 net.ipv4.tcp_reordering=5
 # Turn on reverse path filtering
-net.ipv4.conf.all.rp_filter=2
-net.ipv4.conf.default.rp_filter=2
+net.ipv4.conf.all.rp_filter=1
+net.ipv4.conf.default.rp_filter=1
 #net.ipv6.conf.all.rp_filter=2
 #net.ipv6.conf.default.rp_filter=2
 #net.nf_conntrack_max=655360
