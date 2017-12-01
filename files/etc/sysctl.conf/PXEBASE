@@ -25,7 +25,7 @@ kernel.sched_wakeup_granularity_ns=15000
 kernel.sched_rr_timeslice_ms=20
 kernel.sched_rt_period_us=1000000
 kernel.sched_rt_runtime_us=950000
-kernel.sched_shares_window_ns=10000000
+#kernel.sched_shares_window_ns=10000000
 kernel.sched_time_avg_ms=1000
 kernel.sched_tunable_scaling=2
 kernel.threads-max=16384
@@ -154,7 +154,7 @@ net.ipv4.tcp_sack=1
 net.ipv4.tcp_dsack=1
 net.ipv4.tcp_fack=1
 #打开TIME-WAIT套接字重用功能，对于存在大量连接的Web服务器非常有效，关闭避免NAT丢包。
-net.ipv4.tcp_tw_recycle=0
+#net.ipv4.tcp_tw_recycle=0
 #打开快速 TIME-WAIT sockets 回收。除非得到技术专家的建议或要求，请不要随意修改这个值,关掉避免异常行为。
 #该文件表示是否允许重新应用处于TIME-WAIT状态的socket用于新的TCP连接。
 # protect against tcp time-wait assassination hazards
@@ -266,6 +266,6 @@ net.ipv4.conf.default.rp_filter=1
 #net.nf_conntrack_max=655360
 #net.netfilter.nf_conntrack_tcp_timeout_established=120
 net.ipv4.tcp_slow_start_after_idle=0
-net.ipv4.tcp_thin_dupack=1
+#net.ipv4.tcp_thin_dupack=1
 net.ipv6.conf.all.accept_redirects=0
 net.ipv6.conf.default.accept_redirects=0
