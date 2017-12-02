@@ -48,7 +48,7 @@ kernel.perf_cpu_time_max_percent=100
 kernel.numa_balancing=1
 # Avoid non-ancestor ptrace access to running processes and their credentials.
 # conflict with gdb/lldb
-kernel.yama.ptrace_scope=3
+#kernel.yama.ptrace_scope=3
 # Avoid kernel memory address exposures via dmesg.
 kernel.dmesg_restrict=1
 # Try to keep kernel address exposures out of various /proc files (kallsyms, modules, etc).
@@ -124,7 +124,7 @@ net.core.rps_sock_flow_entries=32768
 net.core.netdev_tstamp_prequeue=0
 net.core.netdev_budget=10000
 net.core.dev_weight=600
-net.core.flow_limit_table_len=8192
+#net.core.flow_limit_table_len=8192
 
 net.ipv4.tcp_autocorking=1
 net.ipv4.tcp_low_latency=1
@@ -149,7 +149,7 @@ net.ipv4.ip_local_port_range=20000 65000
 net.ipv4.tcp_congestion_control=htcp
 #显式拥塞通知，避免运营商路由器滥用
 net.ipv4.tcp_ecn=1
-net.ipv4.tcp_ecn_fallback=0
+#net.ipv4.tcp_ecn_fallback=0
 net.ipv4.tcp_sack=1
 net.ipv4.tcp_dsack=1
 net.ipv4.tcp_fack=1
