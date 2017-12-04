@@ -42,9 +42,9 @@ coreos/etcd:v3.2.4
 coreos/flannel:v0.9.0
 coreos/flannel-cni:v0.3.0
 calico/kube-policy-controller:v0.7.0
-calico/ctl:v1.5.0
-calico/node:v2.5.0
-calico/cni:v1.10.0
+calico/ctl:v1.6.1
+calico/node:v2.6.2
+calico/cni:v1.11.0
 calico/routereflector:v0.4.0
 l23network/k8s-netchecker-agent:v1.0
 l23network/k8s-netchecker-server:v1.0
