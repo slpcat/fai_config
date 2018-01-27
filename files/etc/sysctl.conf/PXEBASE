@@ -128,9 +128,12 @@ net.core.dev_weight=600
 
 net.ipv4.tcp_autocorking=1
 net.ipv4.tcp_low_latency=1
-net.ipv4.neigh.default.gc_thresh1=4096
-net.ipv4.neigh.default.gc_thresh2=8192
-net.ipv4.neigh.default.gc_thresh3=8192
+#存在于ARP高速缓存中的最少层数，如果少于这个数，垃圾收集器将不会运行。缺省值是128。
+net.ipv4.neigh.default.gc_thresh1=100000
+#保存在 ARP 高速缓存中的最多的记录软限制。垃圾收集器在开始收集前，允许记录数超过这个数字 5 秒。缺省值是 512。
+net.ipv4.neigh.default.gc_thresh2=110000
+#保存在 ARP 高速缓存中的最多记录的硬限制，一旦高速缓存中的数目高于此，垃圾收集器将马上运行。缺省值是1024。
+net.ipv4.neigh.default.gc_thresh3=120000
 net.ipv4.neigh.default.gc_stale_time=600
 net.ipv4.conf.all.promote_secondaries=1
 net.ipv4.conf.default.promote_secondaries=1
