@@ -135,6 +135,10 @@ net.ipv4.neigh.default.gc_thresh2=110000
 #保存在 ARP 高速缓存中的最多记录的硬限制，一旦高速缓存中的数目高于此，垃圾收集器将马上运行。缺省值是1024。
 net.ipv4.neigh.default.gc_thresh3=120000
 net.ipv4.neigh.default.gc_stale_time=600
+net.ipv6.neigh.default.gc_stale_time=600
+net.ipv6.neigh.default.gc_thresh1=10000
+net.ipv6.neigh.default.gc_thresh2=110000
+net.ipv6.neigh.default.gc_thresh3=120000
 net.ipv4.conf.all.promote_secondaries=1
 net.ipv4.conf.default.promote_secondaries=1
 # Disable packet forwarding
