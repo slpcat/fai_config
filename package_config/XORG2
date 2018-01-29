@@ -1,0 +1,13 @@
+PACKAGES aptitude TRUSTY
+xorg xserver-xorg-video-all xserver-xorg-input-all
+ttf-freefont
+xscreensaver
+xscreensaver-gl
+xterm
+#desktop-base
+ubuntu-desktop
+xubuntu-desktop
+kubuntu-desktop
+
+# add free and non-free firmware
+#firmware-linux

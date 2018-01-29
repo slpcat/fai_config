@@ -81,7 +81,7 @@ Short: Unity desktop
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU TRUSTY TRUSTY64 XORG
+Classes: INSTALL FAIBASE DEMO PXETRUSTY TRUSTY TRUSTY64 XORG2
 
 Name: Ubuntu 16.04 basic
 Description: Ubuntu 16.04 minimal installation
