@@ -53,6 +53,8 @@ fcopy -iv /etc/rc.local
 #$ROOTCMD ln -sf /lib/systemd/system/systemd-timesyncd.service /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
 #$ROOTCMD systemctl start systemd-timedated
 #$ROOTCMD timedatectl set-ntp true
+
+$ROOTCMD update-rc.d ondemand disable
 sed -i '/# The named pipe \/dev\/xconsole/,$d' $target/etc/rsyslog.conf
 sed -i '/^kernel.yama.ptrace_scope/d' $target/etc/sysctl.conf
 #sed -i 's/^ENABLED.*$/ENABLED="0"/' $target/etc/default/irqbalance
