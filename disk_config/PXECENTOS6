@@ -13,5 +13,5 @@ disk_config disk1 disklabel:msdos bootable:1 fstabkey:label
 # use following line for CentOS 6
 primary /      8G-24G    ext4  rw,noatime,nobarrier,errors=remount-ro createopts="-L ROOT -O ^64bit" tuneopts="-c 0 -i 0 -O ^metadata_csum"
 logical swap   1G-32G swap  sw                           createopts="-L SWAP"
-logical /tmp   256-2G   ext4  rw,noatime,nobarrier      createopts="-L TMP -m 0 -O ^64bit" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+#logical /tmp   256-2G   ext4  rw,noatime,nobarrier      createopts="-L TMP -m 0 -O ^64bit" tuneopts="-c 0 -i 0 -O ^metadata_csum"
 logical /var  1G-80%  ext4  rw,noatime,nobarrier      createopts="-L DATA -m 1 -O ^64bit" tuneopts="-c 0 -i 0 -O ^metadata_csum"
