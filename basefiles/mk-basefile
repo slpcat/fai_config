@@ -4,6 +4,9 @@
 #
 # Thomas Lange, Uni Koeln, 2011-2017
 # based on the Makefile implementation of Michael Goetze
+#
+# Usage example: mk-basefile -J STRETCH64
+# This will create a STRETCH64.tar.xz basefile.
 
 # Supported distributions (each i386/amd64):
 # Debian GNU/Linux
@@ -23,13 +26,16 @@ MIRROR_CENTOS=http://mirrors.aliyun.com/
 
 EXCLUDE_SQUEEZE=isc-dhcp-client,isc-dhcp-common,info,tasksel,tasksel-data
 EXCLUDE_WHEEZY=info,tasksel,tasksel-data
-EXCLUDE_JESSIE=tasksel,tasksel-data
-EXCLUDE_STRETCH=tasksel,tasksel-data
+EXCLUDE_JESSIE=info,tasksel,tasksel-data
+EXCLUDE_STRETCH=info,tasksel,tasksel-data
+EXCLUDE_BUSTER=tasksel,tasksel-data
+EXCLUDE_SID=tasksel,tasksel-data
 
 EXCLUDE_TRUSTY=dhcp3-client,dhcp3-common,info
-EXCLUDE_XENIAL=tasksel,tasksel-data
+EXCLUDE_XENIAL=udhcpc,dibbler-client,info,tasksel,tasksel-data
 
-INCLUDE_DEBIAN=aptitude,apt-transport-https,ca-certificates
+# here you can add packages, that are needed very early
+INCLUDE_DEBIAN=
 
 
 setarch() {
@@ -66,6 +72,7 @@ check() {
 
 mkpost-centos() {
 
+    # set local mirror for rinse post script
     [ -z "$MIRROR_CENTOS" ] && return
     cat <<EOM > $xtmp/post
 #! /bin/sh
@@ -79,6 +86,7 @@ EOM
 
 mkpost-slc() {
 
+    # set local mirror for rinse post script
     ver=$1
     [ -z "$MIRROR_SLC" ] && return
     cat <<EOM > $xtmp/post
@@ -95,10 +103,11 @@ EOM
 
 cleanup-deb() {
 
-    chroot $xtmp aptitude clean
-    rm -f $xtmp/etc/hostname $xtmp/etc/resolv.conf $xtmp/etc/machine-id
-    rm $xtmp/var/lib/apt/lists/*_*
-    rm -f $xtmp/etc/udev/rules.d/70-persistent-net.rules
+    chroot $xtmp apt-get clean
+    rm -f $xtmp/etc/hostname $xtmp/etc/resolv.conf \
+          $xtmp/var/lib/apt/lists/*_* $xtmp/usr/bin/qemu-*-static \
+          $xtmp/etc/udev/rules.d/70-persistent-net.rules
+    > $xtmp/etc/machine-id
 }
 
 
@@ -159,19 +168,29 @@ debgeneric() {
     local DIST=$1
     shift
     local mirror=$1
+    shift
+    local arch=$1
 
-    if [[ $DIST =~ 64 ]]; then
-        arch=amd64
-    else
-        arch=i386
+    dist=${DIST%%[0-9][0-9]}
+    local exc="EXCLUDE_$dist"
+    dist=${dist,,}
+
+    check
+    if [ -n "$INCLUDE_DEBIAN" ]; then
+	local inc="--include=$INCLUDE_DEBIAN"
     fi
 
-    DIST=${DIST%%??}
-    dist=${DIST,,}
-
-    local exc="EXCLUDE_$DIST"
-    check
-    debootstrap --arch $arch --exclude=${!exc} --include=${INCLUDE_DEBIAN} $dist $xtmp $mirror
+    if [ -n "$arch" ]; then
+	qemu-debootstrap --arch $arch --exclude=${!exc} $inc $dist $xtmp $mirror
+	target="${target}_${arch^^}"
+    else
+	if [[ $DIST =~ 64 ]]; then
+            arch=amd64
+	else
+            arch=i386
+	fi
+	debootstrap --arch $arch --exclude=${!exc} $inc $dist $xtmp $mirror
+    fi
     cleanup-deb
     tarit
 }
@@ -192,6 +211,8 @@ prtdists() {
     WHEEZY32     WHEEZY64
     JESSIE32     JESSIE64
     STRETCH32    STRETCH64
+    BUSTER32     BUSTER64
+    SID32        SID64
 "
 }
 
@@ -200,12 +221,12 @@ usage() {
     cat <<EOF
 mk-basefile, create minimal base files for a Linux distritubtion
 
-   Copyright (C) 2011-2016 by Thomas Lange
+   Copyright (C) 2011-2017 by Thomas Lange
 
 Usage: mk-basefile [OPTION] ... DISTRIBUTION
 
    -s                   Show list of supported linux distributions
-   -a                   Add xtattrs, acl and selinux properties to the tar file.
+   -f ARCH              Build for foreign architecture ARCH.
    -d DIR               Use DIR for creating the temporary subtree structure.
    -z                   Use gzip for compressing the tar file.
    -J                   Use xz for compressing the tar file.
@@ -225,11 +246,13 @@ ext=tar
 zip=cat
 attributes=
 cleanup=1
+attributes="--xattrs --selinux --acls"
 
-while getopts ashzJd:k opt ; do
+while getopts ashzJd:kf: opt ; do
     case "$opt" in
-        a) attributes="--xattrs --selinux --acl" ;;
+        a) echo "$0: Warning. -a is ignored, because xtattrs, acls and selinux are always added." ;;
         d) export TMPDIR=$OPTARG ;;
+        f) export ARCH=$OPTARG ;;
         z) zip="gzip -9"; ext=tar.gz ;;
         J) zip="xz -8" ext=tar.xz ;;
         k) cleanup=0 ;;
@@ -249,6 +272,7 @@ chmod 755 $xtmp
 
 target=$1 # also the name of the output file
 
+[ -z "$target" ] && usage
 case "$target" in
     CENTOS5_32) centos i386 5 ;;
     CENTOS5_64) centos amd64 5 ;;
@@ -263,8 +287,8 @@ case "$target" in
     SLC7_64) slc amd64 7 ;;
     TRUSTY*|XENIAL*)
         debgeneric $target $MIRROR_UBUNTU ;;
-    SQUEEZE*|WHEEZY*|JESSIE*|STRETCH*)
-        debgeneric $target $MIRROR_DEBIAN ;;
+    SQUEEZE*|WHEEZY*|JESSIE*|STRETCH*|BUSTER*|SID*)
+        debgeneric $target $MIRROR_DEBIAN $ARCH;;
     *) echo "Unknown distribution. Aborting."
        prtdists
        exit 99 ;;
