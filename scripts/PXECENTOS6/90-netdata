@@ -2,9 +2,13 @@
 
 error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
 
+mount -o bind /dev $target/dev
 #https://github.com/firehol/netdata
 $ROOTCMD bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh) --dont-wait --dont-start-it
-$ROOTCMD ln -s /opt/netdata/system/netdata.service /etc/systemd/system/multi-user.target.wants/netdata.service
+umount $target/dev
+$ROOTCMD cp /opt/netdata/system/netdata-init-d /etc/init.d/netdata
+chmod +x $target/etc/init.d/netdata
+$ROOTCMD chkconfig --add netdata
 
 cat <<'EOF' > $target/opt/netdata/etc/netdata/netdata.conf
 [global]

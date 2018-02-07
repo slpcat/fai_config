@@ -1,13 +1,20 @@
 #! /bin/bash
 
-# (c) Thomas Lange, 2001-2012, lange@debian.org
-
 error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
+
 #https://github.com/firehol/netdata
-$ROOTCMD bash <(curl -Ss https://my-netdata.io/kickstart.sh) all --dont-wait
-cp $target/usr/src/netdata.git/system/netdata.service $target/lib/systemd/system/
-$ROOTCMD ln -s /lib/systemd/system/netdata.service /etc/systemd/system/multi-user.target.wants/netdata.service
-#sed -i /^DEFAULT_RECIPIENT_EMAIL/s/root/user@mail.com/ $target/etc/netdata/health_alarm_notify.conf
-[ -n "$IPADDR" ] && sed -i "s/^.*bind\ to\ =\ \*$/\        bind\ to\ =\ $IPADDR/" $target/etc/netdata/netdata.conf 
+$ROOTCMD bash <(curl -Ss https://my-netdata.io/kickstart-static64.sh) --dont-wait --dont-start-it
+$ROOTCMD ln -s /opt/netdata/system/netdata.service /etc/systemd/system/multi-user.target.wants/netdata.service
+
+cat <<'EOF' > $target/opt/netdata/etc/netdata/netdata.conf
+[global]
+        history = 86400
+[web]
+        # default port = 19999
+        # bind to = *
+EOF
+
+#sed -i /^DEFAULT_RECIPIENT_EMAIL/s/root/user@mail.com/ $target/opt/netdata/etc/netdata/health_alarm_notify.conf
+[ -n "$IPADDR" ] && sed -i "s/^.*bind\ to\ =\ \*$/\        bind\ to\ =\ $IPADDR/" $target/opt/netdata/etc/netdata/netdata.conf 
 
 exit $error
