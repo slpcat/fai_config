@@ -55,7 +55,7 @@ sed -i "s/net.ipv4.tcp_congestion_control.*$/net.ipv4.tcp_congestion_control=dct
 [ -n "$NTPSRVS" ] && sed -i /#Servers/a\Servers="$NTPSRVS" $target/etc/systemd/timesyncd.conf
 #$ROOTCMD systemctl start systemd-timedated
 mkdir -p $target/etc/systemd/system/sysinit.target.wants
-ln -s /lib/systemd/system/systemd-timesyncd.service $target/etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
+ln -sf /lib/systemd/system/systemd-timesyncd.service $target/etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
 ln -s /dev/null $target/etc/systemd/system/bluetooth.service
 unlink $target/lib/systemd/system/ctrl-alt-del.target
 #unlink $target/etc/systemd/system/multi-user.target.wants/smartd.service

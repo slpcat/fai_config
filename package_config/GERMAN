@@ -1,5 +1,5 @@
-PACKAGES aptitude
+PACKAGES install
 task-german
 
-PACKAGES aptitude GNOME
-iceweasel-l10n-de icedove-l10n-de
+PACKAGES install GNOME
+firefox-esr-l10n-de thunderbird-l10n-de
