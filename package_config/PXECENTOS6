@@ -20,6 +20,7 @@ openssh-clients
 openssh-server
 vim-enhanced
 man
+ntp
 curl
 #screen
 rsync

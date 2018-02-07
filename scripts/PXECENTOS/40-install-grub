@@ -114,7 +114,7 @@ cat > $target/boot/grub/grub.conf <<-EOF
 	
 	title $title
 	  root $bootpart
-	  kernel $bootdir/vmlinuz-$version root=$ROOT_PARTITION ro
+	  kernel $bootdir/vmlinuz-$version root=$ROOT_PARTITION ro elevator=deadline vt.cur_default=50 transparent_hugepage=never cgroup_enable=memory swapaccount=1 intel_pstate=disable thermal.off=1 idle=halt net.ifnames=0 biosdevname=0
 	  initrd $bootdir/$iname-$version.img
 	EOF
 
