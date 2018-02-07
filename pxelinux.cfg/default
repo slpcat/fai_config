@@ -26,8 +26,9 @@ prompt 0
 
 label 1
 menu label ^1) FAI-BOOT
-kernel vmlinuz-4.9.0-4-amd64
-append initrd=initrd.img-4.9.0-4-amd64 ip=dhcp root=/srv/fai/nfsroot rootovl FAI_FLAGS=verbose,sshd,createvt,menu FAI_CONFIG_SRC=nfs://faiserver/srv/fai/config FAI_ACTION=install
+MENU DEFAULT
+kernel vmlinuz-4.9.0-5-amd64
+append initrd=initrd.img-4.9.0-5-amd64 ip=dhcp root=/srv/fai/nfsroot rootovl FAI_FLAGS=verbose,sshd,createvt,menu FAI_CONFIG_SRC=nfs://faiserver/srv/fai/config FAI_ACTION=install
 
 label 2
 menu label ^2) CoreOS
@@ -45,7 +46,6 @@ append rancher.state.dev=LABEL=RANCHER_STATE rancher.state.autoformat=[/dev/sda]
 
 label dg
 MENU LABEL ^3) DISKGEN
-MENU DEFAULT
 kernel /BOOT/ISOLINUX/MEMDISK
 append initrd=/BOOT/IMGS/DISKGEN.IMG
 
@@ -56,13 +56,11 @@ append initrd=/BOOT/IMGS/GRGHOST.IMG
 
 LABEL maxdos
 MENU LABEL ^5) MAXDOS
-MENU IMMEDIATE
 kernel /BOOT/ISOLINUX/MEMDISK
 append initrd=/BOOT/IMGS/MAXDOS.IMG
 
 LABEL runpe03
 MENU LABEL ^6) pe03
-MENU DEFAULT
 kernel /BOOT/LDNTLDR
 append initrd=/BOOT/H3_LDR03.BIN
 
