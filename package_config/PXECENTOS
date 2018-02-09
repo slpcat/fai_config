@@ -56,5 +56,8 @@ yum-plugin-changelog
 
 #sendmail # only for C5 and C6
 
+PACKAGES yumi DOCKER
+docker-ce
+
 PACKAGES yumi LVM
 lvm2
