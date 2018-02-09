@@ -26,7 +26,6 @@ grub-pc
 PACKAGES install DOCKER
 docker-ce
 
-PACKAGES install-norec-r XORG
+PACKAGES install-norec XORG
 ubuntu-desktop
 ubuntu-standard
-
