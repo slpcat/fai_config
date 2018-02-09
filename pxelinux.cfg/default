@@ -28,7 +28,7 @@ label 1
 menu label ^1) FAI-BOOT
 MENU DEFAULT
 kernel vmlinuz-4.9.0-5-amd64
-append initrd=initrd.img-4.9.0-5-amd64 ip=dhcp root=/srv/fai/nfsroot rootovl FAI_FLAGS=verbose,sshd,createvt,menu FAI_CONFIG_SRC=nfs://faiserver/srv/fai/config FAI_ACTION=install
+append initrd=initrd.img-4.9.0-5-amd64 ip=dhcp root=/srv/fai/nfsroot:vers=3 rootovl FAI_FLAGS=verbose,sshd,createvt,menu FAI_CONFIG_SRC=nfs://faiserver/srv/fai/config FAI_ACTION=install
 
 label 2
 menu label ^2) CoreOS
