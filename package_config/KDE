@@ -1,4 +1,4 @@
-PACKAGES aptitude
+PACKAGES install-norec
 kde-standard
 kde-l10n-zhcn
 kdm

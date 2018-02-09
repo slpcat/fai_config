@@ -1,4 +1,4 @@
-PACKAGES aptitude
+PACKAGES install-norec
 linux-base/jessie-backports
 linux-image-grsec-amd64/jessie-backports
 paxtest

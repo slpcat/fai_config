@@ -1,4 +1,4 @@
-PACKAGES aptitude
+PACKAGES install-norec
 ubuntu-minimal
 #PPA support
 software-properties-common
@@ -30,7 +30,7 @@ isc-dhcp-client
 PACKAGES install GRUB_PC
 grub-pc
 
-PACKAGES aptitude-r XORG
+PACKAGES install-norec-r XORG
 ubuntu-desktop
 ubuntu-standard
 

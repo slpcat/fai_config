@@ -1,4 +1,4 @@
-PACKAGES aptitude
+PACKAGES install-norec
 #lvm2
 faketime
 PACKAGES KDE

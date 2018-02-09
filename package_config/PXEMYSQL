@@ -1,4 +1,4 @@
-PACKAGES aptitude
+PACKAGES install-norec
 mariadb-server
 mydumper
 mytop

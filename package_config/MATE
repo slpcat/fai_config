@@ -1,4 +1,4 @@
-PACKAGES aptitude
+PACKAGES install-norec
 mate-desktop-environment
 mate-desktop-environment-extras
 lightdm

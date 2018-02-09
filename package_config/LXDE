@@ -1,6 +1,7 @@
-PACKAGES aptitude
+PACKAGES install-norec
 lxde
 flashplugin-nonfree
+firefox-esr
 xfonts-wqy
 ttf-wqy-microhei
 ttf-wqy-zenhei
