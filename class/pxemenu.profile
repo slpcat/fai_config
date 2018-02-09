@@ -99,31 +99,31 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE DEMO PXETRUSTY TRUSTY TRUSTY64
 
-Name: docker-centos-7-basic
-Description: CentOS 7 for docker
+Name: docker-centos-7 noswap
+Description: CentOS 7 for docker without swap
 Short: a very simple server, no xorg
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 DOCKER
 
-Name: docker-ubuntu-16.04-basic
-Description: Ubuntu 16.04 for docker
+Name: docker-ubuntu-16.04 noswap
+Description: Ubuntu 16.04 for docker without swap
 Short: Ubuntu with minimal install
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXEUBUNTU XENIAL XENIAL64 DOCKER
 
-Name: docker-debian9-basic
-Description: debian9 for docker
+Name: docker-debian-9 noswap
+Description: debian9 for docker without swap
 Short: a very simple server, no xorg
 Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC DOCKER
 
-Name: docker-debian8-basic
-Description: debian8 for docker
+Name: docker-debian-8 noswap
+Description: debian8 for docker without swap
 Short: a very simple server, no xorg
 Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd

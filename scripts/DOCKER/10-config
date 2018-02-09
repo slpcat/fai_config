@@ -1,0 +1,5 @@
+#! /bin/bash
+
+fcopy -iM /etc/docker/daemon.json
+
+exit $error

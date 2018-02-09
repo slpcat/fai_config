@@ -51,6 +51,7 @@ deb http://repo.zabbix.com/zabbix/3.4/debian/ jessie main
 
 #docker-ce
 #deb [arch=amd64] https://download.docker.com/linux/debian jessie stable
+deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/debian jessie stable
 
 #deb https://pkg.jenkins.io/debian binary/
 

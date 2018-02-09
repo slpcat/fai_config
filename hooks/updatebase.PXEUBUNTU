@@ -26,6 +26,9 @@ cat <<EOM > $target/etc/apt/sources.list
 deb MIRRORURL $ubuntudist main restricted universe multiverse
 deb MIRRORURL $ubuntudist-updates main restricted universe multiverse
 deb MIRRORURL $ubuntudist-security main restricted universe multiverse
+#deb [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
+deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $ubuntudist stable
+# deb-src [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
 EOM
 
 # determine a fast mirror for Ubuntu

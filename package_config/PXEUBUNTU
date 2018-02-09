@@ -23,6 +23,9 @@ isc-dhcp-client
 PACKAGES install GRUB_PC
 grub-pc
 
+PACKAGES install DOCKER
+docker-ce
+
 PACKAGES install-norec-r XORG
 ubuntu-desktop
 ubuntu-standard

@@ -53,6 +53,7 @@ deb http://repo.zabbix.com/zabbix/3.4/debian/ stretch main
 
 #docker-ce
 #deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
+deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/debian stretch stable
 
 #deb https://pkg.jenkins.io/debian binary/
 

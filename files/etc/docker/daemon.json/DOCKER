@@ -1,0 +1,8 @@
+{ "insecure-registries":["gitlab.default.svc.cluster.local:5000", "gitlab.marathon.l4lb.thisdcos.directory:50000"],
+  "live-restore": true,
+  "max-concurrent-downloads": 10,
+  "storage-driver": "overlay2",
+  "storage-opts": ["overlay2.override_kernel_check=true"],
+  "oom-score-adjust": -1000,
+  "debug": false
+}

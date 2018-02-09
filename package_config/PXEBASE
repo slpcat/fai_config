@@ -26,37 +26,11 @@ xz-utils
 vim-nox
 man
 
-PACKAGES install PXEUBUNTU
-fai-client
-dbus
-debconf-utils
-ca-certificates
-file
-less
-linuxlogo
-#rdate
-rsync
-openssh-client openssh-server
-time
-procinfo
-#nullmailer
-postfix
-bsd-mailx
-#eject
-locales
-console-setup kbd
-pciutils usbutils
-#apt-fast
-aria2
-xz-utils
-vim-nox
-gcc-4.8-base
-man
-
 PACKAGES install JESSIE64
 fai-client
 dbus
 debconf-utils
+apt-transport-https
 ca-certificates
 file
 less
@@ -83,6 +57,7 @@ PACKAGES install PXEUBUNTU
 fai-client
 dbus
 debconf-utils
+apt-transport-https
 ca-certificates
 file
 less
@@ -110,6 +85,7 @@ PACKAGES install PXETRUSTY
 fai-client
 dbus
 debconf-utils
+apt-transport-https
 ca-certificates
 file
 less
