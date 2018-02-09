@@ -16,5 +16,10 @@ isc-dhcp-client
 PACKAGES install GRUB_PC
 grub-pc grub-legacy- lilo-
 
+PACKAGES install DOCKER
+linux-base/jessie-backports
+linux-image-amd64/jessie-backports
+docker-ce
+
 PACKAGES install LVM
 lvm2
