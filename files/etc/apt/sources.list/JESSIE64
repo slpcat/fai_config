@@ -55,6 +55,9 @@ deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/debian jessie stable
 
 #deb https://pkg.jenkins.io/debian binary/
 
+#ansible
+#deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main
+
 #deb http://http.kali.org/kali kali-rolling main non-free contrib
 
 #bcc-tools

@@ -29,6 +29,7 @@ deb MIRRORURL $ubuntudist-security main restricted universe multiverse
 #deb [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
 deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $ubuntudist stable
 # deb-src [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
+#deb http://ppa.launchpad.net/ansible/ansible/ubuntu $ubuntudist main
 EOM
 
 # determine a fast mirror for Ubuntu

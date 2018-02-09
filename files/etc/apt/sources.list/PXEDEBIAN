@@ -55,6 +55,9 @@ deb http://repo.zabbix.com/zabbix/3.4/debian/ stretch main
 #deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
 deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/debian stretch stable
 
+#ansible
+#deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main
+
 #deb https://pkg.jenkins.io/debian binary/
 
 #deb http://http.kali.org/kali kali-rolling main non-free contrib
