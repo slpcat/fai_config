@@ -26,6 +26,7 @@ cat <<EOM > $target/etc/apt/sources.list
 deb MIRRORURL $ubuntudist main restricted universe multiverse
 deb MIRRORURL $ubuntudist-updates main restricted universe multiverse
 deb MIRRORURL $ubuntudist-security main restricted universe multiverse
+#deb http://ppa.launchpad.net/ansible/ansible/ubuntu $ubuntudist main
 EOM
 
 # determine a fast mirror for Ubuntu
