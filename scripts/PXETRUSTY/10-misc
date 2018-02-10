@@ -1,6 +1,12 @@
 #! /bin/bash
 
-#sed -i 's/-L debian_banner_2/-L ubuntu/' $target/etc/linux_logo.conf
+sed -i 's/-L debian_banner_2/-L ubuntu/' $target/etc/linux_logo.conf
+sed -i 's/^exec \/sbin\/getty/exec \/sbin\/getty -f \/etc\/issue.linuxlogo --noclear/' $target/etc/init/console.conf
+sed -i 's/^exec \/sbin\/getty/exec \/sbin\/getty -f \/etc\/issue.linuxlogo --noclear/' $target/etc/init/tty?.conf
+
+#ubuntu 14.04 disk queue patch
+sed -i '/write_cache/d' $target/etc/sysfs.conf
+
 [ -n "$DEFAULTLOCALE" ] && ainsl -a /etc/locale.gen 'en_US.UTF-8 UTF-8'
 [ -n "$DEFAULTLOCALE" ] && ainsl -a /etc/default/locale LANG="$DEFAULTLOCALE"
 $ROOTCMD locale-gen
