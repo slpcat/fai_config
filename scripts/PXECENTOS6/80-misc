@@ -16,6 +16,15 @@ if [ -f $target/usr/sbin/gdm ]; then
     echo "RUN_FIRSTBOOT=NO" > $target/etc/sysconfig/firstboot
 fi
 
+sed -i '/kernel.sched_time_avg_ms/d' $target/etc/sysctl.conf
+sed -i '/kernel.perf_cpu_time_max_percent/d' $target/etc/sysctl.conf
+sed -i '/kernel.numa_balancing/d' $target/etc/sysctl.conf
+sed -i '/net.core.default_qdisc/d' $target/etc/sysctl.conf
+sed -i '/net.core.bpf_jit_enable/d' $target/etc/sysctl.conf
+sed -i '/net.core.netdev_tstamp_prequeue/d' $target/etc/sysctl.conf
+sed -i '/net.ipv4.tcp_autocorking/d' $target/etc/sysctl.conf
+sed -i '/net.ipv4.tcp_fastopen/d' $target/etc/sysctl.conf
+
 #ln -sf /dev/null $target/etc/systemd/system/multi-user.target.wants/kdump.service
 #ln -sf /dev/null $target/etc/systemd/system/gssproxy.service
 #ln -sf /dev/null $target/etc/systemd/system/polkit.service
