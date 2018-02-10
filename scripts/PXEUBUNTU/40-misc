@@ -33,6 +33,7 @@ sed -i 's/^CHARMAP.*$/CHARMAP="UTF-8"/' $target/etc/default/console-setup
 sed -i 's/^CODESET.*$/CODESET="guess"/' $target/etc/default/console-setup
 sed -i 's/^FONTFACE.*$/FONTFACE="Fixed"/' $target/etc/default/console-setup
 sed -i 's/^FONTSIZE.*$/FONTSIZE="8x16"/' $target/etc/default/console-setup
+DEBIAN_FRONTEND=noninteractive $ROOTCMD dpkg-reconfigure console-setup
 
 fcopy /etc/systemd/system.conf
 

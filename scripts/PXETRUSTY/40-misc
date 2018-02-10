@@ -33,6 +33,7 @@ sed -i 's/^CHARMAP.*$/CHARMAP="UTF-8"/' $target/etc/default/console-setup
 sed -i 's/^CODESET.*$/CODESET="Uni3"/' $target/etc/default/console-setup
 sed -i 's/^FONTFACE.*$/FONTFACE="Fixed"/' $target/etc/default/console-setup
 sed -i 's/^FONTSIZE.*$/FONTSIZE="16"/' $target/etc/default/console-setup
+DEBIAN_FRONTEND=noninteractive $ROOTCMD dpkg-reconfigure console-setup
 
 if [ ! -f $target/etc/machine-id -a -f $target/bin/systemd-machine-id-setup ]; then
     $ROOTCMD systemd-machine-id-setup
