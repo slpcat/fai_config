@@ -2,7 +2,8 @@
 #
 # <type> <mountpoint> <size>   <fs type> <mount options> <misc options>
 
-disk_config disk1 disklabel:msdos bootable:1 fstabkey:uuid
+#disk_config disk1 disklabel:msdos bootable:1 fstabkey:uuid
+disk_config disk1 disklabel:msdos bootable:1 fstabkey:label
 
-primary /      8G-32G   ext4  rw,noatime,nobarrier,errors=remount-ro tuneopts="-c 0 -i 0 -O ^metadata_csum"
-logical /var   4G-95%   ext4  rw,noatime,nobarrier createopts="-L var -m 1" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+primary /      8G-32G   ext4  rw,noatime,nobarrier,errors=remount-ro createopts="-L ROOT" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+logical /var   4G-95%   ext4  rw,noatime,nobarrier createopts="-L VAR -m 1" tuneopts="-c 0 -i 0 -O ^metadata_csum"

@@ -67,7 +67,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE KDE_EL7 CENTOS7_64 XORG
 
-Name: Ubuntu 16.04
+Name: Ubuntu 16.04 Desktop
 Description: Ubuntu 16.04 desktop installation
 Short: Unity desktop
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
@@ -75,7 +75,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU XENIAL XENIAL64 XORG
 
-Name: Ubuntu 14.04
+Name: Ubuntu 14.04 Desktop
 Description: Ubuntu 14.04 desktop installation
 Short: Unity desktop
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
@@ -91,7 +91,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU XENIAL XENIAL64
 
-Name: ubuntu 14.04 basic
+Name: Ubuntu 14.04 basic
 Description: Ubuntu 14.04 minimal installation
 Short: Ubuntu 14.04 minimal installation
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
