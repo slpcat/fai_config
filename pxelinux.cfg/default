@@ -27,8 +27,8 @@ prompt 0
 label 1
 menu label ^1) FAI-BOOT
 MENU DEFAULT
-kernel vmlinuz-4.9.0-5-amd64
-append initrd=initrd.img-4.9.0-5-amd64 ip=dhcp root=/srv/fai/nfsroot:vers=3 rootovl FAI_FLAGS=verbose,sshd,createvt,menu FAI_CONFIG_SRC=nfs://faiserver/srv/fai/config FAI_ACTION=install elevator=deadline vt.cur_default=50 net.ifnames=0 biosdevname=0
+kernel vmlinuz-4.14.0-0.bpo.3-amd64
+append initrd=initrd.img-4.14.0-0.bpo.3-amd64 ip=dhcp root=/srv/fai/nfsroot:vers=3 rootovl FAI_FLAGS=verbose,sshd,createvt,menu FAI_CONFIG_SRC=nfs://faiserver/srv/fai/config FAI_ACTION=install elevator=deadline vsyscall=emulate vt.cur_default=50 net.ifnames=0 biosdevname=0
 
 label 2
 menu label ^2) CoreOS

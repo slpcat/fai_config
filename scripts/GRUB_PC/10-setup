@@ -64,5 +64,6 @@ else
     fi
 fi
 $ROOTCMD update-grub
+# DOC https://www.kernel.org/doc/html/latest/admin-guide/kernel-parameters.html
 
 exit $error
