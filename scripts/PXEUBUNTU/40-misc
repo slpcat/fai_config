@@ -27,6 +27,13 @@ if [ -f $target/etc/inittab ]; then
 elif [ -f $target/lib/systemd/system/getty@.service ]; then
     sed -i -e 's#sbin/agetty --noclear#sbin/agetty -f /etc/issue.linuxlogo --noclear#' $target/lib/systemd/system/getty@.service
 fi
+
+#console setup
+sed -i 's/^CHARMAP.*$/CHARMAP="UTF-8"/' $target/etc/default/console-setup
+sed -i 's/^CODESET.*$/CODESET="guess"/' $target/etc/default/console-setup
+sed -i 's/^FONTFACE.*$/FONTFACE="Fixed"/' $target/etc/default/console-setup
+sed -i 's/^FONTSIZE.*$/FONTSIZE="8x16"/' $target/etc/default/console-setup
+
 fcopy /etc/systemd/system.conf
 
 if [ ! -f $target/etc/machine-id -a -f $target/bin/systemd-machine-id-setup ]; then

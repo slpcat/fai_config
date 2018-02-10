@@ -1,3 +1,4 @@
+console-setup console-setup/ask_detect select false
 console-setup console-setup/charmap47 select UTF-8
 console-setup console-setup/codeset47 select . Combined - Latin; Slavic and non-Slavic Cyrillic
 console-setup console-setup/codesetcode select Uni3
