@@ -68,9 +68,10 @@ ainsl /etc/ssh/sshd_config 'DebianBanner no'
 sed -i 's/^.*pam_motd.so/#&/' $target/etc/pam.d/sshd
 ainsl /etc/bash.bashrc 'force_color_prompt=yes'
 for disk in $disklist
-    do  ainsl /etc/sysfs.conf "block/$disk/queue/read_ahead_kb = 4096"
-        ainsl /etc/sysfs.conf "block/$disk/queue/rq_affinity = 2"
-        ainsl /etc/sysfs.conf "block/$disk/cache_type = write\ back"
+    do  ainsl /etc/sysfs.conf "block/$disk/queue/read_ahead_kb = 8192"
+        ainsl /etc/sysfs.conf "block/$disk/queue/rq_affinity = 1"
+        ainsl /etc/sysfs.conf "block/$disk/queue/write_cache = write\ back"
+        ainsl /etc/sysfs.conf "block/$disk/queue/nr_requests = 4096"
 done
 #ainsl /etc/sysfs.conf 'kernel/mm/transparent_hugepage/enabled = never'
 
