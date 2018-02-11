@@ -24,6 +24,10 @@ PACKAGES install AMD64
 linux-image-generic initramfs-tools
 memtest86+
 
+PACKAGES install DOCKER
+linux-image-virtual-lts-xenial
+docker-ce
+
 PACKAGES install DHCPC
 isc-dhcp-client
 

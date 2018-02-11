@@ -115,6 +115,14 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXEUBUNTU XENIAL XENIAL64 DOCKER
 
+Name: docker-ubuntu-14.04 noswap
+Description: Ubuntu 14.04 for docker without swap
+Short: Ubuntu with minimal install
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY TRUSTY64 DOCKER
+
 Name: docker-debian-9 noswap
 Description: debian9 for docker without swap
 Short: a very simple server, no xorg
