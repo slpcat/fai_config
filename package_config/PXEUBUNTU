@@ -29,3 +29,7 @@ docker-ce
 PACKAGES install-norec XORG
 ubuntu-desktop
 ubuntu-standard
+#lubuntu-desktop
+#kubuntu-desktop
+#xubuntu-desktop
+#mate-desktop

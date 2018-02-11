@@ -5,6 +5,11 @@ PACKAGES yumgroup XORG
 #gnome-desktop base-x # slc5/CentOS 5
 #basic-desktop x11 fonts #slc6/CentOS 6
 gnome-desktop # CentOS 7
+#cinnamon
+#kde-desktop
+#mate-desktop
+#xfce
+#lxde
 
 PACKAGES yumi
 #authconfig

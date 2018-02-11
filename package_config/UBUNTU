@@ -16,3 +16,9 @@ PACKAGES install XORG
 ubuntu-desktop
 ubuntu-standard
 ubuntu-minimal
+#lubuntu-desktop
+#kubuntu-desktop
+#xubuntu-desktop
+#mate-desktop
+#cinnamon
+#dde
