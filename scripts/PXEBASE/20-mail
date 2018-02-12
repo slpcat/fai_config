@@ -10,6 +10,7 @@ sed -i 's/^inet_interfaces.*$/inet_interfaces = loopback-only/' $target/etc/post
 sed -i 's/^smtpd_banner.*$/smtpd_banner = ESMTP mail server/' $target/etc/postfix/main.cf
 #ubuntu 
 #ainsl /etc/postfix/main.cf 'inet_protocols = ipv4'
+$ROOTCMD postconf -e inet_protocols=ipv4
 $ROOTCMD postalias /etc/aliases
 
 exit $error

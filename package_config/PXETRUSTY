@@ -21,7 +21,9 @@ PACKAGES install CHROOT
 linux-image-generic-
 
 PACKAGES install AMD64
-linux-image-generic initramfs-tools
+#linux-image-generic
+initramfs-tools
+linux-image-virtual-lts-xenial
 memtest86+
 
 PACKAGES install DOCKER

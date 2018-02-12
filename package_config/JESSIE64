@@ -8,6 +8,8 @@ linux-image-amd64-
 
 PACKAGES install AMD64
 linux-image-amd64 initramfs-tools
+linux-base/jessie-backports
+linux-image-amd64/jessie-backports
 memtest86+
 
 PACKAGES install DHCPC

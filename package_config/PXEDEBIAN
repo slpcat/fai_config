@@ -7,13 +7,16 @@ linux-image-686-pae-
 linux-image-amd64-
 
 PACKAGES install AMD64
-linux-image-amd64 initramfs-tools
+#linux-image-amd64
+initramfs-tools
+linux-image-amd64/stretch-backports
 memtest86+
 
 PACKAGES install DHCPC
 isc-dhcp-client
 
 PACKAGES install DOCKER
+linux-image-amd64/stretch-backports
 docker-ce
 
 PACKAGES install GRUB_PC
