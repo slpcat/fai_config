@@ -17,6 +17,11 @@ if [ -f $target/usr/sbin/gdm ]; then
     echo "RUN_FIRSTBOOT=NO" > $target/etc/sysconfig/firstboot
 fi
 fcopy /etc/systemd/system.conf
+ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist usb-storage'
+ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
+#ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist floppy'
+ainsl -a /etc/modprobe.d/blacklist-pcspkr.conf 'blacklist pcspkr'
+ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'
 ln -sf /dev/null $target/etc/systemd/system/multi-user.target.wants/kdump.service
 #ln -sf /dev/null $target/etc/systemd/system/gssproxy.service
 #ln -sf /dev/null $target/etc/systemd/system/polkit.service
@@ -68,4 +73,3 @@ $ROOTCMD timedatectl set-ntp true
 sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
 
 exit $error
-

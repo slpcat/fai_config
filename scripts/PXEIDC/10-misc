@@ -20,11 +20,11 @@ fcopy /etc/zsh/zlogin
 #sed -i 's/^UMASK.*$/UMASK       077/' $target/etc/login.defs
 #sed -i 's/^umask.*$/umask 077/' $target/etc/init.d/rc
 #ainsl /etc/pam.d/common-session 'session optional pam_umask.so umask=077'
-ainsl -a /etc/modprobe.d/storage-blacklist.conf 'blacklist usb-storage'
-ainsl -a /etc/modprobe.d/storage-blacklist.conf 'blacklist firewire-ohci'
-#ainsl -a /etc/modprobe.d/storage-blacklist.conf 'blacklist floppy'
-#ainsl -a /etc/modprobe.d/pcspkr-blacklist.conf 'blacklist pcspkr'
-ainsl -a /etc/modprobe.d/bluetooth-blacklist.conf 'blacklist bluetooth'
+ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist usb-storage'
+ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
+#ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist floppy'
+#ainsl -a /etc/modprobe.d/blacklist-pcspkr.conf 'blacklist pcspkr'
+ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'
 [ -n "$LOGSRV" ] && ainsl -a -q /etc/rsyslog.conf "*.*@$LOGSRV:514"
 #sed -i 's/^#FSCKFIX.*$/FSCKFIX=yes/' $target/etc/default/rcS
 #ainsl /etc/default/rcS 'umask 077'
@@ -43,6 +43,7 @@ fi
 sed -i 's/^SHELL.*$/SHELL=\/bin\/zsh/' $target/etc/default/useradd
 sed -i 's/DSHELL.*$/DSHELL=\/bin\/zsh/' $target/etc/adduser.conf
 #ainsl -a /etc/ld.so.preload '/lib/snoopy.so'
+sed -i 's/^LOAD_KEXEC.*$/LOAD_KEXEC=true/' $target/etc/default/kexec
 sed -i 's/^USE_GRUB_CONFIG.*$/USE_GRUB_CONFIG=true/' $target/etc/default/kexec
 
 ainsl /etc/ssh/ssh_config 'HashKnownHosts yes'
