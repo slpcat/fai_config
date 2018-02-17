@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20180127
+# Revision: 20180213
 # /etc/sysctl.conf
 #
 
@@ -111,7 +111,8 @@ fs.inotify.max_queued_events=1048576
 
 #Part5: Networking
 
-#Fair Queue CoDel packet scheduler to fight bufferbloat
+#Fair Queue packet scheduler to fight bufferbloat.
+#Note that TSO (which is off by default on most NICs) should be disabled when using FQ.
 net.core.default_qdisc=fq_codel
 #禁止ipv6
 #net.ipv6.conf.all.disable_ipv6=1
@@ -152,7 +153,7 @@ net.core.netdev_max_backlog=32768
 #本地端口范围，缺省情况下很小：32768到61000
 net.ipv4.ip_local_port_range=20000 65499
 #tcp拥塞算法htcp
-#kernel3.18 dctcp,kernel4.9 bbr,更低版本使用hybla,htcp,bic,reno,vegas,westwood,yeah,veno(wifi),illinois,其他cdg,highspeed,scalable,默认cubic
+#kernel3.18 dctcp,kernel4.9 bbr,bbr_powered,更低版本使用hybla,htcp,bic,reno,vegas,westwood,yeah,veno(wifi),illinois,其他cdg,highspeed,scalable,默认cubic
 net.ipv4.tcp_congestion_control=htcp
 #显式拥塞通知，避免运营商路由器滥用
 net.ipv4.tcp_ecn=1

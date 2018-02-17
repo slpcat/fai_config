@@ -15,8 +15,8 @@ linux-image-generic-
 
 PACKAGES install AMD64
 #linux-image-generic
+linux-virtual-hwe-16.04
 initramfs-tools
-linux-image-virtual-hwe-16.04
 memtest86+
 
 PACKAGES install DHCPC
@@ -26,7 +26,7 @@ PACKAGES install GRUB_PC
 grub-pc
 
 PACKAGES install DOCKER
-linux-image-virtual-hwe-16.04
+linux-virtual-hwe-16.04
 docker-ce
 
 PACKAGES install-norec XORG

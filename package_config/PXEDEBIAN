@@ -8,8 +8,9 @@ linux-image-amd64-
 
 PACKAGES install AMD64
 #linux-image-amd64
-initramfs-tools
 linux-image-amd64/stretch-backports
+linux-headers-amd64/stretch-backports
+initramfs-tools
 memtest86+
 
 PACKAGES install DHCPC

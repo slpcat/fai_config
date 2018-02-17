@@ -22,8 +22,8 @@ linux-image-generic-
 
 PACKAGES install AMD64
 #linux-image-generic
-initramfs-tools
 linux-image-virtual-lts-xenial
+initramfs-tools
 memtest86+
 
 PACKAGES install DOCKER

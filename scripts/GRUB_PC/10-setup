@@ -18,7 +18,7 @@ fi
 
 # vsyscall=none can not work with centos 5.x and 6.x
 # nosplash and ethX
-sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT.*$/GRUB_CMDLINE_LINUX_DEFAULT="elevator=deadline vt.cur_default=50 transparent_hugepage=never cgroup_enable=memory swapaccount=1 intel_pstate=disable thermal.off=1 idle=halt net.ifnames=0 biosdevname=0"/' $target/etc/default/grub
+sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT.*$/GRUB_CMDLINE_LINUX_DEFAULT="elevator=deadline vsyscall=emulate vt.cur_default=50 transparent_hugepage=never cgroup_enable=memory swapaccount=1 intel_pstate=disable thermal.off=1 idle=halt net.ifnames=0 biosdevname=0"/' $target/etc/default/grub
 sed -i s/^GRUB_HIDDEN_TIMEOUT/#GRUB_HIDDEN_TIMEOUT/ $target/etc/default/grub
 sed -i 's/^#GRUB_GFXMODE.*$/GRUB_GFXMODE=1024x768/' $target/etc/default/grub
 ainsl /etc/default/grub 'GRUB_GFXPAYLOAD_LINUX="$GRUB_GFXMODE"'
