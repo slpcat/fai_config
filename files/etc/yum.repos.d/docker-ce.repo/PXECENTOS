@@ -2,7 +2,7 @@
 name=Docker CE Stable - $basearch
 #baseurl=https://download.docker.com/linux/centos/7/$basearch/stable
 baseurl=http://mirrors.aliyun.com/docker-ce/linux/centos/7/$basearch/stable
-enabled=0
+enabled=1
 gpgcheck=0
 
 [docker-ce-stable-debuginfo]
