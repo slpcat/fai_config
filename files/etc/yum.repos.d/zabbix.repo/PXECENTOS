@@ -1,11 +1,15 @@
 [zabbix]
 name=Zabbix Official Repository - $basearch
-baseurl=http://repo.zabbix.com/zabbix/3.5/rhel/7/$basearch/
+#baseurl=http://repo.zabbix.com/zabbix/3.5/rhel/7/$basearch/
+baseurl=http://mirrors.aliyun.com/zabbix/zabbix/3.5/rhel/7/$basearch/
+skip_if_unavailable=True
 enabled=1
 gpgcheck=0
 
 [zabbix-non-supported]
 name=Zabbix Official Repository non-supported - $basearch
-baseurl=http://repo.zabbix.com/non-supported/rhel/7/$basearch/
+#baseurl=http://repo.zabbix.com/non-supported/rhel/7/$basearch/
+baseurl=http://mirrors.aliyun.com/zabbix/non-supported/rhel/7/$basearch/
+skip_if_unavailable=True
 enabled=1
 gpgcheck=0
