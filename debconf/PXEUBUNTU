@@ -8,6 +8,8 @@ console-setup console-setup/fontsize-fb47 select 8x16
 console-setup console-setup/fontsize-text47 select 8x16
 console-setup console-setup/store_defaults_in_debconf_db select true
 exim4-config exim4/dc_eximconfig_configtype select local delivery only; not on a network
+kexec-tools kexec-tools/load_kexec select true
+kexec-tools kexec-tools/use_grub_config select true
 postfix postfix/main_mailer_type select Local only
 postfix postfix/mail_name select localhost.localdomain
 postfix postfix/protocols select ipv4
