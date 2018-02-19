@@ -23,6 +23,7 @@ ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
 ainsl -a /etc/modprobe.d/blacklist-pcspkr.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'
 ln -sf /dev/null $target/etc/systemd/system/multi-user.target.wants/kdump.service
+ln -sf /dev/null $target/etc/systemd/system/ip6tables.service
 #ln -sf /dev/null $target/etc/systemd/system/gssproxy.service
 #ln -sf /dev/null $target/etc/systemd/system/polkit.service
 #ln -sf /dev/null $target/etc/systemd/system/network-online.service
