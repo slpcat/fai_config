@@ -21,6 +21,9 @@ else
     sed -i -e 's:^UTC$:LOCAL:' $target/etc/adjtime
 fi
 
+#enable zfs
+ainsl -a /etc/modules-load.d/zfs.conf 'zfs'
+
 # enable linuxlogo
 if [ -f $target/etc/inittab ]; then
     sed -i -e 's#/sbin/getty 38400#/sbin/getty -f /etc/issue.linuxlogo 38400#' ${target}/etc/inittab

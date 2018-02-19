@@ -61,8 +61,8 @@ ainsl /etc/ssh/sshd_config 'UseDNS no'
 sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
 ainsl /etc/bashrc 'force_color_prompt=yes'
 ainsl /etc/sysconfig/init 'ACTIVE_CONSOLES=/dev/tty[1-2]'
-#clock use UTC
-$ROOTCMD hwclock -s --utc
+#enable zfs
+ainsl -a /etc/modules-load.d/zfs.conf 'zfs'
 $ROOTCMD chkconfig kdump off
 $ROOTCMD chkconfig iptables off
 $ROOTCMD chkconfig ip6tables off

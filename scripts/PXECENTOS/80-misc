@@ -72,5 +72,8 @@ $ROOTCMD ln -sf /lib/systemd/system/systemd-timesyncd.service /etc/systemd/syste
 $ROOTCMD systemctl start systemd-timedated
 $ROOTCMD timedatectl set-ntp true
 sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
+#enable zfs
+ainsl -a /etc/modules-load.d/zfs.conf 'zfs'
+$ROOTCMD systemctl preset zfs-import-cache zfs-import-scan zfs-import.target zfs-mount zfs-share zfs-zed zfs.target
 
 exit $error

@@ -12,12 +12,16 @@ linux-image-amd64/stretch-backports
 linux-headers-amd64/stretch-backports
 initramfs-tools
 memtest86+
+zfs-dkms/stretch-backports
+zfs-zed/stretch-backports
+zfsutils-linux/stretch-backports
 
 PACKAGES install DHCPC
 isc-dhcp-client
 
 PACKAGES install DOCKER
 linux-image-amd64/stretch-backports
+linux-headers-amd64/stretch-backports
 docker-ce
 
 PACKAGES install GRUB_PC

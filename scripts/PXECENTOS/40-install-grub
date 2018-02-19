@@ -34,8 +34,6 @@ else
 	bootdir='/boot'
 fi
 
-mount -o bind /dev $target/dev
-
 if [ -f $target/usr/sbin/grub2-install ]; then
 
 # CentOS 7
@@ -119,8 +117,6 @@ cat > $target/boot/grub/grub.conf <<-EOF
 	EOF
 
 fi
-
-umount $target/dev
 
 echo ""
 echo "Grub installed on $BOOT_DEVICE = $bootdev"

@@ -13,6 +13,8 @@ linux-image-amd64/jessie-backports
 linux-headers-amd64/jessie-backports
 initramfs-tools
 memtest86+
+zfs-dkms/jessie-backports
+zfsutils-linux
 
 PACKAGES install DHCPC
 isc-dhcp-client

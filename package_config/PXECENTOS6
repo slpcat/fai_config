@@ -9,6 +9,8 @@ gnome-desktop # CentOS 7
 PACKAGES yumi
 #authconfig
 kernel
+kernel-devel
+zfs
 dracut
 sysvinit-tools grub # CentOS 5 and 6
 grub

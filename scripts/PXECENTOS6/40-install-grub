@@ -34,8 +34,6 @@ else
 	bootdir='/boot'
 fi
 
-mount -o bind /dev $target/dev
-
 if [ -f $target/usr/sbin/grub2-install ]; then
 
 # CentOS 7
@@ -114,13 +112,11 @@ cat > $target/boot/grub/grub.conf <<-EOF
 	
 	title $title
 	  root $bootpart
-	  kernel $bootdir/vmlinuz-$version root=$ROOT_PARTITION ro elevator=deadline vt.cur_default=50 transparent_hugepage=never cgroup_enable=memory swapaccount=1 intel_pstate=disable thermal.off=1 idle=halt net.ifnames=0 biosdevname=0
+	  kernel $bootdir/vmlinuz-$version root=$ROOT_PARTITION ro elevator=deadline crashkernel=384M-2G:64M,2G-:128M vt.cur_default=50 transparent_hugepage=never cgroup_enable=memory swapaccount=1 intel_pstate=disable thermal.off=1 cpufreq.off=1 idle=halt net.ifnames=0 biosdevname=0
 	  initrd $bootdir/$iname-$version.img
 	EOF
 
 fi
-
-umount $target/dev
 
 echo ""
 echo "Grub installed on $BOOT_DEVICE = $bootdev"

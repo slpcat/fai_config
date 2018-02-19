@@ -18,6 +18,7 @@ PACKAGES install AMD64
 linux-virtual-hwe-16.04
 initramfs-tools
 memtest86+
+zfsutils-linux
 
 PACKAGES install DHCPC
 isc-dhcp-client

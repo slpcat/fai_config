@@ -75,9 +75,9 @@ for disk in $disklist
         ainsl /etc/sysfs.conf "block/$disk/queue/nr_requests = 4096"
 done
 #ainsl /etc/sysfs.conf 'kernel/mm/transparent_hugepage/enabled = never'
-
 #ainsl /etc/sysfs.conf 'kernel/mm/ksm/run = 1'
 #ainsl /etc/sysfs.conf 'kernel/mm/ksm/sleep_millisecs = 1000'
+ainsl /etc/sysfs.conf 'fs/cgroup/memory/memory.use_hierarchy = 1'
 
 ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
 #ainsl /etc/fstab 'tmpfs   /dev/shm    tmpfs ro,noatime,nosuid,nodev,noexec  0   0'

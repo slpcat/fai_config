@@ -19,6 +19,9 @@ sed -i '6 s/^enabled.*$/enabled=1/' $target/etc/yum.repos.d/epel.repo
 #sed -i s/^mirrorlist/#mirrorlist/ $target/etc/yum.repos.d/remi*
 #sed -i s/^#baseurl/baseurl/ $target/etc/yum.repos.d/remi*
 
+#for grub and zfs
+mount -o bind /dev $target/dev
+
 if [ X$verbose = X1 ]; then
 	echo "Updating base"
 	$ROOTCMD yum -y update |& tee -a $LOGDIR/software.log
