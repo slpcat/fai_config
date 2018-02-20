@@ -13,8 +13,6 @@ linux-image-amd64/jessie-backports
 linux-headers-amd64/jessie-backports
 initramfs-tools
 memtest86+
-zfs-dkms/jessie-backports
-zfsutils-linux
 
 PACKAGES install DHCPC
 isc-dhcp-client
@@ -27,6 +25,10 @@ linux-base/jessie-backports
 linux-image-amd64/jessie-backports
 linux-headers-amd64/jessie-backports
 docker-ce
+
+PACKAGES install ZFS
+zfs-dkms/jessie-backports
+zfsutils-linux
 
 PACKAGES install LVM
 lvm2

@@ -10,6 +10,8 @@ PACKAGES install AMD64
 #linux-image-amd64
 linux-image-amd64/stretch-backports
 linux-headers-amd64/stretch-backports
+linux-compiler-gcc-6-x86/stretch-backports
+linux-libc-dev/stretch-backports
 initramfs-tools
 memtest86+
 zfs-dkms/stretch-backports

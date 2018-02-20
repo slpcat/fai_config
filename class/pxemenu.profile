@@ -135,7 +135,7 @@ Description: debian8 for docker without swap
 Short: a very simple server, no xorg
 Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC DOCKER
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC DOCKER ZFS
 
 Name: pxe-centos-6-basic
 Description: CentOS 6 with minimal install
@@ -244,28 +244,28 @@ Description: pxe basic server installation
 Short: a very simple server, no xorg
 Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC ZFS
 
 Name: debian8-nginx-server-backend
 Description: webserver with nginx and php5 installation
 Short:  nginx php5 for web backend
 Long: This is the webserver with nginx and php5 installation.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXENGINXBACKEND
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXENGINXBACKEND ZFS
 
 Name: debian8-mysql-server
 Description: MariaDB 10.0 server
 Short: This is the mysql server
 Long: This is the mysql server.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXEMYSQL
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXEMYSQL ZFS
 
 Name: debian8-LNMP-webserver
 Description: webserver with nginx, mysql and php5 installation
 Short:  nginx mysql php5 webserver
 Long: This is the webserver with nginx, mysql and php5 installation.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXENGINXBACKEND PXEMYSQL
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXENGINXBACKEND PXEMYSQL ZFS
 
 Name: debian8-proxmox4-prepare
 Description: proxmox server virtualization
