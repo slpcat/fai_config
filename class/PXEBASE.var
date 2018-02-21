@@ -14,4 +14,4 @@ ROOTPW='$1$9JB64QlM$2ddmoNTUNkS.Xg5v7jOL91'
 STOP_ON_ERROR=700
 
 # set parameter for install_packges(8)
-MAXPACKAGES=800
+MAXPACKAGES=5000

@@ -13,6 +13,7 @@
 # Ubuntu 14.04/16.04
 # CentOS 5/6/7
 # Scientific Linux Cern 5/6
+# DEEPIN 15.5 (PANDA)
 #
 # Packages you might want to install to use this command:
 # debootstrap, rinse, xz-utils
@@ -21,6 +22,7 @@
 # Define your local mirros here
 # For the first stage, set the CentOS/SLC mirror in /etc/rinse/rinse.conf
 MIRROR_DEBIAN=http://mirrors.aliyun.com/debian/
+MIRROR_DEEPIN=https://mirrors.tuna.tsinghua.edu.cn/deepin/
 MIRROR_UBUNTU=http://mirrors.aliyun.com/ubuntu/
 MIRROR_CENTOS=http://mirrors.aliyun.com/
 
@@ -29,6 +31,7 @@ EXCLUDE_WHEEZY=info,tasksel,tasksel-data
 EXCLUDE_JESSIE=info,tasksel,tasksel-data
 EXCLUDE_STRETCH=info,tasksel,tasksel-data
 EXCLUDE_BUSTER=tasksel,tasksel-data
+EXCLUDE_PANDA=info
 EXCLUDE_SID=tasksel,tasksel-data
 
 EXCLUDE_TRUSTY=dhcp3-client,dhcp3-common,info
@@ -212,6 +215,7 @@ prtdists() {
     JESSIE32     JESSIE64
     STRETCH32    STRETCH64
     BUSTER32     BUSTER64
+                 PANDA64
     SID32        SID64
 "
 }
@@ -289,6 +293,8 @@ case "$target" in
         debgeneric $target $MIRROR_UBUNTU ;;
     SQUEEZE*|WHEEZY*|JESSIE*|STRETCH*|BUSTER*|SID*)
         debgeneric $target $MIRROR_DEBIAN $ARCH;;
+    PANDA*)
+        debgeneric $target $MIRROR_DEEPIN ;;
     *) echo "Unknown distribution. Aborting."
        prtdists
        exit 99 ;;

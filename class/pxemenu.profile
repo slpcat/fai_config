@@ -51,6 +51,14 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE DEBIAN DEMO XORG MATE
 
+Name: DEEPIN 15.5
+Description: DEEPIN desktop
+Short: A fancy DDE desktop will be installed, the user account is hmuser
+Long: This is the DDE desktop example. Additional account called
+hmuser with password: hmuserpwd, root password: rootpwd
+All needed packages are already on the CD or USB stick.
+Classes: INSTALL PXEBASE PANDA64 PXEIDC DDE
+
 Name: CentOS 7 GNOME
 Description: CentOS 7 with GNOME desktop
 Short: A normal GNOME desktop, running CentOS 7

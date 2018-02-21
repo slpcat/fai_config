@@ -1,0 +1,13 @@
+#! /bin/bash
+
+# (c) Thomas Lange, 2001-2015, lange@debian.org
+# (c) Michael Goetze, 2010-2011, mgoetze@mgoetze.net
+
+error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
+
+#$ROOTCMD apt-get -y purge nano
+#$ROOTCMD apt-get -y remove irqbalance
+#$ROOTCMD apt-get -y autoremove
+#$ROOTCMD apt-get -y clean
+
+exit $error

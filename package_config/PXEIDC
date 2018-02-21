@@ -36,6 +36,8 @@ debsums
 #fail2ban
 #nftables
 mtr-tiny
+vim
+less
 #snoopy
 kexec-tools
 unhide
