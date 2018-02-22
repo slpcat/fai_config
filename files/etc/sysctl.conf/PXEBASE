@@ -123,7 +123,7 @@ net.core.busy_poll=50
 net.core.busy_read=100
 net.core.rps_sock_flow_entries=32768
 net.core.netdev_tstamp_prequeue=0
-net.core.netdev_budget=10000
+net.core.netdev_budget=32768
 net.core.dev_weight=600
 #net.core.flow_limit_table_len=8192
 

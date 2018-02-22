@@ -13,7 +13,7 @@ cp fai/panda /usr/share/debootstrap/scripts/
 
 #system update,need reboot
 apt update -y
-apt -y dist-upgrade
+apt dist-upgrade -y
 
 #nfsroot reinsall
 fai-setup -f -v

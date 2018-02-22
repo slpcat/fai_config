@@ -1,10 +1,11 @@
 #zfs tuning
-options spl spl_kmem_cache_slab_limit=32768
+#options zfs zfs_arc_min=8G
+#options zfs zfs_arc_max=18G
 options zfs zfs_dirty_data_max_percent=40
 options zfs zfs_dirty_data_max_max_percent=50
 options zfs zfs_prefetch_disable=0
 options zfs zfs_txg_timeout=300
+#options zfs zfs_vdev_max_pending=50
 options zfs zfs_vdev_cache_max=131072
-options zfs zfs_nocacheflush=1
-options zfs zvol_request_sync=0
 options zfs zio_delay_max=300000
+options zfs zfs_nocacheflush=1
