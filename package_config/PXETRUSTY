@@ -30,6 +30,7 @@ ubuntu-zfs
 PACKAGES install DOCKER
 linux-virtual-lts-xenial
 docker-ce
+dokcer-compose
 
 PACKAGES install DHCPC
 isc-dhcp-client

@@ -29,6 +29,7 @@ grub-pc
 PACKAGES install DOCKER
 linux-virtual-hwe-16.04
 docker-ce
+dokcer-compose
 
 PACKAGES install-norec XORG
 ubuntu-desktop

@@ -25,6 +25,7 @@ PACKAGES install DOCKER
 linux-image-amd64/stretch-backports
 linux-headers-amd64/stretch-backports
 docker-ce
+dokcer-compose
 
 PACKAGES install GRUB_PC
 grub-pc grub-legacy- lilo-

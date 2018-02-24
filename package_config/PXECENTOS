@@ -65,6 +65,7 @@ yum-plugin-changelog
 
 PACKAGES yumi DOCKER
 docker-ce
+dokcer-compose
 
 PACKAGES yumi LVM
 lvm2
