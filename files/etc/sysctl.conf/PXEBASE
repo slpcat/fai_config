@@ -108,6 +108,9 @@ fs.dir-notify-enable=1
 fs.inotify.max_user_watches=52428800
 fs.inotify.max_user_instances=8192
 fs.inotify.max_queued_events=1048576
+fs.mqueue.msg_max=65536
+fs.mqueue.msgsize_max=1048576
+fs.mqueue.queues_max=65536
 
 #Part5: Networking
 
