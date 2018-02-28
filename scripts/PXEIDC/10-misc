@@ -20,8 +20,9 @@ fcopy /etc/zsh/zlogin
 #sed -i 's/^UMASK.*$/UMASK       077/' $target/etc/login.defs
 #sed -i 's/^umask.*$/umask 077/' $target/etc/init.d/rc
 #ainsl /etc/pam.d/common-session 'session optional pam_umask.so umask=077'
-ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist usb-storage'
-ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
+#Desktop can use usb and firewire storage
+ifclass -o XORG DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist usb-storage'
+ifclass -o XORG DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
 #ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist floppy'
 ainsl -a /etc/modprobe.d/blacklist-pcspkr.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'

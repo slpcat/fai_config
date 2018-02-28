@@ -24,8 +24,8 @@ cp -f /etc/apt/trusted.gpg.d/*.gpg $target/etc/apt/trusted.gpg.d/
 
 cat <<EOM > $target/etc/apt/sources.list
 # external mirror
-deb [by-hash=force] http://mirrors.tuna.tsinghua.edu.cn/deepin panda main contrib non-free
-#deb-src http://mirrors.tuna.tsinghua.edu.cn/deepin panda main contrib non-free
+deb [by-hash=force] http://mirrors.aliyun.com/deepin panda main contrib non-free
+#deb-src http://mirrors.aliyun.com/deepin panda main contrib non-free
 #deb [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
 # deb-src [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
 #deb http://ppa.launchpad.net/ansible/ansible/ubuntu $ubuntudist main

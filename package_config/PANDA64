@@ -42,7 +42,7 @@ deepin-default-settings
 deepin-fpapp-com.deepin.calendar
 deepin-fpapp-com.deepin.imageviewer
 deepin-fpapp-com.deepin.music
-deepin-fpapp-com.deepin.screenrecorder
+#deepin-fpapp-com.deepin.screenrecorder
 deepin-fpapp-com.deepin.screenshot
 deepin-fpapp-com.deepin.voicerecorder
 deepin-graphics-driver-manager
