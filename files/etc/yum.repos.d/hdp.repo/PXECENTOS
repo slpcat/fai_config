@@ -1,0 +1,22 @@
+#VERSION_NUMBER=2.6.4.0-91
+[HDP-2.6.4.0]
+name=HDP Version - HDP-2.6.4.0
+baseurl=http://public-repo-1.hortonworks.com/HDP/centos7/2.x/updates/2.6.4.0
+gpgcheck=0
+enabled=0
+priority=1
+
+[HDP-UTILS-1.1.0.22]
+name=HDP-UTILS Version - HDP-UTILS-1.1.0.22
+baseurl=http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.22/repos/centos7
+gpgcheck=0
+enabled=0
+priority=1
+
+#VERSION_NUMBER=2.6.4.0-91
+[HDP-GPL-2.6.4.0]
+name=HDP-GPL Version - HDP-GPL-2.6.4.0
+baseurl=http://public-repo-1.hortonworks.com/HDP-GPL/centos7/2.x/updates/2.6.4.0
+gpgcheck=0
+enabled=0
+priority=1
