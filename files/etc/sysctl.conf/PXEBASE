@@ -160,7 +160,7 @@ net.ipv4.ip_local_port_range=20000 65499
 net.ipv4.tcp_congestion_control=htcp
 #显式拥塞通知，避免运营商路由器滥用
 net.ipv4.tcp_ecn=1
-#net.ipv4.tcp_ecn_fallback=0
+#net.ipv4.tcp_ecn_fallback=1
 net.ipv4.tcp_sack=1
 net.ipv4.tcp_dsack=1
 net.ipv4.tcp_fack=1
