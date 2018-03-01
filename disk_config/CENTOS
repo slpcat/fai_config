@@ -8,9 +8,10 @@ disk_config disk1 disklabel:msdos bootable:1 fstabkey:label
 # CentOS 5.6 needs /boot as ext3, so we use ext3 for /
 
 #primary /      350      ext3  rw,noatime,errors=remount-ro createopts="-L ROOT -I 128"
+#disable ext4lazyinit
 
 # use following line for CentOS 7
-primary /      4G-10G    ext4  rw,noatime,errors=remount-ro createopts="-L ROOT" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+primary /      4G-10G    ext4  rw,noatime,data=ordered,errors=remount-ro createopts="-L ROOT -E lazy_itable_init=0,lazy_journal_init=0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
 logical swap   200-1000 swap  sw                           createopts="-L SWAP"
-#logical /tmp   100-1G   ext4  rw,noatime,nosuid,nodev      createopts="-L TMP -m 0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
-logical /home  100-50%  ext4  rw,noatime,nosuid,nodev      createopts="-L HOME -m 1" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+#logical /tmp   100-1G   ext4  rw,noatime,data=ordered,nosuid,nodev      createopts="-L TMP -m 0 -E lazy_itable_init=0,lazy_journal_init=0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+logical /home  100-50%  ext4  rw,noatime,data=ordered,nosuid,nodev      createopts="-L HOME -m 1 -E lazy_itable_init=0,lazy_journal_init=0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
