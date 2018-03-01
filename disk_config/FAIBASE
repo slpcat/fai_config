@@ -6,7 +6,7 @@
 disk_config disk1 disklabel:msdos bootable:1 fstabkey:label
 #disable ext4lazyinit
 
-primary /      4G-15G   ext4  rw,noatime,data=ordered,errors=remount-ro createopts="-L ROOT -E lazy_itable_init=0,lazy_journal_init=0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+primary /      4G-15G   ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=8192,delalloc,commit=600,errors=remount-ro createopts="-L ROOT -E lazy_itable_init=0,lazy_journal_init=0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
 logical swap   200-4G   swap  sw                       createopts="-L SWAP"
-#logical /tmp   100-2G   ext4  rw,noatime,data=ordered,nosuid,nodev createopts="-L TMP -m 0 -E lazy_itable_init=0,lazy_journal_init=0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
-logical /home  100-80%  ext4  rw,noatime,data=ordered,nosuid,nodev createopts="-L HOME -m 1 -E lazy_itable_init=0,lazy_journal_init=0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+#logical /tmp   100-2G   ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=8192,delalloc,commit=600,nosuid,nodev createopts="-L TMP -m 0 -E lazy_itable_init=0,lazy_journal_init=0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+logical /home  100-80%  ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=8192,delalloc,commit=600,nosuid,nodev createopts="-L HOME -m 1 -E lazy_itable_init=0,lazy_journal_init=0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
