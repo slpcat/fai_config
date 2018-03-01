@@ -108,3 +108,32 @@ xz-utils
 vim-nox
 gcc-4.8-base
 man
+
+PACKAGES install PANDA64
+fai-client
+dbus
+debconf-utils
+ca-certificates
+file
+less
+linuxlogo
+#rdate
+apt-transport-https
+rsync
+openssh-client
+#openssh-server
+time
+procinfo
+#nullmailer
+postfix
+bsd-mailx
+#mailutils
+#eject
+locales
+console-setup kbd
+pciutils usbutils
+#apt-fast
+aria2
+xz-utils
+vim-nox
+man
