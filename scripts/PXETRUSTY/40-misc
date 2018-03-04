@@ -40,6 +40,8 @@ sed -i 's/^FONTFACE.*$/FONTFACE="Fixed"/' $target/etc/default/console-setup
 sed -i 's/^FONTSIZE.*$/FONTSIZE="16"/' $target/etc/default/console-setup
 DEBIAN_FRONTEND=noninteractive $ROOTCMD dpkg-reconfigure console-setup
 
+sed -i 's/^enabled.*$/enabled=0/' $target/etc/default/apport
+
 if [ ! -f $target/etc/machine-id -a -f $target/bin/systemd-machine-id-setup ]; then
     $ROOTCMD systemd-machine-id-setup
 fi
@@ -53,7 +55,14 @@ if [ $FAI_ACTION = "install" -o $FAI_ACTION = "dirinstall" ] ; then
 fi
 
 ainsl -a /etc/fai/fai.conf "FAI_CONFIG_SRC=$FAI_CONFIG_SRC"
-ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
+
+#polkit can not work with hidepid=2
+if ifclass -o XORG GNOME GNOME_EL7 KDE KDE_EL7 DDE ; then 
+   ainsl /etc/fstab 'proc    /proc    proc    defaults     0     0'
+else
+   ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
+fi
+
 #ainsl /etc/fstab 'tmpfs   /dev/shm    tmpfs ro,noatime,nosuid,nodev,noexec  0   0'
 
 fcopy -Miv /etc/fai/fai.conf

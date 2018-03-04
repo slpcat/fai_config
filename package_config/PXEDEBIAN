@@ -14,9 +14,6 @@ linux-compiler-gcc-6-x86/stretch-backports
 linux-libc-dev/stretch-backports
 initramfs-tools
 memtest86+
-zfs-dkms/stretch-backports
-zfs-zed/stretch-backports
-zfsutils-linux/stretch-backports
 
 PACKAGES install DHCPC
 isc-dhcp-client
@@ -29,6 +26,11 @@ dokcer-compose
 
 PACKAGES install GRUB_PC
 grub-pc grub-legacy- lilo-
+
+PACKAGES install ZFS
+zfs-dkms/stretch-backports
+zfs-zed/stretch-backports
+zfsutils-linux/stretch-backports
 
 PACKAGES install LVM
 lvm2

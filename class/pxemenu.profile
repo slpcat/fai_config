@@ -1,6 +1,6 @@
 Default: pxe-basic-server
 
-Name: Debian Simple
+Name: Debian 9 Simple demo
 Description: My first FAI installation
 Short: just a very simple example, no xorg, an account called demo
 Long: This is the demohost example of FAI.
@@ -8,48 +8,64 @@ Additional account called demo with password: fai, root password: fai
 All needed packages are already on the CD or USB stick.
 Classes: INSTALL FAIBASE DEBIAN DEMO
 
-Name: Debian Xfce
-Description: Xfce desktop, LVM partitioning
+Name: Ubuntu 14.04 Simple demo
+Description: Ubuntu 14.04 minimal installation
+Short: Ubuntu 14.04 minimal installation
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL FAIBASE DEMO PXETRUSTY TRUSTY TRUSTY64
+
+Name: Ubuntu 16.04 Simple demo
+Description: Ubuntu 16.04 minimal installation
+Short: Ubuntu 16.04 minimal
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU XENIAL XENIAL64
+
+Name: Debian 9 Xfce
+Description: Xfce desktop
 Short: A fancy Xfce desktop will be installed, the user account is demo
 Long: This is the Xfce desktop example. Additional account called
 demo with password: fai, root password: fai
 All needed packages are already on the CD or USB stick.
-Classes: INSTALL FAIBASE DEBIAN DEMO XORG XFCE LVM
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG XFCE
 
-Name: Debian LXDE
-Description: LXDE desktop, LVM partitioning
+Name: Debian 9 LXDE
+Description: LXDE desktop
 Short: A LXDE desktop will be installed, the user account is demo
 Long: This is the LXDE desktop example. Additional account called
 demo with password: fai, root password: fai
 All needed packages are already on the CD or USB stick.
-Classes: INSTALL FAIBASE DEBIAN DEMO XORG LXDE LVM
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG LXDE
 
-Name: Debian Gnome
+Name: Debian 9 GNOME
 Description: Gnome desktop installation
 Short: A Gnome desktop, no LVM, You will get an account called demo
 Long: This is the Gnome desktop example. Additional account called
 demo with password: fai, root password: fai
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL FAIBASE DEBIAN DEMO XORG GNOME
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG GNOME
 
-Name: Debian KDE
+Name: Debian 9 KDE
 Description: KDE desktop installation
 Short: A KDE desktop, no LVM, You will get an account called demo
 Long: This is the KDE desktop example. Additional account called
 demo with password: fai, root password: fai
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL FAIBASE DEBIAN DEMO XORG KDE
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG KDE
 
-Name: Debian MATE
+Name: Debian 9 MATE
 Description: MATE desktop installation
 Short: A MATE desktop, no LVM, You will get an account called demo
 Long: This is the MATE desktop example. Additional account called
 demo with password: fai, root password: fai
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL FAIBASE DEBIAN DEMO XORG MATE
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG MATE
 
 Name: DEEPIN 15.5
 Description: DEEPIN desktop
@@ -65,7 +81,7 @@ Short: A normal GNOME desktop, running CentOS 7
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL FAIBASE CENTOS CENTOS7_64 XORG
+Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 GNOME_EL7
 
 Name: CentOS 7 KDE
 Description: CentOS 7 with KDE desktop
@@ -73,7 +89,15 @@ Short: A normal KDE desktop, running CentOS 7
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL PXEBASE KDE_EL7 CENTOS7_64 XORG
+Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 KDE_EL7
+
+Name: CentOS 7 XFCE
+Description: CentOS 7 with XFCE desktop
+Short: A normal XFCE desktop, running CentOS 7
+Long: We use the Debian nfsroot for installing the CentOS 7 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 XFCE
 
 Name: Ubuntu 16.04 Desktop
 Description: Ubuntu 16.04 desktop installation
@@ -81,7 +105,7 @@ Short: Unity desktop
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU XENIAL XENIAL64 XORG
+Classes: INSTALL PXEBASE PXEIDC PXEUBUNTU XENIAL XENIAL64 XORG
 
 Name: Ubuntu 14.04 Desktop
 Description: Ubuntu 14.04 desktop installation
@@ -89,25 +113,10 @@ Short: Unity desktop
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL FAIBASE DEMO PXETRUSTY TRUSTY TRUSTY64 XORG
+Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY64 XORG
 
-Name: Ubuntu 16.04 basic
-Description: Ubuntu 16.04 minimal installation
-Short: Ubuntu 16.04 minimal
-Long: We use the Debian nfsroot for installing the Ubuntu OS.
-You should have a fast network connection, because most packages are
-downloaded from the internet.
-Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU XENIAL XENIAL64
 
-Name: Ubuntu 14.04 basic
-Description: Ubuntu 14.04 minimal installation
-Short: Ubuntu 14.04 minimal installation
-Long: We use the Debian nfsroot for installing the Ubuntu OS.
-You should have a fast network connection, because most packages are
-downloaded from the internet.
-Classes: INSTALL FAIBASE DEMO PXETRUSTY TRUSTY TRUSTY64
-
-Name: docker-centos-7 noswap
+Name: CentOS 7 Docker noswap
 Description: CentOS 7 for docker without swap
 Short: a very simple server, no xorg
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
@@ -115,7 +124,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 DOCKER
 
-Name: docker-ubuntu-16.04 noswap
+Name: Ubuntu 16.04 Docker noswap
 Description: Ubuntu 16.04 for docker without swap
 Short: Ubuntu with minimal install
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
@@ -123,23 +132,23 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXEUBUNTU XENIAL XENIAL64 DOCKER
 
-Name: docker-ubuntu-14.04 noswap
+Name: Ubuntu 14.04 Docker noswap
 Description: Ubuntu 14.04 for docker without swap
 Short: Ubuntu with minimal install
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY TRUSTY64 DOCKER
+Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY64 DOCKER
 
-Name: docker-debian-9 noswap
-Description: debian9 for docker without swap
+Name: Debian 9 Docker noswap
+Description: debian 9 for docker without swap
 Short: a very simple server, no xorg
 Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC DOCKER
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC DOCKER ZFS
 
-Name: docker-debian-8 noswap
-Description: debian8 for docker without swap
+Name: Debian 8 Docker noswap
+Description: debian 8 for docker without swap
 Short: a very simple server, no xorg
 Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
@@ -182,7 +191,7 @@ Description: pxe basic server installation
 Short: a very simple server, no xorg
 Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC ZFS
 
 Name: pxe-nginx-server-backend
 Description: webserver with nginx and php7.1 installation
@@ -196,7 +205,7 @@ Description: MariaDB 10.0 server
 Short: This is the mysql server  
 Long: This is the mysql server.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXEMYSQL
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXEMYSQL ZFS
 
 Name: pxe-LNMP-webserver
 Description: webserver with nginx, mysql and php7.1 installation

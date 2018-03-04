@@ -5,7 +5,13 @@
 
 error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
 
-ainsl -v /etc/fstab "proc	/proc	proc	defaults,hidepid=2	0 0"
+#polkit can not work with hidepid=2
+if ifclass -o XORG GNOME GNOME_EL7 XFCE_EL7 KDE_EL7 DDE ; then 
+   ainsl /etc/fstab 'proc    /proc    proc    defaults     0     0'
+else
+   ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
+fi
+
 ainsl -v /etc/fstab "sysfs	/sys	sysfs	auto		0 0"
 
 version=`$ROOTCMD rpm -qv kernel | cut -d- -f2-`

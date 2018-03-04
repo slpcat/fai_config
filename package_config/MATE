@@ -1,4 +1,4 @@
-PACKAGES install-norec
+PACKAGES install
 mate-desktop-environment
 mate-desktop-environment-extras
 lightdm

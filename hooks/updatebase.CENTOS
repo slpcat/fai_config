@@ -1,11 +1,11 @@
 #! /bin/bash
 
 if [ ! -f $target/etc/resolv.conf ]; then
-    cp /etc/resolv.conf $target/etc
+    sed -i /^distroverpkg/a\proxy=$YUMPROXY $target/etc/yum.conf
 fi
 
 if [ -n "$YUMPROXY" ]; then
-    echo "proxy=$YUMPROXY" > $target/etc/yum.conf
+    echo "proxy=$YUMPROXY" >> $target/etc/yum.conf
 else
     sed -i /^proxy/d $target/etc/yum.conf
 fi

@@ -1,4 +1,4 @@
-PACKAGES install-norec DEBIAN
+PACKAGES install DEBIAN
 xorg xserver-xorg-video-all xserver-xorg-input-all
 fonts-freefont-ttf
 xscreensaver

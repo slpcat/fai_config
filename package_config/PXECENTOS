@@ -1,15 +1,73 @@
 PACKAGES yumgroup
 core
 
-PACKAGES yumgroup XORG
+PACKAGES yumgroup GNOME_EL7
+x11
+chinese-support
 #gnome-desktop base-x # slc5/CentOS 5
 #basic-desktop x11 fonts #slc6/CentOS 6
-gnome-desktop # CentOS 7
+#CentOS 7
+gnome-desktop3
 #cinnamon
 #kde-desktop
 #mate-desktop
 #xfce
 #lxde
+
+PACKAGES yumi GNOME_EL7
+firefox
+nautilus
+menu gdm
+gnome-core
+gconf-editor
+gnome-screensaver gnome-system-monitor gnome-system-tools
+libgnomevfs2-bin
+network-manager-gnome
+cjkuni-ukai-fonts
+im-chooser
+gtk2-immodule-xim
+gtk3-immodule-xim
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese 
+
+gnome-tweak-tool
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts
+
+PACKAGES yumgroup XFCE_EL7
+x11
+chinese-support
+#gnome-desktop base-x # slc5/CentOS 5
+#basic-desktop x11 fonts #slc6/CentOS 6
+#CentOS 7
+#gnome-desktop3
+#cinnamon
+#kde-desktop
+#mate-desktop
+xfce
+#lxde
+
+PACKAGES yumi XFCE_EL7
+firefox
+#nautilus
+#menu gdm
+#gnome-core
+#gconf-editor
+#gnome-screensaver gnome-system-monitor gnome-system-tools
+#libgnomevfs2-bin
+#network-manager-gnome
+cjkuni-ukai-fonts
+im-chooser
+gtk2-immodule-xim
+gtk3-immodule-xim
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese
+
+#gnome-tweak-tool
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts
 
 PACKAGES yumi
 #authconfig

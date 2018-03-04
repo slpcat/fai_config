@@ -1,9 +1,8 @@
-PACKAGES install-norec
+PACKAGES install
 ubuntu-minimal
 #PPA support
 software-properties-common
 openssh-server
-man
 ntp
 aria2
 postfix
@@ -38,10 +37,17 @@ isc-dhcp-client
 PACKAGES install GRUB_PC
 grub-pc
 
-PACKAGES install-norec XORG
+PACKAGES install XORG
+#xserver-xorg-lts-xenial
+#xserver-xorg-video-all-lts-xenial
 ubuntu-desktop
 ubuntu-standard
+flashplugin-installer
 #lubuntu-desktop
 #kubuntu-desktop
 #xubuntu-desktop
 #mate-desktop
+unity-tweak-tool
+gnome-tweak-tool
+language-pack-zh-hans
+ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4 ibus-pinyin

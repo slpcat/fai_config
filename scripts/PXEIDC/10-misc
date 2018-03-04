@@ -8,7 +8,7 @@ ifclass XORG && {
     fcopy -M /etc/X11/xorg.conf
 }
 
-if ifclass UBUNTU; then
+if ifclass -o UBUNTU PXEUBUNTU PXETRUSTY PANDA64; then
      groups="adm cdrom sudo dip plugdev lpadmin sambashare"
      $ROOTCMD addgroup --system lpadmin || true
      $ROOTCMD addgroup --system sambashare || true
@@ -21,8 +21,8 @@ fcopy /etc/zsh/zlogin
 #sed -i 's/^umask.*$/umask 077/' $target/etc/init.d/rc
 #ainsl /etc/pam.d/common-session 'session optional pam_umask.so umask=077'
 #Desktop can use usb and firewire storage
-ifclass -o XORG DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist usb-storage'
-ifclass -o XORG DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
+ifclass -o XORG GNOME_EL7 KDE_EL7 DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist usb-storage'
+ifclass -o XORG GNOME_EL7 KDE_EL7 DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
 #ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist floppy'
 ainsl -a /etc/modprobe.d/blacklist-pcspkr.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'
@@ -33,7 +33,7 @@ sed -i 's/^for FILE.*$/for FILE in passwd group ; do/' $target/etc/cron.daily/pa
 # add  user account:hmuser
 
 if ! $ROOTCMD getent passwd hmuser ; then
-    $ROOTCMD adduser --disabled-login --gecos 'IDC USER' hmuser
+    $ROOTCMD adduser --disabled-login --gecos 'HUMAN USER' hmuser
     $ROOTCMD usermod -p '$1$.cWiG8mO$FXN7lZaghXxjZnhshvqfm/' -s /bin/zsh hmuser
     for g in $groups; do
 	$ROOTCMD adduser hmuser $g
@@ -81,8 +81,15 @@ done
 #ainsl /etc/sysfs.conf 'kernel/mm/ksm/sleep_millisecs = 1000'
 ainsl /etc/sysfs.conf 'fs/cgroup/memory/memory.use_hierarchy = 1'
 
-ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
+#polkit can not work with hidepid=2
+if ifclass -o XORG GNOME GNOME_EL7 KDE KDE_EL7 DDE ; then
+   ainsl /etc/fstab 'proc    /proc    proc    defaults     0     0'
+else
+   ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'
+fi
+
 #ainsl /etc/fstab 'tmpfs   /dev/shm    tmpfs ro,noatime,nosuid,nodev,noexec  0   0'
+
 #chmod 0711 $target/var/log
 #chmod o-rwx $target/var/log/*
 #chmod g-rwx $target/var/log/*

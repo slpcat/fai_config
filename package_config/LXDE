@@ -1,4 +1,4 @@
-PACKAGES install-norec
+PACKAGES install
 lxde
 flashplugin-nonfree
 firefox-esr

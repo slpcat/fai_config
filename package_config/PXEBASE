@@ -24,7 +24,6 @@ pciutils usbutils
 aria2
 xz-utils
 vim-nox
-man
 
 PACKAGES install JESSIE64
 fai-client
@@ -51,7 +50,6 @@ pciutils usbutils
 aria2
 xz-utils
 vim-nox
-man
 
 PACKAGES install PXEUBUNTU
 fai-client
@@ -79,7 +77,6 @@ aria2
 xz-utils
 vim-nox
 gcc-4.8-base
-man
 
 PACKAGES install PXETRUSTY
 fai-client
@@ -107,7 +104,6 @@ aria2
 xz-utils
 vim-nox
 gcc-4.8-base
-man
 
 PACKAGES install PANDA64
 fai-client
@@ -136,4 +132,3 @@ pciutils usbutils
 aria2
 xz-utils
 vim-nox
-man

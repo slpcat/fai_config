@@ -1,5 +1,35 @@
-PACKAGES install-norec
+PACKAGES install
 xfce4 # base system
 xfce4-goodies # additional tools
 lightdm
 firefox-esr
+
+PACKAGES yumgroup PXECENTOS
+x11
+chinese-support
+#gnome-desktop base-x # slc5/CentOS 5
+#basic-desktop x11 fonts #slc6/CentOS 6
+#CentOS 7
+#gnome-desktop3
+#cinnamon
+#kde-desktop
+#mate-desktop
+xfce
+#lxde
+
+PACKAGES yumi PXECENTOS
+firefox
+#nautilus
+#menu gdm
+#gnome-core
+#gconf-editor
+#gnome-screensaver gnome-system-monitor gnome-system-tools
+#libgnomevfs2-bin
+#network-manager-gnome
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese 
+
+#gnome-tweak-tool
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts

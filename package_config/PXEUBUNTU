@@ -1,4 +1,4 @@
-PACKAGES install-norec
+PACKAGES install
 ubuntu-minimal
 #PPA support
 software-properties-common
@@ -15,6 +15,7 @@ linux-image-generic-
 
 PACKAGES install AMD64
 #linux-image-generic
+linux-image-extra-virtual-hwe-16.04
 linux-virtual-hwe-16.04
 initramfs-tools
 memtest86+
@@ -31,10 +32,16 @@ linux-virtual-hwe-16.04
 docker-ce
 dokcer-compose
 
-PACKAGES install-norec XORG
+PACKAGES install XORG
+xserver-xorg-hwe-16.04
 ubuntu-desktop
 ubuntu-standard
+flashplugin-installer
 #lubuntu-desktop
 #kubuntu-desktop
 #xubuntu-desktop
 #mate-desktop
+unity-tweak-tool
+gnome-tweak-tool
+language-pack-zh-hans
+ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4 ibus-pinyin ibus-libpinyin ibus-sunpinyin

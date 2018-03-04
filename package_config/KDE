@@ -1,4 +1,4 @@
-PACKAGES install-norec
+PACKAGES install
 kde-standard
 kde-l10n-zhcn
 kdm

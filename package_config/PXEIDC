@@ -29,7 +29,7 @@ cron-apt
 powertop
 itop
 dnstop
-debian-goodies
+#debian-goodies
 needrestart
 debsecan
 debsums
