@@ -26,7 +26,53 @@ cat <<EOM > $target/etc/apt/sources.list
 # external mirror
 deb [by-hash=force] http://mirrors.aliyun.com/deepin panda main contrib non-free
 #deb-src http://mirrors.aliyun.com/deepin panda main contrib non-free
-#deb [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
-# deb-src [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
-#deb http://ppa.launchpad.net/ansible/ansible/ubuntu $ubuntudist main
+
+#all php repo
+#deb https://packages.sury.org/php/ stretch main
+#deb-src https://packages.sury.org/php/ stretch main
+
+# MariaDB 10.1 repository list - created 2016-12-05 06:07 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+#deb [arch=amd64,i386] http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian stretch main
+#deb-src http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian stretch main
+
+# Percona releases, stable
+#deb http://repo.percona.com/apt stretch main
+#deb-src http://repo.percona.com/apt stretch main
+
+#gitlab-runner
+#deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian stretch main
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian stretch main
+
+#Java 8
+#deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+#deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+
+#Elasticsearch
+#deb https://artifacts.elastic.co/packages/5.x/apt stable main
+
+#graylog
+#deb https://packages.graylog2.org/repo/debian/ stable 2.3
+
+#deb http://repo.zabbix.com/zabbix/3.5/debian/ stretch main
+
+#docker-engine
+#deb https://apt.dockerproject.org/repo debian-stretch main
+
+#docker-ce
+#deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
+deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/debian stretch stable
+
+#ansible
+#deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main
+
+#deb https://pkg.jenkins.io/debian binary/
+
+#deb http://http.kali.org/kali kali-rolling main non-free contrib
+
+#bcc-tools
+#deb [trusted=yes] https://repo.iovisor.org/apt/xenial xenial-nightly main
+
+#sysdig
+#deb http://download.draios.com/stable/deb stable-$(ARCH)/
 EOM

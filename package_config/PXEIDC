@@ -46,6 +46,7 @@ unhide
 #arpon
 #arpwatch
 sysstat
+libelf-dev
 libpam-cracklib
 #aide
 htop
