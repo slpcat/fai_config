@@ -11,7 +11,6 @@ echo force-unsafe-io > $target/etc/dpkg/dpkg.cfg.d/unsafe-io
 
 #kernel modules for zfs
 ainsl -a /etc/dkms/spl.conf 'POST_INSTALL="scripts/dkms.postbuild -a ${arch} -k ${kernelver} -v ${PACKAGE_VERSION} -n ${PACKAGE_NAME} -t ${dkms_tree}"'
-ainsl -a /etc/dkms/zfs.conf 'POST_INSTALL="scripts/dkms.postbuild -a ${arch} -k ${kernelver} -v ${PACKAGE_VERSION} -n ${PACKAGE_NAME} -t ${dkms_tree}"'
 
 ainsl -a /etc/apt/apt.conf.d/03download 'Acquire::Queue-Mode "access";'
 ainsl /etc/apt/apt.conf.d/03download 'Acquire::Retries "3";'

@@ -1,0 +1,40 @@
+PRE_BUILD="configure
+  --prefix=/usr
+  --with-config=kernel
+  --with-linux=$(
+    case `lsb_release -is` in
+      (Debian)
+        if [[ -e ${kernel_source_dir/%build/source} ]]
+        then
+          echo ${kernel_source_dir/%build/source}
+        else
+          # A kpkg exception for Proxmox 2.0
+          echo ${kernel_source_dir}
+        fi
+      ;;
+      (*)
+        echo ${kernel_source_dir}
+      ;;
+    esac
+  )
+  --with-linux-obj=${kernel_source_dir}
+  --with-spl=${source_tree}/spl-${PACKAGE_VERSION}
+  --with-spl-obj=${dkms_tree}/spl/${PACKAGE_VERSION}/${kernelver}/${arch}
+  $(
+    [[ -r /etc/default/zfs ]] \
+    && source /etc/default/zfs \
+    && shopt -q -s extglob \
+    && \
+    {
+      if [[ ${ZFS_DKMS_ENABLE_DEBUG,,} == @(y|yes) ]]
+      then
+        echo --enable-debug
+      fi
+      if [[ ${ZFS_DKMS_ENABLE_DEBUG_DMU_TX,,} == @(y|yes) ]]
+      then
+        echo --enable-debug-dmu-tx
+      fi
+    }
+  )
+  --with-spl-timeout=30
+"

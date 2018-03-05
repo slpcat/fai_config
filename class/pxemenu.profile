@@ -30,7 +30,7 @@ Short: A fancy Xfce desktop will be installed, the user account is demo
 Long: This is the Xfce desktop example. Additional account called
 demo with password: fai, root password: fai
 All needed packages are already on the CD or USB stick.
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG XFCE
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG XFCE ZFS
 
 Name: Debian 9 LXDE
 Description: LXDE desktop
@@ -38,7 +38,7 @@ Short: A LXDE desktop will be installed, the user account is demo
 Long: This is the LXDE desktop example. Additional account called
 demo with password: fai, root password: fai
 All needed packages are already on the CD or USB stick.
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG LXDE
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG LXDE ZFS
 
 Name: Debian 9 GNOME
 Description: Gnome desktop installation
@@ -47,7 +47,7 @@ Long: This is the Gnome desktop example. Additional account called
 demo with password: fai, root password: fai
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG GNOME
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG GNOME ZFS
 
 Name: Debian 9 KDE
 Description: KDE desktop installation
@@ -56,7 +56,7 @@ Long: This is the KDE desktop example. Additional account called
 demo with password: fai, root password: fai
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG KDE
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG KDE ZFS
 
 Name: Debian 9 MATE
 Description: MATE desktop installation
@@ -65,7 +65,7 @@ Long: This is the MATE desktop example. Additional account called
 demo with password: fai, root password: fai
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG MATE
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG MATE ZFS
 
 Name: DEEPIN 15.5
 Description: DEEPIN desktop
@@ -198,7 +198,7 @@ Description: webserver with nginx and php7.1 installation
 Short:  nginx php7.1 for web backend
 Long: This is the webserver with nginx and php7.1 installation.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND7
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND7 ZFS
 
 Name: pxe-mysql-server
 Description: MariaDB 10.0 server
@@ -212,7 +212,7 @@ Description: webserver with nginx, mysql and php7.1 installation
 Short:  nginx mysql php7.1 webserver
 Long: This is the webserver with nginx, mysql and php7.1 installation.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND7 PXEMYSQL
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC PXENGINXBACKEND7 PXEMYSQL ZFS
 
 Name: grsec-basic-server
 Description: basic server installation with grsecurity/pax
