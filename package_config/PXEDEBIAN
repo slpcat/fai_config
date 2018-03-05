@@ -28,6 +28,7 @@ PACKAGES install GRUB_PC
 grub-pc grub-legacy- lilo-
 
 PACKAGES install ZFS
+spl-dkms/stretch-backports
 zfs-dkms/stretch-backports
 zfs-zed/stretch-backports
 zfsutils-linux/stretch-backports

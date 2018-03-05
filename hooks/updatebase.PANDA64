@@ -15,6 +15,11 @@ ainsl /etc/apt/apt.conf.d/03download 'Acquire::CompressionTypes::Order "lzma";'
 ainsl /etc/apt/apt.conf.d/03download 'Acquire::ForceIPv4 "true";'
 ainsl /etc/apt/apt.conf.d/70debconf 'APT::ExtractTemplates::TempDir "/var/tmp";'
 fcopy /etc/apt/sources.list
+
+#kernel modules for zfs
+ainsl -a /etc/dkms/spl.conf 'POST_INSTALL="scripts/dkms.postbuild -a ${arch} -k ${kernelver} -v ${PACKAGE_VERSION} -n ${PACKAGE_NAME} -t ${dkms_tree}"'
+ainsl -a /etc/dkms/zfs.conf 'POST_INSTALL="scripts/dkms.postbuild -a ${arch} -k ${kernelver} -v ${PACKAGE_VERSION} -n ${PACKAGE_NAME} -t ${dkms_tree}"'
+
 # you may want to add i386 arch to amd64 hosts
 if ifclass AMD64; then
     $ROOTCMD dpkg --add-architecture i386

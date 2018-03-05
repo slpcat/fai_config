@@ -19,6 +19,8 @@ linux-image-extra-virtual-hwe-16.04
 linux-virtual-hwe-16.04
 initramfs-tools
 memtest86+
+spl-dkms
+zfs-dkms
 zfsutils-linux
 
 PACKAGES install DHCPC

@@ -27,8 +27,9 @@ linux-headers-amd64/jessie-backports
 docker-ce
 
 PACKAGES install ZFS
+spl-dkms/jessie-backports
 zfs-dkms/jessie-backports
-zfsutils-linux
+zfsutils-linux/jessie-backports
 
 PACKAGES install LVM
 lvm2
