@@ -5,3 +5,5 @@ firefox-esr
 xfonts-wqy
 ttf-wqy-microhei
 ttf-wqy-zenhei
+#Chinese input method
+ibus-sunpinyin ibus-pinyin ibus-table-wubi fcitx-sunpinyin fcitx-libpinyin ibus-table-wubi fcitx-ui-classic fcitx-ui-light
