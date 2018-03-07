@@ -99,6 +99,14 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 XFCE
 
+Name: Ubuntu 18.04 Desktop
+Description: Ubuntu 18.04 desktop installation
+Short: Unity desktop
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEIDC PXEBIONIC BIONIC64 XORG
+
 Name: Ubuntu 16.04 Desktop
 Description: Ubuntu 16.04 desktop installation
 Short: Unity desktop
@@ -170,13 +178,13 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64
 
-Name: pxe-ubuntu-14.04-basic
-Description: Ubuntu 14.04 minimal installation
-Short: Ubuntu 14.04 minimal installation
+Name: pxe-ubuntu-18.04-basic
+Description: Ubuntu 18.04 base installation
+Short: Ubuntu with minimal install
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY TRUSTY64
+Classes: INSTALL PXEBASE PXEIDC PXEBIONIC BIONIC64
 
 Name: pxe-ubuntu-16.04-basic
 Description: Ubuntu 16.04 base installation
@@ -185,6 +193,14 @@ Long: We use the Debian nfsroot for installing the Ubuntu OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXEUBUNTU XENIAL XENIAL64
+
+Name: pxe-ubuntu-14.04-basic
+Description: Ubuntu 14.04 minimal installation
+Short: Ubuntu 14.04 minimal installation
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY TRUSTY64
 
 Name: pxe-basic-server
 Description: pxe basic server installation

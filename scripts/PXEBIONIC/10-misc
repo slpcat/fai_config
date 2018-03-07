@@ -1,0 +1,10 @@
+#! /bin/bash
+
+sed -i 's/-L debian_banner_2/-L ubuntu/' $target/etc/linux_logo.conf
+[ -n "$DEFAULTLOCALE" ] && sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /target/etc/locale.gen
+[ -n "$DEFAULTLOCALE" ] && ainsl /etc/default/locale LANG="$DEFAULTLOCALE"
+$ROOTCMD locale-gen
+
+#enable rsyslogd
+ln -sf /lib/systemd/system/rsyslog.service $target/etc/systemd/system/syslog.service
+
