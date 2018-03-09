@@ -123,7 +123,6 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY64 XORG
 
-
 Name: CentOS 7 Docker noswap
 Description: CentOS 7 for docker without swap
 Short: a very simple server, no xorg
@@ -162,14 +161,6 @@ Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
 Classes: INSTALL PXEBASE JESSIE64 PXEIDC DOCKER ZFS
 
-Name: pxe-centos-6-basic
-Description: CentOS 6 with minimal install
-Short: a very simple server, no xorg
-Long: We use the Debian nfsroot for installing the CentOS 7 OS.
-You should have a fast network connection, because most packages are
-downloaded from the internet.
-Classes: INSTALL PXEBASE PXECENTOS6 CENTOS6_64
-
 Name: pxe-centos-7-basic
 Description: CentOS 7 with minimal install
 Short: a very simple server, no xorg
@@ -177,6 +168,14 @@ Long: We use the Debian nfsroot for installing the CentOS 7 OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64
+
+Name: pxe-centos-6-basic
+Description: CentOS 6 with minimal install
+Short: a very simple server, no xorg
+Long: We use the Debian nfsroot for installing the CentOS 7 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXECENTOS6 CENTOS6_64
 
 Name: pxe-ubuntu-18.04-basic
 Description: Ubuntu 18.04 base installation
