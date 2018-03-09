@@ -29,6 +29,10 @@ deb MIRRORURL $ubuntudist-security main restricted universe multiverse
 deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $ubuntudist stable
 #deb http://ppa.launchpad.net/ansible/ansible/ubuntu $ubuntudist main
 deb http://ppa.launchpad.net/zfs-native/stable/ubuntu $ubuntudist main
+
+#Oracle Java 8
+#deb http://ppa.launchpad.net/webupd8team/java/ubuntu $ubuntudist main
+#deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu $ubuntudist main
 EOM
 
 # determine a fast mirror for Ubuntu

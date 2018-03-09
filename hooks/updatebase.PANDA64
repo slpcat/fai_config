@@ -49,9 +49,9 @@ deb [by-hash=force] http://mirrors.aliyun.com/deepin panda main contrib non-free
 #deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian stretch main
 #deb-src https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian stretch main
 
-#Java 8
-#deb http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
-#deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu trusty main
+#Oracle Java 8
+#deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main
+#deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main
 
 #Elasticsearch
 #deb https://artifacts.elastic.co/packages/5.x/apt stable main

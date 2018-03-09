@@ -10,6 +10,10 @@ deb MIRRORURL $ubuntudist-security main restricted universe multiverse
 #deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $ubuntudist stable
 #deb http://ppa.launchpad.net/ansible/ansible/ubuntu $ubuntudist main
 
+#Oracle Java 8
+#deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main
+#deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main
+
 #Ambari VERSION_NUMBER=2.6.1.3-3
 #deb http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.6.1.3 Ambari main
 #HDP VERSION_NUMBER=2.6.4.0-91
