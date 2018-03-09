@@ -32,6 +32,7 @@ zfs-dkms
 zfsutils-linux
 
 PACKAGES install DDE
+firmware-linux
 lightdm
 dde
 android-udev-rules
