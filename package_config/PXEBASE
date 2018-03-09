@@ -105,6 +105,34 @@ xz-utils
 vim-nox
 gcc-4.8-base
 
+PACKAGES install PXEBIONIC
+fai-client
+dbus
+debconf-utils
+apt-transport-https
+ca-certificates
+file
+less
+linuxlogo
+#rdate
+rsync
+openssh-client openssh-server
+time
+procinfo
+#nullmailer
+postfix
+bsd-mailx
+#eject
+locales
+console-setup kbd
+pciutils usbutils
+#apt-fast
+aria2
+xz-utils
+vim-nox
+net-tools
+ifupdown
+
 PACKAGES install PANDA64
 fai-client
 dbus

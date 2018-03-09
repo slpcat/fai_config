@@ -46,4 +46,6 @@ flashplugin-installer
 unity-tweak-tool
 gnome-tweak-tool
 language-pack-zh-hans
+#fonts-wqy-microhei fonts-wqy-zenhei ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy
+#Chinese input method
 ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4 ibus-pinyin ibus-libpinyin ibus-sunpinyin
