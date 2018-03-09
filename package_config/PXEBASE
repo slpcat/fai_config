@@ -17,6 +17,8 @@ postfix
 bsd-mailx
 #mailutils
 #eject
+man-db
+manpages
 locales
 console-setup kbd
 pciutils usbutils
@@ -43,6 +45,8 @@ procinfo
 postfix
 bsd-mailx
 #eject
+man-db
+manpages
 locales
 console-setup kbd
 pciutils usbutils
@@ -69,6 +73,8 @@ procinfo
 postfix
 bsd-mailx
 #eject
+man-db
+manpages
 locales
 console-setup kbd
 pciutils usbutils
@@ -96,6 +102,8 @@ procinfo
 postfix
 bsd-mailx
 #eject
+man-db
+manpages
 locales
 console-setup kbd
 pciutils usbutils
@@ -123,6 +131,8 @@ procinfo
 postfix
 bsd-mailx
 #eject
+man-db
+manpages
 locales
 console-setup kbd
 pciutils usbutils
@@ -153,6 +163,8 @@ postfix
 bsd-mailx
 #mailutils
 #eject
+man-db
+manpages
 locales
 console-setup kbd
 pciutils usbutils
