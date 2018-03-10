@@ -17,6 +17,7 @@ fi
 fcopy -m root,root,600 /etc/audit/auditd.conf
 fcopy -m root,root,600 /etc/audit/audit.rules
 fcopy /etc/zsh/zlogin
+ainsl /etc/zsh/zprofile 'source /etc/profile'
 #sed -i 's/^UMASK.*$/UMASK       077/' $target/etc/login.defs
 #sed -i 's/^umask.*$/umask 077/' $target/etc/init.d/rc
 #ainsl /etc/pam.d/common-session 'session optional pam_umask.so umask=077'

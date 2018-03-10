@@ -7,7 +7,6 @@
 # msgs, from, etc.)
 #
 # Global Order: zshenv, zprofile, zshrc, zlogin
-source /etc/profile
 
 # Set up the prompt
 autoload -Uz promptinit
