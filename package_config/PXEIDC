@@ -7,6 +7,7 @@ sudo
 #auditd
 apt-listchanges
 apt-show-versions
+python-software-properties
 sysfsutils
 iptables-persistent
 #cpufrequtils

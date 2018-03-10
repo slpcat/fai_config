@@ -1,13 +1,16 @@
 #! /bin/bash
 
-# (c) Thomas Lange, 2001-2012, lange@debian.org
-
 error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
+
+if ifclass -o XORG GNOME GNOME_EL7 KDE KDE_EL7 DDE ; then
+    $ROOTCMD systemctl disable zabbix-agent || $ROOTCMD update-rc.d -f zabbix-agent remove || true
+else
 #listen internal nic only
 [ -n "$IPADDR" ] && sed -i s/#\ ListenIP=0.0.0.0/ListenIP=$IPADDR/ $target/etc/zabbix/zabbix_agentd.conf
 [ -n "$ZABBIXSRV" ] && sed -i s/Server=127.0.0.1/Server=$ZABBIXSRV/ $target/etc/zabbix/zabbix_agentd.conf
 sed -i 's/^ServerActive/#ServerActive/' $target/etc/zabbix/zabbix_agentd.conf
 sed -i 's/^Hostname/#Hostname/' $target/etc/zabbix/zabbix_agentd.conf
-$ROOTCMD systemctl enable zabbix-agent
+$ROOTCMD systemctl enable zabbix-agent || true
+fi
 
 exit $error
