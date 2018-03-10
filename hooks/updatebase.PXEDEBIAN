@@ -20,7 +20,7 @@ ainsl /etc/apt/apt.conf.d/03download 'Acquire::ForceIPv4 "true";'
 ainsl /etc/apt/apt.conf.d/70debconf 'APT::ExtractTemplates::TempDir "/var/tmp";'
 fcopy /etc/apt/sources.list
 # you may want to add i386 arch to amd64 hosts
-# if ifclass AMD64; then
-#     $ROOTCMD dpkg --add-architecture i386
-# fi
+if ifclass AMD64; then
+    $ROOTCMD dpkg --add-architecture i386
+fi
 cp -f /etc/apt/trusted.gpg.d/*.gpg $target/etc/apt/trusted.gpg.d/

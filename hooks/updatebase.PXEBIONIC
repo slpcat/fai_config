@@ -17,9 +17,9 @@ ainsl /etc/apt/apt.conf.d/03download 'Acquire::Retries "3";'
 ainsl /etc/apt/apt.conf.d/03download 'Acquire::CompressionTypes::Order "lzma";'
 ainsl /etc/apt/apt.conf.d/03download 'Acquire::ForceIPv4 "true";'
 # you may want to add i386 arch to amd64 hosts
-# if ifclass AMD64; then
-#     $ROOTCMD dpkg --add-architecture i386
-# fi
+if ifclass AMD64; then
+    $ROOTCMD dpkg --add-architecture i386
+fi
 cp -f /etc/apt/trusted.gpg.d/*.gpg $target/etc/apt/trusted.gpg.d/
 
 # use external mirror, remove this script when using a mirror from CD

@@ -45,5 +45,6 @@ flashplugin-installer
 #mate-desktop
 unity-tweak-tool
 gnome-tweak-tool
+ubuntu-kylin-software-center
 language-pack-zh-hans
 ibus ibus-clutter ibus-gtk ibus-gtk3 ibus-qt4 ibus-pinyin ibus-libpinyin ibus-sunpinyin
