@@ -31,46 +31,5 @@ PACKAGES install ZFS
 zfs-dkms
 zfsutils-linux
 
-PACKAGES install DDE
-firmware-linux
-lightdm
-dde
-android-udev-rules
-gnome-themes-standard
-murrine-themes
-deepin-deb-installer
-deepin-default-settings
-deepin-fpapp-com.deepin.calendar
-deepin-fpapp-com.deepin.imageviewer
-deepin-fpapp-com.deepin.music
-#deepin-fpapp-com.deepin.screenrecorder
-deepin-fpapp-com.deepin.screenshot
-deepin-fpapp-com.deepin.voicerecorder
-deepin-graphics-driver-manager
-deepin-movie
-deepin-clone
-deepin-crosswalk
-deepin-boot-maker
-deepin.com.qq.im
-chrome-dde
-exfat-utils
-wps-office
-foxitreader
-netease-cloud-music
-sogoupinyin
-fcitx-table-wbpy
-youdao-dict
-fonts-adobe-source-han-serif-cn
-fonts-droid
-fonts-hanazono
-fonts-lohit-deva
-fonts-nanum
-gir1.2-notify-0.7
-gir1.2-packagekitglib-1.0
-gir1.2-polkit-1.0
-python-dbus
-x11-apps
-gnome-font-viewer
-
 PACKAGES LVM
 lvm2

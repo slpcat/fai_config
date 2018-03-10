@@ -35,6 +35,10 @@ deb MIRRORURL $ubuntudist-backports main restricted universe multiverse
 # deb-src [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
 #deb http://ppa.launchpad.net/ansible/ansible/ubuntu $ubuntudist main
 
+#Deepin Desktop Environment
+deb http://ppa.launchpad.net/leaeasy/dde/ubuntu $ubuntudist main 
+deb-src http://ppa.launchpad.net/leaeasy/dde/ubuntu $ubuntudist main 
+
 #Ambari VERSION_NUMBER=2.6.1.3-3
 #deb http://public-repo-1.hortonworks.com/ambari/ubuntu16/2.x/updates/2.6.1.3 Ambari main
 #HDP VERSION_NUMBER=2.6.4.0-91

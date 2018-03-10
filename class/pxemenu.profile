@@ -107,6 +107,14 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXEBIONIC BIONIC64 XORG
 
+Name: Ubuntu 18.04 DDE
+Description: Ubuntu 18.04 with DEEPIN Desktop Environment
+Short: DDE desktop
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEIDC PXEBIONIC BIONIC64 DDE
+
 Name: Ubuntu 16.04 Desktop
 Description: Ubuntu 16.04 desktop installation
 Short: Unity desktop
