@@ -24,7 +24,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL FAIBASE DEMO DEBIAN UBUNTU XENIAL XENIAL64
 
-Name: Debian 9 Xfce
+Name: Debian 9 Xfce Desktop
 Description: Xfce desktop
 Short: A fancy Xfce desktop will be installed, the user account is demo
 Long: This is the Xfce desktop example. Additional account called
@@ -32,7 +32,7 @@ demo with password: fai, root password: fai
 All needed packages are already on the CD or USB stick.
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG XFCE ZFS
 
-Name: Debian 9 LXDE
+Name: Debian 9 LXDE Desktop
 Description: LXDE desktop
 Short: A LXDE desktop will be installed, the user account is demo
 Long: This is the LXDE desktop example. Additional account called
@@ -40,7 +40,7 @@ demo with password: fai, root password: fai
 All needed packages are already on the CD or USB stick.
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG LXDE ZFS
 
-Name: Debian 9 GNOME
+Name: Debian 9 GNOME Desktop
 Description: Gnome desktop installation
 Short: A Gnome desktop, no LVM, You will get an account called demo
 Long: This is the Gnome desktop example. Additional account called
@@ -49,7 +49,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG GNOME ZFS
 
-Name: Debian 9 KDE
+Name: Debian 9 KDE Desktop
 Description: KDE desktop installation
 Short: A KDE desktop, no LVM, You will get an account called demo
 Long: This is the KDE desktop example. Additional account called
@@ -58,7 +58,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG KDE ZFS
 
-Name: Debian 9 MATE
+Name: Debian 9 MATE Desktop
 Description: MATE desktop installation
 Short: A MATE desktop, no LVM, You will get an account called demo
 Long: This is the MATE desktop example. Additional account called
@@ -67,7 +67,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG MATE ZFS
 
-Name: DEEPIN 15.5
+Name: DEEPIN 15.5 Desktop
 Description: DEEPIN desktop
 Short: A fancy DDE desktop will be installed, the user account is hmuser
 Long: This is the DDE desktop example. Additional account called
@@ -75,7 +75,7 @@ hmuser with password: hmuserpwd, root password: rootpwd
 All needed packages are already on the CD or USB stick.
 Classes: INSTALL PXEBASE PANDA64 PXEIDC DDE
 
-Name: CentOS 7 GNOME
+Name: CentOS 7 GNOME Desktop
 Description: CentOS 7 with GNOME desktop
 Short: A normal GNOME desktop, running CentOS 7
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
@@ -83,7 +83,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 GNOME_EL7
 
-Name: CentOS 7 KDE
+Name: CentOS 7 KDE Desktop
 Description: CentOS 7 with KDE desktop
 Short: A normal KDE desktop, running CentOS 7
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
@@ -91,7 +91,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 KDE_EL7
 
-Name: CentOS 7 XFCE
+Name: CentOS 7 XFCE Desktop
 Description: CentOS 7 with XFCE desktop
 Short: A normal XFCE desktop, running CentOS 7
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
@@ -107,7 +107,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXEBIONIC BIONIC64 XORG
 
-Name: Ubuntu 18.04 DDE
+Name: Ubuntu 18.04 DDE Desktop
 Description: Ubuntu 18.04 with DEEPIN Desktop Environment
 Short: DDE desktop
 Long: We use the Debian nfsroot for installing the Ubuntu OS.
