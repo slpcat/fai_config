@@ -7,7 +7,7 @@ chinese-support
 #gnome-desktop base-x # slc5/CentOS 5
 #basic-desktop x11 fonts #slc6/CentOS 6
 #CentOS 7
-gnome-desktop3
+gnome-desktop
 #cinnamon
 #kde-desktop
 #mate-desktop
@@ -28,7 +28,7 @@ im-chooser
 gtk2-immodule-xim
 gtk3-immodule-xim
 ibus ibus-gtk ibus-gtk3
-ibus-qt ibus-table-chinese 
+ibus-qt ibus-table-chinese
 
 gnome-tweak-tool
 wqy-microhei-fonts

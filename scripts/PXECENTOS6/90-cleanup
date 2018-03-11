@@ -1,6 +1,6 @@
 #! /bin/bash
 
-$ROOTCMD yum clean all
+#$ROOTCMD yum clean all
 #$ROOTCMD yum remove -y audit
 $ROOTCMD yum remove -y iwl*
 $ROOTCMD yum remove -y aic94xx-firmware ivtv-firmware

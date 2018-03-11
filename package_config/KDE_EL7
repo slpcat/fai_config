@@ -12,3 +12,7 @@ wqy-microhei-fonts
 wqy-unibit-fonts
 wqy-zenhei-fonts
 kde-l10n-chinese
+cjkuni-ukai-fonts
+im-chooser
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese ibus-libpinyin
