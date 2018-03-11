@@ -31,6 +31,9 @@ ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'
 #sed -i 's/^#FSCKFIX.*$/FSCKFIX=yes/' $target/etc/default/rcS
 #ainsl /etc/default/rcS 'umask 077'
 sed -i 's/^for FILE.*$/for FILE in passwd group ; do/' $target/etc/cron.daily/passwd
+
+sed -i 's/^SHELL.*$/SHELL=\/bin\/zsh/' $target/etc/default/useradd
+sed -i 's/DSHELL.*$/DSHELL=\/bin\/zsh/' $target/etc/adduser.conf
 # add  user account:hmuser
 
 if ! $ROOTCMD getent passwd hmuser ; then
@@ -43,8 +46,20 @@ if ! $ROOTCMD getent passwd hmuser ; then
     $ROOTCMD adduser hmuser sudo
     #sed -i '/^root/a\hmuser    ALL=(ALL:ALL) NOPASSWD:ALL' $target/etc/sudoers
 fi
-sed -i 's/^SHELL.*$/SHELL=\/bin\/zsh/' $target/etc/default/useradd
-sed -i 's/DSHELL.*$/DSHELL=\/bin\/zsh/' $target/etc/adduser.conf
+
+if ifclass PANDA64 ; then
+#change to light weight window manager,then open dde-control-center, switch window effects on and off
+#deepin-metacity --no-composite --replace
+mkdir -p $target/home/hmuser/.config/deepin/deepin-wm-switcher
+cat <<'EOF' > $target/home/hmuser/.config/deepin/deepin-wm-switcher/config.json
+{
+    "allow_switch": true,
+    "last_wm": "deepin-metacity"
+}
+EOF
+$ROOTCMD chown -R hmuser:hmuser /home/hmuser
+fi
+
 #ainsl -a /etc/ld.so.preload '/lib/snoopy.so'
 sed -i 's/^LOAD_KEXEC.*$/LOAD_KEXEC=true/' $target/etc/default/kexec
 sed -i 's/^USE_GRUB_CONFIG.*$/USE_GRUB_CONFIG=true/' $target/etc/default/kexec
