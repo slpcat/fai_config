@@ -31,6 +31,9 @@ cat <<'EOF' > $target/etc/X11/default-display-manager
 /usr/sbin/lightdm
 EOF
 
+#change to light weight window manager,then open dde-control-center, switch window effects on and off
+#deepin-metacity --no-composite --replace
+
 # enable linuxlogo
 if [ -f $target/etc/inittab ]; then
     sed -i -e 's#/sbin/getty 38400#/sbin/getty -f /etc/issue.linuxlogo 38400#' ${target}/etc/inittab
