@@ -12,9 +12,11 @@
 # Debian GNU/Linux
 # Ubuntu 14.04/16.04
 # CentOS 5/6/7
+# Fedora 27
 # Scientific Linux Cern 5/6
 # DEEPIN 15.5 (PANDA)
 #
+# You can also download base images from https://download.openvz.org/template/precreated/ made by other people and rename it.
 # Packages you might want to install to use this command:
 # debootstrap, rinse, xz-utils
 
@@ -25,6 +27,7 @@ MIRROR_DEBIAN=http://mirrors.aliyun.com/debian/
 MIRROR_DEEPIN=https://mirrors.tuna.tsinghua.edu.cn/deepin/
 MIRROR_UBUNTU=http://mirrors.aliyun.com/ubuntu/
 MIRROR_CENTOS=http://mirrors.aliyun.com/
+MIRROR_FEDORA=http://mirrors.aliyun.com/fedora/
 
 EXCLUDE_SQUEEZE=isc-dhcp-client,isc-dhcp-common,info,tasksel,tasksel-data
 EXCLUDE_WHEEZY=info,tasksel,tasksel-data
@@ -105,6 +108,21 @@ EOM
 }
 
 
+mkpost-fedora() {
+
+    # set local mirror for rinse post script
+    [ -z "$MIRROR_FEDORA" ] && return
+    cat <<EOM > $xtmp/post
+#! /bin/sh
+mkdir -p $xtmp/etc/yum.repos.d/orig
+cp -p $xtmp/etc/yum.repos.d/*.repo $xtmp/etc/yum.repos.d/orig
+perl -pi -e 's,mirrorlist=,#mirrorlist=,; s,#baseurl=http://download.fedoraproject.org/pub/fedora/linux/,baseurl=$MIRROR_FEDORA,;' $xtmp/etc/yum.repos.d/fedora.repo
+perl -pi -e 's,mirrorlist=,#mirrorlist=,; s,#baseurl=http://download.fedoraproject.org/pub/fedora/linux/,baseurl=$MIRROR_FEDORA,;' $xtmp/etc/yum.repos.d/fedora-updates.repo
+
+EOM
+    chmod 555 $xtmp/post
+}
+
 cleanup-deb() {
 
     chroot $xtmp apt-get clean
@@ -167,6 +185,20 @@ slc() {
 }
 
 
+fedora() {
+
+    local arch=$1
+    local vers=$2
+
+    check
+    setarch $arch
+    mkpost-fedora
+    $l32 rinse --directory $xtmp --distribution fedora-$vers --arch $arch --before-post-install $xtmp/post
+    cleanup-rinse
+    tarit
+}
+
+
 debgeneric() {
 
     local DIST=$1
@@ -209,6 +241,7 @@ prtdists() {
     SLC5_32      SLC5_64
     SLC6_32      SLC6_64
                  SLC7_64
+                 FEDORA27_64
     TRUSTY32     TRUSTY64
     XENIAL32     XENIAL64
                  BIONIC64
@@ -291,6 +324,7 @@ case "$target" in
     SLC6_32) slc i386 6 ;;
     SLC6_64) slc amd64 6 ;;
     SLC7_64) slc amd64 7 ;;
+    FEDORA27_64) fedora amd64 27 ;;
     TRUSTY*|XENIAL*|BIONIC*)
         debgeneric $target $MIRROR_UBUNTU ;;
     SQUEEZE*|WHEEZY*|JESSIE*|STRETCH*|BUSTER*|SID*)

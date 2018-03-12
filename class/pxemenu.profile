@@ -99,6 +99,14 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 XFCE
 
+Name: Fedora 27 GNOME Desktop
+Description:  Fedora 27 with GNOME desktop
+Short: A normal GNOME desktop, running  Fedora 27
+Long: We use the Debian nfsroot for installing the  Fedora 27 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEFEDORA27 FEDORA27_64 GNOME_FC27
+
 Name: Ubuntu 18.04 Desktop
 Description: Ubuntu 18.04 desktop installation
 Short: Unity desktop
@@ -184,6 +192,14 @@ Long: We use the Debian nfsroot for installing the CentOS 7 OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS6 CENTOS6_64
+
+Name: pxe-fedora-27-basic
+Description: Fedora 27 with minimal install
+Short: a very simple server, no xorg
+Long: We use the Debian nfsroot for installing the Fedora 27 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEFEDORA27 FEDORA27_64
 
 Name: pxe-ubuntu-18.04-basic
 Description: Ubuntu 18.04 base installation
