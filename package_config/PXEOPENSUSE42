@@ -1,0 +1,164 @@
+PACKAGES zypper GNOME_42
+xorg-x11 xorg-x11-driver-input xorg-x11-driver-video  xorg-x11-essentials xorg-x11-fonts
+xdm xdmbgrd xdm-xsession
+patterns-openSUSE-gnome
+gnome-shell
+firefox
+nautilus
+menu gdm
+gnome-core
+gconf-editor
+gnome-screensaver gnome-system-monitor gnome-system-tools
+libgnomevfs2-bin
+network-manager-gnome
+cjkuni-ukai-fonts
+im-chooser
+gtk2-immodule-xim
+gtk3-immodule-xim
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese
+
+gnome-tweak-tool
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts
+
+PACKAGES zypper KDE_42
+xorg-x11 xorg-x11-driver-input xorg-x11-driver-video  xorg-x11-essentials xorg-x11-fonts
+patterns-openSUSE-x11
+patterns-openSUSE-x11_opt
+patterns-openSUSE-kde
+patterns-openSUSE-kde_multimedia
+patterns-openSUSE-kde_utilities
+patterns-openSUSE-kde_utilities_opt
+patterns-openSUSE-kde_imaging
+plasma5-theme-openSUSE
+kde-l10n-zh_CN
+translation-update-zh_CN
+
+kcm_sddm
+sddm
+firefox
+gtk2-immodule-xim
+gtk3-immodule-xim
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-pinyin ibus-sunpinyin
+
+wqy-microhei-fonts
+wqy-zenhei-fonts
+
+PACKAGES zypper XFCE_42
+
+patterns-openSUSE-xfce
+x11
+chinese-support
+#gnome-desktop base-x # slc5/CentOS 5
+#basic-desktop x11 fonts #slc6/CentOS 6
+#CentOS 7
+#gnome-desktop3
+#cinnamon
+#kde-desktop
+#mate-desktop
+xfce
+#lxde
+
+PACKAGES zypper XFCE_42
+firefox
+#nautilus
+#menu gdm
+#gnome-core
+#gconf-editor
+#gnome-screensaver gnome-system-monitor gnome-system-tools
+#libgnomevfs2-bin
+#network-manager-gnome
+cjkuni-ukai-fonts
+im-chooser
+gtk2-immodule-xim
+gtk3-immodule-xim
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese
+
+#gnome-tweak-tool
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts
+
+PACKAGES zypper
+#authconfig
+kernel-default
+kernel-default-devel
+kernel-firmware
+kmod
+dbus-1
+#zfs
+# sysvinit-tools grub # CentOS 5 and 6
+grub2  # CentOS 7
+less
+#libpwquality
+openssh
+dhcp-client
+#openssh-clients
+#openssh-server
+#vim-enhanced
+btrfsprogs
+irqbalance
+tar
+man
+mdadm
+dmraid
+open-iscsi
+keyutils
+kbd
+iproute2
+postfix
+curl
+cryptsetup
+#screen
+samba-client
+rsync
+unzip
+lsb-release
+which
+wicked
+wicked-service
+sudo
+nfs-client
+#pakchois
+#ncurses-base # currently missing in the base file
+net-tools
+#iptables-services
+mailx
+vim
+#yum-cron
+#snoopy
+nscd
+wget
+ntp
+powertop
+rsyslog
+mtr
+smartmontools
+zsh
+#lm_sensors
+lvm2
+tmux
+iftop
+iotop
+htop
+#lynis
+#aide
+#unhide
+#rkhunter
+#arpwatch
+sysstat
+acct
+#zabbix-agent
+
+#sendmail # only for C5 and C6
+
+PACKAGES zypper DOCKER
+docker-ce
+dokcer-compose
+
+PACKAGES zypper LVM
+lvm2

@@ -16,7 +16,10 @@
 # Scientific Linux Cern 5/6
 # DEEPIN 15.5 (PANDA)
 #
+# fai official base images http://fai-project.org/download/basefiles/
 # You can also download base images from https://download.openvz.org/template/precreated/ made by other people and rename it.
+# from docker: openSUSE 42
+# TODO: all base images are made from docker registry.
 # Packages you might want to install to use this command:
 # debootstrap, rinse, xz-utils
 

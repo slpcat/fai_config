@@ -107,6 +107,14 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEFEDORA27 FEDORA27_64 GNOME_FC27
 
+Name: openSUSE 42 KDE Desktop
+Description:  openSUSE 42 with KDE desktop
+Short: A normal KDE desktop, running openSUSE 42
+Long: We use the Debian nfsroot for installing the openSUSE 42 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEOPENSUSE42 OPENSUSE_42 KDE_42
+
 Name: Ubuntu 18.04 Desktop
 Description: Ubuntu 18.04 desktop installation
 Short: Unity desktop
@@ -200,6 +208,14 @@ Long: We use the Debian nfsroot for installing the Fedora 27 OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEFEDORA27 FEDORA27_64
+
+Name: pxe-opensuse-42-basic
+Description: openSUSE 42 with minimal install
+Short: a very simple server, no xorg
+Long: We use the Debian nfsroot for installing the openSUSE 42.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEOPENSUSE42 OPENSUSE_42
 
 Name: pxe-ubuntu-18.04-basic
 Description: Ubuntu 18.04 base installation

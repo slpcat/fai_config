@@ -1,0 +1,29 @@
+#! /bin/bash
+
+if [ ! -f $target/etc/resolv.conf ]; then
+    cp /etc/resolv.conf $target/etc
+fi
+
+#if [ -n "$YUMPROXY" ]; then
+#    sed -i /^distroverpkg/a\proxy=$YUMPROXY $target/etc/yum.conf
+#else
+#    sed -i /^proxy/d $target/etc/yum.conf
+#fi
+
+#sed -i s/^mirrorlist/#mirrorlist/ $target/etc/yum.repos.d/epel.repo
+#sed -i s/^#baseurl/baseurl/ $target/etc/yum.repos.d/epel.repo
+#sed -i '6 s/^enabled.*$/enabled=1/' $target/etc/yum.repos.d/epel.repo
+#sed -i s/^mirrorlist/#mirrorlist/ $target/etc/yum.repos.d/remi*
+#sed -i s/^#baseurl/baseurl/ $target/etc/yum.repos.d/remi*
+
+#for grub and zfs
+mount -o bind /dev $target/dev
+
+if [ X$verbose = X1 ]; then
+	echo "Updating base"
+	$ROOTCMD zypper refresh -f && zypper update -y |& tee -a $LOGDIR/software.log
+else
+	$ROOTCMD zypper refresh -f && zypper update -y >> $LOGDIR/software.log
+fi
+
+skiptask updatebase
