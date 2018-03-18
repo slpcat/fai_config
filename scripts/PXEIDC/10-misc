@@ -22,8 +22,10 @@ ainsl /etc/zsh/zprofile 'source /etc/profile'
 #sed -i 's/^umask.*$/umask 077/' $target/etc/init.d/rc
 #ainsl /etc/pam.d/common-session 'session optional pam_umask.so umask=077'
 #Desktop can use usb and firewire storage
-ifclass -o XORG GNOME_EL7 KDE_EL7 DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist usb-storage'
-ifclass -o XORG GNOME_EL7 KDE_EL7 DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
+ifclass -o XORG GNOME_EL7 XFCE_EL7 KDE_EL7 DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist usb-storage'
+ifclass -o XORG GNOME_EL7 XFCE_EL7 KDE_EL7 DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
+ifclass -o XORG GNOME_EL7 XFCE_EL7 KDE_EL7 DDE || ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist thunderbolt'
+
 #ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist floppy'
 ainsl -a /etc/modprobe.d/blacklist-pcspkr.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'
@@ -98,7 +100,7 @@ done
 ainsl /etc/sysfs.conf 'fs/cgroup/memory/memory.use_hierarchy = 1'
 
 #polkit can not work with hidepid=2
-if ifclass -o XORG GNOME GNOME_EL7 KDE KDE_EL7 DDE ; then
+if ifclass -o XORG GNOME GNOME_EL7 XFCE_EL7 KDE KDE_EL7 DDE ; then
    ainsl /etc/fstab 'proc    /proc    proc    defaults     0     0'
 else
    ainsl /etc/fstab 'proc    /proc    proc    defaults,hidepid=2     0     0'

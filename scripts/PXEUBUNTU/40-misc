@@ -64,6 +64,7 @@ fi
 
 fcopy -Miv /etc/fai/fai.conf
 sed -i "s/net.ipv4.tcp_congestion_control.*$/net.ipv4.tcp_congestion_control=dctcp/" $target/etc/sysctl.conf
+sed -i "s/#kernel.unprivileged_bpf_disabled/kernel.unprivileged_bpf_disabled/" $target/etc/sysctl.conf
 fcopy -iv /etc/rc.local
 fcopy -iv /etc/systemd/timesyncd.conf
 #time setting

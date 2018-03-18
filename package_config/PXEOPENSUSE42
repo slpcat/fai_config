@@ -39,6 +39,13 @@ translation-update-zh_CN
 kcm_sddm
 sddm
 firefox
+libreoffice
+libreoffice-writer
+libreoffice-calc
+libreoffice-impress
+konsole
+smplayer
+
 gtk2-immodule-xim
 gtk3-immodule-xim
 ibus ibus-gtk ibus-gtk3

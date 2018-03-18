@@ -33,6 +33,11 @@ ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
 #ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist floppy'
 ainsl -a /etc/modprobe.d/blacklist-pcspkr.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'
+
+sed -i "s/net.ipv4.tcp_congestion_control.*$/net.ipv4.tcp_congestion_control=dctcp/" $target/etc/sysctl.conf
+sed -i "s/#kernel.unprivileged_bpf_disabled/kernel.unprivileged_bpf_disabled/" $target/etc/sysctl.conf
+sed -i /kernel.sched_autogroup_enabled/d $target/etc/sysctl.conf
+
 ln -sf /dev/null $target/etc/systemd/system/multi-user.target.wants/kdump.service
 ln -sf /dev/null $target/etc/systemd/system/ip6tables.service
 #ln -sf /dev/null $target/etc/systemd/system/gssproxy.service
@@ -82,7 +87,7 @@ if ifclass KDE_42 ; then
 fi
 sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
 #enable zfs
-ainsl -a /etc/modules-load.d/zfs.conf 'zfs'
-$ROOTCMD systemctl preset zfs-import-cache zfs-import-scan zfs-import.target zfs-mount zfs-share zfs-zed zfs.target
+#ainsl -a /etc/modules-load.d/zfs.conf 'zfs'
+#$ROOTCMD systemctl preset zfs-import-cache zfs-import-scan zfs-import.target zfs-mount zfs-share zfs-zed zfs.target
 
 exit $error

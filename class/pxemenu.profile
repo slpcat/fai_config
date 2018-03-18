@@ -97,7 +97,7 @@ Short: A normal XFCE desktop, running CentOS 7
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 XFCE
+Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 XFCE_EL7
 
 Name: Fedora 27 GNOME Desktop
 Description:  Fedora 27 with GNOME desktop

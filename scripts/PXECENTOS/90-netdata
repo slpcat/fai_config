@@ -2,7 +2,7 @@
 
 error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
 
-if ifclass -o XORG GNOME GNOME_EL7 KDE KDE_EL7 DDE ; then
+if ifclass -o XORG GNOME GNOME_EL7 XFCE_EL7 KDE KDE_EL7 DDE ; then
     exit 0
 else
 mount -o bind /dev $target/dev

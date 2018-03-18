@@ -1,6 +1,14 @@
 PACKAGES yumgroup
 core
 
+PACKAGES yumi GRUB_PC
+grub2
+grub2-pc
+grub2-pc-modules
+grub2-common
+grub2-tools
+grub2-tools-extra
+
 PACKAGES yumgroup GNOME_EL7
 x11
 chinese-support
@@ -23,17 +31,36 @@ gconf-editor
 gnome-screensaver gnome-system-monitor gnome-system-tools
 libgnomevfs2-bin
 network-manager-gnome
-cjkuni-ukai-fonts
 im-chooser
 gtk2-immodule-xim
 gtk3-immodule-xim
 ibus ibus-gtk ibus-gtk3
-ibus-qt ibus-table-chinese
+ibus-qt ibus-table-chinese ibus-libpinyin
 
 gnome-tweak-tool
 wqy-microhei-fonts
 wqy-unibit-fonts
 wqy-zenhei-fonts
+cjkuni-ukai-fonts
+
+PACKAGES yumgroup KDE_EL7
+#gnome-desktop base-x # slc5/CentOS 5
+#basic-desktop x11 fonts #slc6/CentOS 6
+#kde-baseapps # CentOS 7
+x11
+chinese-support
+kde-desktop
+
+PACKAGES yumi KDE_EL7
+firefox
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts
+kde-l10n-chinese
+cjkuni-ukai-fonts
+im-chooser
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese ibus-libpinyin
 
 PACKAGES yumgroup XFCE_EL7
 x11
@@ -57,17 +84,17 @@ firefox
 #gnome-screensaver gnome-system-monitor gnome-system-tools
 #libgnomevfs2-bin
 #network-manager-gnome
-cjkuni-ukai-fonts
 im-chooser
 gtk2-immodule-xim
 gtk3-immodule-xim
 ibus ibus-gtk ibus-gtk3
-ibus-qt ibus-table-chinese
+ibus-qt ibus-table-chinese ibus-libpinyin
 
 #gnome-tweak-tool
 wqy-microhei-fonts
 wqy-unibit-fonts
 wqy-zenhei-fonts
+cjkuni-ukai-fonts
 
 PACKAGES yumi
 #authconfig
@@ -75,7 +102,7 @@ kernel
 kernel-devel
 zfs
 # sysvinit-tools grub # CentOS 5 and 6
-grub2  # CentOS 7
+#grub2  # CentOS 7
 less
 libpwquality
 openssh
@@ -84,6 +111,7 @@ openssh-server
 vim-enhanced
 man
 curl
+samba-client
 #screen
 rsync
 unzip

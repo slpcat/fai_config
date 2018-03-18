@@ -9,7 +9,6 @@ if ! $ROOTCMD getent passwd hmuser ; then
     sed -i '/^root/a\hmuser    ALL=(ALL:ALL) ALL' $target/etc/sudoers
 fi
 
-
 # enable graphical login screen, make run level 5 as default
 if [ -f $target/usr/sbin/gdm ]; then
     sed -i -e 's/id:3:initdefault:/id:5:initdefault:/' $target/etc/inittab
@@ -22,6 +21,10 @@ ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist firewire-ohci'
 #ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist floppy'
 ainsl -a /etc/modprobe.d/blacklist-pcspkr.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'
+
+sed -i "s/net.ipv4.tcp_congestion_control.*$/net.ipv4.tcp_congestion_control=dctcp/" $target/etc/sysctl.conf
+sed -i "s/#kernel.unprivileged_bpf_disabled/kernel.unprivileged_bpf_disabled/" $target/etc/sysctl.conf
+
 ln -sf /dev/null $target/etc/systemd/system/multi-user.target.wants/kdump.service
 ln -sf /dev/null $target/etc/systemd/system/ip6tables.service
 #ln -sf /dev/null $target/etc/systemd/system/gssproxy.service

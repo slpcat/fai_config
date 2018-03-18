@@ -31,6 +31,10 @@ PACKAGES install ZFS
 spl-dkms/stretch-backports
 zfs-dkms/stretch-backports
 zfs-zed/stretch-backports
+libnvpair1linux/stretch-backports
+libuutil1linux/stretch-backports
+libzfs2linux/stretch-backports
+libzpool2linux/stretch-backports
 zfsutils-linux/stretch-backports
 
 PACKAGES install LVM

@@ -80,6 +80,7 @@ sed -i '/# The named pipe \/dev\/xconsole/,$d' $target/etc/rsyslog.conf
 sed -i '/kernel.yama.ptrace_scope/d' $target/etc/sysctl.conf
 sed -i '/net.ipv4.tcp_autocorking/d' $target/etc/sysctl.conf
 sed -i "s/net.ipv4.tcp_congestion_control.*$/net.ipv4.tcp_congestion_control=dctcp/" $target/etc/sysctl.conf
+sed -i "s/#kernel.unprivileged_bpf_disabled/kernel.unprivileged_bpf_disabled/" $target/etc/sysctl.conf
 
 #sed -i 's/^ENABLED.*$/ENABLED="0"/' $target/etc/default/irqbalance
 sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
