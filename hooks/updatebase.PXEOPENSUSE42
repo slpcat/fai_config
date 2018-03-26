@@ -17,7 +17,11 @@ fi
 #sed -i s/^#baseurl/baseurl/ $target/etc/yum.repos.d/remi*
 
 #for grub and zfs
+mkdir $target/dev
 mount -o bind /dev $target/dev
+mkdir $target/proc
+mount -o bind /proc $target/proc
+mkdir $target/sys
 
 if [ X$verbose = X1 ]; then
 	echo "Updating base"
