@@ -47,6 +47,7 @@ $ROOTCMD chkconfig network on
 ln -sf /usr/lib/systemd/system/rsyslog.service $target/etc/systemd/system/multi-user.target.wants/rsyslog.service
 ln -sf /usr/lib/systemd/system/nscd.service $target/etc/systemd/system/multi-user.target.wants/nscd.service
 ln -sf /usr/lib/systemd/system/systemd-timedated.service $target/etc/systemd/system/systemd-timedated.service
+ln -sf /usr/lib/systemd/system/irqbalance.service $target/etc/systemd/system/multi-user.target.wants/irqbalance.service
 sed -i 's/^After=.*$/After=network.service\ sshd-keygen.service/' $target/usr/lib/systemd/system/sshd.service
 #sed -i s/^#ListenAddress.*$/ListenAddress\ 0.0.0.0/ $target/etc/ssh/sshd_config
 #ainsl -a /etc/sysconfig/irqbalance 'ENABLED="0"'
