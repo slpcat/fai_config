@@ -44,7 +44,7 @@ kernel.io_delay_type=3
 #kernel.ngroups_max=65536
 kernel.pty.max=8192
 #kernel.pty.reserve=1024
-kernel.perf_cpu_time_max_percent=100
+kernel.perf_cpu_time_max_percent=0
 kernel.numa_balancing=1
 # Avoid non-ancestor ptrace access to running processes and their credentials.
 # conflict with gdb/lldb

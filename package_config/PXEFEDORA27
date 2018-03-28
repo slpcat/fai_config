@@ -73,6 +73,7 @@ kernel-devel
 # sysvinit-tools grub # CentOS 5 and 6
 grub2  # CentOS 7
 less
+irqbalance
 libpwquality
 openssh
 openssh-clients
