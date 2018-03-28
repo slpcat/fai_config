@@ -57,7 +57,7 @@ deb [by-hash=force] http://mirrors.aliyun.com/deepin panda main contrib non-free
 #deb https://artifacts.elastic.co/packages/5.x/apt stable main
 
 #graylog
-#deb https://packages.graylog2.org/repo/debian/ stable 2.3
+#deb https://packages.graylog2.org/repo/debian/ stable 2.4
 
 #deb http://repo.zabbix.com/zabbix/3.5/debian/ stretch main
 
