@@ -4,7 +4,7 @@
 # (c) Thomas Lange 2014
 
 error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
-if ifclass CDH5_El7 ; then
+if ifclass CDH5_EL7 ; then
 
 #install Oracle JDK8
 $ROOTCMD cd /root
