@@ -30,6 +30,10 @@ deb-src http://nginx.org/packages/debian/ jessie nginx
 #deb http://repo.percona.com/apt jessie main
 #deb-src http://repo.percona.com/apt jessie main
 
+#The official MongoDB repository
+#deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.6 main
+#deb http://mirrors.aliyun.com/mongodb/apt/debian jessie/mongodb-org/3.6 main
+
 #gitlab-runner
 #deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian jessie main
 #deb-src https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian jessie main
