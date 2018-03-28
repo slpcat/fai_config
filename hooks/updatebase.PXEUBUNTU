@@ -55,9 +55,14 @@ deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $ubuntudist st
 #deb http://public-repo-1.hortonworks.com/HDP/ubuntu16/2.x/updates/2.6.4.0 HDP main
 #deb http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.22/repos/ubuntu16 HDP-UTILS main
 
+# Packages for Cloudera Manager, Version 5, on Ubuntu 16.04 amd64       
+#deb [arch=amd64] http://archive.cloudera.com/cm5/ubuntu/xenial/amd64/cm xenial-cm5 contrib
+#deb-src http://archive.cloudera.com/cm5/ubuntu/xenial/amd64/cm xenial-cm5 contrib
+
 # Packages for Cloudera's Distribution for Hadoop, Version 5, on Ubuntu 16.04 amd64       
 #deb [arch=amd64] http://archive.cloudera.com/cdh5/ubuntu/xenial/amd64/cdh xenial-cdh5 contrib
 #deb-src http://archive.cloudera.com/cdh5/ubuntu/xenial/amd64/cdh xenial-cdh5 contrib
+
 
 EOM
 

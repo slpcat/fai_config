@@ -39,6 +39,7 @@ debsums
 #nftables
 mtr-tiny
 vim
+psmisc
 less
 #snoopy
 kexec-tools

@@ -185,21 +185,37 @@ Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
 Classes: INSTALL PXEBASE JESSIE64 PXEIDC DOCKER ZFS
 
-Name: Ubuntu 16.04 Big Data
-Description: Ubuntu 16.04 for Big Data CDH5
+Name: Ubuntu 16.04 CDH5 Big Data
+Description: Ubuntu 16.04 for CDH5 Big Data
 Short: a very simple server, no xorg
 Long: We use the Debian nfsroot for installing the Ubuntu 16.04 OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXEUBUNTU XENIAL XENIAL64 CDH5
 
-Name: CentOS 7 Big Data
-Description: CentOS 7 for Big Data CDH5
+Name: CentOS 7 CDH5 Big Data
+Description: CentOS 7 for CDH5 Big Data
 Short: a very simple server, no xorg
 Long: We use the Debian nfsroot for installing the CentOS 7 OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 CDH5_EL7
+
+Name: Ubuntu 16.04 HDP Big Data
+Description: Ubuntu 16.04 for HDP Big Data
+Short: a very simple server, no xorg
+Long: We use the Debian nfsroot for installing the Ubuntu 16.04 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEIDC PXEUBUNTU XENIAL XENIAL64 HDP
+
+Name: CentOS 7 HDP Big Data
+Description: CentOS 7 for HDP Big Data
+Short: a very simple server, no xorg
+Long: We use the Debian nfsroot for installing the CentOS 7 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 HDP_EL7
 
 Name: pxe-centos-7-basic
 Description: CentOS 7 with minimal install

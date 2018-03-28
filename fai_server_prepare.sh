@@ -23,3 +23,11 @@ fai-setup -f -v
 
 #pxe menu
 cp pxelinux.cfg/default /srv/tftp/fai/pxelinux.cfg/default
+
+#pxe files
+cp /usr/lib/syslinux/modules/bios/* /srv/tftp/fai/
+
+#static files for web server
+#mkdir /srv/web
+#jdk-8u161-linux-x64.rpm  jdk-8u161-linux-x64.tar.gz
+#coreos pxe
