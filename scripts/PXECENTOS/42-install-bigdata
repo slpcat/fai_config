@@ -10,8 +10,12 @@ if ifclass CDH5_EL7 ; then
 $ROOTCMD cd /root
 $ROOTCMD wget http://faiserver/jdk-8u161-linux-x64.rpm
 $ROOTCMD rpm -i jdk-8u161-linux-x64.rpm
-cat << 'EOF' > $target/etc/profile.d/java.sh
+#jdbc
+$ROOTCMD wget http://faiserver/mysql-connector-java-5.1.46-bin.jar
+$ROOTCMD mkdir /usr/share/java
+$ROOTCMD cp mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar
 
+cat << 'EOF' > $target/etc/profile.d/java.sh
 #set java environment
 JAVA_HOME=/usr/java/jdk1.8.0_161
 JRE_HOME=$JAVA_HOME/jre
