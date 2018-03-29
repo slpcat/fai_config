@@ -28,6 +28,9 @@ EOF
 sed -i 's/^enabled=.*$/enabled=1/' $target/etc/yum.repos.d/cloudera-manager.repo
 sed -i 's/^enabled=.*$/enabled=1/' $target/etc/yum.repos.d/cloudera-cdh5.repo
 
+#Install Cloudera Manager Agent Packages
+$ROOTCMD yum install -y cloudera-manager-agent cloudera-manager-daemons
+
 fi
 
 if ifclass HDP_EL7 ; then

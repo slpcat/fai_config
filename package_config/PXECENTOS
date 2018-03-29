@@ -143,6 +143,7 @@ unhide
 #arpwatch
 sysstat
 psacct
+psmisc
 zabbix-agent
 yum-plugin-versionlock
 yum-plugin-changelog

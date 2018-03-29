@@ -33,7 +33,18 @@ $ROOTCMD apt-get -y install libpq-dev oracle-java8-installer libmysql-java
 #sed -i 's/#Acquire/Acquire/' $target/etc/apt/apt.conf.d/02proxy
 
 #enable CDH5 repo
+
+cat << 'EOF' > $target/etc/apt/preferences.d/cloudera.pref
+Package: *
+Pin: release o=Cloudera, l=Cloudera
+Pin-Priority: 501
+EOF
+
 sed -i 's/#deb\ \[arch=amd64\]\ http:\/\/archive.cloudera.com/deb\ \[arch=amd64\]\ http:\/\/archive.cloudera.com/' $target/etc/apt/sources.list
+
+#Install Cloudera Manager Agent Packages
+$ROOTCMD apt-get update -y
+$ROOTCMD apt-get install -y cloudera-manager-agent cloudera-manager-daemons
 
 fi
 

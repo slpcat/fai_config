@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#for debian stretch
 #fai config and server prepare
 cp -r fai/* /etc/fai/
 cp -r fai/apt/* /etc/apt/
@@ -15,8 +16,9 @@ cp fai/panda /usr/share/debootstrap/scripts/
 cp fai/bionic /usr/share/debootstrap/scripts/
 
 #system update,need reboot
-apt update -y
-apt dist-upgrade -y
+apt-get update -y
+apt-get dist-upgrade -y
+apt-get install -y linux-image-amd64/stretch-backports
 
 #nfsroot reinsall
 fai-setup -f -v
