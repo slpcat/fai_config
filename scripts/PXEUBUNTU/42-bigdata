@@ -12,6 +12,7 @@ sed -i 's/#deb http:\/\/ppa.launchpad.net\/webupd8team/deb http:\/\/ppa.launchpa
 #sed -i 's/Acquire/#Acquire/' $target/etc/apt/apt.conf.d/02proxy
 
 #install Oracle JDK8
+#jdbc mysql 5.6 need >= 5.1.38
 $ROOTCMD apt-get -y update
 # Auto-accept the Oracle License
 $ROOTCMD echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | $ROOTCMD debconf-set-selections
