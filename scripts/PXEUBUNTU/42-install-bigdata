@@ -17,7 +17,7 @@ $ROOTCMD apt-get -y update
 $ROOTCMD echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | $ROOTCMD debconf-set-selections
 $ROOTCMD mkdir /var/cache/oracle-jdk8-installer
 $ROOTCMD wget -O /var/cache/oracle-jdk8-installer/jdk-8u161-linux-x64.tar.gz http://faiserver/jdk-8u161-linux-x64.tar.gz || true
-$ROOTCMD apt-get -y install libpq-dev oracle-java8-installer
+$ROOTCMD apt-get -y install libpq-dev oracle-java8-installer libmysql-java
 
 #cat << 'EOF' > $target/etc/profile.d/java.sh
 
