@@ -14,7 +14,7 @@ $ROOTCMD rpm -i jdk-8u161-linux-x64.rpm
 #install depend only
 $ROOTCMD yum install -y mysql-connector-java && $ROOTCMD yum remove -y mysql-connector-java
 $ROOTCMD wget http://faiserver/mysql-connector-java-5.1.46-bin.jar
-$ROOTCMD mkdir /usr/share/java
+#$ROOTCMD mkdir /usr/share/java
 $ROOTCMD cp -f mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar
 
 cat << 'EOF' > $target/etc/profile.d/java.sh
