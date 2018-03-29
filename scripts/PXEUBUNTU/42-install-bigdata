@@ -9,7 +9,7 @@ if ifclass CDH5 ; then
 #enable Oracle Java repo
 sed -i 's/#deb http:\/\/ppa.launchpad.net\/webupd8team/deb http:\/\/ppa.launchpad.net\/webupd8team/' $target/etc/apt/sources.list
 #disable apt proxy
-sed -i 's/Acquire/#Acquire/' $target/etc/apt/apt.conf.d/02proxy
+#sed -i 's/Acquire/#Acquire/' $target/etc/apt/apt.conf.d/02proxy
 
 #install Oracle JDK8
 $ROOTCMD apt-get -y update
@@ -30,7 +30,7 @@ $ROOTCMD apt-get -y install libpq-dev oracle-java8-installer libmysql-java
 #EOF
 
 #enable apt proxy
-sed -i 's/#Acquire/Acquire/' $target/etc/apt/apt.conf.d/02proxy
+#sed -i 's/#Acquire/Acquire/' $target/etc/apt/apt.conf.d/02proxy
 
 #enable CDH5 repo
 sed -i 's/#deb\ \[arch=amd64\]\ http:\/\/archive.cloudera.com/deb\ \[arch=amd64\]\ http:\/\/archive.cloudera.com/' $target/etc/apt/sources.list
@@ -42,7 +42,7 @@ if ifclass HDP ; then
 #enable Oracle Java repo
 sed -i 's/#deb http:\/\/ppa.launchpad.net\/webupd8team/deb http:\/\/ppa.launchpad.net\/webupd8team/' $target/etc/apt/sources.list
 #disable apt proxy
-sed -i 's/Acquire/#Acquire/' $target/etc/apt/apt.conf.d/02proxy
+#sed -i 's/Acquire/#Acquire/' $target/etc/apt/apt.conf.d/02proxy
 
 #install Oracle JDK8
 $ROOTCMD apt-get -y update
@@ -63,7 +63,7 @@ $ROOTCMD apt-get -y install libpq-dev oracle-java8-installer
 #EOF
 
 #enable apt proxy
-sed -i 's/#Acquire/Acquire/' $target/etc/apt/apt.conf.d/02proxy
+#sed -i 's/#Acquire/Acquire/' $target/etc/apt/apt.conf.d/02proxy
 
 #enable HDP repo
 sed -i 's/#deb\ http:\/\/public-repo-1.hortonworks.com/deb\ http:\/\/public-repo-1.hortonworks.com/' $target/etc/apt/sources.list
