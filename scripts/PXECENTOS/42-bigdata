@@ -13,8 +13,8 @@ if ifclass CDH5_EL7 ; then
 #jdbc mysql 5.6 need >= 5.1.38
 #install depend only
 #$ROOTCMD yum install -y mysql-connector-java && $ROOTCMD yum remove -y mysql-connector-java
-#$ROOTCMD wget http://faiserver/mysql-connector-java-5.1.46-bin.jar
-#$ROOTCMD mkdir /usr/share/java
+$ROOTCMD wget http://faiserver/mysql-connector-java-5.1.46-bin.jar
+$ROOTCMD mkdir /usr/share/java
 $ROOTCMD cp -f mysql-connector-java-5.1.46-bin.jar /usr/share/java/mysql-connector-java.jar
 
 #cat << 'EOF' > $target/etc/profile.d/java.sh
