@@ -7,18 +7,18 @@ error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
 if ifclass CDH5 ; then
 
 #enable Oracle Java repo
-sed -i 's/#deb http:\/\/ppa.launchpad.net\/webupd8team/deb http:\/\/ppa.launchpad.net\/webupd8team/' $target/etc/apt/sources.list
+#sed -i 's/#deb http:\/\/ppa.launchpad.net\/webupd8team/deb http:\/\/ppa.launchpad.net\/webupd8team/' $target/etc/apt/sources.list
 #disable apt proxy
 #sed -i 's/Acquire/#Acquire/' $target/etc/apt/apt.conf.d/02proxy
 
 #install Oracle JDK8
 #jdbc mysql 5.6 need >= 5.1.38
-$ROOTCMD apt-get -y update
+#$ROOTCMD apt-get -y update
 # Auto-accept the Oracle License
-$ROOTCMD echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | $ROOTCMD debconf-set-selections
-$ROOTCMD mkdir /var/cache/oracle-jdk8-installer
-$ROOTCMD wget -O /var/cache/oracle-jdk8-installer/jdk-8u161-linux-x64.tar.gz http://faiserver/jdk-8u161-linux-x64.tar.gz || true
-$ROOTCMD apt-get -y install libpq-dev oracle-java8-installer libmysql-java
+#$ROOTCMD echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | $ROOTCMD debconf-set-selections
+#$ROOTCMD mkdir /var/cache/oracle-jdk8-installer
+#$ROOTCMD wget -O /var/cache/oracle-jdk8-installer/jdk-8u161-linux-x64.tar.gz http://faiserver/jdk-8u161-linux-x64.tar.gz || true
+#$ROOTCMD apt-get -y install libpq-dev oracle-java8-installer libmysql-java
 
 #cat << 'EOF' > $target/etc/profile.d/java.sh
 
@@ -45,7 +45,7 @@ sed -i 's/#deb\ \[arch=amd64\]\ http:\/\/archive.cloudera.com/deb\ \[arch=amd64\
 
 #Install Cloudera Manager Agent Packages
 $ROOTCMD apt-get update -y
-$ROOTCMD apt-get install -y cloudera-manager-agent cloudera-manager-daemons
+$ROOTCMD apt-get install -y oracle-j2sdk1.7 cloudera-manager-agent cloudera-manager-daemons
 
 fi
 
