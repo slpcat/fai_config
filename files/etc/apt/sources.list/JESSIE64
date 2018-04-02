@@ -57,6 +57,9 @@ deb http://repo.zabbix.com/zabbix/3.5/debian/ jessie main
 #deb [arch=amd64] https://download.docker.com/linux/debian jessie stable
 deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/debian jessie stable
 
+#kubernetes
+#deb http://mirrors.aliyun.com/kubernetes/apt/ kubernetes-jessie main
+
 #deb https://pkg.jenkins.io/debian binary/
 
 #ansible
