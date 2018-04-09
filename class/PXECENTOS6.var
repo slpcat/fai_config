@@ -3,6 +3,8 @@ KEYMAP=us
 UTC=no
 DEFAULTLOCALE=en_US.UTF-8
 SUPPORTEDLOCALE=en_US.UTF-8:en_US:en
+ZABBIXSRV="zabbix"
+LOGSRV="rsyslog"
 
 # if you install much software and have only few RAM, use the RAM disk
 # not for var/cache/yum

@@ -76,6 +76,7 @@ $ROOTCMD ln -sf /lib/systemd/system/systemd-timesyncd.service /etc/systemd/syste
 $ROOTCMD systemctl start systemd-timedated
 $ROOTCMD timedatectl set-ntp true
 sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
+[ -n "$LOGSRV" ] && ainsl -a -q /etc/rsyslog.conf "*.*@$LOGSRV:514"
 
 if ifclass GNOME_FC27; then
     $ROOTCMD systemctl enable gdm

@@ -86,6 +86,7 @@ if ifclass KDE_42 ; then
     $ROOTCMD systemctl enable sddm
 fi
 sed -i '/^driftfile/a\interface ignore wildcard' $target/etc/ntp.conf
+[ -n "$LOGSRV" ] && ainsl -a -q /etc/rsyslog.conf "*.*@$LOGSRV:514"
 #enable zfs
 #ainsl -a /etc/modules-load.d/zfs.conf 'zfs'
 #$ROOTCMD systemctl preset zfs-import-cache zfs-import-scan zfs-import.target zfs-mount zfs-share zfs-zed zfs.target
