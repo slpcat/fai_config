@@ -54,6 +54,9 @@ deb http://repo.zabbix.com/zabbix/3.5/debian/ stretch main
 #docker-ce
 #deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
 
+#kubernetes
+#deb http://mirrors.aliyun.com/kubernetes/apt/ kubernetes-stretch main
+
 #ansible
 #deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main
 

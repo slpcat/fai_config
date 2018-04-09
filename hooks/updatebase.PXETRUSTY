@@ -31,6 +31,8 @@ deb MIRRORURL $ubuntudist-updates main restricted universe multiverse
 deb MIRRORURL $ubuntudist-security main restricted universe multiverse
 deb MIRRORURL $ubuntudist-backports main restricted universe multiverse
 deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $ubuntudist stable
+#kubernetes
+#deb http://mirrors.aliyun.com/kubernetes/apt/ kubernetes-trusty main
 #deb http://ppa.launchpad.net/ansible/ansible/ubuntu $ubuntudist main
 deb http://ppa.launchpad.net/zfs-native/stable/ubuntu $ubuntudist main
 
