@@ -217,6 +217,14 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 HDP_EL7
 
+Name: CentOS 7 Oracle JDK8
+Description: CentOS 7 with Oracle JDK8
+Short: a very simple server, no xorg
+Long: We use the Debian nfsroot for installing the CentOS 7 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 JDK_EL7
+
 Name: pxe-centos-7-basic
 Description: CentOS 7 with minimal install
 Short: a very simple server, no xorg
