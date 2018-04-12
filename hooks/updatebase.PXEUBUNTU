@@ -33,6 +33,10 @@ deb MIRRORURL $ubuntudist-backports main restricted universe multiverse
 #deb [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
 deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $ubuntudist stable
 # deb-src [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
+
+# Ceph packages
+#deb http://mirrors.aliyun.com/ceph/debian-luminous/ $ubuntudis main
+
 #kubernetes
 #deb http://mirrors.aliyun.com/kubernetes/apt/ kubernetes-xenial main
 #deb http://ppa.launchpad.net/ansible/ansible/ubuntu $ubuntudist main
