@@ -23,6 +23,9 @@ deb-src http://nginx.org/packages/debian/ stretch nginx
 #deb https://packages.sury.org/php/ stretch main
 #deb-src https://packages.sury.org/php/ stretch main
 
+# Ceph packages
+#deb http://mirrors.aliyun.com/ceph/debian-luminous/ stretch main
+
 # MariaDB 10.1 repository list - created 2016-12-05 06:07 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
 #deb [arch=amd64,i386] http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian stretch main
