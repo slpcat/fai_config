@@ -2,7 +2,7 @@
 name=Ceph packages for $basearch
 #baseurl=http://download.ceph.com/rpm-luminous/el7/$basearch
 baseurl=http://mirrors.aliyun.com/ceph/rpm-luminous/el7/$basearch
-enabled=0
+enabled=1
 gpgcheck=0
 type=rpm-md
 
@@ -10,7 +10,7 @@ type=rpm-md
 name=Ceph noarch packages
 #baseurl=http://download.ceph.com/rpm-luminous/el7/noarch
 baseurl=http://mirrors.aliyun.com/ceph/rpm-luminous/el7/noarch
-enabled=0
+enabled=1
 gpgcheck=0
 type=rpm-md
 
