@@ -123,6 +123,7 @@ net-tools
 iptables-services
 mailx
 #yum-cron
+yum-plugin-priorities
 #snoopy
 nscd
 wget
@@ -143,6 +144,7 @@ unhide
 #arpwatch
 sysstat
 psacct
+python-setuptools
 psmisc
 zabbix-agent
 yum-plugin-versionlock
@@ -153,6 +155,7 @@ yum-plugin-changelog
 PACKAGES yumi DOCKER
 docker-ce
 dokcer-compose
+ceph-common
 
 PACKAGES yumi LVM
 lvm2

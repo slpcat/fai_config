@@ -33,6 +33,7 @@ nfs-utils
 ncurses-base # currently missing in the base file
 net-tools
 mailx
+python-setuptools
 #yum-cron
 #snoopy
 nscd

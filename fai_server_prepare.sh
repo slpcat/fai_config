@@ -24,7 +24,7 @@ apt-get install -y linux-image-amd64/stretch-backports
 fai-setup -f -v
 
 #pxe menu
-cp pxelinux.cfg/default /srv/tftp/fai/pxelinux.cfg/default
+cp extra/pxelinux.cfg/default /srv/tftp/fai/pxelinux.cfg/default
 
 #pxe files
 cp /usr/lib/syslinux/modules/bios/* /srv/tftp/fai/
