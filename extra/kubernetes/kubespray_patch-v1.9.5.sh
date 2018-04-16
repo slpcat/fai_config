@@ -27,6 +27,7 @@ done
 sed -i 's/gcr.io\/kubernetes-helm/slpcat/' ./kubespray/roles/download/defaults/main.yml
 #disable docker install
 sed -i '/role:\ docker/d' ./kubespray/cluster.yml 
+#./kubespray/roles/docker/tasks/main.yml
 
 #change cluster congfig
 sed -i '/ndots/ndots:\ 5/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
@@ -38,8 +39,19 @@ sed -i '/local_volume_provisioner_enabled/local_volume_provisioner_enabled:\ tru
 sed -i '/ngress_nginx_enabled/ingress_nginx_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 sed -i '/ubeconfig_localhost/kubeconfig_localhost:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 
+#change EFK config
+./kubespray/roles/kubernetes-apps/efk/kibana/templates/kibana-deployment.yml.j2
+
+#change etcd config
+
+--quota-backend-bytes #default 2GB
+
 #kubelet tuning https://kubernetes.io/docs/reference/generated/kubelet/
---allow-privileged=true
+# 
+#roles/kubernetes/node/templates/kubelet.standard.env.j2
+#roles/kubernetes/node/defaults/main.yml
+kubelet_custom_flags: []
+--dynamic-config-dir
 --event-burst 
 --event-qps
 --eviction-hard mapStringString                                                                             
@@ -49,18 +61,23 @@ sed -i '/ubeconfig_localhost/kubeconfig_localhost:\ true/' ./kubespray/inventory
 --eviction-soft mapStringString                                                                             
 --eviction-soft-grace-period mapStringString                                                                
 --exit-on-lock-contention
+--experimental-allowed-unsafe-sysctls 'kernel.msg*,net.*' 
 --hairpin-mode=promiscuous-bridge
---http-check-frequency 
---image-gc-high-threshold int32                                 
---image-gc-low-threshold int32
---image-pull-progress-deadline 
---kube-api-burst
---kube-api-qps int32
---max-pods 
---minimum-image-ttl-duration duration
---pods-per-core int32                                          
+--http-check-frequency 20 
+--image-gc-high-threshold  80                                 
+--image-gc-low-threshold 60
+--image-pull-progress-deadline 2h #default 1m0s
+--kube-api-burst=2000 #default 10
+--kube-api-qps=1000 #default=5
+--max-pods 300 #default 110
+--minimum-image-ttl-duration 48h #default 2m
+-–node-status-update-frequency 20s #default 10
+--node-monitor-period default 5
+--node-monitor-grace-period 2m #default 40s
+--pod-eviction-timeout   默认5m0s
+--pods-per-core  50                                          
 --protect-kernel-defaults
---registry-burst int32                                                                                     
---registry-qps int32
---serialize-image-pulls  
-
+--registry-burst  20 #default 10                                                                                    
+--registry-qps 10 #default 5
+--serialize-image-pulls false #default true , if false need overlay2 
+--terminated-pod-gc-threshold=12500
