@@ -21,6 +21,7 @@ elasticsearch:v2.4.1
 heapster-amd64:v1.4.0
 heapster-grafana-amd64:v4.4.1
 heapster-influxdb-amd64:v1.1.1
+hyperkube:v1.9.5
 nginx-ingress-controller:0.9.0-beta.11
 defaultbackend:1.4
 )
