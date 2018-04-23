@@ -41,6 +41,9 @@ sed -i 's/^kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/inv
 
 #change EFK config
 #./kubespray/roles/kubernetes-apps/efk/kibana/templates/kibana-deployment.yml.j2
+sed -i /kibana_base_url/d  ./kubespray/roles/kubernetes-apps/efk/kibana/templates/kibana-deployment.yml.j2
+sed -i /KIBANA_BASE_URL/d  ./kubespray/roles/kubernetes-apps/efk/kibana/templates/kibana-deployment.yml.j2
+
 
 #change etcd config
 sed -i "s/^etcd_extra_vars.*$/etcd_extra_vars\:\ \{\ --quota-backend-bytes=16G\ \}/" ./kubespray/roles/etcd/defaults/main.yml
