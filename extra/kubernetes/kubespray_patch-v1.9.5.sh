@@ -34,10 +34,10 @@ sed -i '/ndots/ndots:\ 5/' ./kubespray/inventory/local/group_vars/k8s-cluster.ym
 sed -i '/kube_proxy_mode/kube_proxy_mode:\ ipvs/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 sed -i '/efk_enabled/efk_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml 
 sed -i '/helm_enabled/helm_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
-sed -i '/stio_enabled/istio_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
+sed -i '/istio_enabled/istio_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 sed -i '/local_volume_provisioner_enabled/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
-sed -i '/ngress_nginx_enabled/ingress_nginx_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
-sed -i '/ubeconfig_localhost/kubeconfig_localhost:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
+sed -i '/ingress_nginx_enabled/ingress_nginx_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
+sed -i '/kubeconfig_localhost/kubeconfig_localhost:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 
 #change EFK config
 #./kubespray/roles/kubernetes-apps/efk/kibana/templates/kibana-deployment.yml.j2
