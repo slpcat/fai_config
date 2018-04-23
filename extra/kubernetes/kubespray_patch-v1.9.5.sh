@@ -10,6 +10,7 @@ gcr_image_files=(
 
 for file in ${gcr_image_files[@]} ; do
     sed -i "s/gcr.io\/google_containers/${PRIVATE_KUBE_REGISTRY}/g" $file
+    sed -i "s/gcr.io\/google-containers/${PRIVATE_KUBE_REGISTRY}/g" $file
 done
 
 #quay_image_files=(
