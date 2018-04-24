@@ -33,29 +33,33 @@ for imageName in ${images[@]} ; do
   docker rmi ${PRIVATE_KUBE_REGISTRY}/$imageName
 done
 
-#QUAY_REGISTRY="quay.io"
-#PRIVATE_QUAYIO_REGISTRY="slpcat"
+QUAY_REGISTRY="quay.io"
+PRIVATE_QUAYIO_REGISTRY="slpcat"
 
-#images=(
-#coreos/hyperkube:v1.8.4_coreos.0
-#coreos/etcd:v3.2.4
-#coreos/flannel:v0.9.1
-#coreos/flannel-cni:v0.3.0
-#calico/kube-policy-controller:v1.0.0
-#calico/ctl:v1.6.1
-#calico/node:v2.6.8
-#calico/cni:v1.11.0
-#calico/routereflector:v0.4.0
-#l23network/k8s-netchecker-agent:v1.0
-#l23network/k8s-netchecker-server:v1.0
-#)
+images=(
+coreos/etcd:v3.2.4
+coreos/flannel:v0.10.0
+coreos/flannel-cni:v0.3.0
+calico/kube-policy-controller:v1.0.3
+calico/ctl:v1.6.3
+calico/node:v2.6.8
+calico/cni:v1.11.4
+calico/routereflector:v0.4.2
+external_storage/local-volume-provisioner:v2.0.0
+kubespray/cephfs-provisioner:a71a49d4
+kubernetes-ingress-controller/nginx-ingress-controller:0.13.0
+jetstack/cert-manager-controller:v0.2.4
+jetstack/cert-manager-ingress-shim:v0.2.4
+l23network/k8s-netchecker-agent:v1.0
+l23network/k8s-netchecker-server:v1.0
+)
 
-#for imageName in ${images[@]} ; do
-#  docker pull ${QUAY_REGISTRY}/$imageName
-#  docker tag ${QUAY_REGISTRY}/$imageName ${PRIVATE_QUAYIO_REGISTRY}/${imageName/\//-}
-#  docker push ${PRIVATE_QUAYIO_REGISTRY}/${imageName/\//-}
-#  docker rmi ${PRIVATE_QUAYIO_REGISTRY}/${imageName/\//-}
-#done
+for imageName in ${images[@]} ; do
+  docker pull ${QUAY_REGISTRY}/$imageName
+  docker tag ${QUAY_REGISTRY}/$imageName ${PRIVATE_QUAYIO_REGISTRY}/${imageName/\//-}
+  docker push ${PRIVATE_QUAYIO_REGISTRY}/${imageName/\//-}
+  docker rmi ${PRIVATE_QUAYIO_REGISTRY}/${imageName/\//-}
+done
 
 HELM_VERSION=v2.8.1
 docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:${HELM_VERSION}

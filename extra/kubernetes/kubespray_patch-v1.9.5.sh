@@ -13,19 +13,25 @@ for file in ${gcr_image_files[@]} ; do
     sed -i "s/gcr.io\/google-containers/${PRIVATE_KUBE_REGISTRY}/g" $file
 done
 
-#quay_image_files=(
-#./kubespray/roles/download/defaults/main.yml
-#./kubespray/roles/etcd/tasks/install_rkt.yml
-#./kubespray/roles/kubernetes/node/tasks/install_rkt.yml
-#./kubespray/roles/kubernetes/node/defaults/main.yml
-#)
+quay_image_files=(
+./kubespray/roles/download/defaults/main.yml
+./kubespray/roles/etcd/tasks/install_rkt.yml
+./kubespray/roles/kubernetes/node/tasks/install_rkt.yml
+./kubespray/roles/kubernetes/node/defaults/main.yml
+)
 
-#for file in ${quay_image_files[@]} ; do
-#    sed -i "s/quay.io\/coreos\//${PRIVATE_QUAYIO_REGISTRY}\/coreos-/g" $file
-#    sed -i "s/quay.io\/calico\//${PRIVATE_QUAYIO_REGISTRY}\/calico-/g" $file
-#    sed -i "s/quay.io\/l23network\//${PRIVATE_QUAYIO_REGISTRY}\/l23network-/g" $file
-#done
+for file in ${quay_image_files[@]} ; do
+    sed -i "s/quay.io\/coreos\//${PRIVATE_QUAYIO_REGISTRY}\/coreos-/g" $file
+    sed -i "s/quay.io\/calico\//${PRIVATE_QUAYIO_REGISTRY}\/calico-/g" $file
+    sed -i "s/quay.io\/l23network\//${PRIVATE_QUAYIO_REGISTRY}\/l23network-/g" $file
+    sed -i "s/quay.io\/external_storage\//${PRIVATE_QUAYIO_REGISTRY}\/external_storage-/g" $file
+    sed -i "s/quay.io\/kubespray\//${PRIVATE_QUAYIO_REGISTRY}\/kubespray-/g" $file
+    sed -i "s/quay.io\/jetstack\//${PRIVATE_QUAYIO_REGISTRY}\/jetstack-/g" $file
+
+done
+
 sed -i 's/gcr.io\/kubernetes-helm/slpcat/' ./kubespray/roles/download/defaults/main.yml
+
 #disable docker install
 sed -i '/role:\ docker/d' ./kubespray/cluster.yml 
 #./kubespray/roles/docker/tasks/main.yml
