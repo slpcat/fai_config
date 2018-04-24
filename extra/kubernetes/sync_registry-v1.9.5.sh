@@ -40,7 +40,7 @@ images=(
 coreos/etcd:v3.2.4
 coreos/flannel:v0.10.0
 coreos/flannel-cni:v0.3.0
-calico/kube-policy-controller:v1.0.3
+calico/kube-controller:v1.0.3
 calico/ctl:v1.6.3
 calico/node:v2.6.8
 calico/cni:v1.11.4
