@@ -27,7 +27,7 @@ for file in ${quay_image_files[@]} ; do
     sed -i "s/quay.io\/external_storage\//${PRIVATE_QUAYIO_REGISTRY}\/external_storage-/g" $file
     sed -i "s/quay.io\/kubespray\//${PRIVATE_QUAYIO_REGISTRY}\/kubespray-/g" $file
     sed -i "s/quay.io\/jetstack\//${PRIVATE_QUAYIO_REGISTRY}\/jetstack-/g" $file
-
+    sed -i "s/quay.io\/kubernetes-ingress-controller\//${PRIVATE_QUAYIO_REGISTRY}\/kubernetes-ingress-controller-/g" $file
 done
 
 sed -i 's/gcr.io\/kubernetes-helm/slpcat/' ./kubespray/roles/download/defaults/main.yml
