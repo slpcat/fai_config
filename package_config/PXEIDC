@@ -30,6 +30,7 @@ lm-sensors
 cron-apt
 powertop
 itop
+ipvsadm
 dnstop
 #debian-goodies
 needrestart

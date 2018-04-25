@@ -105,6 +105,7 @@ zfs
 #grub2  # CentOS 7
 less
 libpwquality
+ipvsadm
 openssh
 openssh-clients
 openssh-server
