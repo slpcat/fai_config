@@ -41,7 +41,7 @@ sed -i 's/^ndots.*$/ndots:\ 5/' ./kubespray/inventory/local/group_vars/k8s-clust
 sed -i 's/^kube_proxy_mode.*$/kube_proxy_mode:\ ipvs/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 sed -i 's/^efk_enabled.*$/efk_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml 
 #sed -i 's/^helm_enabled.*$/helm_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
-sed -i 's/^istio_enabled.*$/istio_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
+#sed -i 's/^istio_enabled.*$/istio_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 sed -i 's/^ingress_nginx_enabled.*$/ingress_nginx_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 sed -i 's/^kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
