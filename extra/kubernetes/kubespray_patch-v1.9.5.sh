@@ -53,10 +53,13 @@ sed -i 's/^kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/inv
 
 
 #change etcd config
-#sed -i "s/^etcd_extra_vars.*$/etcd_extra_vars\:\ \{\ --quota-backend-bytes=16G\ \}/" ./kubespray/roles/etcd/defaults/main.yml
+sed -i 's/^etcd_extra_vars.*$/etcd_extra_vars:\n   - ETCD_MAX_REQUEST_BYTES: "32M"\n  - ETCD_QUOTA_BACKEND_BYTES: "16G"/' ./kubespray/roles/etcd/defaults/main.yml
 
 #kubelet tuning https://kubernetes.io/docs/reference/generated/kubelet/
 # 
 #roles/kubernetes/node/templates/kubelet.standard.env.j2
 #roles/kubernetes/node/defaults/main.yml
-sed -i "s/kubelet_custom_flags.*$/kubelet_custom_flags\:\ \[--event-burst=50\ --event-qps=30\ --feature-gates=ReadOnlyAPIDataVolumes=false\ --feature-gates=ExpandPersistentVolumes=true\ --http-check-frequency=20s\ --image-gc-high-threshold=80\ --image-gc-low-threshold=40\ --image-pull-progress-deadline=2h\ --kube-api-burst=2000\ --kube-api-qps=1000\ --max-pods=200\ --minimum-image-ttl-duration=72h\ --node-status-update-frequency=20s\ --pods-per-core=50\ --protect-kernel-defaults=false\ --registry-burst=20\ --registry-qps=10\ --serialize-image-pulls=false\]/" ./kubespray/roles/kubernetes/node/defaults/main.yml
+sed -i "s/kubelet_custom_flags.*$/kubelet_custom_flags\:\ \[--event-burst=50\ --event-qps=30\ --http-check-frequency=20s\ --image-gc-high-threshold=80\ --image-gc-low-threshold=40\ --image-pull-progress-deadline=2h\ --kube-api-burst=2000\ --kube-api-qps=1000\ --max-pods=200\ --minimum-image-ttl-duration=72h\ --node-status-update-frequency=20s\ --pods-per-core=50\ --protect-kernel-defaults=false\ --registry-burst=20\ --registry-qps=10\ --serialize-image-pulls=false\]/" ./kubespray/roles/kubernetes/node/defaults/main.yml
+
+#feature_gates tuning
+sed -i '/^kube_feature_gates/a\  - "ReadOnlyAPIDataVolumes=true"\n  - "ExpandPersistentVolumes=true"\n  - "PVCProtection=true"' ./kubespray/roles/kubespray-defaults/defaults/main.yaml
