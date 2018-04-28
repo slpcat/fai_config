@@ -53,7 +53,7 @@ sed -i 's/^kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/inv
 
 
 #change etcd config
-sed -i 's/^etcd_extra_vars.*$/etcd_extra_vars:\n   - ETCD_MAX_REQUEST_BYTES: "32M"\n  - ETCD_QUOTA_BACKEND_BYTES: "16G"/' ./kubespray/roles/etcd/defaults/main.yml
+#sed -i 's/^etcd_extra_vars.*$/etcd_extra_vars:\n   - ETCD_MAX_REQUEST_BYTES: "32M"\n  - ETCD_QUOTA_BACKEND_BYTES: "16G"/' ./kubespray/roles/etcd/defaults/main.yml
 
 #kubelet tuning https://kubernetes.io/docs/reference/generated/kubelet/
 # 
