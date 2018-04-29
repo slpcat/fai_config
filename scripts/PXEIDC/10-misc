@@ -29,6 +29,8 @@ ifclass -o XORG GNOME_EL7 XFCE_EL7 KDE_EL7 DDE || ainsl -a /etc/modprobe.d/black
 #ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist floppy'
 ainsl -a /etc/modprobe.d/blacklist-pcspkr.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'
+sed -i 's/^#fs.xfs/fs.xfs/' $target/etc/sysctl.conf
+
 [ -n "$LOGSRV" ] && ainsl -a -q /etc/rsyslog.conf "*.*@$LOGSRV:514"
 #sed -i 's/^#FSCKFIX.*$/FSCKFIX=yes/' $target/etc/default/rcS
 #ainsl /etc/default/rcS 'umask 077'

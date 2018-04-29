@@ -50,6 +50,7 @@ unhide
 #arpon
 #arpwatch
 sysstat
+xfsprogs
 libelf-dev
 libpam-cracklib
 #aide
