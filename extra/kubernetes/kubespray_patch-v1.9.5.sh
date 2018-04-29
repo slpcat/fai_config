@@ -51,6 +51,8 @@ sed -i 's/^kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/inv
 #sed -i /kibana_base_url/d  ./kubespray/roles/kubernetes-apps/efk/kibana/templates/kibana-deployment.yml.j2
 #sed -i /KIBANA_BASE_URL/d  ./kubespray/roles/kubernetes-apps/efk/kibana/templates/kibana-deployment.yml.j2
 
+#change local-volume-provisioner
+echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provisioner/local_volume_provisioner/templates/local-volume-provisioner-sc.yml.j2
 
 #change etcd config
 #sed -i 's/^etcd_extra_vars.*$/etcd_extra_vars:\n   - ETCD_MAX_REQUEST_BYTES: "32M"\n  - ETCD_QUOTA_BACKEND_BYTES: "16G"/' ./kubespray/roles/etcd/defaults/main.yml
