@@ -3,11 +3,15 @@ zabbix-agent
 #ntpdate
 #openntpd
 python-minimal
+python-jinja2
+python-pip
+python-netaddr
 sudo
 #auditd
 apt-listchanges
 apt-show-versions
-python-software-properties
+#python-software-properties
+software-properties-common
 sysfsutils
 iptables-persistent
 #cpufrequtils

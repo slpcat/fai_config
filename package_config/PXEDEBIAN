@@ -23,6 +23,7 @@ linux-image-amd64/stretch-backports
 linux-headers-amd64/stretch-backports
 docker-ce
 dokcer-compose
+ceph-common
 
 PACKAGES install GRUB_PC
 grub-pc grub-legacy- lilo-

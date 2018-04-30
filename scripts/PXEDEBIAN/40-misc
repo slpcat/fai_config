@@ -21,7 +21,8 @@ else
     sed -i -e 's:^UTC$:LOCAL:' $target/etc/adjtime
 fi
 
-#enable zfs
+#enable xfs zfs
+ainsl -a /etc/modules-load.d/xfs.conf 'xfs'
 ainsl -a /etc/modules-load.d/zfs.conf 'zfs'
 
 # enable linuxlogo
