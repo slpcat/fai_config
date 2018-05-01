@@ -166,6 +166,7 @@ net.core.netdev_max_backlog=32768
 net.ipv4.ip_local_port_range=20000 65499
 net.ipv4.tcp_invalid_ratelimit=2000
 net.ipv4.tcp_limit_output_bytes=1048576
+#net.ipv4.tcp_fwmark_accept=1
 
 #tcp拥塞算法htcp
 #kernel3.18 dctcp,kernel4.9 bbr,bbr_powered,更低版本使用hybla,htcp,bic,reno,vegas,westwood,yeah,veno(wifi),illinois,其他cdg,highspeed,scalable,默认cubic
