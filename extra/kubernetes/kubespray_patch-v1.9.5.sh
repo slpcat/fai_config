@@ -1,4 +1,14 @@
 #!/bin/bash
+set -ex
+
+#clone code
+git clone https://github.com/kubernetes-incubator/kubespray
+
+#change to the tested version
+cd kubespray
+git checkout 0d88972d3ef73137030b8e4093b07898acf067d3
+cd ..
+
 #change to private registry 
 # current dir contains "kubespray"
 PRIVATE_KUBE_REGISTRY="slpcat"
