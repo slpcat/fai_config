@@ -35,6 +35,7 @@ cron-apt
 powertop
 itop
 ipvsadm
+ipset
 dnstop
 #debian-goodies
 needrestart

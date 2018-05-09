@@ -10,7 +10,7 @@ disk_config disk13 disklabel:msdos bootable:1 fstabkey:label
 primary /boot      500      ext3  rw,noatime,errors=remount-ro createopts="-L BOOT -I 128"
 
 # use following line for CentOS 7
-primary /      100G    ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=8192,delalloc,commit=600,errors=remount-ro createopts="-L ROOT" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+primary /      100G    ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=4096,delalloc,commit=600,errors=remount-ro createopts="-L ROOT" tuneopts="-c 0 -i 0 -O ^metadata_csum"
 logical swap   4G swap  sw                           createopts="-L SWAP"
-#logical /tmp   256-2G   ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=8192,delalloc,commit=600      createopts="-L TMP -m 0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
-logical /workspace  10G-95%  ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=8192,delalloc,commit=600      createopts="-L WORKSPACE -m 1" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+#logical /tmp   256-2G   ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=4096,delalloc,commit=600      createopts="-L TMP -m 0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+logical /workspace  10G-95%  ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=4096,delalloc,commit=600      createopts="-L WORKSPACE -m 1" tuneopts="-c 0 -i 0 -O ^metadata_csum"
