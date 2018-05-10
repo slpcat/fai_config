@@ -61,6 +61,7 @@ sed -i 's/^#kube_read_only_port.*$/kube_read_only_port:\ 10255/' ./kubespray/inv
 sed -i 's/^#kubelet_load_modules.*$/kubelet_load_modules:\ true/' ./kubespray/inventory/sample/group_vars/all.yml
 sed -i 's/^cert_manager_enabled.*$/cert_manager_enabled:\ true/ ' ./kubespray/inventory/sample/group_vars/all.yml
 sed -i 's/^#etcd_memory_limit.*$/etcd_memory_limit:\ "0"/' ./kubespray/inventory/sample/group_vars/all.yml
+sed -i 's/^etcd_events_cluster_setup.*$/etcd_events_cluster_setup:\ true/' ./kubespray/roles/kubespray-defaults/defaults/main.yaml
 
 #change EFK config
 #./kubespray/roles/kubernetes-apps/efk/kibana/templates/kibana-deployment.yml.j2
