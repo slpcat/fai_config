@@ -188,6 +188,7 @@ net.ipv4.tcp_fack=1
 net.ipv4.tcp_tw_reuse=1
 net.ipv4.tcp_rfc1337=1
 net.ipv4.tcp_fastopen=3
+net.ipv4.tcp_retries2=8
 # log martian packets
 net.ipv4.conf.all.log_martians=1
 net.ipv4.conf.default.log_martians=1
