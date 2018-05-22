@@ -26,6 +26,17 @@ deb-src http://nginx.org/packages/debian/ stretch nginx
 # Ceph packages
 #deb http://mirrors.aliyun.com/ceph/debian-luminous/ stretch main
 
+#graphics-drivers
+#deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main
+# deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main
+# deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main
+# deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main
+
+#CUDA for Docker
+#deb https://nvidia.github.io/libnvidia-container/debian9/$(ARCH) /
+#deb https://nvidia.github.io/nvidia-container-runtime/debian9/$(ARCH) /
+#deb https://nvidia.github.io/nvidia-docker/debian9/$(ARCH) /
+
 # MariaDB 10.1 repository list - created 2016-12-05 06:07 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
 #deb [arch=amd64,i386] http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian stretch main

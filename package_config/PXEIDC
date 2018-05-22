@@ -19,6 +19,7 @@ libpam-tmpdir
 #libpam-usb
 #rkhunter
 acct
+dirmngr
 lsb_release
 #apparmor
 #apparmor-profiles
