@@ -46,6 +46,12 @@ sed -i 's/gcr.io\/kubernetes-helm/slpcat/' ./kubespray/roles/download/defaults/m
 sed -i '/role:\ docker/d' ./kubespray/cluster.yml 
 #./kubespray/roles/docker/tasks/main.yml
 
+#change gather_timeout
+#  pre_tasks:
+#    - name: gather facts from all instances
+#      setup:
+#              gather_timeout: 90
+
 #change cluster congfig
 sed -i 's/^ndots.*$/ndots:\ 5/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 sed -i 's/^kube_proxy_mode.*$/kube_proxy_mode:\ ipvs/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
@@ -57,6 +63,8 @@ sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:
 sed -i 's/^ingress_nginx_enabled.*$/ingress_nginx_enabled:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 sed -i 's/^kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
 #sed -i 's/^#\ kubelet_enforce_node_allocatable.*$/kubelet_enforce_node_allocatable:\ kube-reserved/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
+#sed -i 's/^#kube_token_auth.*$/kube_token_auth:\ true/' ./kubespray/inventory/local/group_vars/k8s-cluster.yml
+
 sed -i 's/^#kube_read_only_port.*$/kube_read_only_port:\ 10255/' ./kubespray/inventory/sample/group_vars/all.yml
 sed -i 's/^#kubelet_load_modules.*$/kubelet_load_modules:\ true/' ./kubespray/inventory/sample/group_vars/all.yml
 sed -i 's/^cert_manager_enabled.*$/cert_manager_enabled:\ true/ ' ./kubespray/inventory/sample/group_vars/all.yml
@@ -77,6 +85,12 @@ echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provi
 
 #change etcd config
 #sed -i 's/^etcd_extra_vars.*$/etcd_extra_vars:\n   - ETCD_MAX_REQUEST_BYTES: "32M"\n  - ETCD_QUOTA_BACKEND_BYTES: "16G"/' ./kubespray/roles/etcd/defaults/main.yml
+
+#Azure cloudprovider
+#inventory/sample/group_vars/all.yml
+#azure_cloud: AzureChinaCloud
+#./roles/kubernetes/node/templates/azure-cloud-config.j2
+#  "cloud": "{{ azure_cloud }}",
 
 #kubelet tuning https://kubernetes.io/docs/reference/generated/kubelet/
 # 
