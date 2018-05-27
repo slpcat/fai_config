@@ -20,6 +20,10 @@ ainsl /etc/apt/apt.conf.d/03download 'Acquire::ForceIPv4 "true";'
 ainsl /etc/apt/apt.conf.d/70debconf 'APT::ExtractTemplates::TempDir "/var/tmp";'
 fcopy /etc/apt/sources.list
 sed -i 's/^#deb\ http:\/\/mirrors.aliyun.com/deb\ http:\/\/mirrors.aliyun.com/' $target/etc/apt/sources.list
+
+if ifclass CUDA; then
+    sed -i 's/^#deb\ https:\/\/nvidia.github.io/deb\ https:\/\/nvidia.github.io/' $target/etc/apt/sources.list
+fi
 # you may want to add i386 arch to amd64 hosts
 if ifclass AMD64; then
     $ROOTCMD dpkg --add-architecture i386

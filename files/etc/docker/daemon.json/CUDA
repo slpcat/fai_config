@@ -3,5 +3,12 @@
     "live-restore": true,
     "max-concurrent-downloads": 10,
     "oom-score-adjust": -1000,
-    "debug": false
+    "debug": false,
+    "default-runtime": "nvidia",
+    "runtimes": {
+        "nvidia": {
+            "path": "/usr/bin/nvidia-container-runtime",
+            "runtimeArgs": []
+        }
+    }
 }

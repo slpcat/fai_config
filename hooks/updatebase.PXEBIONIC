@@ -31,9 +31,14 @@ deb MIRRORURL $ubuntudist-updates main restricted universe multiverse
 deb MIRRORURL $ubuntudist-security main restricted universe multiverse
 deb MIRRORURL $ubuntudist-backports main restricted universe multiverse
 #deb [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
-#deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $ubuntudist stable
+deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu xenial stable
 # deb-src [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
 #deb http://ppa.launchpad.net/ansible/ansible/ubuntu $ubuntudist main
+
+#Nvidia Docker
+#deb https://nvidia.github.io/libnvidia-container/ubuntu16.04/amd64 /
+#deb https://nvidia.github.io/nvidia-container-runtime/ubuntu16.04/amd64 /
+#deb https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64 /
 
 #Deepin Desktop Environment
 deb http://ppa.launchpad.net/leaeasy/dde/ubuntu $ubuntudist main 
@@ -45,6 +50,10 @@ deb-src http://ppa.launchpad.net/leaeasy/dde/ubuntu $ubuntudist main
 #deb http://public-repo-1.hortonworks.com/HDP/ubuntu16/2.x/updates/2.6.4.0 HDP main
 #deb http://public-repo-1.hortonworks.com/HDP-UTILS-1.1.0.22/repos/ubuntu16 HDP-UTILS main
 EOM
+
+if ifclass CUDA; then
+    sed -i 's/^#deb\ https:\/\/nvidia.github.io/deb\ https:\/\/nvidia.github.io/' $target/etc/apt/sources.list
+fi
 
 # determine a fast mirror for Ubuntu
 list=$(curl -s http://mirrors.ubuntu.com/mirrors.txt)

@@ -32,10 +32,10 @@ deb-src http://nginx.org/packages/debian/ stretch nginx
 # deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main
 # deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main
 
-#CUDA for Docker
-#deb https://nvidia.github.io/libnvidia-container/debian9/$(ARCH) /
-#deb https://nvidia.github.io/nvidia-container-runtime/debian9/$(ARCH) /
-#deb https://nvidia.github.io/nvidia-docker/debian9/$(ARCH) /
+#Nvidia Docker
+#deb https://nvidia.github.io/libnvidia-container/debian9/amd64 /
+#deb https://nvidia.github.io/nvidia-container-runtime/debian9/amd64 /
+#deb https://nvidia.github.io/nvidia-docker/debian9/amd64 /
 
 # MariaDB 10.1 repository list - created 2016-12-05 06:07 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
@@ -60,7 +60,7 @@ deb-src http://nginx.org/packages/debian/ stretch nginx
 #graylog
 #deb https://packages.graylog2.org/repo/debian/ stable 2.4
 
-deb http://repo.zabbix.com/zabbix/3.5/debian/ stretch main
+deb http://repo.zabbix.com/zabbix/3.4/debian/ stretch main
 
 #docker-engine
 #deb https://apt.dockerproject.org/repo debian-stretch main
@@ -86,4 +86,4 @@ deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/debian stretch stable
 #deb http://download.draios.com/stable/deb stable-$(ARCH)/
 
 # repository that may contain newer fai packages for stretch
-deb [trusted=yes] http://fai-project.org/download stretch koeln
+#deb [trusted=yes] http://fai-project.org/download stretch koeln

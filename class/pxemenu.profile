@@ -155,6 +155,22 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 DOCKER
 
+Name: Ubuntu 18.04 Docker CUDA noswap
+Description: Ubuntu 18.04 for docker with CUDA without swap
+Short: Ubuntu with minimal install
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEIDC PXEBIONIC BIONIC64 DOCKER CUDA
+
+Name: Ubuntu 18.04 Docker noswap
+Description: Ubuntu 18.04 for docker without swap
+Short: Ubuntu with minimal install
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEIDC PXEBIONIC BIONIC64 DOCKER
+
 Name: Ubuntu 16.04 Docker noswap
 Description: Ubuntu 16.04 for docker without swap
 Short: Ubuntu with minimal install
@@ -170,6 +186,13 @@ Long: We use the Debian nfsroot for installing the Ubuntu OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY64 DOCKER
+
+Name: Debian 9 Docker CUDA noswap
+Description: debian 9 for docker with CUDA without swap
+Short: a very simple server, no xorg
+Long: This is the base system .
+Additional account called hmuser with password: hmuserpwd
+Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC DOCKER ZFS CUDA
 
 Name: Debian 9 Docker noswap
 Description: debian 9 for docker without swap

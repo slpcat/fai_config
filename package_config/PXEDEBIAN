@@ -18,6 +18,10 @@ memtest86+
 PACKAGES install DHCPC
 isc-dhcp-client
 
+PACKAGES install CUDA
+nvidia-driver
+nvidia-docker2
+
 PACKAGES install DOCKER
 linux-image-amd64/stretch-backports
 linux-headers-amd64/stretch-backports

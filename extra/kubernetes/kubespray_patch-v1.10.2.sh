@@ -6,7 +6,7 @@ git clone https://github.com/kubernetes-incubator/kubespray
 
 #change to the tested version
 cd kubespray
-git checkout a67bdff28c9a7f2de2d053d1a3f85261f616a4b5
+git checkout c4b1808983b25195bf0dc14ada5964f3818baea3
 cd ..
 
 #change to private registry 
@@ -100,4 +100,5 @@ echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provi
 sed -i "s/kubelet_custom_flags.*$/kubelet_custom_flags\:\ \[--event-burst=50\ --event-qps=30\ --experimental-allowed-unsafe-sysctls=\'net.*\'\ --http-check-frequency=20s\ --image-gc-high-threshold=80\ --image-gc-low-threshold=40\ --image-pull-progress-deadline=2h\ --kube-api-burst=2000\ --kube-api-qps=1000\ --max-pods=200\ --minimum-image-ttl-duration=72h\ --node-status-update-frequency=20s\ --pods-per-core=50\ --protect-kernel-defaults=false\ --registry-burst=20\ --registry-qps=10\ --serialize-image-pulls=false\ ]/" ./kubespray/roles/kubernetes/node/defaults/main.yml
 
 #feature_gates tuning
-sed -i '/^kube_feature_gates/a\  - "ReadOnlyAPIDataVolumes=false"\n  - "ExpandPersistentVolumes=true"' ./kubespray/roles/kubespray-defaults/defaults/main.yaml
+#GPU support --feature-gates=DevicePlugins=true
+sed -i '/^kube_feature_gates/a\  - "ReadOnlyAPIDataVolumes=false"\n  - "ExpandPersistentVolumes=true"\n  - "DevicePlugins=true"' ./kubespray/roles/kubespray-defaults/defaults/main.yaml
