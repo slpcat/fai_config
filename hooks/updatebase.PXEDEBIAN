@@ -19,7 +19,8 @@ ainsl /etc/apt/apt.conf.d/03download 'Acquire::CompressionTypes::Order "lzma";'
 ainsl /etc/apt/apt.conf.d/03download 'Acquire::ForceIPv4 "true";'
 ainsl /etc/apt/apt.conf.d/70debconf 'APT::ExtractTemplates::TempDir "/var/tmp";'
 fcopy /etc/apt/sources.list
-sed -i 's/^#deb\ http:\/\/mirrors.aliyun.com/deb\ http:\/\/mirrors.aliyun.com/' $target/etc/apt/sources.list
+
+#sed -i 's/^#deb\ http:\/\/mirrors.aliyun.com/deb\ http:\/\/mirrors.aliyun.com/' $target/etc/apt/sources.list
 
 if ifclass CUDA; then
     sed -i 's/^#deb\ https:\/\/nvidia.github.io/deb\ https:\/\/nvidia.github.io/' $target/etc/apt/sources.list
