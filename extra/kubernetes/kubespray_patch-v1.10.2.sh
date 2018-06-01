@@ -96,8 +96,8 @@ echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provi
 # 
 #roles/kubernetes/node/templates/kubelet.standard.env.j2
 #roles/kubernetes/node/defaults/main.yml
-
-sed -i "s/kubelet_custom_flags.*$/kubelet_custom_flags\:\ \[--event-burst=50\ --event-qps=30\ --experimental-allowed-unsafe-sysctls=\'net.*\'\ --http-check-frequency=20s\ --image-gc-high-threshold=80\ --image-gc-low-threshold=40\ --image-pull-progress-deadline=2h\ --kube-api-burst=2000\ --kube-api-qps=1000\ --max-pods=200\ --minimum-image-ttl-duration=72h\ --node-status-update-frequency=20s\ --pods-per-core=50\ --protect-kernel-defaults=false\ --registry-burst=20\ --registry-qps=10\ --serialize-image-pulls=false\ ]/" ./kubespray/roles/kubernetes/node/defaults/main.yml
+sed -i 's/^kubelet_max_pods.*$/kubelet_max_pods:\ 210/' ./kubespray/roles/kubernetes/node/defaults/main.yml
+sed -i "s/kubelet_custom_flags.*$/kubelet_custom_flags\:\ \[--event-burst=50\ --event-qps=30\ --experimental-allowed-unsafe-sysctls=\'net.*\'\ --image-gc-high-threshold=80\ --image-gc-low-threshold=40\ --image-pull-progress-deadline=2h\ --kube-api-burst=2000\ --kube-api-qps=1000\ --minimum-image-ttl-duration=72h\ --node-status-update-frequency=20s\ --protect-kernel-defaults=false\ --registry-burst=20\ --registry-qps=10\ --serialize-image-pulls=false\ ]/" ./kubespray/roles/kubernetes/node/defaults/main.yml
 
 #feature_gates tuning
 #GPU support --feature-gates=DevicePlugins=true
