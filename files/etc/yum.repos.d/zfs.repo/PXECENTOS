@@ -1,6 +1,6 @@
 [zfs]
 name=ZFS on Linux for EL7 - dkms
-baseurl=http://download.zfsonlinux.org/epel/7.4/$basearch/
+baseurl=http://download.zfsonlinux.org/epel/7.5/$basearch/
 skip_if_unavailable=True
 enabled=1
 metadata_expire=7d
@@ -8,33 +8,33 @@ gpgcheck=0
 
 [zfs-kmod]
 name=ZFS on Linux for EL7 - kmod
-baseurl=http://download.zfsonlinux.org/epel/7.4/kmod/$basearch/
+baseurl=http://download.zfsonlinux.org/epel/7.5/kmod/$basearch/
 enabled=0
 metadata_expire=7d
 gpgcheck=0
 
 [zfs-source]
 name=ZFS on Linux for EL7 - Source
-baseurl=http://download.zfsonlinux.org/epel/7.4/SRPMS/
+baseurl=http://download.zfsonlinux.org/epel/7.5/SRPMS/
 enabled=0
 gpgcheck=0
 
 [zfs-testing]
 name=ZFS on Linux for EL7 - dkms - Testing
-baseurl=http://download.zfsonlinux.org/epel-testing/7.4/$basearch/
+baseurl=http://download.zfsonlinux.org/epel-testing/7.5/$basearch/
 enabled=0
 metadata_expire=7d
 gpgcheck=0
 
 [zfs-testing-kmod]
 name=ZFS on Linux for EL7 - kmod - Testing
-baseurl=http://download.zfsonlinux.org/epel-testing/7.4/kmod/$basearch/
+baseurl=http://download.zfsonlinux.org/epel-testing/7.5/kmod/$basearch/
 enabled=0
 metadata_expire=7d
 gpgcheck=0
 
 [zfs-testing-source]
 name=ZFS on Linux for EL7 - Testing Source
-baseurl=http://download.zfsonlinux.org/epel-testing/7.4/SRPMS/
+baseurl=http://download.zfsonlinux.org/epel-testing/7.5/SRPMS/
 enabled=0
 gpgcheck=0
