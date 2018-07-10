@@ -24,7 +24,7 @@ deb-src http://nginx.org/packages/debian/ stretch nginx
 #deb-src https://packages.sury.org/php/ stretch main
 
 # Ceph packages
-#deb http://mirrors.aliyun.com/ceph/debian-luminous/ stretch main
+#deb http://mirrors.aliyun.com/ceph/debian-mimic/ stretch main
 
 #graphics-drivers
 #deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main

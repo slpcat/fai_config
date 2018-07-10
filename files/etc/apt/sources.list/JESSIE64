@@ -22,7 +22,7 @@ deb-src http://nginx.org/packages/debian/ jessie nginx
 #deb https://packages.sury.org/php/ jessie main
 
 # Ceph packages
-#deb http://mirrors.aliyun.com/ceph/debian-luminous/ jessie main
+#deb http://mirrors.aliyun.com/ceph/debian-mimic/ jessie main
 
 # MariaDB 10.1 repository list - created 2016-12-05 06:07 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
