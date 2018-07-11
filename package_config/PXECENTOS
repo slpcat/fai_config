@@ -155,6 +155,8 @@ yum-plugin-changelog
 
 PACKAGES yumi DOCKER
 kernel-devel-
+kernel-tools-
+kernel-tools-libs-
 kernel-ml
 kernel-ml-devel
 kernel-ml-headers
