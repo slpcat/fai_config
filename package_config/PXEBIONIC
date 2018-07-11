@@ -37,6 +37,7 @@ PACKAGES install DOCKER
 #linux-virtual-hwe-16.04
 docker-ce
 dokcer-compose
+ceph-common
 
 PACKAGES install XORG
 #xserver-xorg-hwe-16.04

@@ -9,7 +9,7 @@ baseurl=http://elrepo.org/linux/elrepo/el7/$basearch/
 	http://repos.lax-noc.com/elrepo/elrepo/el7/$basearch/
 	http://mirror.ventraip.net.au/elrepo/elrepo/el7/$basearch/
 mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo.el7
-enabled=0
+enabled=1
 gpgcheck=0
 protect=0
 
@@ -33,7 +33,7 @@ baseurl=http://elrepo.org/linux/kernel/el7/$basearch/
 	http://repos.lax-noc.com/elrepo/kernel/el7/$basearch/
 	http://mirror.ventraip.net.au/elrepo/kernel/el7/$basearch/
 mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-kernel.el7
-enabled=0
+enabled=1
 gpgcheck=0
 protect=0
 
@@ -45,6 +45,6 @@ baseurl=http://elrepo.org/linux/extras/el7/$basearch/
 	http://repos.lax-noc.com/elrepo/extras/el7/$basearch/
 	http://mirror.ventraip.net.au/elrepo/extras/el7/$basearch/
 mirrorlist=http://mirrors.elrepo.org/mirrors-elrepo-extras.el7
-enabled=0
+enabled=1
 gpgcheck=0
 protect=0
