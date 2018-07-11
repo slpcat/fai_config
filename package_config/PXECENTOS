@@ -154,13 +154,10 @@ yum-plugin-changelog
 #sendmail # only for C5 and C6
 
 PACKAGES yumi DOCKER
-kernel-devel-
-kernel-tools-
-kernel-tools-libs-
-kernel-ml
-kernel-ml-devel
-kernel-ml-headers
-kernel-ml-tools
+#kernel-ml
+#kernel-ml-devel
+#kernel-ml-headers
+#kernel-ml-tools
 docker-ce
 dokcer-compose
 ceph-common
