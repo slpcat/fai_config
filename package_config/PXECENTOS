@@ -154,6 +154,7 @@ yum-plugin-changelog
 #sendmail # only for C5 and C6
 
 PACKAGES yumi DOCKER
+kernel-devel-
 kernel-ml
 kernel-ml-devel
 kernel-ml-headers
