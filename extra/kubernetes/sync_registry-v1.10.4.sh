@@ -45,7 +45,7 @@ calico/cni:v1.11.4
 calico/routereflector:v0.4.2
 external_storage/local-volume-provisioner:v2.0.0
 kubespray/cephfs-provisioner:a71a49d4
-kubernetes-ingress-controller/nginx-ingress-controller:0.15.0
+kubernetes-ingress-controller/nginx-ingress-controller:0.16.2
 jetstack/cert-manager-controller:v0.2.4
 jetstack/cert-manager-ingress-shim:v0.2.4
 l23network/k8s-netchecker-agent:v1.0
