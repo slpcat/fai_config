@@ -62,7 +62,7 @@ sed -i 's/^efk_enabled.*$/efk_enabled:\ true/' ./kubespray/inventory/sample/grou
 #rbd-provisioner work with kube_dns
 #sed -i 's/^dns_mode.*$/dns_mode:\ coredns_dual/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^kube_version.*$/kube_version:\ v1.10.4/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
-sed -i 's/^kube_network_plugin.*$/kube_network_pluginkube_network_plugin:\ cilium/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
+sed -i 's/^kube_network_plugin.*$/kube_network_plugin:\ cilium/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^ingress_nginx_enabled.*$/ingress_nginx_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^#\ ingress_nginx_host_network.*$/ingress_nginx_host_network:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
