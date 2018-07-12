@@ -6,7 +6,7 @@ git clone https://github.com/kubernetes-incubator/kubespray
 
 #change to the tested version
 cd kubespray
-git checkout 6ac601fd2dab16b51d3ac23ae8ef2c66ac718e64
+git checkout 97e0de7e29e32c4b0edd9a8743119568f949b9ab
 cd ..
 
 #change to private registry 

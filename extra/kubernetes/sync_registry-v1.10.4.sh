@@ -15,9 +15,8 @@ k8s-dns-kube-dns-amd64:1.14.10
 k8s-dns-dnsmasq-nanny-amd64:1.14.10
 pause-amd64:3.0
 kubernetes-dashboard-amd64:v1.8.3
-fluentd-elasticsearch:1.22
-kibana:v4.6.1
-elasticsearch:v2.4.1
+fluentd-elasticsearch:v2.0.4
+elasticsearch:v5.6.4
 heapster-amd64:v1.4.0
 heapster-grafana-amd64:v4.4.1
 heapster-influxdb-amd64:v1.1.1
@@ -65,6 +64,13 @@ docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:${HELM_VE
 docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/tiller:${HELM_VERSION} slpcat/tiller:${HELM_VERSION}
 docker push slpcat/tiller:${HELM_VERSION}
 docker rmi slpcat/tiller:${HELM_VERSION}
+
+KIBANA_VERSION=5.6.4
+docker pull docker.elastic.co/kibana/kibana:${KIBANA_VERSION}
+docker tag docker.elastic.co/kibana/kibana:${KIBANA_VERSION} slpcat/kibana:${KIBANA_VERSION}
+docker push slpcat/kibana:${KIBANA_VERSION}
+docker rmi slpcat/kibana:${KIBANA_VERSION}
+
 
 #gcr.io/kubernetes-helm/tiller:v2.7.0
 #images=(
