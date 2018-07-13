@@ -9,6 +9,7 @@ error=0; trap 'error=$(($?>$error?$?:$error))' ERR # save maximum error code
 for module in $MODULESLIST; do
     ainsl -a /etc/modules "^$module$"
 done
+ainsl -a /etc/modules-load.d/xfs.conf 'xfs'
 
 fcopy -Mv /etc/hostname || echo $HOSTNAME > $target/etc/hostname
 ainsl -a /etc/mailname ${HOSTNAME}
