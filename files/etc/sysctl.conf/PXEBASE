@@ -125,7 +125,6 @@ net.core.default_qdisc=fq_codel
 #net.ipv6.conf.default.disable_ipv6=1
 #net.ipv6.conf.lo.disable_ipv6=1
 #BPF JIT spray attack
-#net.core.bpf_jit_enable=0
 net.core.bpf_jit_enable=1
 #net.core.bpf_jit_harden=0
 #net.core.bpf_jit_kallsyms=0
@@ -138,6 +137,8 @@ net.core.netdev_tstamp_prequeue=1
 net.core.netdev_budget=32768
 net.core.dev_weight=600
 #net.core.flow_limit_table_len=8192
+#recommended for hosts with jumbo frames enabled
+net.ipv4.tcp_mtu_probing=1
 
 net.ipv4.tcp_autocorking=1
 net.ipv4.tcp_low_latency=1
@@ -288,8 +289,8 @@ net.ipv4.tcp_slow_start_after_idle=0
 #net.ipv4.tcp_thin_linear_timeouts=1
 #net.ipv4.tcp_thin_dupack=1
 # Turn on reverse path filtering
-net.ipv4.conf.all.rp_filter=1
-net.ipv4.conf.default.rp_filter=1
+#net.ipv4.conf.all.rp_filter=1
+#net.ipv4.conf.default.rp_filter=1
 #net.ipv6.conf.all.rp_filter=1
 #net.ipv6.conf.default.rp_filter=1
 net.ipv6.conf.all.accept_redirects=0
