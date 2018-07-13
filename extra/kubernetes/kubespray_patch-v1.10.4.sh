@@ -44,6 +44,7 @@ sed -i 's/gcr.io\/kubernetes-helm/slpcat/' ./kubespray/roles/download/defaults/m
 sed -i 's/docker.io\/cilium/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/k8s.gcr.io/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/docker.elastic.co\/kibana/slpcat/' ./kubespray/roles/download/defaults/main.yml
+sed -i 's/^cilium_version.*$/cilium_version:\ \"v1.1.0\"/' ./kubespray/roles/download/defaults/main.yml
 
 #disable docker install
 sed -i '/role:\ docker/d' ./kubespray/cluster.yml 
@@ -57,6 +58,7 @@ sed -i '/role:\ docker/d' ./kubespray/cluster.yml
 
 #change cluster congfig
 sed -i 's/^ndots.*$/ndots:\ 5/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
+sed -i 's/^enable_network_policy.*$/enable_network_policy:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^kube_proxy_mode.*$/kube_proxy_mode:\ ipvs/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^efk_enabled.*$/efk_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml 
 #sed -i 's/^helm_enabled.*$/helm_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
