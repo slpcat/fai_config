@@ -80,6 +80,8 @@ sed -i 's/^#kubelet_load_modules.*$/kubelet_load_modules:\ true/' ./kubespray/in
 sed -i 's/^cert_manager_enabled.*$/cert_manager_enabled:\ true/ ' ./kubespray/inventory/sample/group_vars/all.yml
 sed -i 's/^#etcd_memory_limit.*$/etcd_memory_limit:\ "0"/' ./kubespray/inventory/sample/group_vars/all.yml
 sed -i 's/^etcd_events_cluster_setup.*$/etcd_events_cluster_setup:\ true/' ./kubespray/roles/kubespray-defaults/defaults/main.yaml
+sed -i 's/^cilium_memory_limit.*$/cilium_memory_limit:\ 2Gi/' ./kubespray/roles/network_plugin/cilium/defaults/main.yml
+sed -i 's/^cilium_cpu_limit.*$/cilium_cpu_limit:\ 2/' ./kubespray/roles/network_plugin/cilium/defaults/main.yml
 
 #change EFK config
 #./kubespray/roles/kubernetes-apps/efk/kibana/templates/kibana-deployment.yml.j2
