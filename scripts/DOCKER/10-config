@@ -8,7 +8,7 @@ ainsl -a /etc/modules-load.d/netfilter.conf 'iptable_nat'
 
 sed -i 's/^net.ipv4.ip_forward.*$/net.ipv4.ip_forward=1/' $target/etc/sysctl.conf
 sed -i 's/^#net.bridge.bridge-nf-call/net.bridge.bridge-nf-call/' $target/etc/sysctl.conf
-#sed -i 's/^#net.ipv4.vs.conntrack/net.ipv4.vs.conntrack/' $target/etc/sysctl.conf
+sed -i 's/^#net.ipv4.vs.conntrack/net.ipv4.vs.conntrack/' $target/etc/sysctl.conf
 sed -i 's/^#net.nf_conntrack/net.nf_conntrack/' $target/etc/sysctl.conf
 sed -i 's/^#net.netfilter.nf_conntrack/net.netfilter.nf_conntrack/' $target/etc/sysctl.conf
 
