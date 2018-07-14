@@ -20,6 +20,7 @@ fcopy -iM /etc/hosts /etc/motd /etc/sysctl.conf
 ainsl /etc/profile 'export EDITOR=vi'
 fcopy -i /etc/security/limits.conf
 fcopy -i /etc/modprobe.d/zfs.conf
+fcopy -i /etc/pip.conf
 
 fcopy -iMr /etc/profile.d
 
