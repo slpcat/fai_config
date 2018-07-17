@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20180710
+# Revision: 20180717
 # /etc/sysctl.conf
 #
 
@@ -300,7 +300,7 @@ net.ipv6.conf.default.accept_redirects=0
 #net.bridge.bridge-nf-call-ip6tables=1
 
 #netfilter nf_conntrack
-#can not work with calico
+#net.ipv4.vs.conn_reuse_mode=0
 #net.ipv4.vs.conntrack=0
 #net.nf_conntrack_max=1048576
 #net.netfilter.nf_conntrack_acct=0
