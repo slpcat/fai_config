@@ -19,6 +19,7 @@ bsd-mailx
 #eject
 man-db
 manpages
+net-tools
 locales
 console-setup kbd
 pciutils usbutils
@@ -47,6 +48,7 @@ bsd-mailx
 #eject
 man-db
 manpages
+net-tools
 locales
 console-setup kbd
 pciutils usbutils
