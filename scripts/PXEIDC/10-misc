@@ -125,7 +125,7 @@ sed -i 's/^\$Umask.*$/\$Umask 0077/' $target/etc/rsyslog.conf
 #sed -i 's/^#device/device/' $target/etc/naccttab
 sed -i 's/pam_cracklib.so.*$/pam_cracklib.so retry=3 minlen=16 difok=3 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1/' $target/etc/pam.d/common-password
 
-cat << EOM > /etc/rc.local
+cat << EOM > $target/etc/rc.local
 #!/bin/sh -e
 #
 # rc.local
