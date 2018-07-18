@@ -5,7 +5,7 @@ fcopy -iM /etc/docker/daemon.json
 #netfilter conntrack
 ainsl -a /etc/modprobe.d/netfilter.conf 'options nf_conntrack hashsize=262144'
 ainsl -a /etc/modules-load.d/netfilter.conf 'iptable_nat'
-cat <<EOM > $target/etc/modules-load.d/ipvs.conf
+cat <<EOM > $target/etc/modules-load.d/kube_proxy-ipvs.conf
 ip_vs
 ip_vs_rr
 ip_vs_wrr
