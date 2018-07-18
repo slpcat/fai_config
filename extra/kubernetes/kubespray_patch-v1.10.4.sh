@@ -77,10 +77,10 @@ sed -i 's/^#\ kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/
 #sed -i 's/^kube_network_node_prefix.*$/kube_network_node_prefix: \16/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^kube_service_addresses.*$/kube_service_addresses:\ 10.233.0.0\/16/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^kube_pods_subnet.*$/kube_pods_subnet:\ 10.234.0.0\/16/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
+sed -i 's/^cert_manager_enabled.*$/cert_manager_enabled:\ true/ ' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 
 sed -i 's/^#kube_read_only_port.*$/kube_read_only_port:\ 10255/' ./kubespray/inventory/sample/group_vars/all.yml
 sed -i 's/^#kubelet_load_modules.*$/kubelet_load_modules:\ true/' ./kubespray/inventory/sample/group_vars/all.yml
-sed -i 's/^cert_manager_enabled.*$/cert_manager_enabled:\ true/ ' ./kubespray/inventory/sample/group_vars/all.yml
 sed -i 's/^#etcd_memory_limit.*$/etcd_memory_limit:\ "0"/' ./kubespray/inventory/sample/group_vars/all.yml
 sed -i 's/^etcd_events_cluster_enabled.*$/etcd_events_cluster_enabled:\ true/' ./kubespray/roles/kubespray-defaults/defaults/main.yaml
 sed -i 's/^cilium_memory_limit.*$/cilium_memory_limit:\ 2Gi/' ./kubespray/roles/network_plugin/cilium/defaults/main.yml
