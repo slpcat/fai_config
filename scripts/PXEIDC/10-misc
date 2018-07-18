@@ -125,4 +125,32 @@ sed -i 's/^\$Umask.*$/\$Umask 0077/' $target/etc/rsyslog.conf
 #sed -i 's/^#device/device/' $target/etc/naccttab
 sed -i 's/pam_cracklib.so.*$/pam_cracklib.so retry=3 minlen=16 difok=3 ucredit=-1 lcredit=-1 dcredit=-1 ocredit=-1/' $target/etc/pam.d/common-password
 
+cat << EOM > /etc/rc.local
+#!/bin/sh -e
+#
+# rc.local
+#
+# This script is executed at the end of each multiuser runlevel.
+# Make sure that the script will "exit 0" on success or any other
+# value on error.
+#
+# In order to enable or disable this script just change the execution
+# bits.
+#
+# By default this script does nothing.
+#NIC tuning
+ifconfig $NIC1 txqueuelen 10000
+#receive(RX) ring buffer size
+#ethtool -G $NIC1 rx 1020
+#interrupt coalescing
+#ethtool -C $NIC1 rx-usecs 5
+#ethtool -K $NIC1 tso on
+ethtool -K $NIC1 gso on
+#ethtool -K $NIC1 ufo on
+#ethtool -K $NIC1 lro on
+ethtool -K $NIC1 gro on
+exit 0
+EOM
+chmod +x $target/etc/rc.local
+
 exit $error
