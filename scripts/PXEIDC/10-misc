@@ -29,7 +29,11 @@ ifclass -o XORG GNOME_EL7 XFCE_EL7 KDE_EL7 DDE || ainsl -a /etc/modprobe.d/black
 #ainsl -a /etc/modprobe.d/blacklist-storage.conf 'blacklist floppy'
 ainsl -a /etc/modprobe.d/blacklist-pcspkr.conf 'blacklist pcspkr'
 ainsl -a /etc/modprobe.d/blacklist-bluetooth.conf 'blacklist bluetooth'
-ainsl -a /etc/modprobe.d/ip_vs.conf 'options ip_vs conn_tab_bits=24'
+if ifclass CENTOS7_64 ; then
+    ainsl -a /etc/modprobe.d/ip_vs.conf 'options ip_vs conn_tab_bits=20'
+else
+    ainsl -a /etc/modprobe.d/ip_vs.conf 'options ip_vs conn_tab_bits=24'
+fi
 
 sed -i 's/^#fs.xfs/fs.xfs/' $target/etc/sysctl.conf
 
@@ -139,12 +143,17 @@ cat << EOM > $target/etc/rc.local
 #
 # By default this script does nothing.
 #NIC tuning
-ifconfig $NIC1 txqueuelen 10000
+#CentOS /sbin/ifup-local 
+#ifconfig $NIC1 txqueuelen 10000
+ip link set dev $NIC1 txqueuelen 10000
+#Flow Control
+ethtool -A $NIC1 tx off
+ethtool -A $NIC1 rx off
 #receive(RX) ring buffer size
 #ethtool -G $NIC1 rx 1020
 #interrupt coalescing
 #ethtool -C $NIC1 rx-usecs 5
-#ethtool -K $NIC1 tso on
+ethtool -K $NIC1 tso on
 ethtool -K $NIC1 gso on
 #ethtool -K $NIC1 ufo on
 #ethtool -K $NIC1 lro on
