@@ -58,6 +58,9 @@ http {
   #access_log syslog:server=10.0.2.253,facility=local7,tag=nginx,severity=info main;
   #access_log off;
   server_tokens off;
+  #autoindex off;
+  #autoindex_exact_size off;
+  #autoindex_localtime on;
   #重定向使用域名(Host头)
   server_name_in_redirect on;
   server_names_hash_bucket_size 256;
