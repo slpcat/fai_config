@@ -9,7 +9,7 @@
 # Disable the magic-sysrq key (console security issues)
 kernel.sysrq=0
 kernel.panic=10
-kernel.pid_max=4000000
+kernel.pid_max=4194304
 kernel.randomize_va_space=2
 kernel.panic_on_oops=1
 kernel.sched_autogroup_enabled=1
@@ -302,7 +302,7 @@ net.ipv6.conf.default.accept_redirects=0
 #netfilter nf_conntrack
 #net.ipv4.vs.conn_reuse_mode=0
 #net.ipv4.vs.conntrack=1
-#net.nf_conntrack_max=10485760
+#net.nf_conntrack_max=8388608
 #net.netfilter.nf_conntrack_acct=0
 #net.netfilter.nf_conntrack_checksum=1
 #net.netfilter.nf_conntrack_events=1
@@ -310,7 +310,7 @@ net.ipv6.conf.default.accept_redirects=0
 #net.netfilter.nf_conntrack_generic_timeout=300
 #net.netfilter.nf_conntrack_icmp_timeout=30
 #net.netfilter.nf_conntrack_log_invalid=0
-#net.netfilter.nf_conntrack_max=10485760
+#net.netfilter.nf_conntrack_max=8388608
 #net.netfilter.nf_conntrack_tcp_be_liberal=0
 #net.netfilter.nf_conntrack_tcp_max_retrans=3
 #net.netfilter.nf_conntrack_tcp_timeout_close=10
