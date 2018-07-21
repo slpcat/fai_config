@@ -2,7 +2,7 @@ user  www-data;
 worker_processes  auto;
 worker_cpu_affinity auto;
 worker_priority -20;
-worker_rlimit_nofile 50000;
+worker_rlimit_nofile 90000;
 #worker_rlimit_sigpending 512;
 #pcre_jit on;
 # Hardware SSL accelerator
@@ -20,7 +20,7 @@ pid  /var/run/nginx.pid;
 include /usr/share/nginx/modules/*.conf;
 
 events {
-  worker_connections 20000;
+  worker_connections 40000;
 # worker_aio_requests 1000;
   use epoll;
 # use kqueue;
