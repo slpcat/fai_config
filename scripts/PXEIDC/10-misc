@@ -106,6 +106,9 @@ done
 #ainsl /etc/sysfs.conf 'kernel/mm/ksm/run = 1'
 #ainsl /etc/sysfs.conf 'kernel/mm/ksm/sleep_millisecs = 1000'
 ainsl /etc/sysfs.conf 'fs/cgroup/memory/memory.use_hierarchy = 1'
+ainsl /etc/sysfs.conf 'class/net/eth0/queues/rx-0/rps_cpus = f'
+ainsl /etc/sysfs.conf 'class/net/eth0/queues/tx-0/xps_cpus = f'
+ainsl /etc/sysfs.conf 'class/net/eth0/queues/rx-0/rps_flow_cnt = 4096'
 
 #polkit can not work with hidepid=2
 if ifclass -o XORG GNOME GNOME_EL7 XFCE_EL7 KDE KDE_EL7 DDE ; then
