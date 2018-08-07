@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20180721
+# Revision: 20180807
 # /etc/sysctl.conf
 #
 
@@ -288,9 +288,9 @@ net.ipv4.tcp_reordering=5
 net.ipv4.tcp_slow_start_after_idle=0
 #net.ipv4.tcp_thin_linear_timeouts=1
 #net.ipv4.tcp_thin_dupack=1
-# Turn on reverse path filtering
-#net.ipv4.conf.all.rp_filter=1
-#net.ipv4.conf.default.rp_filter=1
+# Turn off reverse path filtering
+net.ipv4.conf.all.rp_filter=0
+net.ipv4.conf.default.rp_filter=0
 #net.ipv6.conf.all.rp_filter=1
 #net.ipv6.conf.default.rp_filter=1
 net.ipv6.conf.all.accept_redirects=0
