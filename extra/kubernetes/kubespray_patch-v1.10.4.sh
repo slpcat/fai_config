@@ -44,7 +44,7 @@ sed -i 's/gcr.io\/kubernetes-helm/slpcat/' ./kubespray/roles/download/defaults/m
 sed -i 's/docker.io\/cilium/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/k8s.gcr.io/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/docker.elastic.co\/kibana/slpcat/' ./kubespray/roles/download/defaults/main.yml
-sed -i 's/^cilium_version.*$/cilium_version:\ \"v1.1.0\"/' ./kubespray/roles/download/defaults/main.yml
+sed -i 's/^cilium_version.*$/cilium_version:\ \"v1.1\"/' ./kubespray/roles/download/defaults/main.yml
 
 #disable docker install
 sed -i '/role:\ docker/d' ./kubespray/cluster.yml 
