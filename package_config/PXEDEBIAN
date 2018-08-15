@@ -18,8 +18,12 @@ memtest86+
 PACKAGES install DHCPC
 isc-dhcp-client
 
-PACKAGES install CUDA
+PACKAGES install-norec CUDA
 nvidia-driver/stretch-backports
+nvidia-driver-bin/stretch-backports
+xserver-xorg-video-nvidia/stretch-backports
+nvidia-vdpau-driver/stretch-backports
+nvidia-kernel-dkms/stretch-backports
 nvidia-docker2
 
 PACKAGES install DOCKER
