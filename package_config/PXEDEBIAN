@@ -19,7 +19,7 @@ PACKAGES install DHCPC
 isc-dhcp-client
 
 PACKAGES install CUDA
-nvidia-driver
+nvidia-driver/stretch-backports
 nvidia-docker2
 
 PACKAGES install DOCKER
