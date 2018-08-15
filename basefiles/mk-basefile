@@ -48,7 +48,7 @@ EXCLUDE_XENIAL=udhcpc,dibbler-client,info
 EXCLUDE_BIONIC=udhcpc,dibbler-client,info
 
 # here you can add packages, that are needed very early
-INCLUDE_DEBIAN=
+INCLUDE_DEBIAN=apt-transport-https
 
 
 setarch() {
