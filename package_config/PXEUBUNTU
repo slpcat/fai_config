@@ -29,6 +29,10 @@ isc-dhcp-client
 PACKAGES install GRUB_PC
 grub-pc
 
+PACKAGES install CUDA
+nvidia-driver-390
+nvidia-docker2
+
 PACKAGES install DOCKER
 linux-virtual-hwe-16.04
 docker-ce

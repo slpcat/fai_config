@@ -34,6 +34,11 @@ deb MIRRORURL $ubuntudist-backports main restricted universe multiverse
 deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/ubuntu $ubuntudist stable
 # deb-src [arch=amd64] https://download.docker.com/linux/ubuntu $ubuntudist stable
 
+#Nvidia Docker
+#deb https://nvidia.github.io/libnvidia-container/ubuntu16.04/amd64 /
+#deb https://nvidia.github.io/nvidia-container-runtime/ubuntu16.04/amd64 /
+#deb https://nvidia.github.io/nvidia-docker/ubuntu16.04/amd64 /
+
 # Ceph packages
 deb http://mirrors.aliyun.com/ceph/debian-mimic/ $ubuntudist main
 
@@ -69,8 +74,11 @@ deb http://mirrors.aliyun.com/ceph/debian-mimic/ $ubuntudist main
 #deb [arch=amd64] http://archive.cloudera.com/cdh5/ubuntu/xenial/amd64/cdh xenial-cdh5 contrib
 #deb-src http://archive.cloudera.com/cdh5/ubuntu/xenial/amd64/cdh xenial-cdh5 contrib
 
-
 EOM
+
+if ifclass CUDA; then
+    sed -i 's/^#deb\ https:\/\/nvidia.github.io/deb\ https:\/\/nvidia.github.io/' $target/etc/apt/sources.list
+fi
 
 # determine a fast mirror for Ubuntu
 list=$(curl -s http://mirrors.ubuntu.com/mirrors.txt)

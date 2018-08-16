@@ -179,6 +179,14 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXEBIONIC BIONIC64 DOCKER
 
+Name: Ubuntu 16.04 Docker CUDA noswap
+Description: Ubuntu 16.04 for docker with CUDA without swap
+Short: Ubuntu with minimal install
+Long: We use the Debian nfsroot for installing the Ubuntu OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXEIDC PXEUBUNTU XENIAL XENIAL64 DOCKER CUDA
+
 Name: Ubuntu 16.04 Docker noswap
 Description: Ubuntu 16.04 for docker without swap
 Short: Ubuntu with minimal install
