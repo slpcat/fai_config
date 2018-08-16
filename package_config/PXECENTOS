@@ -153,6 +153,10 @@ yum-plugin-changelog
 
 #sendmail # only for C5 and C6
 
+PACKAGES yumi CUDA
+kmod-nvidia
+nvidia-docker2
+
 PACKAGES yumi DOCKER
 #kernel-ml
 #kernel-ml-devel

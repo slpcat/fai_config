@@ -147,6 +147,14 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY64 XORG
 
+Name: CentOS 7 Docker CUDA noswap
+Description: CentOS 7 for docker with CUDA without swap
+Short: a very simple server, no xorg
+Long: We use the Debian nfsroot for installing the CentOS 7 OS.
+You should have a fast network connection, because most packages are
+downloaded from the internet.
+Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 DOCKER CUDA
+
 Name: CentOS 7 Docker noswap
 Description: CentOS 7 for docker without swap
 Short: a very simple server, no xorg
