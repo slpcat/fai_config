@@ -2,6 +2,7 @@ PACKAGES install
 ubuntu-minimal
 #PPA support
 software-properties-common
+curl
 irqbalance
 mtr-tiny
 #rkhunter
