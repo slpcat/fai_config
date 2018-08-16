@@ -9,6 +9,9 @@ echo "DPkg::Progress-Fancy "true";" > $target/etc/apt/apt.conf.d/01color
 echo "APT::Color "true";" >> $target/etc/apt/apt.conf.d/01color
 echo force-unsafe-io > $target/etc/dpkg/dpkg.cfg.d/unsafe-io
 
+$ROOTCMD apt-get update -y
+$ROOTCMD apt-get install -y apt-transport-https
+
 #kernel modules for zfs
 ainsl -a /etc/dkms/spl.conf 'POST_INSTALL="scripts/dkms.postbuild -a ${arch} -k ${kernelver} -v ${PACKAGE_VERSION} -n ${PACKAGE_NAME} -t ${dkms_tree}"'
 
