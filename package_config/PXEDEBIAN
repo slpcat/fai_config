@@ -12,6 +12,7 @@ linux-image-amd64/stretch-backports
 linux-headers-amd64/stretch-backports
 linux-compiler-gcc-6-x86/stretch-backports
 linux-libc-dev/stretch-backports
+dpdk/stretch-backports
 initramfs-tools
 memtest86+
 
