@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20180807
+# Revision: 20180925
 # /etc/sysctl.conf
 #
 
@@ -134,7 +134,7 @@ net.core.rps_sock_flow_entries=32768
 net.core.message_burst=50
 net.core.message_cost=1
 net.core.netdev_tstamp_prequeue=1
-net.core.netdev_budget=32768
+net.core.netdev_budget=8192
 net.core.dev_weight=600
 #net.core.flow_limit_table_len=8192
 #recommended for hosts with jumbo frames enabled
@@ -162,7 +162,7 @@ net.core.somaxconn=65535
 net.ipv4.tcp_abort_on_overflow=1
 #优化网络设备接收队列
 #该文件表示在每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许送到队列的数据包的最大数目。
-net.core.netdev_max_backlog=32768
+net.core.netdev_max_backlog=262144
 #本地端口范围，缺省情况下很小：32768到61000
 net.ipv4.ip_local_port_range=20000 65499
 net.ipv4.tcp_invalid_ratelimit=2000
