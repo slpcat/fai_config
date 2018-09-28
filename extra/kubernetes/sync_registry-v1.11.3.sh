@@ -20,7 +20,7 @@ elasticsearch:v5.6.4
 heapster-amd64:v1.4.0
 heapster-grafana-amd64:v4.4.1
 heapster-influxdb-amd64:v1.1.1
-hyperkube:v1.11.3
+hyperkube-amd64:v1.11.3
 defaultbackend:1.4
 )
 
