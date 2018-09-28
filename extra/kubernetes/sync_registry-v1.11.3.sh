@@ -10,7 +10,6 @@ PRIVATE_KUBE_REGISTRY="slpcat"
 
 images=(
 cluster-proportional-autoscaler-amd64:1.1.2
-coredns:v1.2.2
 k8s-dns-sidecar-amd64:1.14.11
 k8s-dns-kube-dns-amd64:1.14.11
 k8s-dns-dnsmasq-nanny-amd64:1.14.11
@@ -45,8 +44,8 @@ calico/node:v3.1.3
 calico/cni:v3.1.3
 calico/routereflector:v0.6.1
 external_storage/local-volume-provisioner:v2.1.0
-kubespray/cephfs-provisioner:v2.1.0-k8s1.11
-kubernetes-ingress-controller/nginx-ingress-controller:0.16.2
+external_storage/cephfs-provisioner:v2.1.0-k8s1.11
+kubernetes-ingress-controller/nginx-ingress-controller:0.19.0
 jetstack/cert-manager-controller:v0.5.0
 jetstack/cert-manager-ingress-shim:v0.5.0
 l23network/k8s-netchecker-agent:v1.2.2
