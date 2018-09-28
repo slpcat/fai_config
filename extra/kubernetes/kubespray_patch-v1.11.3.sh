@@ -72,7 +72,7 @@ sed -i 's/^kube_service_addresses.*$/kube_service_addresses:\ 10.233.0.0\/16/' .
 sed -i 's/^kube_pods_subnet.*$/kube_pods_subnet:\ 10.234.0.0\/16/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^cert_manager_enabled.*$/cert_manager_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^dynamic_kubelet_configuration.*$/dynamic_kubelet_configuration:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
-sed -i 's/^podsecuritypolicy_enabled.*$/podsecuritypolicy_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+#sed -i 's/^podsecuritypolicy_enabled.*$/podsecuritypolicy_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
 sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
 
@@ -107,7 +107,7 @@ echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provi
 #roles/kubernetes/node/defaults/main.yml
 sed -i 's/^kubelet_max_pods.*$/kubelet_max_pods:\ 210/' ./kubespray/roles/kubernetes/node/defaults/main.yml
 sed -i 's/^kubelet_status_update_frequency.*$/kubelet_status_update_frequency:\ 20s/' ./kubespray/roles/kubernetes/node/defaults/main.yml
-sed -i "s/kubelet_custom_flags.*$/kubelet_custom_flags\:\ \[--event-burst=50\ --event-qps=30\ --image-gc-high-threshold=80\ --image-gc-low-threshold=40\ --image-pull-progress-deadline=2h\ --kube-api-burst=2000\ --kube-api-qps=1000\ --minimum-image-ttl-duration=72h\ --protect-kernel-defaults=false\ --registry-burst=20\ --registry-qps=10\ --serialize-image-pulls=false\ ]/" ./kubespray/roles/kubernetes/node/defaults/main.yml
+sed -i "s/kubelet_custom_flags.*$/kubelet_custom_flags\:\ \[--event-burst=50\ --event-qps=30\ --image-gc-high-threshold=80\ --image-gc-low-threshold=40\ --image-pull-progress-deadline=2h\ --kube-api-burst=2000\ --kube-api-qps=1000\ --minimum-image-ttl-duration=72h\ --allowed-unsafe-sysctls=\'net.*\'\ --protect-kernel-defaults=false\ --registry-burst=20\ --registry-qps=10\ --serialize-image-pulls=false\ ]/" ./kubespray/roles/kubernetes/node/defaults/main.yml
 
 #feature_gates tuning
 #GPU support --feature-gates=DevicePlugins=true
