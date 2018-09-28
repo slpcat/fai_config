@@ -71,7 +71,7 @@ sed -i 's/^#\ kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/
 sed -i 's/^kube_service_addresses.*$/kube_service_addresses:\ 10.233.0.0\/16/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^kube_pods_subnet.*$/kube_pods_subnet:\ 10.234.0.0\/16/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^cert_manager_enabled.*$/cert_manager_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
-sed -i 's/^dynamic_kubelet_configuration.*$/dynamic_kubelet_configuration:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+#sed -i 's/^dynamic_kubelet_configuration.*$/dynamic_kubelet_configuration:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 #sed -i 's/^podsecuritypolicy_enabled.*$/podsecuritypolicy_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
 sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
