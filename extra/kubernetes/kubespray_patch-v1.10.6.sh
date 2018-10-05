@@ -60,7 +60,7 @@ sed -i '/role:\ docker/d' ./kubespray/cluster.yml
 sed -i 's/^ndots.*$/ndots:\ 5/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^enable_network_policy.*$/enable_network_policy:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^kube_proxy_mode.*$/kube_proxy_mode:\ ipvs/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
-sed -i 's/^efk_enabled.*$/efk_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml 
+#sed -i 's/^efk_enabled.*$/efk_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml 
 #sed -i 's/^helm_enabled.*$/helm_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 #sed -i 's/^istio_enabled.*$/istio_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 #rbd-provisioner work with kube_dns
