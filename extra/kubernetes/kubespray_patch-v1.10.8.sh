@@ -68,8 +68,8 @@ sed -i 's/^kube_proxy_mode.*$/kube_proxy_mode:\ ipvs/' ./kubespray/inventory/sam
 sed -i 's/^kube_version.*$/kube_version:\ v1.10.8/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^kube_network_plugin.*$/kube_network_plugin:\ cilium/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
-sed -i 's/^ingress_nginx_enabled.*$/ingress_nginx_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
-sed -i 's/^#\ ingress_nginx_host_network.*$/ingress_nginx_host_network:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
+#sed -i 's/^ingress_nginx_enabled.*$/ingress_nginx_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
+#sed -i 's/^#\ ingress_nginx_host_network.*$/ingress_nginx_host_network:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 sed -i 's/^kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 #sed -i 's/^#\ kubelet_enforce_node_allocatable.*$/kubelet_enforce_node_allocatable:\ kube-reserved/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
 #sed -i 's/^#kube_token_auth.*$/kube_token_auth:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
