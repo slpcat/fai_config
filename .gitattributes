@@ -1,3 +1,2 @@
 *.xz filter=lfs diff=lfs merge=lfs -text
-extra/kubernetes/k8s-release/* filter=lfs diff=lfs merge=lfs -text
 extra/kubernetes/k8s-release/** filter=lfs diff=lfs merge=lfs -text
