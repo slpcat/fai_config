@@ -95,8 +95,8 @@ sed -i 's/^kube_controller_pod_eviction_timeout.*$/kube_controller_pod_eviction_
 echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provisioner/local_volume_provisioner/templates/local-volume-provisioner-sc.yml.j2
 
 #change download url
-sed -i '/^hyperkube_download_url/hyperkube_download_url:\ \"https:\/\/github.com\/slpcat\/fai_config\/raw\/master\/extra\/kubernetes\/k8s-release\/v1.12.1\/hyperkube\"/' ./kubespray/roles/download/defaults/main.yml
-sed -i '/^kubeadm_download_url/kubeadm_download_uril:\ \"https:\/\/github.com\/slpcat\/fai_config\/raw\/master\/extra\/kubernetes\/k8s-release\/v1.12.1\/kubeadm\"/' ./kubespray/roles/download/defaults/main.yml
+sed -i 's/^hyperkube_download_url.*$/hyperkube_download_url:\ \"https:\/\/github.com\/slpcat\/fai_config\/raw\/master\/extra\/kubernetes\/k8s-release\/v1.12.1\/hyperkube\"/' ./kubespray/roles/download/defaults/main.yml
+sed -i 's/^kubeadm_download_url.*$/kubeadm_download_url:\ \"https:\/\/github.com\/slpcat\/fai_config\/raw\/master\/extra\/kubernetes\/k8s-release\/v1.12.1\/kubeadm\"/' ./kubespray/roles/download/defaults/main.yml
 
 #Azure cloudprovider
 #inventory/sample/group_vars/all.yml
