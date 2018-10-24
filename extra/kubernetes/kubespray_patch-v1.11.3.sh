@@ -6,7 +6,7 @@ git clone https://github.com/kubernetes-incubator/kubespray
 
 #change to the tested version
 cd kubespray
-git checkout 53d87e53c5899d4ea2904ab7e3883708dd6363d3
+git checkout 7abd4eeafdfb1febc7b3502c1c3d6b54c32e59f4
 cd ..
 
 #change to private registry 
@@ -43,18 +43,19 @@ done
 sed -i 's/gcr.io\/kubernetes-helm/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/docker.io\/cilium/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/k8s.gcr.io/slpcat/' ./kubespray/roles/download/defaults/main.yml
-sed -i 's/docker.elastic.co\/kibana/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/^cilium_version.*$/cilium_version:\ \"v1.2\"/' ./kubespray/roles/download/defaults/main.yml
-
-#disable docker install
-sed -i '/role:\ docker/d' ./kubespray/cluster.yml 
-#./kubespray/roles/docker/tasks/main.yml
 
 #change gather_timeout
 #  pre_tasks:
 #    - name: gather facts from all instances
 #      setup:
 #              gather_timeout: 90
+
+#change docker repo
+sed -i 's/^docker_ubuntu_repo_base_url.*$/docker_ubuntu_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/ubuntu"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
+sed -i 's/^docker_ubuntu_repo_gpgkey.*$/docker_ubuntu_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/ubuntu\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
+sed -i 's/^docker_debian_repo_base_url.*$/docker_debian_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/debian"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
+sed -i 's/^docker_debian_repo_gpgkey.*$/docker_debian_repo_gpgkey:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/debian\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 
 #change cluster congfig
 sed -i 's/^ndots.*$/ndots:\ 5/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
@@ -63,16 +64,16 @@ sed -i 's/^kube_proxy_mode.*$/kube_proxy_mode:\ ipvs/' ./kubespray/inventory/sam
 sed -i 's/^dns_mode.*$/dns_mode:\ coredns_dual/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^kube_version.*$/kube_version:\ v1.11.3/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^kube_network_plugin.*$/kube_network_plugin:\ cilium/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
-sed -i 's/^ingress_nginx_enabled.*$/ingress_nginx_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
-sed -i 's/^#\ ingress_nginx_host_network.*$/ingress_nginx_host_network:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
-#sed -i 's/^#\ kubelet_enforce_node_allocatable.*$/kubelet_enforce_node_allocatable:\ kube-reserved/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+#sed -i 's/^ingress_nginx_enabled.*$/ingress_nginx_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+#sed -i 's/^#\ ingress_nginx_host_network.*$/ingress_nginx_host_network:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 #sed -i 's/^#kube_token_auth.*$/kube_token_auth:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^#\ kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^kube_service_addresses.*$/kube_service_addresses:\ 10.233.0.0\/16/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^kube_pods_subnet.*$/kube_pods_subnet:\ 10.234.0.0\/16/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
-sed -i 's/^cert_manager_enabled.*$/cert_manager_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+#sed -i 's/^cert_manager_enabled.*$/cert_manager_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 #sed -i 's/^dynamic_kubelet_configuration.*$/dynamic_kubelet_configuration:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 #sed -i 's/^podsecuritypolicy_enabled.*$/podsecuritypolicy_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+sed -i 's/^kube_image_repo.*$/kube_image_repo:\ \"slpcat\"/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
 sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
 
@@ -95,6 +96,10 @@ sed -i 's/^kube_controller_pod_eviction_timeout.*$/kube_controller_pod_eviction_
 #change local-volume-provisioner
 echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provisioner/local_volume_provisioner/templates/local-volume-provisioner-sc.yml.j2
 
+#change download url
+sed -i 's/^hyperkube_download_url.*$/hyperkube_download_url:\ \"https:\/\/github.com\/slpcat\/fai_config\/raw\/master\/extra\/kubernetes\/k8s-release\/v1.11.3\/hyperkube\"/' ./kubespray/roles/download/defaults/main.yml
+sed -i 's/^kubeadm_download_url.*$/kubeadm_download_url:\ \"https:\/\/github.com\/slpcat\/fai_config\/raw\/master\/extra\/kubernetes\/k8s-release\/v1.11.3\/kubeadm\"/' ./kubespray/roles/download/defaults/main.yml
+
 #Azure cloudprovider
 #inventory/sample/group_vars/all.yml
 #azure_cloud: AzureChinaCloud
@@ -107,7 +112,7 @@ echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provi
 #roles/kubernetes/node/defaults/main.yml
 sed -i 's/^kubelet_max_pods.*$/kubelet_max_pods:\ 210/' ./kubespray/roles/kubernetes/node/defaults/main.yml
 sed -i 's/^kubelet_status_update_frequency.*$/kubelet_status_update_frequency:\ 20s/' ./kubespray/roles/kubernetes/node/defaults/main.yml
-sed -i "s/kubelet_custom_flags.*$/kubelet_custom_flags\:\ \[--event-burst=50\ --event-qps=30\ --image-gc-high-threshold=80\ --image-gc-low-threshold=40\ --image-pull-progress-deadline=2h\ --kube-api-burst=2000\ --kube-api-qps=1000\ --minimum-image-ttl-duration=72h\ --allowed-unsafe-sysctls=\'net.*\'\ --protect-kernel-defaults=false\ --registry-burst=20\ --registry-qps=10\ --serialize-image-pulls=false\ ]/" ./kubespray/roles/kubernetes/node/defaults/main.yml
+sed -i "s/kubelet_custom_flags.*$/kubelet_custom_flags\:\ \[--event-burst=50\ --event-qps=30\ --image-gc-high-threshold=80\ --image-gc-low-threshold=40\ --image-pull-progress-deadline=2h\ --kube-api-burst=2000\ --kube-api-qps=1000\ --minimum-image-ttl-duration=72h\ --allowed-unsafe-sysctls=net.*\ --protect-kernel-defaults=false\ --registry-burst=200\ --registry-qps=100\ --serialize-image-pulls=false\ ]/" ./kubespray/roles/kubernetes/node/defaults/main.yml
 
 #feature_gates tuning
 #GPU support --feature-gates=DevicePlugins=true
