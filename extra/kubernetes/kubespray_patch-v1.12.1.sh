@@ -43,18 +43,19 @@ done
 sed -i 's/gcr.io\/kubernetes-helm/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/docker.io\/cilium/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/k8s.gcr.io/slpcat/' ./kubespray/roles/download/defaults/main.yml
-sed -i 's/docker.elastic.co\/kibana/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/^cilium_version.*$/cilium_version:\ \"v1.2\"/' ./kubespray/roles/download/defaults/main.yml
-
-#disable docker install
-sed -i '/role:\ docker/d' ./kubespray/cluster.yml 
-#./kubespray/roles/docker/tasks/main.yml
 
 #change gather_timeout
 #  pre_tasks:
 #    - name: gather facts from all instances
 #      setup:
 #              gather_timeout: 90
+
+#change docker repo
+sed -i 's/^docker_ubuntu_repo_base_url.*$/docker_ubuntu_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/ubuntu"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
+sed -i 's/^docker_ubuntu_repo_gpgkey.*$/docker_ubuntu_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/ubuntu\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
+sed -i 's/^docker_debian_repo_base_url.*$/docker_debian_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/debian"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
+sed -i 's/^docker_debian_repo_gpgkey.*$/docker_debian_repo_gpgkey:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/debian\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 
 #change cluster congfig
 sed -i 's/^ndots.*$/ndots:\ 5/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
