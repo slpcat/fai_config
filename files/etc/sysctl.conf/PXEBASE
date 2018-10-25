@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20180925
+# Revision: 20181025
 # /etc/sysctl.conf
 #
 
@@ -300,8 +300,13 @@ net.ipv6.conf.default.accept_redirects=0
 #net.bridge.bridge-nf-call-ip6tables=1
 
 #netfilter nf_conntrack
-#net.ipv4.vs.conn_reuse_mode=0
-#net.ipv4.vs.conntrack=1
+#https://github.com/torvalds/linux/blob/master/Documentation/networking/ipvs-sysctl.txt
+#net.ipv4.vs.conn_reuse_mode=2
+#net.ipv4.vs.conntrack=0
+#net.ipv4.vs.sloppy_tcp=1
+#net.ipv4.vs.expire_nodest_conn=1
+#net.ipv4.vs.amemthresh=16384
+#net.ipv4.vs.expire_quiescent_template=1
 #net.nf_conntrack_max=8388608
 #net.netfilter.nf_conntrack_acct=0
 #net.netfilter.nf_conntrack_checksum=1
