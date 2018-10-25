@@ -134,14 +134,14 @@ net.core.rps_sock_flow_entries=32768
 net.core.message_burst=50
 net.core.message_cost=1
 net.core.netdev_tstamp_prequeue=1
-net.core.netdev_budget=8192
+net.core.netdev_budget=32768
 net.core.dev_weight=600
 #net.core.flow_limit_table_len=8192
 #recommended for hosts with jumbo frames enabled
 net.ipv4.tcp_mtu_probing=1
 
 net.ipv4.tcp_autocorking=1
-net.ipv4.tcp_low_latency=0
+net.ipv4.tcp_low_latency=1
 #存在于ARP高速缓存中的最少层数，如果少于这个数，垃圾收集器将不会运行。缺省值是128。
 net.ipv4.neigh.default.gc_thresh1=100000
 #保存在 ARP 高速缓存中的最多的记录软限制。垃圾收集器在开始收集前，允许记录数超过这个数字 5 秒。缺省值是 512。
@@ -289,8 +289,8 @@ net.ipv4.tcp_slow_start_after_idle=0
 #net.ipv4.tcp_thin_linear_timeouts=1
 #net.ipv4.tcp_thin_dupack=1
 # Turn off reverse path filtering
-net.ipv4.conf.all.rp_filter=0
-net.ipv4.conf.default.rp_filter=0
+#net.ipv4.conf.all.rp_filter=0
+#net.ipv4.conf.default.rp_filter=0
 #net.ipv6.conf.all.rp_filter=1
 #net.ipv6.conf.default.rp_filter=1
 net.ipv6.conf.all.accept_redirects=0
