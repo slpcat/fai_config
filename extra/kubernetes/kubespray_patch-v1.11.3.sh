@@ -45,6 +45,11 @@ sed -i 's/docker.io\/cilium/slpcat/' ./kubespray/roles/download/defaults/main.ym
 sed -i 's/k8s.gcr.io/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/^cilium_version.*$/cilium_version:\ \"v1.2\"/' ./kubespray/roles/download/defaults/main.yml
 
+#download setting
+sed -i 's/download_localhost.*$/download_localhost:\ True/' ./kubespray/roles/download/defaults/main.yml
+sed -i 's/download_run_once.*$/download_run_once:\ True/' ./kubespray/roles/download/defaults/main.yml
+sed -i 's/retry_stagger.*$/retry_stagger:\ 60/' ./kubespray/inventory/sample/group_vars/k8s-cluster.yml
+
 #change gather_timeout
 #  pre_tasks:
 #    - name: gather facts from all instances
