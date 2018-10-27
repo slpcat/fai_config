@@ -48,6 +48,7 @@ sed -i 's/^cilium_version.*$/cilium_version:\ \"v1.2\"/' ./kubespray/roles/downl
 #download setting
 sed -i 's/^download_localhost.*$/download_localhost:\ True/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/^download_run_once.*$/download_run_once:\ True/' ./kubespray/roles/download/defaults/main.yml
+sed -i 's/^download_always_pull.*$/download_always_pull:\ True/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/^retry_stagger.*$/retry_stagger:\ 60/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
 #change gather_timeout
@@ -82,7 +83,7 @@ sed -i 's/^kube_pods_subnet.*$/kube_pods_subnet:\ 10.234.0.0\/16/' ./kubespray/i
 #sed -i 's/^podsecuritypolicy_enabled.*$/podsecuritypolicy_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^kube_image_repo.*$/kube_image_repo:\ \"slpcat\"/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
-sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
+#sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
 
 sed -i 's/^#kube_read_only_port.*$/kube_read_only_port:\ 10255/' ./kubespray/inventory/sample/group_vars/all/all.yml
 sed -i 's/^#download_container.*/download_container:\ true/' ./kubespray/inventory/sample/group_vars/all/all.yml
@@ -101,7 +102,7 @@ sed -i 's/^cilium_cpu_limit.*$/cilium_cpu_limit:\ 2/' ./kubespray/roles/network_
 sed -i 's/^kube_controller_pod_eviction_timeout.*$/kube_controller_pod_eviction_timeout:\ 1m0s/' ./kubespray/roles/kubernetes/master/defaults/main.yml
 
 #change local-volume-provisioner
-echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provisioner/local_volume_provisioner/templates/local-volume-provisioner-sc.yml.j2
+#echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provisioner/local_volume_provisioner/templates/local-volume-provisioner-sc.yml.j2
 
 #change download url
 sed -i 's/^hyperkube_download_url.*$/hyperkube_download_url:\ \"https:\/\/github.com\/slpcat\/fai_config\/raw\/master\/extra\/kubernetes\/k8s-release\/v1.11.3\/hyperkube\"/' ./kubespray/roles/download/defaults/main.yml
