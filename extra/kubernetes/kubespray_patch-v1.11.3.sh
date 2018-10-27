@@ -6,7 +6,7 @@ git clone https://github.com/kubernetes-incubator/kubespray
 
 #change to the tested version
 cd kubespray
-git checkout 7abd4eeafdfb1febc7b3502c1c3d6b54c32e59f4
+git checkout 801bbcbc6392d1e13c2d9a00132e281de9e997a4
 cd ..
 
 #change to private registry 
@@ -60,7 +60,7 @@ sed -i 's/retry_stagger.*$/retry_stagger:\ 60/' ./kubespray/inventory/sample/gro
 sed -i 's/^docker_rh_repo_base_url.*$/docker_rh_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/centos\/7\/\$basearch\/stable"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 sed -i 's/^docker_rh_repo_gpgkey.*$/docker_rh_repo_gpgkey:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/centos\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 sed -i 's/^docker_ubuntu_repo_base_url.*$/docker_ubuntu_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/ubuntu"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
-sed -i 's/^docker_ubuntu_repo_gpgkey.*$/docker_ubuntu_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/ubuntu\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
+sed -i 's/^docker_ubuntu_repo_gpgkey.*$/docker_ubuntu_repo_gpgkey:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/ubuntu\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 sed -i 's/^docker_debian_repo_base_url.*$/docker_debian_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/debian"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 sed -i 's/^docker_debian_repo_gpgkey.*$/docker_debian_repo_gpgkey:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/debian\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 
