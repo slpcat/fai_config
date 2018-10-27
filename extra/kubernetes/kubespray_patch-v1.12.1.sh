@@ -6,7 +6,7 @@ git clone https://github.com/kubernetes-incubator/kubespray
 
 #change to the tested version
 cd kubespray
-git checkout 7abd4eeafdfb1febc7b3502c1c3d6b54c32e59f4
+git checkout 801bbcbc6392d1e13c2d9a00132e281de9e997a4
 cd ..
 
 #change to private registry 
@@ -45,17 +45,17 @@ sed -i 's/docker.io\/cilium/slpcat/' ./kubespray/roles/download/defaults/main.ym
 sed -i 's/k8s.gcr.io/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/^cilium_version.*$/cilium_version:\ \"v1.2\"/' ./kubespray/roles/download/defaults/main.yml
 
-#change gather_timeout
-#  pre_tasks:
-#    - name: gather facts from all instances
-#      setup:
-#              gather_timeout: 90
+#download setting
+sed -i 's/^download_localhost.*$/download_localhost:\ True/' ./kubespray/roles/download/defaults/main.yml
+sed -i 's/^download_run_once.*$/download_run_once:\ True/' ./kubespray/roles/download/defaults/main.yml
+#sed -i 's/^download_always_pull.*$/download_always_pull:\ True/' ./kubespray/roles/download/defaults/main.yml
+sed -i 's/^retry_stagger.*$/retry_stagger:\ 60/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
 #change docker repo
 sed -i 's/^docker_rh_repo_base_url.*$/docker_rh_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/centos\/7\/\$basearch\/stable"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 sed -i 's/^docker_rh_repo_gpgkey.*$/docker_rh_repo_gpgkey:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/centos\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 sed -i 's/^docker_ubuntu_repo_base_url.*$/docker_ubuntu_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/ubuntu"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
-sed -i 's/^docker_ubuntu_repo_gpgkey.*$/docker_ubuntu_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/ubuntu\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
+sed -i 's/^docker_ubuntu_repo_gpgkey.*$/docker_ubuntu_repo_gpgkey:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/ubuntu\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 sed -i 's/^docker_debian_repo_base_url.*$/docker_debian_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/debian"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 sed -i 's/^docker_debian_repo_gpgkey.*$/docker_debian_repo_gpgkey:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/debian\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 
@@ -77,7 +77,7 @@ sed -i 's/^kube_pods_subnet.*$/kube_pods_subnet:\ 10.234.0.0\/16/' ./kubespray/i
 #sed -i 's/^podsecuritypolicy_enabled.*$/podsecuritypolicy_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^kube_image_repo.*$/kube_image_repo:\ \"slpcat\"/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
-sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
+#sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
 
 sed -i 's/^#kube_read_only_port.*$/kube_read_only_port:\ 10255/' ./kubespray/inventory/sample/group_vars/all/all.yml
 sed -i 's/^#download_container.*/download_container:\ true/' ./kubespray/inventory/sample/group_vars/all/all.yml
@@ -96,7 +96,7 @@ sed -i 's/^cilium_cpu_limit.*$/cilium_cpu_limit:\ 2/' ./kubespray/roles/network_
 sed -i 's/^kube_controller_pod_eviction_timeout.*$/kube_controller_pod_eviction_timeout:\ 1m0s/' ./kubespray/roles/kubernetes/master/defaults/main.yml
 
 #change local-volume-provisioner
-echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provisioner/local_volume_provisioner/templates/local-volume-provisioner-sc.yml.j2
+#echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provisioner/local_volume_provisioner/templates/local-volume-provisioner-sc.yml.j2
 
 #change download url
 sed -i 's/^hyperkube_download_url.*$/hyperkube_download_url:\ \"https:\/\/github.com\/slpcat\/fai_config\/raw\/master\/extra\/kubernetes\/k8s-release\/v1.12.1\/hyperkube\"/' ./kubespray/roles/download/defaults/main.yml
