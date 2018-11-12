@@ -6,7 +6,7 @@ git clone https://github.com/kubernetes-incubator/kubespray
 
 #change to the tested version
 cd kubespray
-git checkout 8371beb915d396d76d11f6da4f716c880b486739
+git checkout 3dcb91460708f45ce13e1a104537c290a184479d
 cd ..
 
 #change to private registry 
@@ -43,11 +43,11 @@ done
 sed -i 's/gcr.io\/kubernetes-helm/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/docker.io\/cilium/slpcat/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/k8s.gcr.io/slpcat/' ./kubespray/roles/download/defaults/main.yml
-sed -i 's/^cilium_version.*$/cilium_version:\ \"v1.2\"/' ./kubespray/roles/download/defaults/main.yml
+#sed -i 's/^cilium_version.*$/cilium_version:\ \"v1.2\"/' ./kubespray/roles/download/defaults/main.yml
 
 #download setting
-sed -i 's/^download_localhost.*$/download_localhost:\ True/' ./kubespray/roles/download/defaults/main.yml
-sed -i 's/^download_run_once.*$/download_run_once:\ True/' ./kubespray/roles/download/defaults/main.yml
+#sed -i 's/^download_localhost.*$/download_localhost:\ True/' ./kubespray/roles/download/defaults/main.yml
+#sed -i 's/^download_run_once.*$/download_run_once:\ True/' ./kubespray/roles/download/defaults/main.yml
 #sed -i 's/^download_always_pull.*$/download_always_pull:\ True/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/^retry_stagger.*$/retry_stagger:\ 60/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
