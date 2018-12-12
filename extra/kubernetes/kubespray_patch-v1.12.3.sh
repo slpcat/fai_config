@@ -82,6 +82,7 @@ sed -i 's/^kube_image_repo.*$/kube_image_repo:\ \"slpcat\"/' ./kubespray/invento
 sed -i 's/^#kube_read_only_port.*$/kube_read_only_port:\ 10255/' ./kubespray/inventory/sample/group_vars/all/all.yml
 sed -i 's/^#download_container.*/download_container:\ true/' ./kubespray/inventory/sample/group_vars/all/all.yml
 sed -i 's/^#kubelet_load_modules.*$/kubelet_load_modules:\ true/' ./kubespray/inventory/sample/group_vars/all/all.yml
+sed -i 's/^kubeadm_enabled.*$/kubeadm_enabled:\ false/' ./kubespray/inventory/sample/group_vars/all/all.yml
 
 sed -i 's/^#etcd_memory_limit.*$/etcd_memory_limit:\ "0"/' ./kubespray/inventory/sample/group_vars/etcd.yml
 sed -i 's/^#etcd_quota_backend_bytes.*$/etcd_quota_backend_bytes:\ "8G"/' ./kubespray/inventory/sample/group_vars/etcd.yml
