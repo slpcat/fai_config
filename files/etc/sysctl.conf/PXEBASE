@@ -198,8 +198,8 @@ net.ipv4.tcp_congestion_control=htcp
 net.ipv4.tcp_ecn=1
 #net.ipv4.tcp_ecn_fallback=1
 net.ipv4.tcp_sack=1
-net.ipv4.tcp_comp_sack_delay_ns=1000000
-net.ipv4.tcp_comp_sack_nr=44
+#net.ipv4.tcp_comp_sack_delay_ns=1000000
+#net.ipv4.tcp_comp_sack_nr=44
 net.ipv4.tcp_dsack=1
 net.ipv4.tcp_fack=1
 #打开TIME-WAIT套接字重用功能，对于存在大量连接的Web服务器非常有效，关闭避免NAT丢包。
