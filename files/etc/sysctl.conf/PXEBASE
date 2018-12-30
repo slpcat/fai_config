@@ -133,7 +133,7 @@ fs.mqueue.queues_max=65536
 
 #Fair Queue packet scheduler to fight bufferbloat.
 #Note that TSO (which is off by default on most NICs) should be disabled when using FQ.
-net.core.default_qdisc=fq_codel
+net.core.default_qdisc=fq
 #禁止ipv6
 #net.ipv6.conf.all.disable_ipv6=1
 #net.ipv6.conf.default.disable_ipv6=1
