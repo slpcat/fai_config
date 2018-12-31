@@ -185,7 +185,7 @@ net.ipv4.tcp_abort_on_overflow=0
 #该文件表示在每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许送到队列的数据包的最大数目。
 net.core.netdev_max_backlog=262144
 #本地端口范围，缺省情况下很小：32768到61000
-net.ipv4.ip_local_port_range=20000 65499
+net.ipv4.ip_local_port_range=1024 65535
 net.ipv4.tcp_invalid_ratelimit=2000
 net.ipv4.tcp_limit_output_bytes=1048576
 #net.ipv4.tcp_fwmark_accept=1
