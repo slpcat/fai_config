@@ -180,7 +180,7 @@ net.ipv4.conf.default.promote_secondaries=1
 net.ipv4.ip_forward=0
 #限制了接收新TCP连接侦听队列的大小
 net.core.somaxconn=65535
-net.ipv4.tcp_abort_on_overflow=0
+net.ipv4.tcp_abort_on_overflow=1
 #优化网络设备接收队列
 #该文件表示在每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许送到队列的数据包的最大数目。
 net.core.netdev_max_backlog=262144
@@ -222,7 +222,7 @@ net.ipv4.conf.default.log_martians=1
 #但是对于Squid，效果却不大。此项参数可以控制TIME_WAIT套接字的最大数量，避免Squid服务器被大量的TIME_WAIT套接字拖死
 net.ipv4.tcp_max_tw_buckets=1048576
 #减少处于FIN-WAIT-2连接状态的时间，使系统可以处理更多的连接。
-net.ipv4.tcp_fin_timeout=10
+net.ipv4.tcp_fin_timeout=20
 #TCP KeepAlive连接侦测的时间，使系统可以处理更多的连接。
 net.ipv4.tcp_keepalive_time=120
 #表示从不再传送数据到向连接上发送保持连接信号之间所需的秒数。
@@ -313,7 +313,7 @@ net.ipv4.tcp_syn_retries=3
 #Set TCP Re-Ordering value in kernel to 5
 net.ipv4.tcp_reordering=5
 #拥塞窗口在经过一段时间空闲后是否需要重新初始化
-net.ipv4.tcp_slow_start_after_idle=1
+net.ipv4.tcp_slow_start_after_idle=0
 #net.ipv4.tcp_thin_linear_timeouts=1
 #net.ipv4.tcp_thin_dupack=1
 # Turn off reverse path filtering
