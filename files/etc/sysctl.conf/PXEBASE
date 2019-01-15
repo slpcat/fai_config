@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20181223
+# Revision: 20190115
 # /etc/sysctl.conf
 #
 
@@ -26,7 +26,7 @@ kernel.sched_rr_timeslice_ms=20
 kernel.sched_rt_period_us=1000000
 kernel.sched_rt_runtime_us=950000
 #kernel.sched_shares_window_ns=10000000
-kernel.sched_time_avg_ms=1000
+#kernel.sched_time_avg_ms=1000
 kernel.sched_tunable_scaling=2
 kernel.softlockup_panic=1
 kernel.softlockup_all_cpu_backtrace=1
