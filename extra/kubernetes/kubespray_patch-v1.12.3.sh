@@ -76,6 +76,7 @@ sed -i 's/^kube_pods_subnet.*$/kube_pods_subnet:\ 10.234.0.0\/16/' ./kubespray/i
 sed -i 's/^dynamic_kubelet_configuration.*$/dynamic_kubelet_configuration:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 #sed -i 's/^podsecuritypolicy_enabled.*$/podsecuritypolicy_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^kube_image_repo.*$/kube_image_repo:\ \"slpcat\"/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+sed -i 's/^local_release_dir.*$/local_release_dir:\ \"\/root\/releases\"/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
 #sed -i 's/^local_volume_provisioner_enabled.*$/local_volume_provisioner_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
 
@@ -103,6 +104,8 @@ sed -i 's/^kube_controller_pod_eviction_timeout.*$/kube_controller_pod_eviction_
 sed -i 's/^hyperkube_download_url.*$/hyperkube_download_url:\ \"https:\/\/github.com\/slpcat\/fai_config\/raw\/master\/extra\/kubernetes\/k8s-release\/v1.12.3\/hyperkube\"/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/^kubeadm_download_url.*$/kubeadm_download_url:\ \"https:\/\/github.com\/slpcat\/fai_config\/raw\/master\/extra\/kubernetes\/k8s-release\/v1.12.3\/kubeadm\"/' ./kubespray/roles/download/defaults/main.yml
 
+#kernel 4.19 delete nf_conntrack_ipv4
+#roles/kubernetes/node/tasks/main.yml:    - nf_conntrack_ipv4
 #Azure cloudprovider
 #inventory/sample/group_vars/all.yml
 #azure_cloud: AzureChinaCloud
