@@ -167,8 +167,8 @@ http {
   #gzip_min_length  4k;
   #gzip_buffers     32 8k;
   #gzip_http_version 1.1;
-  #gzip_comp_level 4;
-  #gzip_types       text/plain text/css text/xml text/javascript application/json application/x-javascript application/javascript application/xml application/xml+rss;
+  #gzip_comp_level 2;
+  #gzip_types       text/plain text/css text/xml text/javascript application/json application/x-javascript application/javascript application/xml application/xml+rss font/ttf font/otf image/svg+xml;
   #gzip_vary on;
 
   #保持的并发(同时)连接数限制，指的是established tcp状态数量，http2和SPDY的并发请求(concurrent request)被当作一个连接。
