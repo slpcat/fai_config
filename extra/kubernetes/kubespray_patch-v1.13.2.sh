@@ -26,7 +26,6 @@ done
 quay_image_files=(
 ./kubespray/roles/download/defaults/main.yml
 ./kubespray/roles/etcd/tasks/install_rkt.yml
-./kubespray/roles/kubernetes/node/tasks/install_rkt.yml
 ./kubespray/roles/kubernetes/node/defaults/main.yml
 )
 
@@ -95,7 +94,7 @@ sed -i 's/^etcd_events_cluster_setup.*$/etcd_events_cluster_setup:\ true/' ./kub
 sed -i 's/^cilium_memory_limit.*$/cilium_memory_limit:\ 2Gi/' ./kubespray/roles/network_plugin/cilium/defaults/main.yml
 sed -i 's/^cilium_cpu_limit.*$/cilium_cpu_limit:\ 2/' ./kubespray/roles/network_plugin/cilium/defaults/main.yml
 
-sed -i 's/^kube_controller_pod_eviction_timeout.*$/kube_controller_pod_eviction_timeout:\ 1m0s/' ./kubespray/roles/kubernetes/master/defaults/main.yml
+sed -i 's/^kube_controller_pod_eviction_timeout.*$/kube_controller_pod_eviction_timeout:\ 1m0s/' ./kubespray/roles/kubernetes/master/defaults/main/main.yml
 
 #change local-volume-provisioner
 #echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provisioner/local_volume_provisioner/templates/local-volume-provisioner-sc.yml.j2
