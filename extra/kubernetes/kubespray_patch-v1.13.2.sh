@@ -67,6 +67,7 @@ sed -i 's/^kube_network_plugin.*$/kube_network_plugin:\ cilium/' ./kubespray/inv
 #sed -i 's/^#kube_token_auth.*$/kube_token_auth:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^#\ kubeconfig_localhost.*$/kubeconfig_localhost:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^#\ kubectl_localhost.*$/kubectl_localhost:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+mkdir -p ./kubespray/inventory/sample/artifacts
 
 sed -i 's/^kube_service_addresses.*$/kube_service_addresses:\ 10.233.0.0\/16/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^kube_pods_subnet.*$/kube_pods_subnet:\ 10.234.0.0\/16/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
