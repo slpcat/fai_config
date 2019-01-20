@@ -91,6 +91,7 @@ sed -i 's/^#etcd_quota_backend_bytes.*$/etcd_quota_backend_bytes:\ "8G"/' ./kube
 sed -i 's/^etcd_events_cluster_enabled.*$/etcd_events_cluster_enabled:\ true/' ./kubespray/roles/kubespray-defaults/defaults/main.yaml
 sed -i 's/^etcd_events_cluster_enabled.*$/etcd_events_cluster_enabled:\ true/' ./kubespray/roles/etcd/defaults/main.yml
 sed -i 's/^etcd_events_cluster_setup.*$/etcd_events_cluster_setup:\ true/' ./kubespray/roles/etcd/defaults/main.yml
+sed -i 's/etcd_events_access_addresses/etcd_events_access_addresses_semicolon/' ./kubespray/roles/kubernetes/master/templates/kubeadm-config.*
 
 sed -i 's/^cilium_memory_limit.*$/cilium_memory_limit:\ 2Gi/' ./kubespray/roles/network_plugin/cilium/defaults/main.yml
 sed -i 's/^cilium_cpu_limit.*$/cilium_cpu_limit:\ 2/' ./kubespray/roles/network_plugin/cilium/defaults/main.yml
