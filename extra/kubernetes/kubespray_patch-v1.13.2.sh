@@ -73,7 +73,7 @@ sed -i 's/^kube_service_addresses.*$/kube_service_addresses:\ 10.233.0.0\/16/' .
 sed -i 's/^kube_pods_subnet.*$/kube_pods_subnet:\ 10.234.0.0\/16/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 #sed -i 's/^cert_manager_enabled.*$/cert_manager_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^dynamic_kubelet_configuration.*$/dynamic_kubelet_configuration:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
-sed -i 's/^podsecuritypolicy_enabled.*$/podsecuritypolicy_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
+#sed -i 's/^podsecuritypolicy_enabled.*$/podsecuritypolicy_enabled:\ true/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^kube_image_repo.*$/kube_image_repo:\ \"slpcat\"/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 sed -i 's/^local_release_dir.*$/local_release_dir:\ \"\/root\/releases\"/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
