@@ -69,15 +69,15 @@ kernel.perf_event_paranoid=3
 kernel.random.write_wakeup_threshold=3072
 #kernel.unprivileged_bpf_disabled=1
 
-user.max_cgroup_namespaces=15420
-user.max_inotify_instances=8192
-user.max_inotify_watches=52428800
-user.max_ipc_namespaces=15420
-user.max_mnt_namespaces=15420
-user.max_net_namespaces=15420
-user.max_pid_namespaces=15420
-user.max_user_namespaces=15420
-user.max_uts_namespaces=15420
+#user.max_cgroup_namespaces=15420
+#user.max_inotify_instances=8192
+#user.max_inotify_watches=52428800
+#user.max_ipc_namespaces=15420
+#user.max_mnt_namespaces=15420
+#user.max_net_namespaces=15420
+#user.max_pid_namespaces=15420
+#user.max_user_namespaces=15420
+#user.max_uts_namespaces=15420
 
 #Part2: Memory
 
