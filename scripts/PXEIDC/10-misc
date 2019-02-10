@@ -34,6 +34,7 @@ if ifclass CENTOS7_64 ; then
 else
     ainsl -a /etc/modprobe.d/ip_vs.conf 'options ip_vs conn_tab_bits=24'
 fi
+ainsl -a /etc/modprobe.d/ip_vs.conf 'options nf_conntrack hashsize=262144'
 
 sed -i 's/^#fs.xfs/fs.xfs/' $target/etc/sysctl.conf
 
