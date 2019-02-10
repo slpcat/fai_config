@@ -1,0 +1,12 @@
+[Unit]
+Description=Prometheus monitoring and alerting 
+After=network.target
+
+[Service]
+Type=simple
+User=prometheus
+ExecStart=/usr/local/bin/prometheus -config.file=/etc/prometheus.yml -storage.local.path=/var/lib/prometheus
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

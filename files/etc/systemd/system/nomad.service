@@ -1,0 +1,39 @@
+[Unit]
+Description=Easily Deploy Applications at Any Scale
+After=network.target consul.service docker.service
+
+[Service]
+#Type=simple
+User=root
+#User=nomad
+#Group=nomad
+#RuntimeDirectory=nomad
+RuntimeDirectoryMode=0775
+ExecStart=/usr/bin/nomad agent -config /etc/nomad
+KillSignal=SIGTERM
+#ExecStartPre=/bin/mkdir -p /var/lib/nomad
+#ExecStartPre=/bin/chown -R nomad:nomad /var/lib/nomad
+#PermissionsStartOnly=true
+
+# saving a big db on slow disks may need some time
+TimeoutStopSec=60
+
+# restart nomad if it crashes
+Restart=always
+RestartSec=10
+
+#OOMScoreAdjust=0
+
+# By default nomad switches to scheduling policy idle, which makes it use CPU, only
+# when there is spare available.
+# Valid policies: other (the system default) | batch | idle | fifo | rr
+#CPUSchedulingPolicy=other
+
+# This sets the maximum scheduling priority nomad can set (for policies: rr and fifo).
+# Priority gets values 1 (lowest) to 99 (highest).
+CPUSchedulingPriority=99
+
+#Nice=0
+
+[Install]
+WantedBy=multi-user.target

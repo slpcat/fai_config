@@ -1,0 +1,27 @@
+[Unit]
+Description=Apache Kafka server (broker)
+Documentation=http://kafka.apache.org/documentation.html
+#Requires=network.target
+After=network.target zookeeper.service
+
+[Service]
+Type=forking
+PIDFile=/var/run/kafka.pid
+User=hadoop
+Group=hadoop
+Environment=KHOME=%h/kafka_2.9.2-0.8.1.1
+#WorkingDirectory=/var/lib/kafka
+#EnvironmentFile=/etc/sysconfig/kafka
+ExecStart=/home/hadoop/kafka_2.9.2-0.8.1.1/bin/kafka-server-start.sh /home/hadoop/kafka_2.9.2-0.8.1.1/config/server.properties
+#ExecStart=/home/hadoop/kafka_2.9.2-0.8.1.1/bin/kafka-server-start.sh ${KHMOE}/config/server.properties
+#ExecStop=
+ExecStop=/opt/kafka/bin/kafka-server-stop.sh
+ExecReload=/bin/kill -HUP $MAINPID
+KillMode=process
+Restart=on-failure
+RestartSec=5s
+Restart=on-failure
+SyslogIdentifier=kafka
+
+[Install]
+WantedBy=multi-user.target
