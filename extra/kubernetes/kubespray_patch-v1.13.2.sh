@@ -97,6 +97,7 @@ sed -i '/schedulerExtraArgs/a\  address: 0.0.0.0' ./kubespray/roles/kubernetes/m
 sed -i '/controllerManagerExtraArgs/a\  address: 0.0.0.0' ./kubespray/roles/kubernetes/master/templates/kubeadm-config.*
 sed -i '/kube_scheduler_bind_address/a\    address: 0.0.0.0' ./kubespray/roles/kubernetes/master/templates/kubeadm-config.v1beta1.yaml.j2
 sed -i '/kube_controller_manager_bind_address/a\    address: 0.0.0.0' ./kubespray/roles/kubernetes/master/templates/kubeadm-config.v1beta1.yaml.j2
+sed -i 's/^kube_proxy_metrics_bind_address.*$/kube_proxy_metrics_bind_address:\ 0.0.0.0:10249/' ./kubespray/roles/kubernetes/master/defaults/main/kube-proxy.yml
 
 sed -i 's/^cilium_memory_limit.*$/cilium_memory_limit:\ 2Gi/' ./kubespray/roles/network_plugin/cilium/defaults/main.yml
 sed -i 's/^cilium_cpu_limit.*$/cilium_cpu_limit:\ 2/' ./kubespray/roles/network_plugin/cilium/defaults/main.yml

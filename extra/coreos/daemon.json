@@ -5,5 +5,7 @@
     "bridge": "none",
     "max-concurrent-downloads": 10,
     "oom-score-adjust": -1000,
+    "metrics-addr" : "0.0.0.0:9323",
+    "experimental" : true,
     "debug": false
 }
