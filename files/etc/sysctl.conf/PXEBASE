@@ -82,7 +82,8 @@ kernel.random.write_wakeup_threshold=3072
 #Part2: Memory
 
 vm.numa_zonelist_order=node
-vm.swappiness=0
+vm.swappiness=1
+vm.zone_reclaim_mode=0
 #vm.drop_caches=3
 #To free pagecache, dentries and inodes , set to 3
 vm.vfs_cache_pressure=40
