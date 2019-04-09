@@ -1,0 +1,17 @@
+{
+  "services": [
+    {
+      "name": "ro-mysql",
+      "tags": [
+        "mysql-slave"
+      ],
+      "port": 3306,
+      "checks": [
+        {
+          "script": "/etc/consul.d/scripts/check_mysql_slave.sh 3306",
+          "interval": "15s"
+        }
+      ]
+    }
+  ]
+}

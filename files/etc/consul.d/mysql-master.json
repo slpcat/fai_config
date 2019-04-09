@@ -1,0 +1,17 @@
+{
+  "services": [
+    {
+      "name": "mysql",
+      "tags": [
+        "mysql-master"
+      ],
+      "port": 3306,
+      "checks": [
+        {
+          "script": "/etc/consul.d/scripts/check_mysql_master.sh 3306",
+          "interval": "15s"
+        }
+      ]
+    }
+  ]
+}

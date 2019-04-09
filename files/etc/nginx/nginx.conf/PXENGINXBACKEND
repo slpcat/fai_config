@@ -234,3 +234,8 @@ server {
 include /etc/nginx/conf.d/*.conf;
 include /etc/nginx/sites-enabled/*.conf;
 }
+#rtmp_auto_push on;
+#rtmp_auto_push_reconnect 1s;
+#rtmp {
+#    include rtmp.conf;
+#}
