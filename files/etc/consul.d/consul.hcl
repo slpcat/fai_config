@@ -7,6 +7,7 @@ performance {
   raft_multiplier = 1
 }
 enable_syslog = true
+log_level = "INFO"
 enable_local_script_checks = true
 disable_update_check = true
 disable_remote_exec = true
@@ -20,4 +21,8 @@ dns_config {
     "db*" = "10s",
     "db-master" = "3s"
     }
+  enable_truncate = false
+  only_passing = false
+  recursor_timeout = "2s"
+  udp_answer_limit = 3
 }
