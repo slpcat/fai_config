@@ -9,6 +9,7 @@
 # Disable the magic-sysrq key (console security issues)
 kernel.sysrq=0
 kernel.panic=10
+kernel.ftrace_enabled=0
 kernel.pid_max=4194304
 kernel.randomize_va_space=2
 kernel.panic_on_oops=1
@@ -24,15 +25,16 @@ kernel.sched_migration_cost_ns=5000
 kernel.sched_min_granularity_ns=100000
 kernel.sched_wakeup_granularity_ns=2000000
 kernel.sched_rr_timeslice_ms=20
-kernel.sched_rt_period_us=1000000
-kernel.sched_rt_runtime_us=950000
+#禁止带宽限制
+kernel.sched_rt_period_us=-1
+kernel.sched_rt_runtime_us=-1
 #kernel.sched_shares_window_ns=10000000
 #kernel.sched_time_avg_ms=1000
 kernel.sched_tunable_scaling=2
-kernel.softlockup_panic=1
+kernel.softlockup_panic=0
 kernel.softlockup_all_cpu_backtrace=1
 kernel.threads-max=30841
-kernel.timer_migration=1
+kernel.timer_migration=0
 kernel.shmmni=4096
 kernel.msgmnb=65536
 kernel.msgmni=32768
@@ -59,7 +61,7 @@ kernel.dmesg_restrict=1
 kernel.kptr_restrict=2
 kernel.core_uses_pid=1
 #kernel.nmi_watchdog=0
-#kernel.watchdog=0
+kernel.watchdog=0
 # Block non-uid-0 profiling (needs distro patch, otherwise this is the same as "= 2")
 kernel.perf_event_paranoid=3
 # Turn off kexec, even if it's built in.
@@ -229,11 +231,11 @@ net.ipv4.tcp_max_tw_buckets=1048576
 #减少处于FIN-WAIT-2连接状态的时间，使系统可以处理更多的连接。
 net.ipv4.tcp_fin_timeout=20
 #TCP KeepAlive连接侦测的时间，使系统可以处理更多的连接。
-net.ipv4.tcp_keepalive_time=120
+net.ipv4.tcp_keepalive_time=900
 #表示从不再传送数据到向连接上发送保持连接信号之间所需的秒数。
-net.ipv4.tcp_keepalive_probes=2
+net.ipv4.tcp_keepalive_probes=3
 #在认定连接失效之前，发送多少个TCP的keepalive探测包。缺省值是9。这个值乘以tcp_keepalive_intvl之后决定了，一个连接发送了keepalive之后可以有多少时间没有回应
-net.ipv4.tcp_keepalive_intvl=10
+net.ipv4.tcp_keepalive_intvl=60
 #当探测没有确认时，重新发送探测的频度。缺省是75秒。
 #增加TCP SYN队列长度，使系统可以处理更多的并发连接。
 net.ipv4.tcp_max_syn_backlog=65535
