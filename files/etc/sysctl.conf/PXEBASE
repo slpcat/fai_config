@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20190423
+# Revision: 20190425
 # /etc/sysctl.conf
 #
 
@@ -148,8 +148,8 @@ net.core.default_qdisc=fq
 net.core.bpf_jit_enable=1
 #net.core.bpf_jit_harden=0
 #net.core.bpf_jit_kallsyms=0
-net.core.busy_poll=50
-net.core.busy_read=100
+#net.core.busy_poll=50
+#net.core.busy_read=100
 net.core.rps_sock_flow_entries=32768
 net.core.message_burst=50
 net.core.message_cost=1
