@@ -21,7 +21,7 @@ dns_config {
     "db*" = "10s",
     "db-master" = "3s"
     }
-  enable_truncate = false
+  enable_truncate = true
   only_passing = false
   recursor_timeout = "2s"
   udp_answer_limit = 3

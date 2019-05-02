@@ -1,19 +1,18 @@
 {
   "service": {
-    "ID": "redis1",
     "Name": "redis",
     "Tags": [
       "primary",
       "v1"
     ],
     "Port": 6379,
+    "token": "881cfb69-2bcd-c2a9-d87c-cb79fc454df9",
     "Meta": {
       "redis_version": "4.0"
     },
     "Check": {
       "DeregisterCriticalServiceAfter": "90m",
-      "Args": ["/usr/local/bin/check_redis.py"],
-      "HTTP": "http://localhost:5000/health",
+      "Args": ["/etc/consul.d/scripts/check_redis.sh"],
       "Interval": "10s"
     },
     "Weights": {
