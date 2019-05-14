@@ -1,6 +1,7 @@
 consul {
-  # The address to the Consul agent.
+  # The address to the unique Consul client agent.
   address = "127.0.0.1:8500"
+  #token = "xx-xxxxx"
 
   # The service name to register the server and client with Consul.
   server_service_name = "nomad"

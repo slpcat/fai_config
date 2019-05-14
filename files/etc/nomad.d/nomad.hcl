@@ -25,3 +25,30 @@ autopilot {
     disable_upgrade_migration = false
     enable_custom_upgrades = false
 }
+plugin "docker" {
+  config {
+    endpoint = "unix:///var/run/docker.sock"
+
+    #auth {
+    #  config = "/etc/docker-auth.json"
+    #  helper = "docker-credential-aws"
+    #}
+
+    gc {
+      image       = true
+      image_delay = "2d"
+      container   = true
+    }
+
+    volumes {
+      enabled      = true
+      #selinuxlabel = "z"
+    }
+
+    allow_privileged = true
+    #allow_caps       = ["CHOWN", "NET_RAW"]
+
+    # allow_caps can also be set to "ALL"
+      allow_caps = ["ALL"]
+  }
+}

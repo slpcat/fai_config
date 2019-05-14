@@ -1,6 +1,9 @@
 datacenter = "dc1"
 bind_addr = "172.16.0.1"
 client_addr = "0.0.0.0"
+leave_on_terminate = false
+reconnect_timeout = "96h"
+retry_interval = "20s"
 data_dir = "/var/lib/consul"
 retry_join = ["172.16.1.2", "172.16.1.3", "172.16.1.4"]
 performance {
@@ -14,7 +17,9 @@ disable_remote_exec = true
 recursors = ["114.114.114.114", "8.8.8.8"]
 dns_config {
   recursor_timeout = "4s"
-  node_ttl = "10s"
+  allow_stale = true
+  max_stale = "48h"
+  node_ttl = "10m"
   service_ttl {
     "*" = "10s",
     "web" = "30s",

@@ -5,7 +5,7 @@ After=network.target
 [Service]
 Type=simple
 User=prometheus
-ExecStart=/usr/local/bin/prometheus -config.file=/etc/prometheus.yml -storage.local.path=/var/lib/prometheus
+ExecStart=/usr/local/bin/prometheus --config.file=/opt/prometheus/prometheus.yml --storage.tsdb.path=/var/lib/prometheus --storage.tsdb.retention.time=30d
 Restart=on-failure
 
 [Install]
