@@ -11,3 +11,11 @@ server {
   max_heartbeats_per_second = 50.0
   rejoin_after_leave = true
 }
+
+#vault {
+#  enabled = true
+#  address = "http://vault.service.consul:8200"
+#  task_token_ttl = "1h"
+#  create_from_role = "nomad-cluster"
+#  token = "<your nomad server token>"
+#}
