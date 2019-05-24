@@ -1,7 +1,10 @@
 log_level = "INFO"
 data_dir = "/var/lib/nomad"
 bind_addr = "0.0.0.0"
-leave_on_terminate = true
+disable_anonymous_signature = true
+disable_update_check = true
+leave_on_interrupt = false
+leave_on_terminate = false
 region = "区域"
 datacenter = "数据中心名称"
 #advertise {
@@ -16,6 +19,7 @@ telemetry {
   publish_allocation_metrics = true
   publish_node_metrics = true
 }
+
 autopilot {
     cleanup_dead_servers = true
     last_contact_threshold = "200ms"
@@ -25,6 +29,7 @@ autopilot {
     disable_upgrade_migration = false
     enable_custom_upgrades = false
 }
+
 plugin "docker" {
   config {
     endpoint = "unix:///var/run/docker.sock"
@@ -36,7 +41,7 @@ plugin "docker" {
 
     gc {
       image       = true
-      image_delay = "2d"
+      image_delay = "48h"
       container   = true
     }
 
@@ -46,9 +51,9 @@ plugin "docker" {
     }
 
     allow_privileged = true
-    #allow_caps       = ["CHOWN", "NET_RAW"]
 
     # allow_caps can also be set to "ALL"
-      allow_caps = ["ALL"]
+    #allow_caps       = ["CHOWN", "NET_RAW"]
+    allow_caps = ["ALL"]
   }
 }

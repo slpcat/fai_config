@@ -1,4 +1,4 @@
-leave_on_terminate = true
+leave_on_terminate = false
 ports {
   dns = 53
 }

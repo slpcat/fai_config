@@ -16,6 +16,7 @@ client {
     "user.blacklist" = "root,ubuntu"
   }
   node_class    = "prod"
+  #network_interface = "eth0"
   reserved {
     cpu            = 500
     memory         = 512
