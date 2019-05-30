@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20190425
+# Revision: 20190529
 # /etc/sysctl.conf
 #
 
@@ -139,7 +139,13 @@ fs.mqueue.queues_max=65536
 
 #Fair Queue packet scheduler to fight bufferbloat.
 #Note that TSO (which is off by default on most NICs) should be disabled when using FQ.
-net.core.default_qdisc=fq
+# In a video server, we are often sending files to a client
+# which can't accept it as fast as our local network connection
+# could produce packets. To prevent packet loss and buffer bloat,
+# it's especially important to use a modern CoDel scheduler which
+# knows how to delay outgoing packets to match slower client links.
+net.core.default_qdisc=fq_codel
+
 #禁止ipv6
 #net.ipv6.conf.all.disable_ipv6=1
 #net.ipv6.conf.default.disable_ipv6=1
