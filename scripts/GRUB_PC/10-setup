@@ -18,7 +18,7 @@ fi
 
 # vsyscall=none can not work with centos 5.x and 6.x which shoud be vsyscall=emulate
 # nosplash and ethX
-sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT.*$/GRUB_CMDLINE_LINUX_DEFAULT="elevator=deadline crashkernel=384M-2G:64M,2G-:128M vsyscall=none vt.cur_default=50 transparent_hugepage=never cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1 intel_pstate=disable thermal.off=1 pcie_aspm=off cpufreq.off=1 idle=halt net.ifnames=0 biosdevname=0 kmemleak=off thash_entries=1048576 rhash_entries=1048576 uhash_entries=1048576 tsc=reliable nospectre_v2 nospec_store_bypass_disable nopti no_timer_check noreplace-smp kvm-intel.nested=1 intel_iommu=igfx_off cryptomgr.notests rcupdate.rcu_expedited=1 rcu_nocbs=0-64"/' $target/etc/default/grub
+sed -i 's/^GRUB_CMDLINE_LINUX_DEFAULT.*$/GRUB_CMDLINE_LINUX_DEFAULT="scsi_mod.use_blk_mq=1 elevator=mq-deadline crashkernel=384M-2G:64M,2G-:128M vsyscall=none vt.cur_default=50 transparent_hugepage=never cgroup_enable=cpuset cgroup_memory=1 cgroup_enable=memory swapaccount=1 intel_pstate=disable thermal.off=1 pcie_aspm=off cpufreq.off=1 idle=halt net.ifnames=0 biosdevname=0 kmemleak=off thash_entries=1048576 rhash_entries=1048576 uhash_entries=1048576 tsc=reliable mitigations=off nospectre_v2 nospec_store_bypass_disable nopti no_timer_check noreplace-smp kvm-intel.nested=1 intel_iommu=igfx_off cryptomgr.notests rcupdate.rcu_expedited=1 rcu_nocbs=0-64"/' $target/etc/default/grub
 sed -i s/^GRUB_HIDDEN_TIMEOUT/#GRUB_HIDDEN_TIMEOUT/ $target/etc/default/grub
 sed -i 's/^#GRUB_GFXMODE.*$/GRUB_GFXMODE=1024x768/' $target/etc/default/grub
 ainsl /etc/default/grub 'GRUB_GFXPAYLOAD_LINUX="$GRUB_GFXMODE"'
