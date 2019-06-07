@@ -67,7 +67,7 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC XORG MATE ZFS
 
-Name: DEEPIN 15.6 Desktop
+Name: DEEPIN 15.10 Desktop
 Description: DEEPIN desktop
 Short: A fancy DDE desktop will be installed, the user account is hmuser
 Long: This is the DDE desktop example. Additional account called

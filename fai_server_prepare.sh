@@ -17,8 +17,8 @@ cp fai/bionic /usr/share/debootstrap/scripts/
 
 #system update,need reboot
 apt-get update -y
-apt-get dist-upgrade -y
-apt-get install -y linux-image-amd64/stretch-backports linux-headers-amd64/stretch-backports
+apt-get dist-upgrade -t stretch-backports -y
+apt-get install -t stretch-backports -y linux-image-amd64 linux-headers-amd64
 
 #nfsroot reinsall
 fai-setup -f -v

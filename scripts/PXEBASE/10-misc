@@ -37,7 +37,7 @@ cp -ar $target/etc/skel/. $target/root
 chmod -c 0700 $target/root
 chown -c root:root $target/root
 chmod -cR 0600 $target/root/.ssh
-$ROOTCMD usermod -s /bin/zsh root
+#$ROOTCMD usermod -s /bin/zsh root
 
 chmod -c 1777 ${target}/tmp
 chown -c 0:0  ${target}/tmp

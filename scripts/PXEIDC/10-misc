@@ -43,13 +43,13 @@ sed -i 's/^#fs.xfs/fs.xfs/' $target/etc/sysctl.conf
 #ainsl /etc/default/rcS 'umask 077'
 sed -i 's/^for FILE.*$/for FILE in passwd group ; do/' $target/etc/cron.daily/passwd
 
-sed -i 's/^SHELL.*$/SHELL=\/bin\/zsh/' $target/etc/default/useradd
-sed -i 's/DSHELL.*$/DSHELL=\/bin\/zsh/' $target/etc/adduser.conf
+#sed -i 's/^SHELL.*$/SHELL=\/bin\/zsh/' $target/etc/default/useradd
+#sed -i 's/DSHELL.*$/DSHELL=\/bin\/zsh/' $target/etc/adduser.conf
 # add  user account:hmuser
 
 if ! $ROOTCMD getent passwd hmuser ; then
     $ROOTCMD adduser --disabled-login --gecos 'HUMAN USER' hmuser
-    $ROOTCMD usermod -p '$1$.cWiG8mO$FXN7lZaghXxjZnhshvqfm/' -s /bin/zsh hmuser
+    $ROOTCMD usermod -p '$1$.cWiG8mO$FXN7lZaghXxjZnhshvqfm/' hmuser
     for g in $groups; do
 	$ROOTCMD adduser hmuser $g
     done
