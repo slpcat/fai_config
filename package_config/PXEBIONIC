@@ -14,15 +14,15 @@ PACKAGES install CHROOT
 linux-image-generic-
 
 PACKAGES install AMD64
-linux-image-generic
-#linux-image-extra-virtual-hwe-16.04
-#linux-virtual-hwe-16.04
+#linux-image-generic
+linux-image-extra-virtual-hwe-18.04
+linux-virtual-hwe-18.04
 dpdk
 initramfs-tools
 memtest86+
-spl-dkms
-zfs-dkms
-zfsutils-linux
+#spl-dkms
+#zfs-dkms
+#zfsutils-linux
 
 PACKAGES install DHCPC
 isc-dhcp-client

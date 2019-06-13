@@ -1,0 +1,35 @@
+PACKAGES install I386
+linux-image-686-pae initramfs-tools
+memtest86+
+
+PACKAGES install CHROOT
+linux-image-686-pae-
+linux-image-amd64-
+
+PACKAGES install AMD64
+#linux-image-amd64
+linux-base
+linux-image-deepin-amd64
+linux-headers-deepin-amd64
+initramfs-tools
+memtest86+
+zsh
+
+PACKAGES install DHCPC
+isc-dhcp-client
+
+PACKAGES install GRUB_PC
+grub-pc grub-legacy- lilo-
+
+PACKAGES install DOCKER
+linux-base
+linux-image-deepin-amd64
+linux-headers-deepin-amd64
+docker-ce
+
+PACKAGES install ZFS
+zfs-dkms
+zfsutils-linux
+
+PACKAGES LVM
+lvm2

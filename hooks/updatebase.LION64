@@ -1,0 +1,83 @@
+#! /bin/bash
+if [ -n "$APTPROXY" ]; then
+ainsl -a /etc/apt/apt.conf.d/02proxy "Acquire::http::Proxy \"$APTPROXY\";"
+ainsl  /etc/apt/apt.conf.d/02proxy 'Acquire::https::proxy "DIRECT";'
+else
+    rm -f $target/etc/apt/apt.conf.d/02proxy
+fi
+echo "DPkg::Progress-Fancy "true";" > $target/etc/apt/apt.conf.d/01color
+echo "APT::Color "true";" >> $target/etc/apt/apt.conf.d/01color
+echo force-unsafe-io > $target/etc/dpkg/dpkg.cfg.d/unsafe-io
+
+ainsl -a /etc/apt/apt.conf.d/03download 'Acquire::Queue-Mode "access";'
+ainsl /etc/apt/apt.conf.d/03download 'Acquire::Retries "3";'
+ainsl /etc/apt/apt.conf.d/03download 'Acquire::CompressionTypes::Order "lzma";'
+ainsl /etc/apt/apt.conf.d/03download 'Acquire::ForceIPv4 "true";'
+ainsl /etc/apt/apt.conf.d/70debconf 'APT::ExtractTemplates::TempDir "/var/tmp";'
+fcopy /etc/apt/sources.list
+
+#kernel modules for zfs
+ainsl -a /etc/dkms/spl.conf 'POST_INSTALL="scripts/dkms.postbuild -a ${arch} -k ${kernelver} -v ${PACKAGE_VERSION} -n ${PACKAGE_NAME} -t ${dkms_tree}"'
+fcopy /etc/dkms/zfs.conf
+
+# you may want to add i386 arch to amd64 hosts
+if ifclass AMD64; then
+    $ROOTCMD dpkg --add-architecture i386
+fi
+cp -f /etc/apt/trusted.gpg.d/*.gpg $target/etc/apt/trusted.gpg.d/
+# use external mirror, remove this script when using a mirror from CD
+
+cat <<EOM > $target/etc/apt/sources.list
+# external mirror
+deb [by-hash=force] http://mirrors.aliyun.com/deepin lion main contrib non-free
+#deb-src http://mirrors.aliyun.com/deepin panda main contrib non-free
+
+#all php repo
+#deb https://packages.sury.org/php/ stretch main
+#deb-src https://packages.sury.org/php/ stretch main
+
+# MariaDB 10.1 repository list - created 2016-12-05 06:07 UTC
+# http://downloads.mariadb.org/mariadb/repositories/
+#deb [arch=amd64,i386] http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian stretch main
+#deb-src http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian stretch main
+
+# Percona releases, stable
+#deb http://repo.percona.com/apt stretch main
+#deb-src http://repo.percona.com/apt stretch main
+
+#gitlab-runner
+#deb https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian stretch main
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/gitlab-ci-multi-runner/debian stretch main
+
+#Oracle Java 8
+#deb http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main
+#deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main
+
+#Elasticsearch
+#deb https://artifacts.elastic.co/packages/5.x/apt stable main
+
+#graylog
+#deb https://packages.graylog2.org/repo/debian/ stable 2.4
+
+#deb http://repo.zabbix.com/zabbix/3.4/debian/ stretch main
+
+#docker-engine
+#deb https://apt.dockerproject.org/repo debian-stretch main
+
+#docker-ce
+#deb [arch=amd64] https://download.docker.com/linux/debian stretch stable
+deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/debian stretch stable
+
+#ansible
+#deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main
+
+#deb https://pkg.jenkins.io/debian binary/
+
+#deb http://http.kali.org/kali kali-rolling main non-free contrib
+
+#bcc-tools
+#deb [trusted=yes] https://repo.iovisor.org/apt/xenial xenial-nightly main
+
+#sysdig
+#deb http://download.draios.com/stable/deb stable-$(ARCH)/
+EOM

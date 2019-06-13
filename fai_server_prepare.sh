@@ -12,6 +12,7 @@ cp fai/apt/trusted.gpg.d/ubuntu-archive-keyring.gpg /usr/share/keyrings/
 #debootstap patch
 #DEEPIN is forked from Debian SID
 cp fai/panda /usr/share/debootstrap/scripts/
+cp fai/lion /usr/share/debootstrap/scripts/
 #BONIC
 cp fai/bionic /usr/share/debootstrap/scripts/
 
