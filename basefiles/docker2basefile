@@ -53,6 +53,8 @@ prtdists() {
     JESSIE64
     STRETCH64
     BUSTER64
+    PANDA64
+    LION64
 "
 }
 
@@ -130,6 +132,14 @@ case "$target" in
         ;;
     STRETCH64)
         repo=debian:stretch
+        mk_dist_img
+        ;;
+    PANDA64)
+        repo=bestwu/deepin
+        mk_dist_img
+        ;;
+    LION64)
+        repo=slpcat/deepin
         mk_dist_img
         ;;
     BUSTER64)
