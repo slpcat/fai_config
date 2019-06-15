@@ -18,6 +18,12 @@ ainsl /etc/apt/apt.conf.d/03download 'Acquire::Retries "3";'
 ainsl /etc/apt/apt.conf.d/03download 'Acquire::CompressionTypes::Order "lzma";'
 ainsl /etc/apt/apt.conf.d/03download 'Acquire::ForceIPv4 "true";'
 ainsl /etc/apt/apt.conf.d/70debconf 'APT::ExtractTemplates::TempDir "/var/tmp";'
+ainsl -a  /etc/apt/apt.conf.d/100disablechecks 'Acquire::Check-Valid-Until "false";'
+
+ainsl -a /etc/apt/preferences.d/backports 'Package: *'
+ainsl /etc/apt/preferences.d/backports 'Pin: release a=jessie-backports'
+ainsl /etc/apt/preferences.d/backports 'Pin-Priority: 900'
+
 # you may want to add i386 arch to amd64 hosts
 if ifclass AMD64; then
     $ROOTCMD dpkg --add-architecture i386

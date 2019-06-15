@@ -99,13 +99,13 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXECENTOS CENTOS7_64 XFCE_EL7
 
-Name: Fedora 27 GNOME Desktop
-Description:  Fedora 27 with GNOME desktop
-Short: A normal GNOME desktop, running  Fedora 27
-Long: We use the Debian nfsroot for installing the  Fedora 27 OS.
+Name: Fedora 30 GNOME Desktop
+Description:  Fedora 30 with GNOME desktop
+Short: A normal GNOME desktop, running  Fedora 30
+Long: We use the Debian nfsroot for installing the  Fedora 30 OS.
 You should have a fast network connection, because most packages are
 downloaded from the internet.
-Classes: INSTALL PXEBASE PXEFEDORA27 FEDORA27_64 GNOME_FC27
+Classes: INSTALL PXEBASE PXEFEDORA30 FEDORA30_64 GNOME_FC30
 
 Name: openSUSE 42 KDE Desktop
 Description:  openSUSE 42 with KDE desktop
@@ -222,7 +222,7 @@ Description: debian 8 for docker without swap
 Short: a very simple server, no xorg
 Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC DOCKER ZFS
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC DOCKER
 
 Name: Ubuntu 16.04 CDH5 Big Data
 Description: Ubuntu 16.04 for CDH5 Big Data
@@ -388,28 +388,28 @@ Description: pxe basic server installation
 Short: a very simple server, no xorg
 Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC ZFS
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC
 
 Name: debian8-nginx-server-backend
 Description: webserver with nginx and php5 installation
 Short:  nginx php5 for web backend
 Long: This is the webserver with nginx and php5 installation.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXENGINXBACKEND ZFS
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXENGINXBACKEND
 
 Name: debian8-mysql-server
 Description: MariaDB 10.0 server
 Short: This is the mysql server
 Long: This is the mysql server.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXEMYSQL ZFS
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXEMYSQL
 
 Name: debian8-LNMP-webserver
 Description: webserver with nginx, mysql and php5 installation
 Short:  nginx mysql php5 webserver
 Long: This is the webserver with nginx, mysql and php5 installation.
 Additional account called hmuser with password: hmuserpwd
-Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXENGINXBACKEND PXEMYSQL ZFS
+Classes: INSTALL PXEBASE JESSIE64 PXEIDC PXENGINXBACKEND PXEMYSQL
 
 Name: Inventory
 Description: Show hardware info

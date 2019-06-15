@@ -8,7 +8,7 @@ linux-image-amd64-
 
 PACKAGES install AMD64
 #linux-image-amd64
-linux-base/jessie-backports
+#linux-base/jessie-backports
 linux-image-amd64/jessie-backports
 linux-headers-amd64/jessie-backports
 initramfs-tools
@@ -21,7 +21,7 @@ PACKAGES install GRUB_PC
 grub-pc grub-legacy- lilo-
 
 PACKAGES install DOCKER
-linux-base/jessie-backports
+#linux-base/jessie-backports
 linux-image-amd64/jessie-backports
 linux-headers-amd64/jessie-backports
 docker-ce

@@ -1,14 +1,14 @@
 deb http://mirrors.aliyun.com/debian jessie main contrib non-free
 deb-src http://mirrors.aliyun.com/debian jessie main contrib non-free
 
-deb http://mirrors.aliyun.com/debian jessie-updates main contrib non-free
-deb-src http://mirrors.aliyun.com/debian jessie-updates main contrib non-free
+#deb http://mirrors.aliyun.com/debian jessie-updates main contrib non-free
+#deb-src http://mirrors.aliyun.com/debian jessie-updates main contrib non-free
 
 deb http://mirrors.aliyun.com/debian-security jessie/updates main contrib non-free
 deb-src http://mirrors.aliyun.com/debian-security jessie/updates main contrib non-free
 
-deb http://mirrors.aliyun.com/debian jessie-backports main contrib non-free
-deb-src http://mirrors.aliyun.com/debian jessie-backports main contrib non-free
+deb [check-valid-until=no] http://archive.debian.org/debian jessie-backports main
+deb-src [check-valid-until=no] http://archive.debian.org/debian jessie-backports main
 
 deb http://nginx.org/packages/debian/ jessie nginx
 deb-src http://nginx.org/packages/debian/ jessie nginx
@@ -51,7 +51,7 @@ deb-src http://nginx.org/packages/debian/ jessie nginx
 #graylog
 #deb https://packages.graylog2.org/repo/debian/ stable 2.4
 
-deb http://repo.zabbix.com/zabbix/3.4/debian/ jessie main
+#deb http://repo.zabbix.com/zabbix/3.4/debian/ jessie main
 
 #docker-engine
 #deb https://apt.dockerproject.org/repo debian-jessie main

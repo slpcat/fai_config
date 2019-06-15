@@ -1,0 +1,126 @@
+PACKAGES dnfgroup
+core
+
+PACKAGES dnfgroup GNOME_FC30
+basic-desktop
+#x11
+#chinese-support
+#gnome-desktop base-x # slc5/CentOS 5
+#basic-desktop x11 fonts #slc6/CentOS 6
+#CentOS 7
+gnome-desktop
+#cinnamon
+#kde-desktop
+#mate-desktop
+#xfce
+#lxde
+
+PACKAGES dnfi GNOME_FC30
+firefox
+nautilus
+gdm
+gconf-editor
+gnome-screensaver
+cjkuni-ukai-fonts
+im-chooser
+gtk2-immodule-xim
+gtk3-immodule-xim
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese ibus-pinyin
+
+gnome-tweak-tool
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts
+
+PACKAGES dnfgroup XFCE_FC30
+basic-desktop
+#x11
+#chinese-support
+#gnome-desktop base-x # slc5/CentOS 5
+#basic-desktop x11 fonts #slc6/CentOS 6
+#CentOS 7
+#gnome-desktop3
+#cinnamon
+#kde-desktop
+#mate-desktop
+xfce
+#lxde
+
+PACKAGES dnfi XFCE_FC30
+firefox
+#nautilus
+#menu gdm
+#libgnomevfs2-bin
+#network-manager-gnome
+cjkuni-ukai-fonts
+im-chooser
+gtk2-immodule-xim
+gtk3-immodule-xim
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese ibus-pinyin
+
+gnome-tweak-tool
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts
+
+PACKAGES dnfi
+#authconfig
+kernel
+kernel-devel
+#zfs
+# sysvinit-tools grub # CentOS 5 and 6
+grub2  # CentOS 7
+less
+irqbalance
+libpwquality
+openssh
+openssh-clients
+openssh-server
+vim-enhanced
+man
+curl
+#screen
+rsync
+unzip
+which
+nfs-utils
+#pakchois
+ncurses-base # currently missing in the base file
+net-tools
+iptables-services
+mailx
+#yum-cron
+#snoopy
+nscd
+wget
+ntp
+powertop
+mtr
+smartmontools
+zsh
+lm_sensors
+tmux
+iftop
+iotop
+htop
+lynis
+#aide
+unhide
+#rkhunter
+#arpwatch
+sysstat
+psacct
+zabbix-agent
+yum-plugin-versionlock
+yum-plugin-changelog
+
+#sendmail # only for C5 and C6
+
+PACKAGES dnfi DOCKER
+docker-ce
+dokcer-compose
+
+PACKAGES dnfi LVM
+lvm2

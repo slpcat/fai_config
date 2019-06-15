@@ -1,0 +1,144 @@
+#! /bin/bash
+#convert docker image to basefile for intallation
+
+# mk-basefile, create basefiles for some distributions
+#
+#
+# Usage example: mk-basefile -J STRETCH64
+# This will create a STRETCH64.tar.xz basefile.
+
+# Supported distributions (only amd64):
+# Debian GNU/Linux
+# Ubuntu 14.04/16.04
+# CentOS 5/6/7
+# Fedora 27 30
+# Scientific Linux Cern 5/6
+#
+
+docker_pull_image() {
+    echo "Downloading docker images "
+    docker pull $repo
+}
+
+docker_run() {
+    container_id=`docker run -d $repo`
+}
+
+tarit() {
+    echo "Compressing basefile ..."
+    docker export $container_id | $zip > $target.$ext
+}
+
+cleanup() {
+    docker rm $container_id
+}
+
+mk_dist_img() {
+    docker_pull_image
+    docker_run
+    tarit
+    cleanup
+}
+
+prtdists() {
+
+    echo "Available Linux distritubtions:
+
+    CENTOS7_64
+    SLC7_64
+    FEDORA30_64
+    TRUSTY64
+    XENIAL64
+    BIONIC64
+    JESSIE64
+    STRETCH64
+    BUSTER64
+"
+}
+
+usage() {
+
+    cat <<EOF
+docker2basefile, create minimal base files for a Linux distritubtion from docker image
+
+   Copyright (C) 2019 by slpcat
+
+Usage: docker2basefile [OPTION] ... DISTRIBUTION
+
+   -s                   Show list of supported linux distributions
+   -z                   Use gzip for compressing the tar file.
+   -J                   Use xz for compressing the tar file.
+   -h                   Print help.
+
+ Usage example: docker2basefile -J STRETCH64
+ This will create a STRETCH64.tar.xz basefile.
+
+EOF
+    exit 0
+}
+
+# main routine
+
+ext=tar
+zip=cat
+cleanup=1
+
+while getopts shzJd:f: opt ; do
+    case "$opt" in
+        f) export ARCH=$OPTARG ;;
+        z) zip="gzip -9"; ext=tar.gz ;;
+        J) zip="xz -8 -T 0" ext=tar.xz ;;
+        h) usage ;;
+        s) prtdists ; exit 0;;
+        ?) exit 3 ;; # error in option parsing
+    esac
+done
+shift $(($OPTIND - 1))
+
+target=$1 # also the name of the output file
+repo=
+
+[ -z "$target" ] && usage
+case "$target" in
+    CENTOS7_64) 
+        repo=centos:7
+        mk_dist_img
+        ;;
+    SLC7_64)
+        repo=ringo/scientific
+        mk_dist_img
+        ;;
+    FEDORA30_64)
+        repo=fedora:30
+        mk_dist_img
+        ;;
+    TRUSTY64)
+        repo=ubuntu:trustry
+        mk_dist_img
+        ;;
+    XENIAL64)
+        repo=ubuntu:xenial
+        mk_dist_img
+        ;;
+    BIONIC64)
+        repo=ubuntu:bionic
+        mk_dist_img
+        ;;
+    JESSIE64)
+        repo=debian:jessie
+        mk_dist_img
+        ;;
+    STRETCH64)
+        repo=debian:stretch
+        mk_dist_img
+        ;;
+    BUSTER64)
+        repo=debian:buster
+        mk_dist_img
+        ;;
+    LION*)
+        debgeneric $target $MIRROR_DEEPIN ;;
+    *) echo "Unknown distribution. Aborting."
+       prtdists
+       exit 99 ;;
+esac

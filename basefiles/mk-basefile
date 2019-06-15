@@ -12,7 +12,7 @@
 # Debian GNU/Linux
 # Ubuntu 14.04/16.04
 # CentOS 5/6/7
-# Fedora 27
+# Fedora 27 30
 # Scientific Linux Cern 5/6
 # DEEPIN 15.5 (PANDA)
 # DEEPIN 15.10 (LION)
@@ -249,7 +249,7 @@ prtdists() {
     SLC5_32      SLC5_64
     SLC6_32      SLC6_64
                  SLC7_64
-                 FEDORA27_64
+                 FEDORA30_64
     TRUSTY32     TRUSTY64
     XENIAL32     XENIAL64
                  BIONIC64
@@ -333,7 +333,7 @@ case "$target" in
     SLC6_32) slc i386 6 ;;
     SLC6_64) slc amd64 6 ;;
     SLC7_64) slc amd64 7 ;;
-    FEDORA27_64) fedora amd64 27 ;;
+    FEDORA30_64) fedora amd64 30 ;;
     TRUSTY*|XENIAL*|BIONIC*)
         debgeneric $target $MIRROR_UBUNTU ;;
     SQUEEZE*|WHEEZY*|JESSIE*|STRETCH*|BUSTER*|SID*)

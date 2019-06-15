@@ -126,7 +126,7 @@ fi
 #setfacl -m g:adm:r-- $target/var/log/wtmp
 sed -i 's/^\$FileCreateMode.*$/\$FileCreateMode 0600/' $target/etc/rsyslog.conf
 sed -i 's/^\$DirCreateMode.*$/\$DirCreateMode 0711/' $target/etc/rsyslog.conf
-sed -i 's/^\$Umask.*$/\$Umask 0077/' $target/etc/rsyslog.conf
+#sed -i 's/^\$Umask.*$/\$Umask 0077/' $target/etc/rsyslog.conf
 #sed -i 's/^# disable 10/disable 10/' $target/etc/naccttab
 #sed -i 's/^iflimit/#iflimit/' $target/etc/naccttab
 #sed -i 's/^ignoremask/#ignoremask/' $target/etc/naccttab

@@ -60,8 +60,6 @@ deb-src http://nginx.org/packages/debian/ stretch nginx
 #graylog
 #deb https://packages.graylog2.org/repo/debian/ stable 2.4
 
-deb http://repo.zabbix.com/zabbix/3.4/debian/ stretch main
-
 #docker-engine
 #deb https://apt.dockerproject.org/repo debian-stretch main
 
