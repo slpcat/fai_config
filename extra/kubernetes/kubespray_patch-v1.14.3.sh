@@ -105,7 +105,7 @@ sed -i 's/^#\ kube_router_enable_dsr.*$/kube_router_enable_dsr:\ true/' ./kubesp
 
 sed -i 's/^kube_controller_pod_eviction_timeout.*$/kube_controller_pod_eviction_timeout:\ 1m0s/' ./kubespray/roles/kubernetes/master/defaults/main/main.yml
 #kubernetes dashboard
-sed -i 's/dashboard_enabled.*$/dashboard_enabled: false/' .kubespray/inventory/sample/group_vars/all/addons.yml
+sed -i 's/dashboard_enabled.*$/dashboard_enabled: false/' .kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
 sed -i 's/^dashboard_token_ttl.*$/dashboard_token_ttl:\ 86400/' ./roles/kubernetes-apps/ansible/defaults/main.yml
 
 #change local-volume-provisioner
