@@ -11,6 +11,11 @@ PRIVATE_KUBE_REGISTRY="slpcat"
 
 images=(
 hyperkube-amd64:v1.14.3
+kube-apiserver:v1.14.3
+kube-controller-manager:v1.14.3
+kube-scheduler:v1.14.3
+kube-proxy:v1.14.3
+cluster-proportional-autoscaler-amd64:1.4.0
 k8s-dns-node-cache:1.15.1
 kubernetes-dashboard-amd64:v1.10.1
 pause-amd64:3.1
