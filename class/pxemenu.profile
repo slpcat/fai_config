@@ -320,6 +320,13 @@ You should have a fast network connection, because most packages are
 downloaded from the internet.
 Classes: INSTALL PXEBASE PXEIDC PXETRUSTY TRUSTY TRUSTY64
 
+Name: pxe-debian-10-server
+Description: pxe debian 10 server installation
+Short: a very simple server, no xorg
+Long: This is the base system .
+Additional account called hmuser with password: hmuserpwd
+Classes: INSTALL PXEBASE PXEBUSTER PXEIDC BUSTER64
+
 Name: pxe-basic-server
 Description: pxe basic server installation
 Short: a very simple server, no xorg

@@ -9,7 +9,7 @@ python-netaddr
 sudo
 #auditd
 apt-listchanges
-apt-show-versions
+#apt-show-versions
 #python-software-properties
 software-properties-common
 sysfsutils

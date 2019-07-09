@@ -1,0 +1,54 @@
+PACKAGES install I386
+linux-image-686-pae initramfs-tools
+memtest86+
+
+PACKAGES install CHROOT
+linux-image-686-pae-
+linux-image-amd64-
+
+PACKAGES install AMD64
+linux-image-amd64
+#linux-image-amd64/buster-backports
+#linux-headers-amd64/buster-backports
+#linux-compiler-gcc-6-x86/buster-backports
+#linux-libc-dev/buster-backports
+#dpdk/buster-backports
+initramfs-tools
+openssh-server openssh-client
+memtest86+
+
+PACKAGES install DHCPC
+isc-dhcp-client
+
+PACKAGES install CUDA
+#nvidia-driver/buster-backports
+#nvidia-driver-bin/buster-backports
+#xserver-xorg-video-nvidia/buster-backports
+#nvidia-vdpau-driver/buster-backports
+#nvidia-kernel-dkms/buster-backports
+#libnvidia-glcore/buster-backports
+#nvidia-alternative/buster-backports
+nvidia-docker2
+
+PACKAGES install DOCKER
+#linux-image-amd64/buster-backports
+#linux-headers-amd64/buster-backports
+docker-ce
+dokcer-compose
+ceph-common
+
+PACKAGES install GRUB_PC
+grub-pc grub-legacy- lilo-
+
+PACKAGES install ZFS
+spl-dkms/buster-backports
+zfs-dkms/buster-backports
+zfs-zed/buster-backports
+libnvpair1linux/buster-backports
+libuutil1linux/buster-backports
+libzfs2linux/buster-backports
+libzpool2linux/buster-backports
+zfsutils-linux/buster-backports
+
+PACKAGES install LVM
+lvm2
