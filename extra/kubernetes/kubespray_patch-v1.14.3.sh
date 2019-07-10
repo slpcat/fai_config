@@ -49,7 +49,7 @@ sed -i 's/^download_run_once.*$/download_run_once:\ True/' ./kubespray/roles/dow
 #sed -i 's/^download_always_pull.*$/download_always_pull:\ True/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/^retry_stagger.*$/retry_stagger:\ 60/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
-sed -i 's/^docker_version.*$/docker_version:\ \"latest\"/' .kubespray/roles/container-engine/docker/defaults/main.yml
+sed -i 's/^docker_version.*$/docker_version:\ \"latest\"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 
 #change docker repo
 sed -i 's/^docker_rh_repo_base_url.*$/docker_rh_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/centos\/7\/\$basearch\/stable"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
@@ -107,8 +107,8 @@ sed -i 's/^#\ kube_router_enable_dsr.*$/kube_router_enable_dsr:\ true/' ./kubesp
 
 sed -i 's/^kube_controller_pod_eviction_timeout.*$/kube_controller_pod_eviction_timeout:\ 1m0s/' ./kubespray/roles/kubernetes/master/defaults/main/main.yml
 #kubernetes dashboard
-sed -i 's/dashboard_enabled.*$/dashboard_enabled: false/' .kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
-sed -i 's/^dashboard_token_ttl.*$/dashboard_token_ttl:\ 86400/' ./roles/kubernetes-apps/ansible/defaults/main.yml
+sed -i 's/^dashboard_enabled.*$/dashboard_enabled: false/' ./kubespray/inventory/sample/group_vars/k8s-cluster/addons.yml
+sed -i 's/^dashboard_token_ttl.*$/dashboard_token_ttl:\ 86400/' ./kubespray/roles/kubernetes-apps/ansible/defaults/main.yml
 
 #change local-volume-provisioner
 #echo 'reclaimPolicy: Retain' >> ./kubespray/roles/kubernetes-apps/external_provisioner/local_volume_provisioner/templates/local-volume-provisioner-sc.yml.j2
