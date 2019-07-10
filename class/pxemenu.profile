@@ -217,6 +217,13 @@ Long: This is the base system .
 Additional account called hmuser with password: hmuserpwd
 Classes: INSTALL PXEBASE PXEDEBIAN PXEIDC DOCKER ZFS
 
+Name: Debian 10 Docker noswap
+Description: debian 10 for docker without swap
+Short: a very simple server, no xorg
+Long: This is the base system .
+Additional account called hmuser with password: hmuserpwd
+Classes: INSTALL PXEBASE PXEBUSTER PXEIDC DOCKER BUSTER64 ZFS
+
 Name: Debian 8 Docker noswap
 Description: debian 8 for docker without swap
 Short: a very simple server, no xorg

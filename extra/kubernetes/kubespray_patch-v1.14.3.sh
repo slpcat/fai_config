@@ -49,6 +49,8 @@ sed -i 's/^download_run_once.*$/download_run_once:\ True/' ./kubespray/roles/dow
 #sed -i 's/^download_always_pull.*$/download_always_pull:\ True/' ./kubespray/roles/download/defaults/main.yml
 sed -i 's/^retry_stagger.*$/retry_stagger:\ 60/' ./kubespray/inventory/sample/group_vars/k8s-cluster/k8s-cluster.yml
 
+sed -i 's/^docker_version.*$/docker_version:\ \"latest\"/' .kubespray/roles/container-engine/docker/defaults/main.yml
+
 #change docker repo
 sed -i 's/^docker_rh_repo_base_url.*$/docker_rh_repo_base_url:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/centos\/7\/\$basearch\/stable"/' ./kubespray/roles/container-engine/docker/defaults/main.yml
 sed -i 's/^docker_rh_repo_gpgkey.*$/docker_rh_repo_gpgkey:\ \"http:\/\/mirrors.aliyun.com\/docker-ce\/linux\/centos\/gpg"/' ./kubespray/roles/container-engine/docker/defaults/main.yml

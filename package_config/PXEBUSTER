@@ -41,14 +41,14 @@ PACKAGES install GRUB_PC
 grub-pc grub-legacy- lilo-
 
 PACKAGES install ZFS
-spl-dkms/buster-backports
-zfs-dkms/buster-backports
-zfs-zed/buster-backports
-libnvpair1linux/buster-backports
-libuutil1linux/buster-backports
-libzfs2linux/buster-backports
-libzpool2linux/buster-backports
-zfsutils-linux/buster-backports
+#spl-dkms/buster-backports
+#zfs-dkms/buster-backports
+#zfs-zed/buster-backports
+#libuutil1linux/buster-backports
+#libzfs2linux/buster-backports
+#libzpool2linux/buster-backports
+#zfsutils-linux/buster-backports
+zfsutils-linux
 
 PACKAGES install LVM
 lvm2
