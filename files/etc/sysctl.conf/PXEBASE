@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20190529
+# Revision: 20190715
 # /etc/sysctl.conf
 #
 
@@ -107,7 +107,7 @@ vm.oom_dump_tasks=0
 vm.oom_kill_allocating_task=0
 #for memsql
 vm.max_map_count=1000000000
-vm.laptop_mode=5
+vm.laptop_mode=180
 
 #Part3: Harware
 
