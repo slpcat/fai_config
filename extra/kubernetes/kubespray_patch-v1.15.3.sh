@@ -85,6 +85,8 @@ sed -i 's/^#kubelet_load_modules.*$/kubelet_load_modules:\ true/' ./kubespray/in
 #sed -i 's/^kubeadm_enabled.*$/kubeadm_enabled:\ false/' ./kubespray/inventory/sample/group_vars/all/all.yml
 #sed -i 's/^skip_non_kubeadm_warning.*$/skip_non_kubeadm_warning:\ true/' ./kubespray/inventory/sample/group_vars/all/all.yml
 
+sed -i 's/^containerd_use_systemd_cgroup.*$/containerd_use_systemd_cgroup:\ true/' ./kubespray/roles/kubespray-defaults/defaults/main.yaml
+
 sed -i 's/^#etcd_memory_limit.*$/etcd_memory_limit:\ "0"/' ./kubespray/inventory/sample/group_vars/etcd.yml
 sed -i 's/^#etcd_quota_backend_bytes.*$/etcd_quota_backend_bytes:\ "8G"/' ./kubespray/inventory/sample/group_vars/etcd.yml
 
