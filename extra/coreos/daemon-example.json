@@ -59,7 +59,7 @@
 	"userland-proxy-path": "/usr/libexec/docker-proxy",
 	"ip": "0.0.0.0",
 	"bridge": "",
-	"bip": "",
+        "bip": "192.168.100.1/24",
 	"fixed-cidr": "",
 	"fixed-cidr-v6": "",
 	"default-gateway": "",
