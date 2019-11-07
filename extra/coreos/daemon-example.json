@@ -4,7 +4,7 @@
 	"dns": [],
 	"dns-opts": [],
 	"dns-search": [],
-	"exec-opts": [],
+        "exec-opts": ["native.cgroupdriver=systemd"],
 	"exec-root": "",
 	"experimental": false,
 	"features": {},
