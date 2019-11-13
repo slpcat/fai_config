@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20190715
+# Revision: 20191113
 # /etc/sysctl.conf
 #
 
@@ -9,7 +9,7 @@
 # Disable the magic-sysrq key (console security issues)
 kernel.sysrq=0
 kernel.panic=10
-kernel.ftrace_enabled=0
+kernel.ftrace_enabled=1
 kernel.pid_max=4194304
 kernel.randomize_va_space=2
 kernel.panic_on_oops=1
@@ -26,7 +26,7 @@ kernel.sched_min_granularity_ns=100000
 kernel.sched_wakeup_granularity_ns=2000000
 kernel.sched_rr_timeslice_ms=20
 #禁止带宽限制
-kernel.sched_rt_period_us=-1
+#kernel.sched_rt_period_us=-1
 kernel.sched_rt_runtime_us=-1
 #kernel.sched_shares_window_ns=10000000
 #kernel.sched_time_avg_ms=1000
@@ -332,8 +332,8 @@ net.ipv4.tcp_slow_start_after_idle=0
 # Turn off reverse path filtering
 net.ipv4.conf.all.rp_filter=0
 net.ipv4.conf.default.rp_filter=0
-net.ipv6.conf.all.rp_filter=0
-net.ipv6.conf.default.rp_filter=0
+#net.ipv6.conf.all.rp_filter=0
+#net.ipv6.conf.default.rp_filter=0
 net.ipv6.conf.all.accept_redirects=0
 net.ipv6.conf.default.accept_redirects=0
 #for docker
