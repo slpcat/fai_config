@@ -1,0 +1,13 @@
+[Unit]
+Description=Prometheus consul_exporter
+[Service]
+#User=nobody
+ExecStart=/usr/local/bin/consul_exporter --log.level=info --consul.server=127.0.0.1:8500 --kv.prefix=/
+ExecStop=/usr/bin/killall consul_exporter
+#限制内存使用最多300M
+MemoryLimit=300M
+#限制CPU使用最多一个核
+CPUQuota=100%
+
+[Install]
+WantedBy=default.target
