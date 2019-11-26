@@ -54,8 +54,8 @@ PACKAGES install-norec AMD64
 grub-pc
 #linux-image-amd64
 apt-transport-https
-#linux-headers-amd64/stretch-backports
-linux-image-amd64/stretch-backports # if you want to use a newer kernel
+#linux-headers-amd64/buster-backports
+linux-image-amd64 # if you want to use a newer kernel
 
 PACKAGES install-norec ARM64
 grub-efi-arm64

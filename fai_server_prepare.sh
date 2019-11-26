@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#for debian stretch
+#for debian buster
 #fai config and server prepare
 cp -r fai/* /etc/fai/
 cp -r fai/apt/* /etc/apt/
@@ -18,8 +18,8 @@ cp fai/bionic /usr/share/debootstrap/scripts/
 
 #system update,need reboot
 apt-get update -y
-apt-get dist-upgrade -t stretch-backports -y
-apt-get install -t stretch-backports -y linux-image-amd64 linux-headers-amd64
+apt-get dist-upgrade -t buster-backports -y
+apt-get install -t buster-backports -y linux-image-amd64 linux-headers-amd64
 
 #nfsroot reinsall
 fai-setup -f -v
