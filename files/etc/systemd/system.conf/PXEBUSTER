@@ -23,10 +23,11 @@
 #CrashReboot=no
 #CtrlAltDelBurstAction=reboot-force
 #CPUAffinity=1 2
-#JoinControllers=cpu,cpuacct net_cls,net_prio
 #RuntimeWatchdogSec=0
 #ShutdownWatchdogSec=10min
+#WatchdogDevice=
 #CapabilityBoundingSet=
+#NoNewPrivileges=no
 #SystemCallArchitectures=
 #TimerSlackNSec=
 #DefaultTimerAccuracySec=1min
@@ -39,10 +40,11 @@
 #DefaultStartLimitBurst=5
 #DefaultEnvironment=
 DefaultCPUAccounting=yes
-#DefaultIOAccounting=no
+DefaultIOAccounting=yes
+#DefaultIPAccounting=no
 #DefaultBlockIOAccounting=no
 DefaultMemoryAccounting=yes
-#DefaultTasksAccounting=yes
+DefaultTasksAccounting=yes
 #DefaultTasksMax=
 #DefaultLimitCPU=
 #DefaultLimitFSIZE=

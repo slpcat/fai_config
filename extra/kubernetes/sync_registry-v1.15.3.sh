@@ -1,4 +1,5 @@
 #!/bin/bash
+#docker pull gcr.azk8s.cn/google_containers/<imagename>:<version>
 #sync all images for kubernetes v1.14.3 to private registry
 set -o errexit
 set -o nounset

@@ -24,23 +24,12 @@ deb-src http://nginx.org/packages/debian/ buster nginx
 #deb-src https://packages.sury.org/php/ buster main
 
 # Ceph packages
-#deb http://mirrors.aliyun.com/ceph/debian-mimic/ buster main
-
-#graphics-drivers
-#deb http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main
-# deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main
-# deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main
-# deb-src http://ppa.launchpad.net/graphics-drivers/ppa/ubuntu cosmic main
-
-#Nvidia Docker
-#deb https://nvidia.github.io/libnvidia-container/debian9/amd64 /
-#deb https://nvidia.github.io/nvidia-container-runtime/debian9/amd64 /
-#deb https://nvidia.github.io/nvidia-docker/debian9/amd64 /
+#deb https://mirrors.aliyun.com/ceph/debian-luminous/ buster main
 
 # MariaDB 10.1 repository list - created 2016-12-05 06:07 UTC
 # http://downloads.mariadb.org/mariadb/repositories/
-#deb [arch=amd64,i386] http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian buster main
-#deb-src http://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian buster main
+#deb [arch=amd64,i386] https://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian buster main
+#deb-src https://mirrors.tuna.tsinghua.edu.cn/mariadb/repo/10.1/debian buster main
 
 # Percona releases, stable
 #deb http://repo.percona.com/apt buster main
@@ -55,20 +44,21 @@ deb-src http://nginx.org/packages/debian/ buster nginx
 #deb-src http://ppa.launchpad.net/webupd8team/java/ubuntu xenial main
 
 #Elasticsearch
-#deb https://artifacts.elastic.co/packages/5.x/apt stable main
+#deb https://artifacts.elastic.co/packages/6.x/apt stable main
+#deb https://artifacts.elastic.co/packages/7.x/apt stable main
 
 #graylog
 #deb https://packages.graylog2.org/repo/debian/ stable 2.4
 
-#docker-engine
-#deb https://apt.dockerproject.org/repo debian-buster main
+#Zabbix Monitor
+deb http://repo.zabbix.com/zabbix/4.4/debian buster main
+deb-src http://repo.zabbix.com/zabbix/4.4/debian buster main
 
 #docker-ce
-#deb [arch=amd64] https://download.docker.com/linux/debian buster stable
-deb [arch=amd64] http://mirrors.aliyun.com/docker-ce/linux/debian buster stable
+deb [arch=amd64] https://download.docker.com/linux/debian buster stable
 
 #kubernetes
-#deb http://mirrors.aliyun.com/kubernetes/apt/ kubernetes-buster main
+#deb https://mirrors.aliyun.com/kubernetes/apt/ kubernetes-buster main
 
 #ansible
 #deb http://ppa.launchpad.net/ansible/ansible/ubuntu xenial main
