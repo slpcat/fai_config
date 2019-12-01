@@ -1,5 +1,12 @@
 #!/bin/bash
 #docker pull gcr.azk8s.cn/google_containers/<imagename>:<version>
+#docker pull dockerhub.azk8s.cn/library/xxx:yyy
+#docker pull docker.mirrors.ustc.edu.cn/library/xxx:yyy
+#docker pull gcr.mirrors.ustc.edu.cn/xxx/yyy:zzz
+#http://mirror.azure.cn/help/gcr-proxy-cache.html
+#docker pull quay.mirrors.ustc.edu.cn/xxx/yyy:zzz
+#docker pull quay.azk8s.cn/xxx/yyy:zzz
+
 #sync all images for kubernetes v1.14.3 to private registry
 set -o errexit
 set -o nounset
