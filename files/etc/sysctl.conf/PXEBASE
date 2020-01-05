@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20191113
+# Revision: 20200105
 # /etc/sysctl.conf
 #
 
@@ -94,8 +94,8 @@ vm.zone_reclaim_mode=0
 vm.vfs_cache_pressure=40
 vm.page-cluster=5
 #VFS内存缓冲区参数优化。
-vm.dirty_background_ratio=75
-vm.dirty_ratio=90
+vm.dirty_background_ratio=40
+vm.dirty_ratio=60
 vm.dirty_writeback_centisecs=60000
 vm.dirty_expire_centisecs=180000
 #PAE高位内存可以脏
