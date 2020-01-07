@@ -346,7 +346,7 @@ innodb_max_dirty_pages_pct = 60
 
 # The flush method InnoDB will use for Log. The tablespace always uses
 # doublewrite flush logic. The default value is "fdatasync", another
-# option is "O_DSYNC".
+# option is "O_DSYNC". >= 5.6.7 O_DIRECT_NO_FSYNC
 innodb_flush_method     = O_DIRECT
 innodb_flush_neighbors  = 1
 innodb_adaptive_flushing = 1
