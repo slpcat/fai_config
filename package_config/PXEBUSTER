@@ -7,10 +7,9 @@ linux-image-686-pae-
 linux-image-amd64-
 
 PACKAGES install AMD64
-linux-image-amd64
-#linux-image-amd64/buster-backports
-#linux-headers-amd64/buster-backports
-#linux-compiler-gcc-6-x86/buster-backports
+#linux-image-amd64
+linux-image-amd64/buster-backports
+linux-headers-amd64/buster-backports
 #linux-libc-dev/buster-backports
 #dpdk/buster-backports
 initramfs-tools
