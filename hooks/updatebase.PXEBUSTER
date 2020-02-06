@@ -29,7 +29,7 @@ if ifclass CUDA; then
     sed -i 's/^#deb\ https:\/\/nvidia.github.io/deb\ https:\/\/nvidia.github.io/' $target/etc/apt/sources.list
 fi
 # you may want to add i386 arch to amd64 hosts
-if ifclass AMD64; then
-    $ROOTCMD dpkg --add-architecture i386
-fi
+#if ifclass AMD64; then
+#    $ROOTCMD dpkg --add-architecture i386
+#fi
 cp -f /etc/apt/trusted.gpg.d/*.gpg $target/etc/apt/trusted.gpg.d/

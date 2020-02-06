@@ -8,6 +8,7 @@ python-pip
 python-netaddr
 sudo
 #auditd
+net-tools
 apt-listchanges
 #apt-show-versions
 #python-software-properties
