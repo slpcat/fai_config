@@ -9,9 +9,9 @@
 # This will create a STRETCH64.tar.xz basefile.
 
 # Supported distributions (each i386/amd64):
-# Debian GNU/Linux
-# Ubuntu 14.04/16.04
-# CentOS 5/6/7
+# Debian GNU/Linux stretch/buster
+# Ubuntu 14.04/16.04/18.04
+# CentOS 5/6/7/8
 # Fedora 27 30
 # Scientific Linux Cern 5/6
 # DEEPIN 15.5 (PANDA)
@@ -246,6 +246,7 @@ prtdists() {
     CENTOS5_32   CENTOS5_64
     CENTOS6_32   CENTOS6_64
     CENTOS7_32   CENTOS7_64
+                 CENTOS8_64
     SLC5_32      SLC5_64
     SLC6_32      SLC6_64
                  SLC7_64
@@ -328,6 +329,7 @@ case "$target" in
     CENTOS6_64) centos amd64 6 ;;
     CENTOS7_32) centos i386 7 ;;
     CENTOS7_64) centos amd64 7 ;;
+    CENTOS8_64) centos amd64 8 ;;
     SLC5_32) slc i386 5 ;;
     SLC5_64) slc amd64 5 ;;
     SLC6_32) slc i386 6 ;;

@@ -19,6 +19,6 @@ sed -i 's/^#net.ipv4.vs/net.ipv4.vs/' $target/etc/sysctl.conf
 sed -i 's/^#net.nf_conntrack/net.nf_conntrack/' $target/etc/sysctl.conf
 sed -i 's/^#net.netfilter.nf_conntrack/net.netfilter.nf_conntrack/' $target/etc/sysctl.conf
 
-ifclass PXECENTOS && $ROOTCMD ln -sf /usr/lib/systemd/system/docker.service /etc/systemd/system/multi-user.target.wants/docker.service
+ifclass -o PXECENTOS PXECENTOS8 && $ROOTCMD ln -sf /usr/lib/systemd/system/docker.service /etc/systemd/system/multi-user.target.wants/docker.service
 
 exit $error

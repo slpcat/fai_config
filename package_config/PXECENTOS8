@@ -1,0 +1,188 @@
+#PACKAGES dnfgroup
+#core
+#minimal-environment
+#server-product-environment
+#headless-management
+
+PACKAGES dnfgroup XORG
+graphical-server-environment
+workstation-product-environment
+
+PACKAGES dnfi GRUB_PC
+grub2
+grub2-pc
+grub2-pc-modules
+grub2-common
+grub2-tools
+grub2-tools-extra
+
+PACKAGES dnfgroup GNOME_EL8
+x11
+chinese-support
+#gnome-desktop base-x # slc5/CentOS 5
+#basic-desktop x11 fonts #slc6/CentOS 6
+#CentOS 7
+gnome-desktop
+#cinnamon
+#kde-desktop
+#mate-desktop
+#xfce
+#lxde
+
+PACKAGES dnfi GNOME_EL8
+firefox
+nautilus
+menu gdm
+gnome-core
+gconf-editor
+gnome-screensaver gnome-system-monitor gnome-system-tools
+libgnomevfs2-bin
+network-manager-gnome
+im-chooser
+gtk2-immodule-xim
+gtk3-immodule-xim
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese ibus-libpinyin
+
+gnome-tweak-tool
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts
+cjkuni-ukai-fonts
+
+PACKAGES dnfgroup KDE_EL8
+#gnome-desktop base-x # slc5/CentOS 5
+#basic-desktop x11 fonts #slc6/CentOS 6
+#kde-baseapps # CentOS 7
+x11
+chinese-support
+kde-desktop
+
+PACKAGES dnfi KDE_EL8
+firefox
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts
+kde-l10n-chinese
+cjkuni-ukai-fonts
+im-chooser
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese ibus-libpinyin
+
+PACKAGES dnfgroup XFCE_EL8
+x11
+chinese-support
+#gnome-desktop base-x # slc5/CentOS 5
+#basic-desktop x11 fonts #slc6/CentOS 6
+#CentOS 7
+#gnome-desktop3
+#cinnamon
+#kde-desktop
+#mate-desktop
+xfce
+#lxde
+
+PACKAGES dnfi XFCE_EL8
+firefox
+#nautilus
+#menu gdm
+#gnome-core
+#gconf-editor
+#gnome-screensaver gnome-system-monitor gnome-system-tools
+#libgnomevfs2-bin
+#network-manager-gnome
+im-chooser
+gtk2-immodule-xim
+gtk3-immodule-xim
+ibus ibus-gtk ibus-gtk3
+ibus-qt ibus-table-chinese ibus-libpinyin
+
+#gnome-tweak-tool
+wqy-microhei-fonts
+wqy-unibit-fonts
+wqy-zenhei-fonts
+cjkuni-ukai-fonts
+
+PACKAGES dnfi
+#NetworkManager
+cronie
+sudo
+irqbalance
+haveged
+network-scripts
+ipcalc
+chrony
+#authconfig
+kernel
+kernel-devel
+dracut
+#dpdk
+#zfs
+# sysvinit-tools grub # CentOS 5 and 6
+#grub2  # CentOS 7
+less
+libpwquality
+#ipvsadm
+openssh
+openssh-clients
+openssh-server
+#vim-enhanced
+man
+curl
+samba-client
+#screen
+rsync
+unzip
+which
+nfs-utils
+#pakchois
+ncurses-base # currently missing in the base file
+net-tools
+iptables-services
+mailx
+#yum-cron
+#yum-plugin-priorities
+#snoopy
+nscd
+#wget
+#ntp
+#powertop
+mtr
+smartmontools
+zsh
+lm_sensors
+tmux
+iftop
+iotop
+htop
+lynis
+#aide
+#unhide
+#rkhunter
+#arpwatch
+#sysstat
+psacct
+#python-setuptools
+psmisc
+#zabbix-agent
+yum-plugin-versionlock
+yum-plugin-changelog
+
+#sendmail # only for C5 and C6
+
+PACKAGES dnfi CUDA
+#kmod-nvidia
+nvidia-docker2
+
+PACKAGES dnfi DOCKER
+#kernel-ml
+#kernel-ml-devel
+#kernel-ml-headers
+#kernel-ml-tools
+#podman-docker
+docker-ce --nobest --allowerasing
+#dokcer-compose
+#ceph-common
+
+PACKAGES dnfi LVM
+lvm2

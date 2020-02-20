@@ -10,7 +10,7 @@
 # Supported distributions (only amd64):
 # Debian GNU/Linux
 # Ubuntu 14.04/16.04
-# CentOS 5/6/7
+# CentOS 5/6/7/8
 # Fedora 27 30
 # Scientific Linux Cern 5/6
 #
@@ -45,6 +45,7 @@ prtdists() {
     echo "Available Linux distritubtions:
 
     CENTOS7_64
+    CENTOS8_64
     SLC7_64
     FEDORA30_64
     TRUSTY64
@@ -104,6 +105,10 @@ repo=
 case "$target" in
     CENTOS7_64) 
         repo=centos:7
+        mk_dist_img
+        ;;
+    CENTOS8_64)
+        repo=centos:8
         mk_dist_img
         ;;
     SLC7_64)
