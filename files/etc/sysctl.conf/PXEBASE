@@ -298,10 +298,11 @@ net.ipv4.conf.all.accept_source_route=0
 #net.ipv4.conf.eth0.accept_source_route=0
 net.ipv4.conf.default.accept_source_route=0
 #LVS需要的arp相关设置
+net.ipv4.conf.default.arp_ignore=1
 net.ipv4.conf.default.arp_announce=2
-#net.ipv4.conf.lo.arp_ignore=1
+net.ipv4.conf.lo.arp_ignore=1
 net.ipv4.conf.lo.arp_announce=2
-#net.ipv4.conf.all.arp_ignore=1
+net.ipv4.conf.all.arp_ignore=1
 net.ipv4.conf.all.arp_announce=2
 #net.ipv4.conf.tunl0.arp_ignore=1
 #net.ipv4.conf.tunl0.arp_announce=2
