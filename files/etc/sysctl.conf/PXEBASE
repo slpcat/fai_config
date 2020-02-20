@@ -63,7 +63,7 @@ kernel.core_uses_pid=1
 #kernel.nmi_watchdog=0
 kernel.watchdog=0
 # Block non-uid-0 profiling (needs distro patch, otherwise this is the same as "= 2")
-kernel.perf_event_paranoid=0
+kernel.perf_event_paranoid=1
 # Turn off kexec, even if it's built in.
 #kernel.kexec_load_disabled = 1
 #Disable kernel module loading
