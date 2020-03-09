@@ -75,6 +75,7 @@ fcopy -iv /etc/systemd/timesyncd.conf
 #sed -i s/NTPDATE_USE_NTP_CONF=yes/NTPDATE_USE_NTP_CONF=no/ $target/etc/default/ntpdate
 [ -n "$NTPSRVS" ] && sed -i /#Servers/a\Servers="$NTPSRVS" $target/etc/systemd/timesyncd.conf
 $ROOTCMD ln -sf /lib/systemd/system/systemd-timesyncd.service /etc/systemd/system/sysinit.target.wants/systemd-timesyncd.service
+$ROOTCMD ln -sf /etc/systemd/system/systemd-resolved.service /dev/null
 #$ROOTCMD systemctl start systemd-timedated
 #$ROOTCMD timedatectl set-ntp true
 sed -i '/# The named pipe \/dev\/xconsole/,$d' $target/etc/rsyslog.conf

@@ -196,7 +196,7 @@ net.ipv4.tcp_abort_on_overflow=1
 #优化网络设备接收队列
 #该文件表示在每个网络接口接收数据包的速率比内核处理这些包的速率快时，允许送到队列的数据包的最大数目。
 net.core.netdev_max_backlog=262144
-net.ipv4.ip_unprivileged_port_start=0
+net.ipv4.ip_unprivileged_port_start=1024
 #本地端口范围，缺省情况下很小：32768到61000
 net.ipv4.ip_local_port_range=1024 65535
 net.ipv4.tcp_invalid_ratelimit=2000
@@ -222,7 +222,7 @@ net.ipv4.tcp_fack=1
 # protect against tcp time-wait assassination hazards
 # drop RST packets for sockets in the time-wait state
 # (not widely supported outside of linux, but conforms to RFC)
-net.ipv4.tcp_tw_reuse=2
+net.ipv4.tcp_tw_reuse=1
 net.ipv4.tcp_rfc1337=1
 net.ipv4.tcp_fastopen=3
 net.ipv4.tcp_retries2=8
@@ -298,12 +298,12 @@ net.ipv4.conf.all.accept_source_route=0
 #net.ipv4.conf.eth0.accept_source_route=0
 net.ipv4.conf.default.accept_source_route=0
 #LVS需要的arp相关设置
-net.ipv4.conf.default.arp_ignore=1
-net.ipv4.conf.default.arp_announce=2
-net.ipv4.conf.lo.arp_ignore=1
-net.ipv4.conf.lo.arp_announce=2
-net.ipv4.conf.all.arp_ignore=1
-net.ipv4.conf.all.arp_announce=2
+#net.ipv4.conf.default.arp_ignore=1
+#net.ipv4.conf.default.arp_announce=2
+#net.ipv4.conf.lo.arp_ignore=1
+#net.ipv4.conf.lo.arp_announce=2
+#net.ipv4.conf.all.arp_ignore=1
+#net.ipv4.conf.all.arp_announce=2
 #net.ipv4.conf.tunl0.arp_ignore=1
 #net.ipv4.conf.tunl0.arp_announce=2
 net.ipv4.icmp_echo_ignore_all=0
@@ -374,3 +374,5 @@ net.ipv6.conf.default.accept_redirects=0
 #net.netfilter.nf_conntrack_udp_timeout=10
 #net.netfilter.nf_conntrack_udp_timeout_stream=30
 
+#net.ipv4.conf.all.accept_local=1
+#net.ipv4.conf.default.accept_local=1

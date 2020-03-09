@@ -1,6 +1,7 @@
 #! /bin/bash
 
 fcopy -iM /etc/docker/daemon.json
+fcopy -iM /etc/modprobe.d/blacklist-nouveau.conf
 
 #netfilter conntrack
 ainsl -a /etc/modprobe.d/netfilter.conf 'options nf_conntrack hashsize=262144'
