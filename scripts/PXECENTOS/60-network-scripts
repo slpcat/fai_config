@@ -30,4 +30,6 @@ fi
 fcopy -iv /etc/sysconfig/network /etc/resolv.conf /etc/networks
 fcopy -ivr /etc/sysconfig/network-scripts
 
+ainsl -a /etc/hostname "$HOSTNAME"
+
 exit $error

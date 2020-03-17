@@ -2,7 +2,7 @@
 name=ZFS on Linux for EL7 - dkms
 baseurl=http://download.zfsonlinux.org/epel/7.5/$basearch/
 skip_if_unavailable=True
-enabled=1
+enabled=0
 metadata_expire=7d
 gpgcheck=0
 
