@@ -5,10 +5,13 @@
     "iptables": false,
     "ip-forward": false,
     "ip-masq": false,
-    "log-driver":"json-file",
+    "log-driver": "local",
+    "raw-logs": true,
     "log-opts":{
-       "max-size" : "100m",
-       "max-file" : "1"
+       "mode": "non-blocking",
+       "max-buffer-size": "8m",
+       "max-size" : "128m",
+       "max-file" : "4"
     },
     "default-shm-size": "128M",
     "default-ulimits": {

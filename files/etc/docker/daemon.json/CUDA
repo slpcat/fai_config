@@ -1,14 +1,29 @@
-{   "registry-mirrors": ["https://registry.docker-cn.com"],
+{   "registry-mirrors": ["https://quay.azk8s.cn", "https://dockerhub.azk8s.cn", "https://registry.docker-cn.com"],
     "insecure-registries": ["gitlab.default.svc.cluster.local:5000", "gitlab.marathon.l4lb.thisdcos.directory:50000"],
-    "live-restore": true,
-    "bridge": "none",
     "max-concurrent-downloads": 10,
+    "live-restore": false,
     "oom-score-adjust": -1000,
+    "default-shm-size": "128M",
+    "log-driver": "local",
+    "raw-logs": true,
+    "log-opts":{
+       "mode": "non-blocking",
+       "max-buffer-size": "8m",
+       "max-size" : "128m",
+       "max-file" : "4"
+    },
+    "default-ulimits": {
+       "nofile": {
+          "Name": "nofile",
+          "Hard": 4000000,
+          "Soft": 3500000
+       }
+    },
     "debug": false,
     "default-runtime": "nvidia",
     "runtimes": {
         "nvidia": {
-            "path": "/usr/bin/nvidia-container-runtime",
+            "path": "nvidia-container-runtime",
             "runtimeArgs": []
         }
     }
