@@ -1,9 +1,0 @@
-session_prefix "" {
-  policy = "read"
-}
-session "app" {
-  policy = "write"
-}
-session "admin" {
-  policy = "deny"
-}

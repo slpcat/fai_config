@@ -1,6 +1,0 @@
-query_prefix "" {
-  policy = "read"
-}
-query "foo" {
-  policy = "write"
-}
