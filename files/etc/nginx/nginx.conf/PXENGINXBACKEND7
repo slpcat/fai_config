@@ -217,7 +217,7 @@ server {
 #listen address[:port] [default_server] [ssl] [http2 | spdy] [proxy_protocol] [setfib=number] [fastopen=number] [backlog=number] [rcvbuf=size] [sndbuf=size] [accept_filter=filter] [deferred] [bind] [ipv6only=on|off] [reuseport] [so_keepalive=on|off|[keepidle]:[keepintvl]:[keepcnt]];
 #FreeBSD accept_filter=httpready,Linux deferred fastopen
 #FreeBSD reuseport can not be used with multi wokers !
-#  listen 80 backlog=16384 deffered bind so_keepalive=on default_server;
+#  listen 80 backlog=16384 deffered bind so_keepalive=on reuseport default_server;
 #  server_name _;
 #  return 444;
 #  }
