@@ -37,8 +37,12 @@ http {
   #http2_chunk_size 8k;
   #http2_body_preread_size 64k;
   #http2_idle_timeout 15m;
+  #http2_max_concurrent_pushes 32;
   #http2_max_concurrent_streams 512;
+  #http2_max_requests 8192;
   #http2_max_field_size 4k;
+  #http2_push off;
+  #http2_push_preload off;
   #http2_max_header_size 16k;
   #http2_recv_buffer_size 256k;
   #http2_recv_timeout 30s;
