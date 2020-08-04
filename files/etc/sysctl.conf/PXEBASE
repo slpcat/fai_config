@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20200105
+# Revision: 20200804
 # /etc/sysctl.conf
 #
 
@@ -164,6 +164,9 @@ net.core.netdev_tstamp_prequeue=1
 net.core.netdev_budget=32768
 net.core.dev_weight=600
 #net.core.flow_limit_table_len=8192
+
+net.ipv4.tcp_l3mdev_accept=1
+net.ipv4.udp_l3mdev_accept=1
 
 #net.ipv4.cipso_cache_bucket_size=10
 #net.ipv4.cipso_cache_enable=1
