@@ -168,6 +168,8 @@ net.core.dev_weight=600
 net.ipv4.tcp_l3mdev_accept=1
 net.ipv4.udp_l3mdev_accept=1
 
+net.ipv4.udp_mem=786432 3145728 4194304
+
 #net.ipv4.cipso_cache_bucket_size=10
 #net.ipv4.cipso_cache_enable=1
 #net.ipv4.cipso_rbm_optfmt=0
@@ -260,7 +262,7 @@ net.ipv4.tcp_adv_win_scale=2
 #每个socket buffer的最大补助缓存大小,默认10K(10240),也可调整到20k(20480),但建议保留
 net.core.optmem_max=65536
 #优化系统套接字缓冲区
-net.ipv4.tcp_mem=32768 262144 33554432
+net.ipv4.tcp_mem=786432 4194304 33554432
 net.core.wmem_max=67108864
 net.core.wmem_default=262144
 net.ipv4.tcp_wmem=4096 65536 33554432

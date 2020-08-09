@@ -50,7 +50,7 @@
 #DefaultLimitSTACK=
 #DefaultLimitCORE=
 #DefaultLimitRSS=
-DefaultLimitNOFILE=10485760
+DefaultLimitNOFILE=10000000
 #DefaultLimitAS=
 DefaultLimitNPROC=262144
 DefaultLimitMEMLOCK=infinity
