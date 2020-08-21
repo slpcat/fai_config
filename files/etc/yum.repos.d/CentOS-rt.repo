@@ -1,0 +1,7 @@
+# CentOS-rt.repo
+ 
+[rt]
+name=CentOS-7-rt
+baseurl=http://mirror.centos.org/centos/\$releasever/rt/\$basearch/
+gpgcheck=0
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-CentOS-7

@@ -1,0 +1,8 @@
+#Debug Info
+[debug]
+name=CentOS-$releasever - DebugInfo
+baseurl=http://debuginfo.centos.org/$releasever/$basearch/
+gpgcheck=0
+enabled=1
+protect=1
+priority=1

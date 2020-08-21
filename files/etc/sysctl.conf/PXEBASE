@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20200804
+# Revision: 20200821
 # /etc/sysctl.conf
 #
 
@@ -57,12 +57,12 @@ kernel.numa_balancing=1
 # Avoid kernel memory address exposures via dmesg.
 kernel.dmesg_restrict=1
 # Try to keep kernel address exposures out of various /proc files (kallsyms, modules, etc).
-# conflict with gdb/lldb
+# conflict with gdb/lldb/perf
 kernel.kptr_restrict=2
 kernel.core_uses_pid=1
 #kernel.nmi_watchdog=0
 kernel.watchdog=0
-# Block non-uid-0 profiling (needs distro patch, otherwise this is the same as "= 2")
+# Block non-uid-0 profiling (needs distro patch, otherwise this is the same as "= 2"), for perf use -1
 kernel.perf_event_paranoid=1
 # Turn off kexec, even if it's built in.
 #kernel.kexec_load_disabled = 1
