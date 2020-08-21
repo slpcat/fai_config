@@ -1,0 +1,7 @@
+---
+
+- import_playbook: deploy-beegfs-mgmtd.yml
+- import_playbook: deploy-beegfs-utils.yml
+- import_playbook: deploy-beegfs-meta.yml
+- import_playbook: deploy-beegfs-storage.yml
+- import_playbook: deploy-beegfs-client.yml

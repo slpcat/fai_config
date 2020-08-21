@@ -216,11 +216,11 @@ net.ipv4.tcp_congestion_control=htcp
 #显式拥塞通知，避免运营商路由器滥用
 net.ipv4.tcp_ecn=1
 #net.ipv4.tcp_ecn_fallback=1
-net.ipv4.tcp_sack=1
+net.ipv4.tcp_sack=0
 #net.ipv4.tcp_comp_sack_delay_ns=1000000
 #net.ipv4.tcp_comp_sack_nr=44
-net.ipv4.tcp_dsack=1
-net.ipv4.tcp_fack=1
+net.ipv4.tcp_dsack=0
+net.ipv4.tcp_fack=0
 #打开TIME-WAIT套接字重用功能，对于存在大量连接的Web服务器非常有效，关闭避免NAT丢包。
 #net.ipv4.tcp_tw_recycle=0
 #打开快速 TIME-WAIT sockets 回收。除非得到技术专家的建议或要求，请不要随意修改这个值,关掉避免异常行为。
@@ -260,7 +260,8 @@ net.ipv4.tcp_timestamps=0
 net.ipv4.tcp_window_scaling=1
 net.ipv4.tcp_adv_win_scale=2
 #每个socket buffer的最大补助缓存大小,默认10K(10240),也可调整到20k(20480),但建议保留
-net.core.optmem_max=65536
+# Increase the maximum amount of option memory buffers
+net.core.optmem_max=25165824
 #优化系统套接字缓冲区
 net.ipv4.tcp_mem=786432 4194304 33554432
 net.core.wmem_max=67108864

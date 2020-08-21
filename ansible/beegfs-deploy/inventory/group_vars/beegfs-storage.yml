@@ -1,0 +1,8 @@
+---
+
+beegfs_storage_use_mount: True
+#xfs
+#beegfs_mount_opts: "noatime,nodiratime,logbufs=8,logbsize=256k,largeio,inode64,swalloc,allocsize=131072k"
+#ext4
+beegfs_mount_opts: "rw,noatime,data=ordered,nobarrier,inode_readahead_blks=4096,delalloc,commit=600"
+beegfs_storage_block_dev: /dev/vdb

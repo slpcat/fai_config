@@ -1,0 +1,43 @@
+---
+
+- name: Install beegfs-storage package
+  package:
+    name: beegfs-storage
+  tags:
+    - beegfs
+    - beegfs-storage
+
+- name: "Ensure {{ beegfs_storage_dir }} exists"
+  file:
+    path: "{{ beegfs_storage_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0700
+  tags:
+    - beegfs
+    - beegfs-storage
+
+- name: Install beegfs-storage.conf template
+  template:
+    src: beegfs-storage.conf.j2
+    dest: /etc/beegfs/beegfs-storage.conf
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - beegfs
+    - beegfs-storage
+
+- include_tasks: mkfs.yml
+  when: beegfs_storage_use_mount
+
+- name: Enable and start the beegfs-storage service
+  systemd:
+    name: beegfs-storage
+    daemon_reload: yes
+    enabled: yes
+    state: started
+  tags:
+    - beegfs
+    - beegfs-storage

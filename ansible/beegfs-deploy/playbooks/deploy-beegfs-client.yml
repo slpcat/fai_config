@@ -1,0 +1,7 @@
+---
+
+- hosts: beegfs-client
+  gather_facts: yes
+  become: true
+  roles:
+    - beegfs-client

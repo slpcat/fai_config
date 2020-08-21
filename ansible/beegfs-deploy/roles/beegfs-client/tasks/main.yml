@@ -1,0 +1,57 @@
+---
+
+- name: Install BeeG FS client packages
+  package:
+    name: "{{ item }}"
+  with_items:
+    - beegfs-helperd
+    - beegfs-client
+  tags:
+    - beegfs
+    - beegfs-client
+
+- name: "Ensure {{ beegfs_mount_dir }} exists"
+  file:
+    path: "{{ beegfs_mount_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  tags:
+    - beegfs
+    - beegfs-client
+
+- name: Install beegfs-client.conf template
+  template:
+    src: beegfs-client.conf.j2
+    dest: /etc/beegfs/beegfs-client.conf
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - beegfs
+    - beegfs-client
+
+- name: Install beegfs-mounts.conf template
+  template:
+    src: beegfs-mounts.conf.j2
+    dest: /etc/beegfs/beegfs-mounts.conf
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - beegfs
+    - beegfs-client
+
+- name: Enable and start the BeeG FS client services
+  systemd:
+    name: "{{ item }}"
+    daemon_reload: yes
+    enabled: yes
+    state: started
+  with_items:
+    - beegfs-helperd
+    - beegfs-client
+  tags:
+    - beegfs
+    - beegfs-storage

@@ -1,0 +1,24 @@
+#mfsclient
+- name: install mfs client package
+  yum: name=moosefs-client state=installed
+
+#- name: create mfsclient mountpoint directory
+#  file: path={{ item }} owner=mfs group=mfs state=directory mode=0755
+#  with_items: moosefs.mfsmount
+
+#- name: mount moosefs
+#  raw: test -e {{ item }}/.mounted || mfsmount {{ item }} -H {{ moosefs['master'] }} && touch {{ item }}/.mounted
+#  with_items: moosefs.mfsmount
+
+- name: install autofs package
+  yum: name=autofs state=installed
+
+- name: start autofs service
+  service: name=autofs enabled=true state=started
+
+- name: create auto.master config
+  template: src=auto.master.j2 dest=/etc/auto.master owner=root group=root mode=0644
+
+- name: create auto.mfs config
+  template: src=auto.mfs.j2 dest=/etc/auto.mfs owner=root group=root mode=0644
+  notify: restart autofs

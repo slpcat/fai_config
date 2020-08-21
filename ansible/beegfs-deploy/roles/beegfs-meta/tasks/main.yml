@@ -1,0 +1,43 @@
+---
+
+- name: Install beegfs-meta package
+  package:
+    name: beegfs-meta
+  tags:
+    - beegfs
+    - beegfs-meta
+
+- name: "Ensure {{ beegfs_meta_dir }} exists"
+  file:
+    path: "{{ beegfs_meta_dir }}"
+    state: directory
+    owner: root
+    group: root
+    mode: 0755
+  tags:
+    - beegfs
+    - beegfs-meta
+
+- name: Install beegfs-meta.conf template
+  template:
+    src: beegfs-meta.conf.j2
+    dest: /etc/beegfs/beegfs-meta.conf
+    owner: root
+    group: root
+    mode: 0644
+  tags:
+    - beegfs
+    - beegfs-meta
+
+- include_tasks: mkfs.yml
+  when: beegfs_meta_use_mount
+
+- name: Enable and start the beegfs-meta service
+  systemd:
+    name: beegfs-meta
+    daemon_reload: yes
+    enabled: yes
+    state: started
+  tags:
+    - beegfs
+    - beegfs-meta

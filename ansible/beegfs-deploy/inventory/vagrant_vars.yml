@@ -1,0 +1,10 @@
+---
+
+beegfs_mgmtd_host: "198.18.0.21"
+beegfs_mount_dir: /beegfs-mount
+beegfs_meta_use_mount: False
+beegfs_storage_use_mount: False
+
+# BeeG FS 7.0 is still in the RC phase, but having storage pools is really nice
+beegfs_repo_data: "deb [arch=amd64] http://www.beegfs.io/release/beegfs_7 deb9 non-free"
+

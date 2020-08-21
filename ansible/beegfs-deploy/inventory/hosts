@@ -1,0 +1,28 @@
+[beegfs-nodes]
+node-01 ansible_host=192.168.0.1
+node-02 ansible_host=192.168.0.2
+node-03 ansible_host=192.168.0.3
+node-04 ansible_host=192.168.0.4
+node-05 ansible_host=192.168.0.5
+
+[beegfs-mgmtd]
+192.168.0.1
+
+[beegfs-utils]
+beegfs-nodes
+
+[beegfs-meta]
+192.168.0.1
+
+[beegfs-storage]
+192.168.0.2
+192.168.0.3
+192.168.0.4
+192.168.0.5
+
+[beegfs-client]
+192.168.0.6
+192.168.0.7
+
+#[all:vars]
+#ansible_user=ubuntu

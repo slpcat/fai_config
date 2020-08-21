@@ -1,0 +1,24 @@
+# The Inventory of moosefs Hosts
+
+# All moosefs groups
+[moosefs_all:children]
+moosefs_master
+moosefs_backup
+moosefs_datanode
+moosefs_client
+
+# Group of moosefs master
+[moosefs_master]
+demoenv-master
+
+# Group of moosefs backup server
+[moosefs_backup]
+demoenv-secondary
+
+# Group of moosefs datanode servers
+[moosefs_datanode]
+demoenv-node-[1:3]
+
+# Group of moosefs clients
+[moosefs_client]
+demoenv-mfsclient-[1:3]

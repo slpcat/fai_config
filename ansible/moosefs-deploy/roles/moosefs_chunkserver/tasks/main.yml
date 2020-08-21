@@ -1,0 +1,17 @@
+#mfschunkserver
+- name: install mfs chunkserver  package
+  yum: name=moosefs-chunkserver state=installed
+
+- name: create mfshdd directories
+  file: path={{ item }} owner=mfs group=mfs state=directory mode=0755
+  with_items: moosefs.mfshdd
+
+- name: copy the mfs chunkserver configurations
+  template: src={{ item }}.j2 dest=/etc/mfs/{{ item }} owner=root group=root mode=0644
+  with_items:
+    - mfschunkserver.cfg
+    - mfshdd.cfg
+  notify: restart mfschunkserver
+
+- name: start mfschunkserver service
+  service: name=moosefs-chunkserver enabled=true state=started

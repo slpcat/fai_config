@@ -1,0 +1,5 @@
+---
+
+beegfs_meta_use_mount: True
+beegfs_mount_opts: "rw,noatime,data=ordered,nobarrier,inode_readahead_blks=4096,delalloc,commit=600"
+beegfs_meta_block_dev: /dev/vdb

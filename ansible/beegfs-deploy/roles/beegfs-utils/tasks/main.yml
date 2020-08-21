@@ -1,0 +1,8 @@
+---
+
+- name: Install beegfs-utils package
+  package:
+    name: beegfs-utils
+  tags:
+    - beegfs
+    - beegfs-utils

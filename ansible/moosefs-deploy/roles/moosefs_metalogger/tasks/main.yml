@@ -1,0 +1,12 @@
+# mfsmetalogger
+- name: install mfs metalogger  package
+  yum: name=moosefs-metalogger state=installed
+
+- name: copy the mfs metalogger configurations
+  template: src={{ item }}.j2 dest=/etc/mfs/{{ item }} owner=root group=root mode=0644
+  with_items:
+    - mfsmetalogger.cfg
+  notify: restart mfsmetalogger
+
+- name: start mfsmetalogger service
+  service: name=moosefs-metalogger enabled=true state=started

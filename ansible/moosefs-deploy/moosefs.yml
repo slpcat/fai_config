@@ -1,0 +1,22 @@
+---
+# Main Play moosefs deployment playbook
+
+- hosts: moosefs_all
+  roles:
+    - role: moosefs_common
+
+- hosts: moosefs_master
+  roles:
+    - role: moosefs_master
+
+- hosts: moosefs_datanode
+  roles:
+    - role: moosefs_chunkserver
+
+- hosts: moosefs_backup
+  roles:
+    - role: moosefs_metalogger
+
+- hosts: moosefs_client
+  roles:
+    - role: moosefs_client

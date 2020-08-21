@@ -1,0 +1,8 @@
+moosefs:
+  master: 'demoenv-master'
+  httpd_port: 9480
+  mfshdd:
+    - /mfs/chunk01
+    - /mfs/chunk02 
+  mfsmount:
+    - /mnt/mfsmount

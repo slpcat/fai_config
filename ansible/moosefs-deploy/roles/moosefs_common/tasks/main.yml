@@ -1,0 +1,16 @@
+#- name: create rpmforge repo
+#  command: "{{item}}"
+#  with_items:
+#    - 'curl "https://ppa.moosefs.com/RPM-GPG-KEY-MooseFS" > /etc/pki/rpm-gpg/RPM-GPG-KEY-MooseFS'
+#    - 'curl "http://ppa.moosefs.com/MooseFS-3-el7.repo" > /etc/yum.repos.d/MooseFS.repo'
+
+- name: copy moosefs repo
+  copy:
+    src: "{{ item }}"
+    dest: "/etc/yum.repos.d/"
+  with_fileglob:
+    - "*.repo"
+
+
+#- name: install mfs common packages
+#  yum: name=mfs state=installed

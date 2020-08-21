@@ -1,0 +1,10 @@
+---
+
+- name: Fetch group_vars defaults for vagrant
+  hosts: all
+  tasks:
+  - name: Include vagrant_vars.yml
+    include_vars:
+      file: ../inventory/vagrant_vars.yml
+
+- import_playbook: deploy-beegfs.yml

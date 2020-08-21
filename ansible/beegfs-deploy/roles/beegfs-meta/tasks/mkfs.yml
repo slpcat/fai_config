@@ -1,0 +1,15 @@
+---
+
+- name: Format BeeGFS metadata block device
+  filesystem:
+    dev: "{{ beegfs_meta_block_dev }}"
+    fstype: ext4
+    opts: "-m 0 -L beegfs-meta"
+
+- name: Mount BeeGFS metadata volume
+  mount:
+    path: "{{ beegfs_meta_dir }}"
+    src: "{{ beegfs_meta_block_dev }}"
+    fstype: ext4
+    opts: "{{ beegfs_mount_opts }}"
+    state: mounted

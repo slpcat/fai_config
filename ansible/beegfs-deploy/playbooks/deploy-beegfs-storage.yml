@@ -1,0 +1,7 @@
+---
+
+- hosts: beegfs-storage
+  gather_facts: yes
+  become: true
+  roles:
+    - beegfs-storage

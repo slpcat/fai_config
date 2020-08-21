@@ -1,0 +1,7 @@
+---
+
+# BeeG FS 7.0 is still in the RC phase, but having storage pools is really nice
+beegfs_repo_data: "deb [arch=amd64] http://www.beegfs.io/release/beegfs_7 deb9 non-free"
+
+# We assume the first declared node will always be the mgmtd node.
+beegfs_mgmtd_host: "{{ hostvars[groups['beegfs-mgmtd'][0]]['ansible_eth0']['ipv4']['address'] }}"
