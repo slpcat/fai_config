@@ -1,0 +1,6 @@
+[bpftools]
+name=eBPF tools for CentOS 7
+baseurl=http://repos.baslab.org/bpftools/
+enabled=1
+gpgcheck=0
+gpgkey=http://repos.baslab.org/bpftools/RPM_GPG_KEY
