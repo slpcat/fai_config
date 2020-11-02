@@ -52,6 +52,7 @@
 #ftp             hard    nproc           0
 #ftp             -       chroot          /ftp
 #@student        -       maxlogins       4
+*                -       core            unlimited
 *                -       nproc           262144
 root             -       nproc           262144
 *                -       nofile          10485760
