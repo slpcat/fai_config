@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20200821
+# Revision: 20201225
 # /etc/sysctl.conf
 #
 
@@ -34,7 +34,7 @@ kernel.sched_rt_runtime_us=-1
 kernel.sched_tunable_scaling=2
 kernel.softlockup_panic=0
 kernel.softlockup_all_cpu_backtrace=1
-kernel.threads-max=30841
+kernel.threads-max=62405
 kernel.timer_migration=0
 kernel.shmmni=4096
 kernel.msgmnb=65536
@@ -61,6 +61,7 @@ kernel.dmesg_restrict=1
 # conflict with gdb/lldb/perf
 kernel.kptr_restrict=2
 kernel.core_uses_pid=1
+#kernel.core_pattern=/tmp/cores/core.%h.%e.%p.%t
 #kernel.nmi_watchdog=0
 kernel.watchdog=0
 # Block non-uid-0 profiling (needs distro patch, otherwise this is the same as "= 2"), for perf use -1
@@ -120,15 +121,15 @@ dev.hpet.max-user-freq=2048
 
 #Part4: Filesystem
 
-fs.file-max=1000000000
+fs.file-max=50000000
 #Linux系统范围所有进程打开文件总数量限制，注意：ulimit -n是设置当前shell以及由它启动的进程的资源限制
 fs.aio-max-nr=1048576
 #同时可以拥有的的异步IO请求数目
-fs.nr_open=52428800
+fs.nr_open=5242880
 #进程可以打开的最大文件数
-fs.epoll.max_user_watches=52428800
+fs.epoll.max_user_watches=5242880
 fs.dir-notify-enable=1
-fs.inotify.max_user_watches=52428800
+fs.inotify.max_user_watches=5242880
 fs.inotify.max_user_instances=8192
 fs.inotify.max_queued_events=1048576
 fs.mqueue.msg_max=65536
@@ -213,7 +214,7 @@ net.ipv4.tcp_limit_output_bytes=1048576
 
 #tcp拥塞算法htcp
 #kernel3.18 dctcp,kernel4.9 bbr,bbr_powered,更低版本使用hybla,htcp,bic,reno,vegas,westwood,yeah,veno(wifi),illinois,其他cdg,highspeed,scalable,默认cubic
-net.ipv4.tcp_congestion_control=htcp
+net.ipv4.tcp_congestion_control=cubic
 #显式拥塞通知，避免运营商路由器滥用
 net.ipv4.tcp_ecn=1
 #net.ipv4.tcp_ecn_fallback=1
