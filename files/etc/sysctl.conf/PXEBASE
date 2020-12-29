@@ -27,7 +27,7 @@ kernel.sched_min_granularity_ns=100000
 kernel.sched_wakeup_granularity_ns=2000000
 kernel.sched_rr_timeslice_ms=20
 #禁止带宽限制
-#kernel.sched_rt_period_us=-1
+kernel.sched_rt_period_us=-1
 kernel.sched_rt_runtime_us=-1
 #kernel.sched_shares_window_ns=10000000
 #kernel.sched_time_avg_ms=1000
@@ -98,8 +98,8 @@ vm.page-cluster=5
 #VFS内存缓冲区参数优化。
 vm.dirty_background_ratio=40
 vm.dirty_ratio=60
-vm.dirty_writeback_centisecs=60000
-vm.dirty_expire_centisecs=180000
+vm.dirty_writeback_centisecs=30000
+vm.dirty_expire_centisecs=90000
 #PAE高位内存可以脏
 #vm.highmem_is_dirtyable=1
 #for redis
