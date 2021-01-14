@@ -1,2 +1,14 @@
 /etc/sysconfig/network/ifcfg-eth*
     ETHTOOL_OPTIONS='-K iface lro off'
+
+cd /etc/yum.repos.d/
+wget https://gist.githubusercontent.com/ivmm/ff3190353321b647115331a11d00f7f5/raw/e72cdda09d95bf0d4af4573c467144204533335b/alinux-2.1903-plus.repo
+yum install -y kernel kernel-devel kernel-headers
+
+alinux-2.1903-plus.repo
+[plus]
+name=Alibaba Cloud Linux 2.1903 Plus Software Collections
+baseurl=http://mirrors.aliyun.com/alinux/2.1903/plus/x86_64/
+enabled=1
+gpgcheck=1
+gpgkey=http://mirrors.aliyun.com/alinux/RPM-GPG-KEY-ALIYUN
