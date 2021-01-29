@@ -1,7 +1,7 @@
 [zabbix]
 name=Zabbix Official Repository - $basearch
-#baseurl=http://repo.zabbix.com/zabbix/3.4/rhel/7/$basearch/
-baseurl=http://mirrors.aliyun.com/zabbix/zabbix/3.4/rhel/7/$basearch/
+#baseurl=http://repo.zabbix.com/zabbix/5.2/rhel/7/$basearch/
+baseurl=http://mirrors.aliyun.com/zabbix/zabbix/5.2/rhel/7/$basearch/
 skip_if_unavailable=True
 enabled=1
 gpgcheck=0

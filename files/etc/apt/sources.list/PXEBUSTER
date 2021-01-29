@@ -51,8 +51,8 @@ deb-src http://nginx.org/packages/debian/ buster nginx
 #deb https://packages.graylog2.org/repo/debian/ stable 2.4
 
 #Zabbix Monitor
-deb http://repo.zabbix.com/zabbix/4.4/debian buster main
-deb-src http://repo.zabbix.com/zabbix/4.4/debian buster main
+deb http://repo.zabbix.com/zabbix/5.2/debian buster main
+deb-src http://repo.zabbix.com/zabbix/5.2/debian buster main
 
 #docker-ce
 deb [arch=amd64] https://download.docker.com/linux/debian buster stable
