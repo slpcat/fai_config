@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20201225
+# Revision: 20210205
 # /etc/sysctl.conf
 #
 
@@ -51,7 +51,7 @@ kernel.io_delay_type=3
 kernel.pty.max=8192
 #kernel.pty.reserve=1024
 kernel.perf_cpu_time_max_percent=0
-kernel.numa_balancing=1
+kernel.numa_balancing=0
 # Avoid non-ancestor ptrace access to running processes and their credentials.
 # conflict with gdb/lldb
 #kernel.yama.ptrace_scope=3
@@ -127,9 +127,9 @@ fs.aio-max-nr=1048576
 #同时可以拥有的的异步IO请求数目
 fs.nr_open=5242880
 #进程可以打开的最大文件数
-fs.epoll.max_user_watches=5242880
+fs.epoll.max_user_watches=524288
 fs.dir-notify-enable=1
-fs.inotify.max_user_watches=5242880
+fs.inotify.max_user_watches=524288
 fs.inotify.max_user_instances=8192
 fs.inotify.max_queued_events=1048576
 fs.mqueue.msg_max=65536
@@ -147,6 +147,7 @@ fs.mqueue.queues_max=65536
 # could produce packets. To prevent packet loss and buffer bloat,
 # it's especially important to use a modern CoDel scheduler which
 # knows how to delay outgoing packets to match slower client links.
+#ethtool -K eth0 tso off
 net.core.default_qdisc=fq_codel
 
 #禁止ipv6
@@ -179,7 +180,8 @@ net.ipv4.udp_mem=786432 3145728 4194304
 #recommended for hosts with jumbo frames enabled
 net.ipv4.tcp_mtu_probing=1
 
-net.ipv4.tcp_autocorking=1
+#如果选项开启，内核为了减少发送包的数量，会尝试尽可能多的合并小的写入。
+net.ipv4.tcp_autocorking=0
 net.ipv4.tcp_low_latency=1
 #存在于ARP高速缓存中的最少层数，如果少于这个数，垃圾收集器将不会运行。缺省值是128。
 net.ipv4.neigh.default.gc_thresh1=100000
@@ -267,8 +269,9 @@ net.core.optmem_max=25165824
 #优化系统套接字缓冲区
 net.ipv4.tcp_mem=786432 4194304 33554432
 net.core.wmem_max=67108864
-net.core.wmem_default=262144
-net.ipv4.tcp_wmem=4096 65536 33554432
+#net.core.wmem_default=262144
+net.core.wmem_default=2684354
+net.ipv4.tcp_wmem=4096 262144 33554432
 #该命令设定了三个值:最小值、初始值和最大值,第三个值必须小于或等于wmem_max和rmem_max。
 #Min：为TCP socket预留用于接收缓冲的内存数量，即使在内存出现紧张情况下TCP socket都至少
 #会有这么多数量的内存用于接收缓冲。
@@ -278,8 +281,9 @@ net.ipv4.tcp_wmem=4096 65536 33554432
 #Max：为TCP socket预留用于接收缓冲的内存最大值。
 net.ipv4.udp_wmem_min=4096
 net.core.rmem_max=67108864
-net.core.rmem_default=262144
-net.ipv4.tcp_rmem=4096 87380 33554432
+#net.core.rmem_default=262144
+net.core.rmem_default=2129920
+net.ipv4.tcp_rmem=4096 262144 33554432
 net.ipv4.udp_rmem_min=4096
 #遭遇SYN Flood时开启,平时关闭
 net.ipv4.tcp_syncookies=0
@@ -384,5 +388,5 @@ net.ipv6.conf.default.accept_redirects=0
 #net.netfilter.nf_conntrack_udp_timeout=10
 #net.netfilter.nf_conntrack_udp_timeout_stream=30
 
-#net.ipv4.conf.all.accept_local=1
-#net.ipv4.conf.default.accept_local=1
+net.ipv4.conf.all.accept_local=1
+net.ipv4.conf.default.accept_local=1
