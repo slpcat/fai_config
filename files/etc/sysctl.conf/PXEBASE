@@ -165,13 +165,14 @@ net.core.message_burst=50
 net.core.message_cost=1
 net.core.netdev_tstamp_prequeue=1
 net.core.netdev_budget=32768
+#每个CPU一次NAPI中断能够处理网络包数量的最大值
 net.core.dev_weight=600
 #net.core.flow_limit_table_len=8192
 
 net.ipv4.tcp_l3mdev_accept=1
 net.ipv4.udp_l3mdev_accept=1
 
-net.ipv4.udp_mem=786432 3145728 4194304
+net.ipv4.udp_mem=9252597 12336797 18505194
 
 #net.ipv4.cipso_cache_bucket_size=10
 #net.ipv4.cipso_cache_enable=1
@@ -179,6 +180,8 @@ net.ipv4.udp_mem=786432 3145728 4194304
 #net.ipv4.cipso_rbm_strictvalid=1
 #recommended for hosts with jumbo frames enabled
 net.ipv4.tcp_mtu_probing=1
+net.ipv4.tcp_base_mss=512
+net.ipv4.tcp_challenge_ack_limit=100
 
 #如果选项开启，内核为了减少发送包的数量，会尝试尽可能多的合并小的写入。
 net.ipv4.tcp_autocorking=0
@@ -218,7 +221,7 @@ net.ipv4.tcp_limit_output_bytes=1048576
 #kernel3.18 dctcp,kernel4.9 bbr,bbr_powered,更低版本使用hybla,htcp,bic,reno,vegas,westwood,yeah,veno(wifi),illinois,其他cdg,highspeed,scalable,默认cubic
 net.ipv4.tcp_congestion_control=cubic
 #显式拥塞通知，避免运营商路由器滥用
-net.ipv4.tcp_ecn=1
+net.ipv4.tcp_ecn=0
 #net.ipv4.tcp_ecn_fallback=1
 net.ipv4.tcp_sack=0
 #net.ipv4.tcp_comp_sack_delay_ns=1000000
@@ -259,15 +262,18 @@ net.ipv4.tcp_max_syn_backlog=65535
 #这个限制仅仅是为了防止简单的DoS攻击，不能过分依靠它或者人为地减小这个值，更应该增加这个值(如果增加了内存之后)。
 net.ipv4.tcp_max_orphans=262144
 net.ipv4.tcp_orphan_retries=0
+net.ipv4.tcp_recovery=1
+
 #时间戳可以避免序列号的卷绕。一个1Gbps的链路肯定会遇到以前用过的序列号。时间戳能够让内核接受这种“异常”的数据包。这里需要将其关掉。
 net.ipv4.tcp_timestamps=0
 net.ipv4.tcp_window_scaling=1
 net.ipv4.tcp_adv_win_scale=2
 #每个socket buffer的最大补助缓存大小,默认10K(10240),也可调整到20k(20480),但建议保留
 # Increase the maximum amount of option memory buffers
+#每个socket所允许的最大缓冲区的大小(字节)
 net.core.optmem_max=25165824
 #优化系统套接字缓冲区
-net.ipv4.tcp_mem=786432 4194304 33554432
+net.ipv4.tcp_mem=8388608 12582912 33554432
 net.core.wmem_max=67108864
 #net.core.wmem_default=262144
 net.core.wmem_default=2684354
@@ -280,9 +286,11 @@ net.ipv4.tcp_wmem=4096 262144 33554432
 #tcp_app_win的 默认值情况下，TCP 窗口大小为65535。
 #Max：为TCP socket预留用于接收缓冲的内存最大值。
 net.ipv4.udp_wmem_min=4096
+#表示每个socket所允许的最大缓冲区的大小(字节)
 net.core.rmem_max=67108864
+#设置接收socket的缺省缓存大小(字节)
 #net.core.rmem_default=262144
-net.core.rmem_default=2129920
+net.core.rmem_default=33554432
 net.ipv4.tcp_rmem=4096 262144 33554432
 net.ipv4.udp_rmem_min=4096
 #遭遇SYN Flood时开启,平时关闭
@@ -331,6 +339,7 @@ net.ipv4.route.error_burst=5000
 net.ipv4.route.error_cost=1000
 net.ipv4.route.redirect_load=20
 net.ipv4.route.redirect_silence=20480
+net.ipv4.ipfrag_secret_interval=600
 #don't cache ssthresh from previous connection 
 net.ipv4.tcp_no_metrics_save=1
 #Increase the maximum number of skb-heads to be cached
