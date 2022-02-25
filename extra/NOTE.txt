@@ -12,3 +12,9 @@ baseurl=http://mirrors.aliyun.com/alinux/2.1903/plus/x86_64/
 enabled=1
 gpgcheck=1
 gpgkey=http://mirrors.aliyun.com/alinux/RPM-GPG-KEY-ALIYUN
+
+
+
+Cloud-init overwrites the entry of /etc/sysconfig/network file as well as resolv.conf . To disable this you can create a custom rule for cloud-init config by creating a file /etc/cloud/cloud.cfg.d/custom-network-rule.cfg which contains -
+
+network: {config: disabled}

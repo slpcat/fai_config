@@ -5,7 +5,7 @@
 #disk_config disk1 disklabel:msdos bootable:1 fstabkey:uuid
 disk_config disk1 disklabel:msdos bootable:1 fstabkey:label
 
-primary /      8G-24G   ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=4096,delalloc,commit=600,errors=remount-ro createopts="-L ROOT" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+primary /      8G-24G   ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=4096,delalloc,commit=600,errors=remount-ro,discard,x-systemd.growfs  createopts="-L ROOT" tuneopts="-c 0 -i 0 -O ^metadata_csum"
 logical swap   1G-16G   swap  sw                   createopts="-L SWAP"
 #logical /tmp   1G-4G   ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=4096,delalloc,commit=600,dax=always createopts="-L TMP -m 0" tuneopts="-c 0 -i 0 -O ^metadata_csum"
-logical /data  1G-80%  ext4  rw,noatime,data=ordered,nobarrier,inode_readahead_blks=4096,delalloc,commit=600,dax=always createopts="-L DATA -m 1" tuneopts="-c 0 -i 0 -O ^metadata_csum"
+logical /data  1G-80%  ext4  rw,noatime,data=ordered,nobarrier,discard,inode_readahead_blks=4096,delalloc,commit=600,dax=always createopts="-L DATA -m 1" tuneopts="-c 0 -i 0 -O ^metadata_csum"

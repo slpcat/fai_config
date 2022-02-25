@@ -8,7 +8,7 @@
 	"exec-root": "",
 	"experimental": false,
 	"features": {},
-	"storage-driver": "",
+        "storage-driver": "overlay2",
 	"storage-opts": [],
 	"labels": [],
 	"live-restore": true,
