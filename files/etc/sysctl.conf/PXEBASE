@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20210205
+# Revision: 20220414
 # /etc/sysctl.conf
 #
 
@@ -223,10 +223,10 @@ net.ipv4.tcp_congestion_control=cubic
 #显式拥塞通知，避免运营商路由器滥用
 net.ipv4.tcp_ecn=0
 #net.ipv4.tcp_ecn_fallback=1
-net.ipv4.tcp_sack=0
+net.ipv4.tcp_sack=1
 #net.ipv4.tcp_comp_sack_delay_ns=1000000
 #net.ipv4.tcp_comp_sack_nr=44
-net.ipv4.tcp_dsack=0
+net.ipv4.tcp_dsack=1
 net.ipv4.tcp_fack=0
 #打开TIME-WAIT套接字重用功能，对于存在大量连接的Web服务器非常有效，关闭避免NAT丢包。
 #net.ipv4.tcp_tw_recycle=0
