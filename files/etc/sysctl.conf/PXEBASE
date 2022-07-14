@@ -103,10 +103,10 @@ vm.dirty_expire_centisecs=90000
 #PAE高位内存可以脏
 #vm.highmem_is_dirtyable=1
 #for redis
-vm.overcommit_memory=1
+vm.overcommit_memory=0
 vm.overcommit_ratio=50
 vm.oom_dump_tasks=0
-vm.oom_kill_allocating_task=0
+vm.oom_kill_allocating_task=1
 #for memsql
 vm.max_map_count=1000000000
 vm.laptop_mode=300
