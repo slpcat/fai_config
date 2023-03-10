@@ -103,9 +103,12 @@ vm.dirty_expire_centisecs=90000
 #PAE高位内存可以脏
 #vm.highmem_is_dirtyable=1
 #for redis
-vm.overcommit_memory=0
-vm.overcommit_ratio=50
-vm.oom_dump_tasks=0
+#永远禁止overcommit
+vm.overcommit_memory=2
+vm.overcommit_ratio=0
+#找到符合条件的进程并 kill 时，打印进程内存使用情况。
+vm.oom_dump_tasks=3
+#会kill 掉当前申请内存而触发OOM的进程。
 vm.oom_kill_allocating_task=1
 #for memsql
 vm.max_map_count=1000000000
