@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20220414
+# Revision: 20240314
 # /etc/sysctl.conf
 #
 
@@ -9,29 +9,29 @@
 # Disable the magic-sysrq key (console security issues)
 kernel.sysrq=0
 kernel.panic=10
-kernel.ftrace_enabled=1
+#kernel.ftrace_enabled=1
 kernel.pid_max=4194304
 kernel.randomize_va_space=2
 kernel.panic_on_oops=1
 kernel.hung_task_timeout_secs=600
-kernel.sched_autogroup_enabled=1
+#kernel.sched_autogroup_enabled=1
 kernel.watchdog_thresh=0
 #kernel.sched_child_runs_first=1
 kernel.printk=0 4 0 0
-kernel.sched_latency_ns=5000000
+#kernel.sched_latency_ns=5000000
 #kernel.sched_compat_yield=1
 #kernel.sched_cfs_bandwidth_slice_us=5000
-kernel.sched_migration_cost_ns=5000
+#kernel.sched_migration_cost_ns=5000
 #kernel.sched_nr_migrate=32
-kernel.sched_min_granularity_ns=100000
-kernel.sched_wakeup_granularity_ns=2000000
-kernel.sched_rr_timeslice_ms=20
+#kernel.sched_min_granularity_ns=100000
+#kernel.sched_wakeup_granularity_ns=2000000
+#kernel.sched_rr_timeslice_ms=20
 #RT Throttling是对分配给实时进程的CPU时间进行限制
 #kernel.sched_rt_period_us=-1
 #kernel.sched_rt_runtime_us=-1
 #kernel.sched_shares_window_ns=10000000
 #kernel.sched_time_avg_ms=1000
-kernel.sched_tunable_scaling=2
+#kernel.sched_tunable_scaling=2
 kernel.softlockup_panic=0
 kernel.softlockup_all_cpu_backtrace=1
 kernel.threads-max=62405
@@ -40,8 +40,8 @@ kernel.shmmni=4096
 kernel.msgmnb=65536
 kernel.msgmni=32768
 kernel.msgmax=65536
-#kernel.shmmax=68719476736
-#kernel.shmall=4294967296
+kernel.shmmax=68719476736
+kernel.shmall=4294967296
 kernel.io_delay_type=3
 #0 - IO_DELAY_TYPE_0X80
 #1 - IO_DELAY_TYPE_0XED
@@ -59,13 +59,14 @@ kernel.numa_balancing=0
 kernel.dmesg_restrict=1
 # Try to keep kernel address exposures out of various /proc files (kallsyms, modules, etc).
 # conflict with gdb/lldb/perf
-kernel.kptr_restrict=2
+kernel.kptr_restrict=0
 kernel.core_uses_pid=1
 #kernel.core_pattern=/tmp/cores/core.%h.%e.%p.%t
+kernel.core_pattern=|/tol/script/dump/coredump_monitor.sh core_%I_%p_%e_sig_%s_time_%t.gz
 #kernel.nmi_watchdog=0
 kernel.watchdog=0
 # Block non-uid-0 profiling (needs distro patch, otherwise this is the same as "= 2"), for perf use -1
-kernel.perf_event_paranoid=1
+kernel.perf_event_paranoid=-1
 # Turn off kexec, even if it's built in.
 #kernel.kexec_load_disabled = 1
 #Disable kernel module loading
@@ -103,12 +104,9 @@ vm.dirty_expire_centisecs=90000
 #PAE高位内存可以脏
 #vm.highmem_is_dirtyable=1
 #for redis
-#永远禁止overcommit
-vm.overcommit_memory=2
-vm.overcommit_ratio=0
-#找到符合条件的进程并 kill 时，打印进程内存使用情况。
-vm.oom_dump_tasks=3
-#会kill 掉当前申请内存而触发OOM的进程。
+vm.overcommit_memory=0
+vm.overcommit_ratio=10
+vm.oom_dump_tasks=1
 vm.oom_kill_allocating_task=1
 #for memsql
 vm.max_map_count=1000000000
@@ -150,7 +148,6 @@ fs.mqueue.queues_max=65536
 # could produce packets. To prevent packet loss and buffer bloat,
 # it's especially important to use a modern CoDel scheduler which
 # knows how to delay outgoing packets to match slower client links.
-#ethtool -K eth0 tso off
 net.core.default_qdisc=fq_codel
 
 #禁止ipv6
@@ -161,14 +158,13 @@ net.core.default_qdisc=fq_codel
 net.core.bpf_jit_enable=1
 #net.core.bpf_jit_harden=0
 #net.core.bpf_jit_kallsyms=0
-#net.core.busy_poll=50
-#net.core.busy_read=100
-net.core.rps_sock_flow_entries=131072
+net.core.busy_poll=50
+net.core.busy_read=50
+net.core.rps_sock_flow_entries=32768
 net.core.message_burst=50
 net.core.message_cost=1
 net.core.netdev_tstamp_prequeue=1
 net.core.netdev_budget=32768
-#每个CPU一次NAPI中断能够处理网络包数量的最大值
 net.core.dev_weight=600
 #net.core.flow_limit_table_len=8192
 
@@ -183,8 +179,6 @@ net.ipv4.udp_mem=9252597 12336797 18505194
 #net.ipv4.cipso_rbm_strictvalid=1
 #recommended for hosts with jumbo frames enabled
 net.ipv4.tcp_mtu_probing=1
-net.ipv4.tcp_base_mss=512
-net.ipv4.tcp_challenge_ack_limit=100
 
 #如果选项开启，内核为了减少发送包的数量，会尝试尽可能多的合并小的写入。
 net.ipv4.tcp_autocorking=0
@@ -204,8 +198,10 @@ net.ipv6.neigh.default.gc_thresh2=110000
 net.ipv6.neigh.default.gc_thresh3=120000
 net.ipv4.conf.all.promote_secondaries=1
 net.ipv4.conf.default.promote_secondaries=1
+net.ipv4.tcp_collapse_max_bytes=6291456
+net.ipv4.tcp_notsent_lowat=131072
 # Disable packet forwarding
-net.ipv4.ip_forward=0
+net.ipv4.ip_forward=1
 #限制了接收新TCP连接侦听队列的大小
 net.core.somaxconn=65535
 net.ipv4.tcp_abort_on_overflow=1
@@ -222,9 +218,9 @@ net.ipv4.tcp_limit_output_bytes=1048576
 
 #tcp拥塞算法htcp
 #kernel3.18 dctcp,kernel4.9 bbr,bbr_powered,更低版本使用hybla,htcp,bic,reno,vegas,westwood,yeah,veno(wifi),illinois,其他cdg,highspeed,scalable,默认cubic
-net.ipv4.tcp_congestion_control=cubic
+net.ipv4.tcp_congestion_control=dctcp
 #显式拥塞通知，避免运营商路由器滥用
-net.ipv4.tcp_ecn=0
+net.ipv4.tcp_ecn=1
 #net.ipv4.tcp_ecn_fallback=1
 net.ipv4.tcp_sack=1
 #net.ipv4.tcp_comp_sack_delay_ns=1000000
@@ -242,6 +238,7 @@ net.ipv4.tcp_tw_reuse=1
 net.ipv4.tcp_rfc1337=1
 net.ipv4.tcp_fastopen=3
 net.ipv4.tcp_retries2=8
+net.ipv4.conf.all.route_localnet=1
 # log martian packets
 net.ipv4.conf.all.log_martians=1
 net.ipv4.conf.default.log_martians=1
@@ -249,7 +246,7 @@ net.ipv4.conf.default.log_martians=1
 #TIME_WAIT套接字将立刻被清除并打印警告信息。默认为180000。
 #对于Apache、Nginx等服务器，上几行的参数可以很好地减少TIME_WAIT套接字数量，
 #但是对于Squid，效果却不大。此项参数可以控制TIME_WAIT套接字的最大数量，避免Squid服务器被大量的TIME_WAIT套接字拖死
-net.ipv4.tcp_max_tw_buckets=2000000
+net.ipv4.tcp_max_tw_buckets=200000
 #减少处于FIN-WAIT-2连接状态的时间，使系统可以处理更多的连接。
 net.ipv4.tcp_fin_timeout=20
 #TCP KeepAlive连接侦测的时间，使系统可以处理更多的连接。
@@ -265,22 +262,19 @@ net.ipv4.tcp_max_syn_backlog=65535
 #这个限制仅仅是为了防止简单的DoS攻击，不能过分依靠它或者人为地减小这个值，更应该增加这个值(如果增加了内存之后)。
 net.ipv4.tcp_max_orphans=262144
 net.ipv4.tcp_orphan_retries=0
-net.ipv4.tcp_recovery=1
-
 #时间戳可以避免序列号的卷绕。一个1Gbps的链路肯定会遇到以前用过的序列号。时间戳能够让内核接受这种“异常”的数据包。这里需要将其关掉。
-net.ipv4.tcp_timestamps=0
+net.ipv4.tcp_timestamps=1
 net.ipv4.tcp_window_scaling=1
 net.ipv4.tcp_adv_win_scale=2
 #每个socket buffer的最大补助缓存大小,默认10K(10240),也可调整到20k(20480),但建议保留
 # Increase the maximum amount of option memory buffers
-#每个socket所允许的最大缓冲区的大小(字节)
 net.core.optmem_max=25165824
 #优化系统套接字缓冲区
-net.ipv4.tcp_mem=8388608 12582912 33554432
-net.core.wmem_max=67108864
+net.ipv4.tcp_mem=786432 4194304 33554432
+net.core.wmem_max=1073741824
 #net.core.wmem_default=262144
-net.core.wmem_default=2684354
-net.ipv4.tcp_wmem=4096 262144 33554432
+net.core.wmem_default=33554432
+net.ipv4.tcp_wmem=4096 2097152 1073741824
 #该命令设定了三个值:最小值、初始值和最大值,第三个值必须小于或等于wmem_max和rmem_max。
 #Min：为TCP socket预留用于接收缓冲的内存数量，即使在内存出现紧张情况下TCP socket都至少
 #会有这么多数量的内存用于接收缓冲。
@@ -289,12 +283,10 @@ net.ipv4.tcp_wmem=4096 262144 33554432
 #tcp_app_win的 默认值情况下，TCP 窗口大小为65535。
 #Max：为TCP socket预留用于接收缓冲的内存最大值。
 net.ipv4.udp_wmem_min=4096
-#表示每个socket所允许的最大缓冲区的大小(字节)
-net.core.rmem_max=67108864
-#设置接收socket的缺省缓存大小(字节)
+net.core.rmem_max=1073741824
 #net.core.rmem_default=262144
 net.core.rmem_default=33554432
-net.ipv4.tcp_rmem=4096 262144 33554432
+net.ipv4.tcp_rmem=4096 2097152 1073741824
 net.ipv4.udp_rmem_min=4096
 #遭遇SYN Flood时开启,平时关闭
 net.ipv4.tcp_syncookies=0
@@ -342,7 +334,6 @@ net.ipv4.route.error_burst=5000
 net.ipv4.route.error_cost=1000
 net.ipv4.route.redirect_load=20
 net.ipv4.route.redirect_silence=20480
-net.ipv4.ipfrag_secret_interval=600
 #don't cache ssthresh from previous connection 
 net.ipv4.tcp_no_metrics_save=1
 #Increase the maximum number of skb-heads to be cached
@@ -364,41 +355,42 @@ net.ipv4.conf.default.rp_filter=0
 net.ipv6.conf.all.accept_redirects=0
 net.ipv6.conf.default.accept_redirects=0
 #for docker
-#net.bridge.bridge-nf-call-iptables=1
-#net.bridge.bridge-nf-call-ip6tables=1
+net.bridge.bridge-nf-call-iptables=1
+net.bridge.bridge-nf-call-ip6tables=1
 
 #netfilter nf_conntrack
-#https://github.com/torvalds/linux/blob/master/Documentation/networking/ipvs-sysctl.txt
-#net.ipv4.vs.conntrack=2
-#net.ipv4.vs.conn_reuse_mode=0
-#net.ipv4.vs.sloppy_tcp=1
-#net.ipv4.vs.expire_nodest_conn=1
-#net.ipv4.vs.amemthresh=16384
-#net.ipv4.vs.expire_quiescent_template=1
-#net.nf_conntrack_max=4194304
-#net.netfilter.nf_conntrack_buckets=1048576
-#net.netfilter.nf_conntrack_acct=0
-#net.netfilter.nf_conntrack_checksum=1
-#net.netfilter.nf_conntrack_events=1
-#net.netfilter.nf_conntrack_expect_max=256
-#net.netfilter.nf_conntrack_generic_timeout=300
-#net.netfilter.nf_conntrack_icmp_timeout=10
-#net.netfilter.nf_conntrack_log_invalid=0
-#net.netfilter.nf_conntrack_max=4194304
-#net.netfilter.nf_conntrack_tcp_be_liberal=0
-#net.netfilter.nf_conntrack_tcp_max_retrans=3
-#net.netfilter.nf_conntrack_tcp_timeout_close=10
-#net.netfilter.nf_conntrack_tcp_timeout_close_wait=10
-#net.netfilter.nf_conntrack_tcp_timeout_established=120
-#net.netfilter.nf_conntrack_tcp_timeout_fin_wait=20
-#net.netfilter.nf_conntrack_tcp_timeout_last_ack=10
-#net.netfilter.nf_conntrack_tcp_timeout_max_retrans=300
-#net.netfilter.nf_conntrack_tcp_timeout_syn_recv=5
-#net.netfilter.nf_conntrack_tcp_timeout_syn_sent=5
-#net.netfilter.nf_conntrack_tcp_timeout_time_wait=10
-#net.netfilter.nf_conntrack_tcp_timeout_unacknowledged=180
-#net.netfilter.nf_conntrack_udp_timeout=10
-#net.netfilter.nf_conntrack_udp_timeout_stream=30
+#https://github.com/torvalds/linux/blob/master/Documentation/networking/ipvs-sysctl.rst
+net.ipv4.vs.conntrack=1
+net.ipv4.vs.conn_reuse_mode=0
+net.ipv4.vs.sloppy_tcp=1
+net.ipv4.vs.sloppy_sctp=1
+net.ipv4.vs.expire_nodest_conn=1
+net.ipv4.vs.amemthresh=16384
+net.ipv4.vs.expire_quiescent_template=1
+net.nf_conntrack_max=524288
+net.netfilter.nf_conntrack_buckets=131072
+net.netfilter.nf_conntrack_acct=0
+net.netfilter.nf_conntrack_checksum=1
+net.netfilter.nf_conntrack_events=1
+net.netfilter.nf_conntrack_expect_max=256
+net.netfilter.nf_conntrack_generic_timeout=300
+net.netfilter.nf_conntrack_icmp_timeout=10
+net.netfilter.nf_conntrack_log_invalid=0
+net.netfilter.nf_conntrack_max=524288
+net.netfilter.nf_conntrack_tcp_be_liberal=0
+net.netfilter.nf_conntrack_tcp_max_retrans=3
+net.netfilter.nf_conntrack_tcp_timeout_close=10
+net.netfilter.nf_conntrack_tcp_timeout_close_wait=3600
+net.netfilter.nf_conntrack_tcp_timeout_established=86400
+net.netfilter.nf_conntrack_tcp_timeout_fin_wait=20
+net.netfilter.nf_conntrack_tcp_timeout_last_ack=10
+net.netfilter.nf_conntrack_tcp_timeout_max_retrans=300
+net.netfilter.nf_conntrack_tcp_timeout_syn_recv=5
+net.netfilter.nf_conntrack_tcp_timeout_syn_sent=5
+net.netfilter.nf_conntrack_tcp_timeout_time_wait=10
+net.netfilter.nf_conntrack_tcp_timeout_unacknowledged=180
+net.netfilter.nf_conntrack_udp_timeout=10
+net.netfilter.nf_conntrack_udp_timeout_stream=30
 
 net.ipv4.conf.all.accept_local=1
 net.ipv4.conf.default.accept_local=1
