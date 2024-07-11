@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20240314
+# Revision: 20240711
 # /etc/sysctl.conf
 #
 
@@ -97,8 +97,8 @@ vm.zone_reclaim_mode=0
 vm.vfs_cache_pressure=40
 vm.page-cluster=5
 #VFS内存缓冲区参数优化。
-vm.dirty_background_ratio=40
-vm.dirty_ratio=60
+vm.dirty_background_ratio=10
+vm.dirty_ratio=20
 vm.dirty_writeback_centisecs=30000
 vm.dirty_expire_centisecs=90000
 #PAE高位内存可以脏
@@ -265,7 +265,7 @@ net.ipv4.tcp_orphan_retries=0
 #时间戳可以避免序列号的卷绕。一个1Gbps的链路肯定会遇到以前用过的序列号。时间戳能够让内核接受这种“异常”的数据包。这里需要将其关掉。
 net.ipv4.tcp_timestamps=1
 net.ipv4.tcp_window_scaling=1
-net.ipv4.tcp_adv_win_scale=2
+net.ipv4.tcp_adv_win_scale=-2
 #每个socket buffer的最大补助缓存大小,默认10K(10240),也可调整到20k(20480),但建议保留
 # Increase the maximum amount of option memory buffers
 net.core.optmem_max=25165824
