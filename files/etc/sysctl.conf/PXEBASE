@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20240821
+# Revision: 20240903
 # /etc/sysctl.conf
 #
 
@@ -154,6 +154,69 @@ net.core.default_qdisc=fq_codel
 #net.ipv6.conf.all.disable_ipv6=1
 #net.ipv6.conf.default.disable_ipv6=1
 #net.ipv6.conf.lo.disable_ipv6=1
+
+net.ipv6.bindv6only=0
+#Duplicate Address Detection
+net.ipv6.conf.all.accept_dad=0
+net.ipv6.conf.default.accept_dad=1
+
+#0：不接受路由通告
+#1：当forwarding禁止时接受路由通告
+#2：任何情况下都接受路由通告
+net.ipv6.conf.all.accept_ra=2
+net.ipv6.conf.default.accept_ra=2
+
+#默认启用ipv6自动配置
+net.ipv6.conf.default.autoconf=1
+net.ipv6.conf.all.autoconf=1
+
+#这里设为2意思是强制开启转发同时不要自动禁用基于Router Advertisements的Stateless Address Autoconfiguration（如果禁用了的话，远程机器就会把这台设备当作路由器而不是主机，而地址自动配置只会给主机配置，不会给路由器配置）。
+#net.ipv6.conf.all.forwarding=2
+#net.ipv6.conf.default.forwarding=2
+
+# Flow Label reflection can be enabled per network namespace
+net.ipv6.auto_flowlabels=1
+net.ipv6.flowlabel_consistency=1
+net.ipv6.flowlabel_reflect=1
+net.ipv6.flowlabel_state_ranges=0
+
+#IPv6隐私地址
+# Acceptable values:
+#    0 - don’t use privacy extensions.
+#    1 - generate privacy addresses
+#    2 - prefer privacy addresses and use them over the normal addresses.
+net.ipv6.conf.all.use_tempaddr=2
+net.ipv6.conf.default.use_tempaddr=2
+
+#创建的tempaddr隐私地址的有效时长和prefered时长默认情况下分别为7天和1天
+net.ipv6.conf.all.temp_prefered_lft=86400
+net.ipv6.conf.all.temp_valid_lft=604800
+net.ipv6.conf.default.temp_prefered_lft=86400
+net.ipv6.conf.default.temp_valid_lft=604800
+
+#为避免多个设备同时创建隐私地址（发送DAD报文），内核增加了一个（0,max_desync_factor）之间的随机时间，默认情况下max_desync_factor值为10分钟。
+net.ipv6.conf.all.regen_max_retry=3
+net.ipv6.conf.default.regen_max_retry=3
+net.ipv6.conf.all.max_desync_factor=600
+net.ipv6.conf.default.max_desync_factor=600
+
+#调整IPv6邻居
+#docker
+net.ipv6.conf.all.proxy_ndp=0
+net.ipv6.conf.default.proxy_ndp=0
+
+net.ipv6.neigh.default.base_reachable_time_ms=30000
+net.ipv6.neigh.default.delay_first_probe_time=5
+net.ipv6.neigh.default.gc_interval=30
+net.ipv6.neigh.default.gc_stale_time=600
+net.ipv6.neigh.default.gc_thresh1=10000
+net.ipv6.neigh.default.gc_thresh2=110000
+net.ipv6.neigh.default.gc_thresh3=120000
+
+#启用SRv6
+#net.ipv6.conf.all.seg6_enabled=1
+#net.ipv6.conf.default.seg6_enabled=1
+
 #BPF JIT spray attack
 net.core.bpf_jit_enable=1
 #net.core.bpf_jit_harden=0
@@ -194,10 +257,10 @@ net.ipv4.neigh.default.gc_thresh2=110000
 #保存在 ARP 高速缓存中的最多记录的硬限制，一旦高速缓存中的数目高于此，垃圾收集器将马上运行。缺省值是1024。
 net.ipv4.neigh.default.gc_thresh3=120000
 net.ipv4.neigh.default.gc_stale_time=600
-net.ipv6.neigh.default.gc_stale_time=600
-net.ipv6.neigh.default.gc_thresh1=10000
-net.ipv6.neigh.default.gc_thresh2=110000
-net.ipv6.neigh.default.gc_thresh3=120000
+#net.ipv6.neigh.default.gc_stale_time=600
+#net.ipv6.neigh.default.gc_thresh1=10000
+#net.ipv6.neigh.default.gc_thresh2=110000
+#net.ipv6.neigh.default.gc_thresh3=120000
 net.ipv4.conf.all.promote_secondaries=1
 net.ipv4.conf.default.promote_secondaries=1
 net.ipv4.tcp_collapse_max_bytes=6291456
