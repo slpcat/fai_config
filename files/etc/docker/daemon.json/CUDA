@@ -2,7 +2,6 @@
     "insecure-registries": ["gitlab.default.svc.cluster.local:5000", "gitlab.marathon.l4lb.thisdcos.directory:50000"],
     "max-concurrent-downloads": 10,
     "live-restore": false,
-    "oom-score-adjust": -1000,
     "default-shm-size": "128M",
     "log-driver": "local",
     "raw-logs": true,
