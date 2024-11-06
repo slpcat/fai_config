@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20240903
+# Revision: 20241106
 # /etc/sysctl.conf
 #
 
@@ -315,11 +315,11 @@ net.ipv4.tcp_max_tw_buckets=200000
 #减少处于FIN-WAIT-2连接状态的时间，使系统可以处理更多的连接。
 net.ipv4.tcp_fin_timeout=20
 #TCP KeepAlive连接侦测的时间，使系统可以处理更多的连接。
-net.ipv4.tcp_keepalive_time=900
+#net.ipv4.tcp_keepalive_time=900
 #表示从不再传送数据到向连接上发送保持连接信号之间所需的秒数。
-net.ipv4.tcp_keepalive_probes=3
+#net.ipv4.tcp_keepalive_probes=3
 #在认定连接失效之前，发送多少个TCP的keepalive探测包。缺省值是9。这个值乘以tcp_keepalive_intvl之后决定了，一个连接发送了keepalive之后可以有多少时间没有回应
-net.ipv4.tcp_keepalive_intvl=60
+#net.ipv4.tcp_keepalive_intvl=60
 #当探测没有确认时，重新发送探测的频度。缺省是75秒。
 #增加TCP SYN队列长度，使系统可以处理更多的并发连接。
 net.ipv4.tcp_max_syn_backlog=65535
