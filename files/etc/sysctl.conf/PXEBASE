@@ -122,11 +122,11 @@ dev.hpet.max-user-freq=2048
 
 #Part4: Filesystem
 
-fs.file-max=50000000
+fs.file-max=2000000
 #Linux系统范围所有进程打开文件总数量限制，注意：ulimit -n是设置当前shell以及由它启动的进程的资源限制
 fs.aio-max-nr=1048576
 #同时可以拥有的的异步IO请求数目
-fs.nr_open=5242880
+fs.nr_open=2000000
 #进程可以打开的最大文件数
 fs.epoll.max_user_watches=524288
 fs.dir-notify-enable=1
@@ -335,7 +335,7 @@ net.ipv4.tcp_adv_win_scale=-2
 # Increase the maximum amount of option memory buffers
 net.core.optmem_max=25165824
 #优化系统套接字缓冲区
-net.ipv4.tcp_mem=786432 4194304 33554432
+#net.ipv4.tcp_mem=786432 4194304 33554432
 net.core.wmem_max=1073741824
 net.core.wmem_default=262144
 #net.core.wmem_default=33554432
