@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20241106
+# Revision: 20241114
 # /etc/sysctl.conf
 #
 
@@ -106,7 +106,7 @@ vm.dirty_expire_centisecs=90000
 #for redis
 vm.overcommit_memory=0
 vm.overcommit_ratio=10
-vm.oom_dump_tasks=1
+vm.oom_dump_tasks=0
 vm.oom_kill_allocating_task=1
 #for memsql
 vm.max_map_count=1000000000
