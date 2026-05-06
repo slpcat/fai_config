@@ -1,6 +1,6 @@
 #
 # Kernel sysctl configuration for Linux
-# Revision: 20251106
+# Revision: 20260505
 # /etc/sysctl.conf
 #
 
@@ -61,7 +61,8 @@ kernel.dmesg_restrict = 1
 kernel.kptr_restrict = 0
 kernel.core_uses_pid = 1
 #kernel.core_pattern = /tmp/cores/core.%h.%e.%p.%t
-kernel.core_pattern = |/tol/script/dump/coredump_monitor.sh core_%I_%p_%e_sig_%s_time_%t.gz
+#kernel.core_pattern = |/tol/script/dump/coredump_monitor.sh core_%I_%p_%e_sig_%s_time_%t.gz
+kernel.core_pattern=|/opt/dynatrace/oneagent/agent/rdp -p %p -P %P -c %c -e %e -s %s
 #kernel.nmi_watchdog = 0
 kernel.watchdog = 0
 # Block non-uid-0 profiling (needs distro patch, otherwise this is the same as " =  2"), for perf use -1
